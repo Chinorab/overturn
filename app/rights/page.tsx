@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ArrowRight, ExternalLink, Info, Phone } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ExternalLink, Info, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChoiceGroup } from "@/components/choice-group";
 import { DeadlineClock } from "@/components/deadline-clock";
@@ -65,6 +65,11 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
     const s = buildSituation(ex, answers);
     return s ? computeRights(s, ALL_RULES, HELP_RESOURCES) : null;
   }, [ex, answers?.state, answers?.plan_source, answers?.self_funded, answers?.emergency, answers?.urgent, answers?.final_internal_denial_date]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const [showAllRules, setShowAllRules] = useState(false);
+  const nonDeadline = result ? result.rules.filter((r) => r.rule.category !== "deadline") : [];
+  const visibleRules = showAllRules ? nonDeadline : nonDeadline.slice(0, 4);
+  const hiddenCount = nonDeadline.length - visibleRules.length;
 
   function next() {
     if (!answers) return;
@@ -194,11 +199,18 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
             <p className="text-sm text-muted-foreground">
               {result.rules.length} rules, most relevant first. Each one links to the law or regulator page it comes from.
             </p>
-            {result.rules
-              .filter((r) => r.rule.category !== "deadline")
-              .map((r, i) => (
-                <RightsCard key={r.rule.id} applied={r} highlight={i < 2} />
-              ))}
+            {visibleRules.map((r, i) => (
+              <RightsCard key={r.rule.id} applied={r} highlight={i < 2} />
+            ))}
+            {hiddenCount > 0 && (
+              <button
+                type="button"
+                onClick={() => setShowAllRules(true)}
+                className="inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
+              >
+                <ChevronDown className="size-4" aria-hidden="true" /> Show {hiddenCount} more {hiddenCount === 1 ? "rule" : "rules"}
+              </button>
+            )}
           </section>
 
           <section aria-labelledby="help" className="rounded-2xl border bg-card p-5">

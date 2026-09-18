@@ -2,13 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AlertTriangle, ArrowRight, FileText, Loader2, UploadCloud, X } from "lucide-react";
+import { AlertTriangle, ArrowRight, Clock, FileText, Loader2, Lock, ShieldCheck, UploadCloud, X } from "lucide-react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { SAMPLES, type Sample } from "@/lib/samples";
 import { useSession } from "@/lib/session";
 import { Extraction, Explanation } from "@/lib/schemas/extraction";
 import { cn } from "@/lib/utils";
 
+type Mode = "sample" | "upload";
 type Phase = { kind: "idle" } | { kind: "working"; label: string; msg: string; sample: boolean } | { kind: "error"; title: string; message: string; resource_url?: string };
 
 const PROGRESS = [
@@ -39,6 +41,7 @@ export function IntakePanel() {
   const router = useRouter();
   const { setResult } = useSession();
   const [phase, setPhase] = useState<Phase>({ kind: "idle" });
+  const [mode, setMode] = useState<Mode>("sample");
   const [dragging, setDragging] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const abort = useRef<AbortController | null>(null);
@@ -126,7 +129,7 @@ export function IntakePanel() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       {phase.kind === "error" && (
         <div role="alert" className="rounded-2xl border border-warning/60 bg-warning/5 p-5">
           <p className="flex items-center gap-2 font-semibold">
@@ -142,67 +145,72 @@ export function IntakePanel() {
         </div>
       )}
 
-      <section aria-labelledby="try-sample">
-        <h2 id="try-sample" className="text-lg font-semibold">
-          Try it with a sample
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">Fictional documents, already read. Nothing is uploaded.</p>
-        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          {SAMPLES.map((s) => (
-            <li key={s.id}>
-              <button
-                type="button"
-                onClick={() => onSample(s)}
-                className="group flex h-full w-full flex-col rounded-xl border bg-card p-4 text-left transition-colors hover:border-primary/60 hover:bg-muted/40 focus-visible:border-primary"
-              >
-                <span className="flex items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                  <FileText className="size-3.5" aria-hidden="true" />
-                  {s.document_type === "eob" ? "EOB" : "Denial letter"} · {s.state} · {s.pages} {s.pages === 1 ? "page" : "pages"}
-                </span>
-                <span className="mt-2 font-semibold group-hover:text-primary">{s.title}</span>
-                <span className="mt-1 text-sm text-muted-foreground">{s.blurb}</span>
-                <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
-                  Open <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)} className="gap-4">
+        <TabsList className="grid h-auto w-full grid-cols-2 rounded-xl p-1">
+          <TabsTrigger value="sample" className="h-12 rounded-lg text-base data-active:text-primary">
+            <FileText aria-hidden="true" /> Try a sample
+          </TabsTrigger>
+          <TabsTrigger value="upload" className="h-12 rounded-lg text-base data-active:text-primary">
+            <UploadCloud aria-hidden="true" /> Upload mine
+          </TabsTrigger>
+        </TabsList>
 
-      <section aria-labelledby="upload-own">
-        <h2 id="upload-own" className="text-lg font-semibold">
-          Or upload your own
-        </h2>
-        <p className="mt-1 text-sm text-muted-foreground">PDF, JPG, or PNG, up to 10 MB and 20 pages. A phone photo of each page works. Processed once, then discarded.</p>
-        <label
-          onDragOver={(e) => {
-            e.preventDefault();
-            setDragging(true);
-          }}
-          onDragLeave={() => setDragging(false)}
-          onDrop={(e) => {
-            e.preventDefault();
-            setDragging(false);
-            onFile(e.dataTransfer.files?.[0]);
-          }}
-          className={cn(
-            "mt-4 flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed bg-card p-8 text-center transition-colors hover:border-primary/60 focus-within:border-primary",
-            dragging && "border-primary bg-muted/40",
-          )}
-        >
-          <UploadCloud className="size-8 text-primary" aria-hidden="true" />
-          <span className="font-semibold">Choose a file or take a photo</span>
-          <span className="text-sm text-muted-foreground">Drag and drop also works</span>
-          <input
-            ref={fileInput}
-            type="file"
-            accept="application/pdf,image/jpeg,image/png"
-            className="sr-only"
-            onChange={(e) => onFile(e.target.files?.[0])}
-          />
-        </label>
-      </section>
+        <TabsContent value="sample" className="animate-in fade-in-0 slide-in-from-bottom-1 duration-200">
+          <p className="text-sm text-muted-foreground">Six fictional documents, already read. Pick one to see the whole flow; nothing is uploaded.</p>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+            {SAMPLES.map((s) => (
+              <li key={s.id}>
+                <button
+                  type="button"
+                  onClick={() => onSample(s)}
+                  className="group flex h-full w-full items-start gap-3 rounded-xl border bg-card p-4 text-left transition-colors hover:border-primary/60 hover:bg-muted/40 focus-visible:border-primary"
+                >
+                  <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
+                    <FileText className="size-4" aria-hidden="true" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-semibold leading-snug group-hover:text-primary">{s.title}</span>
+                    <span className="mt-1 block text-xs uppercase tracking-wide text-muted-foreground">
+                      {s.document_type === "eob" ? "EOB" : "Denial letter"} · {s.state}
+                      {s.category === "unsupported" ? " · out of scope" : ""}
+                    </span>
+                  </span>
+                  <ArrowRight className="mt-1 size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary" aria-hidden="true" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </TabsContent>
+
+        <TabsContent value="upload" className="animate-in fade-in-0 slide-in-from-bottom-1 duration-200">
+          <label
+            onDragOver={(e) => {
+              e.preventDefault();
+              setDragging(true);
+            }}
+            onDragLeave={() => setDragging(false)}
+            onDrop={(e) => {
+              e.preventDefault();
+              setDragging(false);
+              onFile(e.dataTransfer.files?.[0]);
+            }}
+            className={cn(
+              "flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed bg-card p-10 text-center transition-colors hover:border-primary/60 focus-within:border-primary",
+              dragging && "border-primary bg-muted/40",
+            )}
+          >
+            <UploadCloud className="size-9 text-primary" aria-hidden="true" />
+            <span className="text-lg font-semibold">Choose a file or take a photo</span>
+            <span className="text-sm text-muted-foreground">PDF, JPG, or PNG · up to 10 MB and 20 pages · drag and drop works too</span>
+            <input ref={fileInput} type="file" accept="application/pdf,image/jpeg,image/png" className="sr-only" onChange={(e) => onFile(e.target.files?.[0])} />
+          </label>
+          <ul className="mt-3 grid gap-1 text-sm text-muted-foreground sm:grid-cols-3">
+            <li className="flex items-center gap-1.5"><Lock className="size-3.5" aria-hidden="true" /> Read once, then discarded</li>
+            <li className="flex items-center gap-1.5"><Clock className="size-3.5" aria-hidden="true" /> About 20 to 40 seconds</li>
+            <li className="flex items-center gap-1.5"><ShieldCheck className="size-3.5" aria-hidden="true" /> Not Medicare or Medicaid</li>
+          </ul>
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

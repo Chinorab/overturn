@@ -6,6 +6,7 @@ import AxeBuilder from "@axe-core/playwright";
  * with an axe scan on every screen. No API call is made (samples are cached).
  */
 async function expectNoA11yViolations(page: import("@playwright/test").Page, screen: string) {
+  await page.waitForTimeout(450); // let the step transition finish; axe reads computed opacity
   const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag22aa"]).analyze();
   const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
   expect(serious, `${screen}: ${serious.map((v) => `${v.id} (${v.nodes.length})`).join(", ")}`).toEqual([]);
@@ -19,9 +20,8 @@ async function expectNoHorizontalScroll(page: import("@playwright/test").Page) {
 test("landing: framing is visible above the fold, samples need no upload", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-  const framing = page.getByText("Information, not advice.");
-  await expect(framing).toBeInViewport();
-  await expect(page.getByText("Nothing stored.")).toBeInViewport();
+  await expect(page.getByText(/Nothing stored · Information, not legal advice/)).toBeInViewport();
+  await expect(page.getByRole("tab", { name: /Try a sample/ })).toBeInViewport();
   await expectNoHorizontalScroll(page);
   await expectNoA11yViolations(page, "landing");
 });

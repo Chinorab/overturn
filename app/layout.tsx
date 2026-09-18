@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Public_Sans, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "@/lib/session";
-import { SiteFooter, SiteHeader, Stepper } from "@/components/site-chrome";
+import { PageTransition, SiteFooter, SiteHeader, Stepper } from "@/components/site-chrome";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -58,7 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteHeader />
           <Stepper />
           <main id="main" className="mx-auto w-full max-w-[680px] flex-1 px-4 py-6">
-            {children}
+            <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />
         </SessionProvider>

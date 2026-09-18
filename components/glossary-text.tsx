@@ -19,7 +19,7 @@ export function GlossaryText({ text, terms }: { text: string; terms: Term[] }) {
           <Fragment key={i}>{p}</Fragment>
         ) : (
           <Popover key={i}>
-            <PopoverTrigger render={<button type="button" className="term rounded-sm px-0.5" />}>{p.text}</PopoverTrigger>
+            <PopoverTrigger render={<button type="button" className="term rounded-sm px-0.5 py-1" />}>{p.text}</PopoverTrigger>
             <PopoverContent className="max-w-xs text-sm leading-snug">
               <span className="font-semibold">{p.term.term}: </span>
               {p.term.definition}

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowLeft, ArrowRight, FileText } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AiLabel } from "@/components/ai-label";
 import { DeadlineClock } from "@/components/deadline-clock";
@@ -54,6 +54,7 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
   const [category, setCategory] = useState<string>(ex.denial_category.value ?? "");
   const [state, setState] = useState<string>(ex.state_hint.value ?? "");
   const [docKind, setDocKind] = useState<string>(ex.document_type.value ?? "");
+  const [showAll, setShowAll] = useState(false);
 
   const preview = useMemo(() => {
     const s = provisionalSituation({ ...ex, letter_date: { ...ex.letter_date, value: letterDate || null } });
@@ -122,25 +123,38 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
           <AiLabel what="Read by AI, quoted from your document" />
         </div>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
-          <FactCard label="Document" field={ex.document_type} format={docType} />
-          <FactCard label="Insurer" field={ex.insurer_name} />
-          <FactCard label="Date on the document" field={ex.letter_date} format={(v) => fmtShort(String(v))} required />
-          <FactCard label="Claim or reference number" field={ex.claim_number} />
-          <FactCard label="Member ID" field={ex.member_id} />
-          <FactCard label="Provider" field={ex.provider_name} />
-          <FactCard label="Service" field={ex.service_description} />
-          <FactCard label="Date(s) of service" field={ex.service_dates} format={dateList} />
           <FactCard label="Reason for the denial" field={ex.denial_category} format={(v) => DENIAL_CATEGORY_LABEL[v as DenialCategory]} required />
-          <FactCard label="Denial or remark codes" field={ex.denial_codes} format={(v) => (v as string[]).join(", ")} />
+          <FactCard label="Date on the document" field={ex.letter_date} format={(v) => fmtShort(String(v))} required />
+          <FactCard label="Insurer" field={ex.insurer_name} />
+          <FactCard label="Service" field={ex.service_description} />
           <FactCard label="Amount billed" field={ex.amounts.billed} format={money} />
-          <FactCard label="Amount the plan paid" field={ex.amounts.plan_paid} format={money} />
           <FactCard label="Amount you may owe (as stated)" field={ex.amounts.patient_responsibility} format={money} />
-          <FactCard label="Network status" field={ex.network_status} format={network} />
-          <FactCard label="Emergency care mentioned" field={ex.emergency_signals} format={yesNo} />
-          <FactCard label="Appeal deadline stated in the document" field={ex.stated_appeal_deadline} format={deadline} />
-          <FactCard label="Where the document says to send an appeal" field={ex.stated_appeal_address} />
-          <FactCard label="State (from the addresses)" field={ex.state_hint} required />
         </div>
+        <button
+          type="button"
+          onClick={() => setShowAll((v) => !v)}
+          aria-expanded={showAll}
+          className="mt-3 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
+        >
+          {showAll ? <ChevronUp className="size-4" aria-hidden="true" /> : <ChevronDown className="size-4" aria-hidden="true" />}
+          {showAll ? "Hide the other details" : "Show all 12 other details"}
+        </button>
+        {showAll && (
+          <div className="mt-3 grid gap-3 animate-in fade-in-0 slide-in-from-top-1 duration-200 sm:grid-cols-2">
+            <FactCard label="Document" field={ex.document_type} format={docType} />
+            <FactCard label="Claim or reference number" field={ex.claim_number} />
+            <FactCard label="Member ID" field={ex.member_id} />
+            <FactCard label="Provider" field={ex.provider_name} />
+            <FactCard label="Date(s) of service" field={ex.service_dates} format={dateList} />
+            <FactCard label="Denial or remark codes" field={ex.denial_codes} format={(v) => (v as string[]).join(", ")} />
+            <FactCard label="Amount the plan paid" field={ex.amounts.plan_paid} format={money} />
+            <FactCard label="Network status" field={ex.network_status} format={network} />
+            <FactCard label="Emergency care mentioned" field={ex.emergency_signals} format={yesNo} />
+            <FactCard label="Appeal deadline stated in the document" field={ex.stated_appeal_deadline} format={deadline} />
+            <FactCard label="Where the document says to send an appeal" field={ex.stated_appeal_address} />
+            <FactCard label="State (from the addresses)" field={ex.state_hint} required />
+          </div>
+        )}
         <div className="mt-3 rounded-xl border bg-card p-4 text-sm">
           <p className="font-medium">What the document says about appealing</p>
           <p className="mt-1 text-muted-foreground">{ex.stated_appeal_instructions.value ?? "The document does not describe how to appeal. That is itself worth noting: federal rules require it."}</p>

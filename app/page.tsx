@@ -1,67 +1,77 @@
-import { Lock, Scale, ShieldCheck } from "lucide-react";
+import { BookOpenCheck, FileSearch, Lock, Scale, Send, ShieldCheck } from "lucide-react";
 import { IntakePanel } from "@/components/intake-panel";
 
 export default function Home() {
   return (
-    <>
-      <section className="pb-2">
-        <h1 className="font-serif text-[1.75rem] font-semibold leading-tight text-primary sm:text-5xl">
-          Your insurer said no. Here is what that means, and what you can do.
+    <div className="space-y-10">
+      <section className="pt-2">
+        <p className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground">
+          <Lock className="size-3.5" aria-hidden="true" />
+          Free · Nothing stored · Information, not legal advice
+        </p>
+        <h1 className="mt-4 font-serif text-[2rem] font-semibold leading-[1.15] text-primary sm:text-5xl">
+          Your insurer said no.
+          <br />
+          <span className="text-foreground">Here is what it means, and what you can do.</span>
         </h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          Upload a denial letter or an Explanation of Benefits. Overturn reads it, explains it in plain English, shows the deadlines and
-          protections that apply, and drafts an appeal letter that you edit and send yourself.
+        <p className="mt-4 max-w-prose text-lg text-muted-foreground">
+          Overturn reads your denial letter or Explanation of Benefits, explains it in plain English, shows the deadlines and protections that
+          apply, and drafts an appeal letter you edit and send.
         </p>
-
-        <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-3" aria-label="What Overturn is and is not">
-          <li className="flex items-start gap-2 rounded-lg border bg-card p-3">
-            <Scale className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-            <span>
-              <strong>Information, not advice.</strong> It explains; it does not tell you what to do.
-            </span>
-          </li>
-          <li className="flex items-start gap-2 rounded-lg border bg-card p-3">
-            <ShieldCheck className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-            <span>
-              <strong>Not a lawyer.</strong> No prediction of whether an appeal will succeed.
-            </span>
-          </li>
-          <li className="flex items-start gap-2 rounded-lg border bg-card p-3">
-            <Lock className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
-            <span>
-              <strong>Nothing stored.</strong> Your document is read once, then discarded.
-            </span>
-          </li>
-        </ul>
       </section>
 
-      <div className="mt-8">
-        <IntakePanel />
-      </div>
-
-      <section aria-labelledby="how" className="mt-12 rounded-2xl border bg-card p-5">
-        <h2 id="how" className="text-lg font-semibold">
-          How it works, and how it stays on the right side of the line
+      <section aria-labelledby="start" className="rounded-3xl border bg-muted/40 p-4 sm:p-6">
+        <h2 id="start" className="mb-4 text-lg font-semibold">
+          Start here
         </h2>
-        <ol className="mt-3 space-y-2 text-sm text-muted-foreground">
-          <li>
-            <strong className="text-foreground">1. The model reads.</strong> An AI model pulls facts out of your document and shows you the exact words each one
-            came from.
-          </li>
-          <li>
-            <strong className="text-foreground">2. The code decides.</strong> Which rights and deadlines apply is computed by plain rules, each with a link to the
-            law or regulator page it comes from. The AI never decides this.
-          </li>
-          <li>
-            <strong className="text-foreground">3. You send.</strong> The draft letter is yours to edit. Overturn points you to free human help in your state at
-            every step.
-          </li>
-        </ol>
-        <p className="mt-3 text-sm text-muted-foreground">
-          Covers job-based, Marketplace, and individual plans, with state-specific rules for California, New York, and Texas and the federal
-          baseline everywhere else. Does not cover Medicare, Medicaid, TRICARE, or VA.
-        </p>
+        <IntakePanel />
       </section>
-    </>
+
+      <section aria-labelledby="how">
+        <h2 id="how" className="text-lg font-semibold">
+          How it works
+        </h2>
+        <ol className="mt-3 grid gap-3 sm:grid-cols-3">
+          {[
+            { icon: FileSearch, t: "The model reads", d: "An AI reads your document and shows the exact words each fact came from." },
+            { icon: BookOpenCheck, t: "The code decides", d: "Which rights and deadlines apply is computed by rules, each linked to the law it comes from. Never by the AI." },
+            { icon: Send, t: "You send", d: "The letter is yours to edit. Free human help is one tap away at every step." },
+          ].map((s, i) => (
+            <li key={s.t} className="rounded-2xl border bg-card p-4">
+              <div className="flex items-center gap-2">
+                <span className="flex size-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">{i + 1}</span>
+                <s.icon className="size-5 text-primary" aria-hidden="true" />
+              </div>
+              <p className="mt-3 font-semibold">{s.t}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section aria-labelledby="isnot" className="grid gap-3 sm:grid-cols-3">
+        <h2 id="isnot" className="sr-only">
+          What Overturn is and is not
+        </h2>
+        {[
+          { icon: Scale, t: "Information, not advice", d: "It explains; it does not tell you what to do." },
+          { icon: ShieldCheck, t: "Not a lawyer", d: "No prediction of whether an appeal will succeed." },
+          { icon: Lock, t: "Nothing stored", d: "Your document is read once, then discarded." },
+        ].map((c) => (
+          <div key={c.t} className="flex items-start gap-3 rounded-2xl border bg-card p-4">
+            <c.icon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
+            <div>
+              <p className="font-semibold">{c.t}</p>
+              <p className="text-sm text-muted-foreground">{c.d}</p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <p className="text-sm text-muted-foreground">
+        Covers job-based, Marketplace, and individual plans, with state rules for California, New York, and Texas and the federal baseline
+        everywhere else. Does not cover Medicare, Medicaid, TRICARE, or VA.
+      </p>
+    </div>
   );
 }
