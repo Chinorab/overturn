@@ -99,9 +99,9 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 ## Phase 7: Buffer & rehearsal — Day 9 (Fri Sept 26) — **code freeze 20:00 Paris**
 
 - [ ] T070 Fix anything found in T060–T066; re-run all tests; final deploy; verify on a real phone
-- [ ] T071 Write the video script (2:30): 0:00 problem (15 s) → 0:15 sample upload → 0:45 understand + deadline → 1:15 rights (NSA moment) → 1:45 letter + download → 2:15 "information not advice" + not-built honesty → 2:30 — `docs/video-script.md`
-- [ ] T072 Rehearse the demo path twice on the deployed URL with OBS/screen recorder; take the 6–8 screenshots (landing mobile, understand, fact quote reveal, deadline clock, rights with NSA, letter with placeholders, download, is/is-not) — `docs/screenshots/`
-- [ ] T073 Draft the Devpost text offline (inspiration, what it does, how we built it, challenges, accomplishments, what we learned, what's next, built with) — `docs/devpost.md`
+- [x] T071 Write the video script (2:30): 0:00 problem (15 s) → 0:15 sample upload → 0:45 understand + deadline → 1:15 rights (NSA moment) → 1:45 letter + download → 2:15 "information not advice" + not-built honesty → 2:30 — `docs/video-script.md`
+- [x] T072 Rehearse the demo path twice on the deployed URL with OBS/screen recorder; take the 6–8 screenshots (landing mobile, understand, fact quote reveal, deadline clock, rights with NSA, letter with placeholders, download, is/is-not) — `docs/screenshots/`
+- [x] T073 Draft the Devpost text offline (inspiration, what it does, how we built it, challenges, accomplishments, what we learned, what's next, built with) — `docs/devpost.md`
 
 ---
 

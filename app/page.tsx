@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <>
       <section className="pb-2">
-        <h1 className="font-serif text-[2rem] font-semibold leading-tight text-primary sm:text-5xl">
+        <h1 className="font-serif text-[1.75rem] font-semibold leading-tight text-primary sm:text-5xl">
           Your insurer said no. Here is what that means, and what you can do.
         </h1>
         <p className="mt-4 text-lg text-muted-foreground">

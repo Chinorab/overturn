@@ -37,6 +37,12 @@ Four screens, one task each, on a phone.
 Every screen has a "Get free human help" button that lists the state Consumer Assistance
 Program and regulator.
 
+<p align="center">
+  <img src="docs/screenshots/02-understand-summary.png" width="230" alt="Understand screen: plain-English summary and the first deadline" />
+  <img src="docs/screenshots/05-rights-nsa.png" width="230" alt="Rights screen: the No Surprises Act protection with its source" />
+  <img src="docs/screenshots/07-letter.png" width="230" alt="Letter screen: the blanks only the user can fill" />
+</p>
+
 ## The idea in one sentence
 
 **The model reads, the code decides, the human sends.**
