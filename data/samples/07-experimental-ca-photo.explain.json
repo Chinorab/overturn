@@ -1,0 +1,26 @@
+{
+  "summary": "Golden Bay Health Network sent a denial letter dated September 15, 2026. Your plan denied 36 sessions of transcranial magnetic stimulation (TMS). Dr. Marcus Lee at Peninsula Neurology Associates asked for this care for September 22, 2026. The plan used denial code 55. It called the treatment experimental or investigational. The letter points to Section 6.4 of your coverage booklet. That section excludes care when studies have not shown it is safe and works for your condition. The letter does not state the amount billed, what the plan paid, or what you may owe. It says a grievance can be filed within 180 days, online, by phone at 1-866-555-0158, or in writing.",
+  "grade_level": 5.2,
+  "terms": [
+    {
+      "term": "denial letter",
+      "definition": "A notice from your plan saying it will not cover a service."
+    },
+    {
+      "term": "experimental or investigational",
+      "definition": "A plan's label for treatment it considers not yet proven."
+    },
+    {
+      "term": "grievance",
+      "definition": "California's word for a complaint or appeal filed with your health plan."
+    },
+    {
+      "term": "denial code",
+      "definition": "A short code the plan uses to show the reason it denied the claim."
+    },
+    {
+      "term": "Evidence of Coverage",
+      "definition": "The booklet that lists what your plan covers and what it excludes."
+    }
+  ]
+}

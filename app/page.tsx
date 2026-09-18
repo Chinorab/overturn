@@ -176,7 +176,7 @@ export default function Home() {
       {/* Final CTA */}
       <section className="rounded-3xl bg-primary p-8 text-primary-foreground sm:p-10">
         <h2 className="font-serif text-3xl font-semibold">Have a denial in hand?</h2>
-        <p className="mt-2 max-w-prose text-primary-foreground/85">Read it with Overturn in about a minute, or try one of six fictional samples first.</p>
+        <p className="mt-2 max-w-prose text-primary-foreground/85">Read it with Overturn in about a minute, or try one of seven fictional samples first.</p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Button variant="secondary" className="h-13 px-6 text-base" nativeButton={false} render={<Link href="/start" />}>
             Start now <ArrowRight aria-hidden="true" />

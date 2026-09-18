@@ -1,0 +1,19 @@
+{
+  "kind": "letter",
+  "insurer": { "name": "Golden Bay Health Network", "address": "PO Box 7190, Oakland, CA 94601", "phone": "1-866-555-0158", "logo_text": "GOLDEN BAY" },
+  "date": "2026-09-15",
+  "member": { "name": "Elena R. Vasquez", "address": "1140 Sycamore Lane\nSan Jose, CA 95125", "member_id": "GBH-2207-8834", "group": "GRP-5510 (Bay Area Community College District)" },
+  "re": { "claim_number": "PA-26-41855", "provider": "Dr. Marcus Lee, MD / Peninsula Neurology Associates", "service": "Transcranial magnetic stimulation (TMS), 36 sessions (CPT 90867, 90868)", "service_date": "Requested start 2026-09-22", "billed": "" },
+  "title": "Notice of Adverse Benefit Determination - Experimental or Investigational",
+  "paragraphs": [
+    "We reviewed the prior authorization request submitted by Peninsula Neurology Associates for a course of transcranial magnetic stimulation. The request is denied.",
+    "Reason for denial: The requested treatment is considered experimental or investigational for the diagnosis submitted. Under your Evidence of Coverage, Section 6.4, services are excluded when their safety and effectiveness for the member's condition have not been established by peer-reviewed evidence, as determined by our Medical Technology Assessment Committee (policy MTAC-2024-118). Reason code: 55.",
+    "This determination was made by a physician reviewer board-certified in internal medicine. A copy of policy MTAC-2024-118 and the clinical criteria applied are available to you at no charge on request."
+  ],
+  "appeal": {
+    "heading": "Your Appeal and Independent Medical Review Rights",
+    "text": "You may file a grievance with Golden Bay Health Network within 180 days of receiving this notice: online through the member portal, by calling 1-866-555-0158, or in writing to Golden Bay Health Network, Grievance Department, PO Box 7190, Oakland, CA 94601. We will respond in writing within 30 calendar days, or within 72 hours if your case is urgent.",
+    "external": "Because this denial is based on a finding that the treatment is experimental or investigational, you may be eligible to apply directly to the California Department of Managed Health Care for an Independent Medical Review without first completing our grievance process. The DMHC Help Center can be reached at 1-888-466-2219."
+  },
+  "signature": "Utilization Management\nGolden Bay Health Network"
+}

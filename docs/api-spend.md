@@ -11,4 +11,5 @@ Opus 5 list price. Amounts are computed from reported token usage.
 | 2026-09-18 | Draft sample letters 02–05 | 4 | $0.321 |
 | 2026-09-18 | Re-run letter 03 after no-fabrication rule | 1 | $0.084 |
 | 2026-09-19 | Real upload test on production (sample 02 as a file) | 2 | ~$0.10 |
-| | **Total so far** | | **~$1.43** |
+| 2026-09-19 | Sample 07 (phone photo, experimental/CA): extract + explain + letter | 3 + 1 regen | $0.203 |
+| | **Total so far** | | **~$1.63** |

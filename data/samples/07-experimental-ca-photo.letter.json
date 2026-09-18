@@ -1,0 +1,112 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "text": "[ADD: your full name]\n[ADD: your street address]\n[ADD: your city, state, ZIP]\n[ADD: your phone number]\n\n[ADD: today's date]\n\nGolden Bay Health Network\nGrievance Department\nPO Box 7190\nOakland, CA 94601"
+    },
+    {
+      "id": "re",
+      "text": "Re: Internal appeal / grievance of denial dated September 15, 2026\nMember name: [ADD: your full name]\nMember ID: GBH-2207-8834\nClaim / reference number: PA-26-41855\nDate of service: September 22, 2026\nService: Transcranial magnetic stimulation (TMS), 36 sessions (CPT 90867, 90868)\nDenial code: 55"
+    },
+    {
+      "id": "intro",
+      "text": "This is a formal internal appeal and grievance of Golden Bay Health Network's denial dated September 15, 2026, for transcranial magnetic stimulation (TMS), 36 sessions, requested by Dr. Marcus Lee, MD, of Peninsula Neurology Associates. The stated reason is that the treatment is experimental or investigational for the diagnosis submitted. I ask the plan to overturn the denial and approve the requested treatment. This appeal is filed within the time allowed to request an internal appeal. [[cite:fed.internal_appeal.filing_window]]"
+    },
+    {
+      "id": "facts",
+      "heading": "What happened",
+      "text": "Dr. Marcus Lee, MD, of Peninsula Neurology Associates requested authorization for TMS, 36 sessions, billed under CPT 90867 and 90868, with a date of service of September 22, 2026.\n\nGolden Bay Health Network issued a denial dated September 15, 2026, under reference PA-26-41855, with denial code 55. The denial states: \"The requested treatment is considered experimental or investigational for the diagnosis submitted. Under your Evidence of Coverage, Section 6.4, services are excluded when their safety and effectiveness for the member's condition have not been established by peer-reviewed evidence.\"\n\nThe denial notice does not state an amount billed, an amount paid, or an amount of patient responsibility. [ADD: my diagnosis as submitted by Dr. Lee]. [ADD: state whether any other treatments were tried first, and the dates and results]."
+    },
+    {
+      "id": "argument",
+      "heading": "Why I am asking for review",
+      "text": "The denial rests on a finding that the treatment is experimental or investigational for my condition. I am asking the plan to identify the exact definition of \"experimental or investigational\" it applied, the evidence standard it used, and the peer-reviewed literature it reviewed and rejected. A written grievance response must give a clear explanation of the reasons, and for medical-necessity decisions must describe the criteria used and the clinical reasons. [[cite:ca.grievance.written_reasons]] A denial notice must also state the specific reason, cite the plan provision relied on, and either quote the internal criterion used or state that it is available free on request. [[cite:fed.notice.required_content]]\n\nMy treating provider, Dr. Marcus Lee, considers this treatment appropriate for my condition. [ADD: attach Dr. Lee's letter of support explaining the clinical rationale and the published evidence he relies on].\n\nBecause this decision turns on medical judgment, I ask that the appeal be decided by a reviewer who was not involved in the first decision and does not report to that person, with no deference to the original determination. [[cite:fed.internal_appeal.independent_reviewer]] I also ask that the plan consult a physician with training and experience in the relevant field. [[cite:fed.internal_appeal.independent_reviewer]]"
+    },
+    {
+      "id": "requests",
+      "heading": "What I am requesting",
+      "text": "1. A complete copy of the claim file and every document, record, internal rule, guideline, and protocol relied on in this decision, free of charge. [[cite:fed.claim_file.free_copies]]\n\n2. The specific clinical criteria, guideline, or plan provision applied, including the definition of \"experimental or investigational\" and the evidence standard used, along with the name, specialty, and credentials of the reviewer. [[cite:ca.grievance.written_reasons]] [[cite:fed.claim_file.free_copies]]\n\n3. Review of this appeal by a physician specialist in the field relevant to my diagnosis who was not involved in the original decision. [[cite:fed.internal_appeal.independent_reviewer]]\n\n4. A written decision within the required time frame for this type of request. [[cite:fed.internal_appeal.decision_windows]] [[cite:ca.grievance.then_dmhc_30_days]]\n\n5. Reconsideration and approval of the requested TMS sessions based on the enclosed records and provider statement."
+    },
+    {
+      "id": "closing",
+      "text": "I can be reached at [ADD: your phone number] or [ADD: your email address]. Written correspondence may be sent to the address above.\n\nAfter the plan's decision, I reserve the right to request an independent external review [[cite:fed.external_review.filing_window]] and to apply to the California Department of Managed Health Care for an Independent Medical Review, which is provided at no cost. [[cite:ca.imr.filing_window]] [[cite:ca.imr.free]] I will confirm which state regulator oversees this plan before filing. [[cite:ca.regulator.which_one]]\n\nSincerely,\n\n[ADD: your full name]\nMember ID: GBH-2207-8834\n\nEnclosures: copy of the denial letter dated September 15, 2026; letter of support from Dr. Marcus Lee; medical records for the requested treatment; [ADD: any other documents you attach]"
+    }
+  ],
+  "placeholders": [
+    "your full name",
+    "your street address",
+    "your city, state, ZIP",
+    "your phone number",
+    "today's date",
+    "my diagnosis as submitted by Dr. Lee",
+    "state whether any other treatments were tried first, and the dates and results",
+    "attach Dr. Lee's letter of support explaining the clinical rationale and the published evidence he relies on",
+    "your email address",
+    "any other documents you attach"
+  ],
+  "cited_rule_ids": [
+    "fed.internal_appeal.filing_window",
+    "ca.grievance.written_reasons",
+    "fed.notice.required_content",
+    "fed.internal_appeal.independent_reviewer",
+    "fed.claim_file.free_copies",
+    "fed.internal_appeal.decision_windows",
+    "ca.grievance.then_dmhc_30_days",
+    "fed.external_review.filing_window",
+    "ca.imr.filing_window",
+    "ca.imr.free",
+    "ca.regulator.which_one"
+  ],
+  "checklist": [
+    {
+      "item": "The denial letter dated September 15, 2026 (reference PA-26-41855)",
+      "why": "It is the decision being appealed and contains the quoted reason and codes."
+    },
+    {
+      "item": "Any EOB or written plan correspondence about this request",
+      "why": "Shows how the plan processed the request and any amounts at issue."
+    },
+    {
+      "item": "Medical records supporting the TMS request",
+      "why": "Gives the reviewer the clinical history behind the diagnosis and the request."
+    },
+    {
+      "item": "Letter of support from Dr. Marcus Lee, MD",
+      "why": "States the clinical rationale and responds to the experimental/investigational finding."
+    },
+    {
+      "item": "Peer-reviewed studies or treatment guidelines cited by Dr. Lee",
+      "why": "Directly addresses the plan's stated evidence standard under Section 6.4."
+    },
+    {
+      "item": "The prior authorization request and any supporting forms submitted by Peninsula Neurology Associates",
+      "why": "Confirms what information the plan actually received before deciding."
+    },
+    {
+      "item": "Your Evidence of Coverage, especially Section 6.4",
+      "why": "Lets you compare the exclusion language to the reason given."
+    },
+    {
+      "item": "Records of prior treatments tried and their results",
+      "why": "Supports the case that TMS is the appropriate next step for your condition."
+    },
+    {
+      "item": "Your insurance card",
+      "why": "Shows whether DMHC or the California Department of Insurance regulates the plan."
+    },
+    {
+      "item": "Notes of any phone calls with the plan, with dates and names",
+      "why": "Creates a record of what the plan told you and when."
+    }
+  ],
+  "send_to": {
+    "address": "Golden Bay Health Network, Grievance Department, PO Box 7190, Oakland, CA 94601",
+    "source": "letter",
+    "verify_note": "This address was read from your document. Check it against the original before sending."
+  },
+  "guard_report": {
+    "prescriptive_hits": [],
+    "unknown_citations": [],
+    "regenerated": false
+  }
+}

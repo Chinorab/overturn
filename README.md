@@ -29,7 +29,7 @@ A public home page, then four screens, one task each, on a phone.
 
 | Step | What happens | Who does it |
 |---|---|---|
-| **1. Upload** | A denial letter or Explanation of Benefits (PDF or photo), or one of six synthetic samples. | You |
+| **1. Upload** | A denial letter or Explanation of Benefits (PDF or photo), or one of seven synthetic samples. | You |
 | **2. Understand** | The facts, each with the exact words it came from; a plain-English summary at an 8th-grade reading level; your first deadline as a date and a countdown. | The model reads |
 | **3. Rights** | Five questions, then the protections and deadlines that apply to *your* situation — federal baseline plus state rules for California, New York, and Texas — each with a primary source. | The code decides |
 | **4. Letter** | An appeal letter drafted from your facts and those rights only, with visible blanks for everything Overturn does not know. Edit, download as PDF, or copy. | You send |
@@ -87,7 +87,7 @@ argument, with the line we drew and how each layer holds it, is in
 
 Documents are processed in memory during a single request and discarded. No database, no
 upload storage, no analytics on content; only request timing and token counts are logged. Session
-state lives in the browser tab. The API key is server-side only. The demo uses six synthetic
+state lives in the browser tab. The API key is server-side only. The demo uses seven synthetic
 documents (fictional insurers, people, and addresses, watermarked "SAMPLE").
 
 Demo-grade limits are documented as such: a per-IP rate limit (3 uploads / 15 min) and an
@@ -137,7 +137,7 @@ Browser (Next.js, React)                       Server (Next.js route handlers, N
 | AI tools used to build | [Claude Code](https://claude.com/claude-code) (Claude Opus 5) for specification, code, tests, and documentation, with [Spec Kit](https://github.com/github/spec-kit) for the spec → plan → tasks workflow. All legal content was read from primary sources and recorded with the date read. |
 
 No pre-trained models were fine-tuned. No external datasets beyond the cited legal sources.
-The six sample documents were written for this project.
+The seven sample documents were written for this project.
 
 ## Run locally
 

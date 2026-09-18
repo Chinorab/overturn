@@ -28,7 +28,7 @@ by when, and help you write the first appeal. Without pretending to be a lawyer.
 
 Four screens, one task each, designed for a stressed person on a phone:
 
-1. **Upload** a denial letter or Explanation of Benefits (PDF or photo), or open one of six synthetic samples.
+1. **Upload** a denial letter or Explanation of Benefits (PDF or photo), or open one of seven synthetic samples.
 2. **Understand**: every fact with the exact words it came from, a plain-English summary at an 8th-grade level, and the first deadline as a date with a countdown and the rule behind it.
 3. **Rights**: five questions, then the protections and deadlines that apply to that situation, federal baseline plus state rules for California, New York, and Texas, each with a legal citation, a primary source, and a last-verified date.
 4. **Letter**: an appeal letter drafted only from those facts and those rights, with visible `[ADD: …]` blanks for everything the tool does not know. Edit, download as PDF, or copy. Then a "before you send" checklist.
@@ -78,4 +78,4 @@ A "Get free human help" button on every screen lists the state Consumer Assistan
 
 Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Zod 4 · Claude Opus 5 via `@anthropic-ai/sdk` (structured outputs, PDF/image input) · @react-pdf/renderer · date-fns · Vitest · Playwright · axe-core · Vercel · Public Sans / Source Serif 4 · Claude Code · GitHub Spec Kit
 
-**AI and third-party disclosure:** The application calls Claude Opus 5 server-side for document reading, plain-language explanation, and letter drafting; no model was fine-tuned. Claude Code (Claude Opus 5) was used as the coding assistant throughout, with the author directing scope, design, and every legal-source verification. All libraries are open source (MIT/Apache-2.0/ISC/MPL-2.0/OFL) and listed with licenses in the README. The six sample documents are synthetic and were written for this project. Legal content summarizes public law and regulator guidance, each rule with its source and verification date.
+**AI and third-party disclosure:** The application calls Claude Opus 5 server-side for document reading, plain-language explanation, and letter drafting; no model was fine-tuned. Claude Code (Claude Opus 5) was used as the coding assistant throughout, with the author directing scope, design, and every legal-source verification. All libraries are open source (MIT/Apache-2.0/ISC/MPL-2.0/OFL) and listed with licenses in the README. The seven sample documents are synthetic and were written for this project. Legal content summarizes public law and regulator guidance, each rule with its source and verification date.

@@ -156,7 +156,7 @@ export function IntakePanel() {
         </TabsList>
 
         <TabsContent value="sample" className="animate-in fade-in-0 slide-in-from-bottom-1 duration-200">
-          <p className="text-sm text-muted-foreground">Six fictional documents, already read. Pick one to see the whole flow; nothing is uploaded.</p>
+          <p className="text-sm text-muted-foreground">Seven fictional documents, already read. Pick one to see the whole flow; nothing is uploaded.</p>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {SAMPLES.map((s) => (
               <li key={s.id}>
@@ -172,6 +172,7 @@ export function IntakePanel() {
                     <span className="block font-semibold leading-snug group-hover:text-primary">{s.title}</span>
                     <span className="mt-1 block text-xs uppercase tracking-wide text-muted-foreground">
                       {s.document_type === "eob" ? "EOB" : "Denial letter"} · {s.state}
+                      {s.format === "jpg" ? " · phone photo" : ""}
                       {s.category === "unsupported" ? " · out of scope" : ""}
                     </span>
                   </span>

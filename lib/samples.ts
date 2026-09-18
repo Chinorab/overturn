@@ -14,6 +14,8 @@ export type Sample = {
   state: USStateCode;
   category: DenialCategory | "unsupported";
   pages: number;
+  /** Most samples are PDFs; one is a phone photo, to show the image path end to end. */
+  format?: "pdf" | "jpg";
 };
 
 export const SAMPLES: Sample[] = [
@@ -63,6 +65,16 @@ export const SAMPLES: Sample[] = [
     pages: 1,
   },
   {
+    id: "07-experimental-ca-photo",
+    title: "TMS therapy denied as “experimental”",
+    blurb: "A phone photo of a California letter, not a PDF. Experimental denials can go straight to Independent Medical Review.",
+    document_type: "denial_letter",
+    state: "CA",
+    category: "experimental",
+    pages: 1,
+    format: "jpg",
+  },
+  {
     id: "06-medicare-unsupported",
     title: "A Medicare Advantage denial",
     blurb: "Shows what happens when a document is outside Overturn's scope: an honest stop, with the right link.",
@@ -82,4 +94,5 @@ export const DEFAULT_SAMPLE_ANSWERS: Record<string, { plan_source: PlanSource; s
   "03-oon-emergency-tx-eob": { plan_source: "marketplace", self_funded: "no", emergency: "yes", urgent: "no" },
   "04-not-covered-fl": { plan_source: "marketplace", self_funded: "no", emergency: "no", urgent: "no" },
   "05-coding-error-ny-eob": { plan_source: "employer", self_funded: "no", emergency: "no", urgent: "no" },
+  "07-experimental-ca-photo": { plan_source: "employer", self_funded: "no", emergency: "no", urgent: "no" },
 };

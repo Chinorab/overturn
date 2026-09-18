@@ -1,0 +1,149 @@
+{
+  "document_type": {
+    "value": "denial_letter",
+    "confidence": 0.97,
+    "quote": "Notice of Adverse Benefit Determination - Experimental or Investigational",
+    "page": 1
+  },
+  "program_signals": {
+    "value": "commercial",
+    "confidence": 0.75,
+    "quote": "GRP-5510 (Bay Area Community College District)",
+    "page": 1
+  },
+  "insurer_name": {
+    "value": "Golden Bay Health Network",
+    "confidence": 0.97,
+    "quote": "Golden Bay Health Network",
+    "page": 1
+  },
+  "member_id": {
+    "value": "GBH-2207-8834",
+    "confidence": 0.97,
+    "quote": "Member ID: GBH-2207-8834",
+    "page": 1
+  },
+  "claim_number": {
+    "value": "PA-26-41855",
+    "confidence": 0.9,
+    "quote": "Reference #: PA-26-41855",
+    "page": 1
+  },
+  "letter_date": {
+    "value": "2026-09-15",
+    "confidence": 0.96,
+    "quote": "September 15, 2026",
+    "page": 1
+  },
+  "provider_name": {
+    "value": "Dr. Marcus Lee, MD / Peninsula Neurology Associates",
+    "confidence": 0.96,
+    "quote": "Dr. Marcus Lee, MD / Peninsula Neurology Associates",
+    "page": 1
+  },
+  "service_description": {
+    "value": "Transcranial magnetic stimulation (TMS), 36 sessions (CPT 90867, 90868)",
+    "confidence": 0.96,
+    "quote": "Transcranial magnetic stimulation (TMS), 36 sessions (CPT 90867, 90868)",
+    "page": 1
+  },
+  "service_dates": {
+    "value": [
+      "2026-09-22"
+    ],
+    "confidence": 0.9,
+    "quote": "Requested start 2026-09-22",
+    "page": 1
+  },
+  "denial_category": {
+    "value": "experimental",
+    "confidence": 0.96,
+    "quote": "The requested treatment is considered experimental or investigational for the diagnosis submitted.",
+    "page": 1
+  },
+  "denial_reason_quote": {
+    "value": "The requested treatment is considered experimental or investigational for the diagnosis submitted. Under your Evidence of Coverage, Section 6.4, services are excluded when their safety and effectiveness for the member's condition have not been established by peer-reviewed evidence",
+    "confidence": 0.95,
+    "quote": "The requested treatment is considered experimental or investigational for the diagnosis submitted.",
+    "page": 1
+  },
+  "denial_codes": {
+    "value": [
+      "55"
+    ],
+    "confidence": 0.9,
+    "quote": "Reason code: 55.",
+    "page": 1
+  },
+  "amounts": {
+    "billed": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "allowed": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "plan_paid": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "patient_responsibility": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    }
+  },
+  "network_status": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "emergency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "urgency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "stated_appeal_deadline": {
+    "value": {
+      "kind": "days",
+      "days": 180
+    },
+    "confidence": 0.95,
+    "quote": "within 180 days of receiving this notice",
+    "page": 1
+  },
+  "stated_appeal_address": {
+    "value": "Golden Bay Health Network, Grievance Department, PO Box 7190, Oakland, CA 94601",
+    "confidence": 0.95,
+    "quote": "Golden Bay Health Network, Grievance Department, PO Box 7190, Oakland, CA 94601",
+    "page": 1
+  },
+  "stated_appeal_instructions": {
+    "value": "You may file a grievance with Golden Bay Health Network within 180 days of receiving this notice: online through the member portal, by calling 1-866-555-0158, or in writing",
+    "confidence": 0.93,
+    "quote": "You may file a grievance with Golden Bay Health Network within 180 days of receiving this notice: online through the member portal, by calling 1-866-555-0158",
+    "page": 1
+  },
+  "state_hint": {
+    "value": "CA",
+    "confidence": 0.96,
+    "quote": "San Jose, CA 95125",
+    "page": 1
+  }
+}

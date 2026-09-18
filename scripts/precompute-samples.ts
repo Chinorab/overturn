@@ -47,11 +47,18 @@ async function main() {
   }
 
   for (const s of targets) {
-    const pdf = await readFile(path.join(dir, `${s.id}.pdf`));
     const t0 = Date.now();
+    const doc = async () => {
+      if (s.format === "jpg") {
+        const jpg = await readFile(path.join(dir, `${s.id}.jpg`));
+        return { kind: "image" as const, media_type: "image/jpeg" as const, base64: jpg.toString("base64") };
+      }
+      const pdf = await readFile(path.join(dir, `${s.id}.pdf`));
+      return { kind: "pdf" as const, base64: pdf.toString("base64") };
+    };
     const { extraction, usage } = explainOnly
       ? { extraction: JSON.parse(await readFile(path.join(dir, `${s.id}.extraction.json`), "utf8")), usage: { input: 0, output: 0 } }
-      : await extractDocument({ kind: "pdf", base64: pdf.toString("base64") });
+      : await extractDocument(await doc());
     const { explanation, usage: u2, regenerated } = await explainExtraction(extraction);
     await writeFile(path.join(dir, `${s.id}.extraction.json`), JSON.stringify(extraction, null, 2) + "\n");
     await writeFile(path.join(dir, `${s.id}.explain.json`), JSON.stringify(explanation, null, 2) + "\n");
