@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Public_Sans, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
+import { SessionProvider } from "@/lib/session";
+import { SiteFooter, SiteHeader, Stepper } from "@/components/site-chrome";
 
 const publicSans = Public_Sans({
   variable: "--font-public-sans",
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     "Upload a denial letter or Explanation of Benefits. Overturn explains what happened in plain English, shows the deadlines and protections that apply, and drafts an appeal letter you edit and send. Information, not legal advice. Nothing is stored.",
-  metadataBase: new URL("https://overturn.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://overturn.vercel.app"),
 };
 
 export const viewport: Viewport = {
@@ -36,10 +38,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${publicSans.variable} ${sourceSerif.variable} h-full antialiased`}
-    >
+    <html lang="en" data-scroll-behavior="smooth" className={`${publicSans.variable} ${sourceSerif.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
@@ -47,7 +46,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           Skip to main content
         </a>
-        {children}
+        <SessionProvider>
+          <SiteHeader />
+          <Stepper />
+          <main id="main" className="mx-auto w-full max-w-[680px] flex-1 px-4 py-6">
+            {children}
+          </main>
+          <SiteFooter />
+        </SessionProvider>
       </body>
     </html>
   );

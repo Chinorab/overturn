@@ -40,18 +40,18 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 3: US1 — Understand my denial — Days 3–4 (Sat–Sun Sept 20–21)
 
-- [ ] T020 Anthropic client (server-only), model + effort from env with `claude-opus-5` default — `lib/ai/client.ts`
-- [ ] T021 Extraction prompt (system: extraction-only, null for absent, verbatim quotes, taxonomy definitions, program detection) + structured output from Zod → JSON schema — `lib/ai/prompts/extract.ts`, `lib/ai/extract.ts`
-- [ ] T022 Explanation prompt (Grade-8, ≤120 words, glossary terms, descriptive not prescriptive) + readability check + one regeneration — `lib/ai/prompts/explain.ts`, `lib/ai/explain.ts`, `lib/readability.ts`
-- [ ] T023 `POST /api/extract`: multipart parsing, size/type/page caps, rate limit, unsupported-program gate (422), Zod validation + retry, sample_id short-circuit, no logging of content — `app/api/extract/route.ts`
-- [ ] T024 Sample sources (6 synthetic documents as JSON: NY medical necessity letter; CA prior-auth letter; TX ER out-of-network EOB; federal-only "not covered" letter (state = FL); NY coding-error EOB; Medicare letter) — `data/samples/*.source.json`
-- [ ] T025 Sample PDF generator with "SAMPLE — fictional" watermark, realistic layout (letterhead, member block, claim table, appeal-rights paragraph) — `scripts/gen-sample-pdfs.ts`
-- [ ] T026 Precompute script → `*.extraction.json`, `*.explain.json` committed — `scripts/precompute-samples.ts`
-- [ ] T027 Session store (context + sessionStorage) and flow state machine — `lib/session.ts`
-- [ ] T028 Landing page: H1, one-sentence promise, **Is / Is not** panel, privacy statement, "Try a sample" (6 cards), upload dropzone (mobile camera capture allowed) — `app/page.tsx`, `components/is-is-not.tsx`
-- [ ] T029 Stepper + layout chrome + skip link + AI-assisted label component — `components/stepper.tsx`, `components/ai-label.tsx`, `app/layout.tsx`
-- [ ] T030 Understand screen: extraction skeleton with progress line; summary; fact cards with "where did this come from?" quote reveal; low-confidence fields flagged + editable confirm form; deadline clock (federal internal appeal preview from letter date) — `app/(flow)/understand/page.tsx`, `components/fact-card.tsx`, `components/deadline-clock.tsx`
-- [ ] T031 Designed error/empty states: unreadable, unsupported (Medicare/Medicaid/non-English), too large, model unavailable — `app/unsupported/page.tsx`, `components/state-screens.tsx`
+- [x] T020 Anthropic client (server-only), model + effort from env with `claude-opus-5` default — `lib/ai/client.ts`
+- [x] T021 Extraction prompt (system: extraction-only, null for absent, verbatim quotes, taxonomy definitions, program detection) + structured output from Zod → JSON schema — `lib/ai/prompts/extract.ts`, `lib/ai/extract.ts`
+- [x] T022 Explanation prompt (Grade-8, ≤120 words, glossary terms, descriptive not prescriptive) + readability check + one regeneration — `lib/ai/prompts/explain.ts`, `lib/ai/explain.ts`, `lib/readability.ts`
+- [x] T023 `POST /api/extract`: multipart parsing, size/type/page caps, rate limit, unsupported-program gate (422), Zod validation + retry, sample_id short-circuit, no logging of content — `app/api/extract/route.ts`
+- [x] T024 Sample sources (6 synthetic documents as JSON: NY medical necessity letter; CA prior-auth letter; TX ER out-of-network EOB; federal-only "not covered" letter (state = FL); NY coding-error EOB; Medicare letter) — `data/samples/*.source.json`
+- [x] T025 Sample PDF generator with "SAMPLE — fictional" watermark, realistic layout (letterhead, member block, claim table, appeal-rights paragraph) — `scripts/gen-sample-pdfs.ts`
+- [x] T026 Precompute script → `*.extraction.json`, `*.explain.json` committed — `scripts/precompute-samples.ts`
+- [x] T027 Session store (context + sessionStorage) and flow state machine — `lib/session.ts`
+- [x] T028 Landing page: H1, one-sentence promise, **Is / Is not** panel, privacy statement, "Try a sample" (6 cards), upload dropzone (mobile camera capture allowed) — `app/page.tsx`, `components/is-is-not.tsx`
+- [x] T029 Stepper + layout chrome + skip link + AI-assisted label component — `components/stepper.tsx`, `components/ai-label.tsx`, `app/layout.tsx`
+- [x] T030 Understand screen: extraction skeleton with progress line; summary; fact cards with "where did this come from?" quote reveal; low-confidence fields flagged + editable confirm form; deadline clock (federal internal appeal preview from letter date) — `app/(flow)/understand/page.tsx`, `components/fact-card.tsx`, `components/deadline-clock.tsx`
+- [x] T031 Designed error/empty states: unreadable, unsupported (Medicare/Medicaid/non-English), too large, model unavailable — `app/unsupported/page.tsx`, `components/state-screens.tsx`
 - [ ] T032 Deploy; run the 6 samples live; tune the extraction prompt against golden `*.extraction.json` until ≥ 90 % field match (SC-002) — `tests/unit/extraction.golden.test.ts` (offline compare of cached outputs)
 
 **Checkpoint (end Day 4)**: public URL: upload or pick a sample → understand screen with facts, explanation, deadline. **This alone is a submittable MVP.**
