@@ -1,0 +1,38 @@
+{
+  "summary": "Meridian Health Plan of New York sent a denial letter dated September 8, 2026. It denied coverage for an MRI of your left knee without contrast (CPT 73721) from Riverside Orthopedic Associates on August 20, 2026.\n\nThe plan says the service was not medically necessary. Its letter quotes guideline MHP-MSK-014 (Advanced Imaging of the Knee), which requires documentation of at least six weeks of conservative treatment. The denial code listed is 50.\n\nThe provider billed $2,400. Your plan paid $0. The letter does not state how much you may owe, and it does not state network status.\n\nThe letter says you or an authorized representative may file a written internal appeal within 180 days of receiving the notice.",
+  "grade_level": 6.7,
+  "terms": [
+    {
+      "term": "denial letter",
+      "definition": "A notice from your plan saying it will not cover a service, and why."
+    },
+    {
+      "term": "medical necessity",
+      "definition": "A plan's judgment about whether care was needed and appropriate."
+    },
+    {
+      "term": "clinical criteria",
+      "definition": "The written medical rules or guidelines a plan uses to decide whether care is necessary."
+    },
+    {
+      "term": "conservative treatment",
+      "definition": "Simpler, non-surgical care such as rest, medication, or physical therapy tried before advanced testing or procedures."
+    },
+    {
+      "term": "internal appeal",
+      "definition": "Your first appeal, decided by the plan itself."
+    },
+    {
+      "term": "denial code",
+      "definition": "A short code a plan uses on a notice to show the reason a claim or request was denied."
+    },
+    {
+      "term": "network status",
+      "definition": "Whether a provider has a contract with your plan (in network) or not (out of network)."
+    },
+    {
+      "term": "authorized representative",
+      "definition": "A person you allow to act for you in dealing with your plan, such as a family member or your doctor."
+    }
+  ]
+}

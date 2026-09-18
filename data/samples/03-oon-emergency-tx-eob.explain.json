@@ -1,0 +1,30 @@
+{
+  "summary": "This is an Explanation of Benefits from Lone Star Benefit Solutions, dated September 5, 2026. It covers care from Gulf Coast Emergency Physicians, PLLC on August 14, 2026: a level 4 emergency department visit (CPT 99284) and a CT scan of the abdomen (CPT 74176). The provider billed $4,800. Your plan paid $1,321.60 and says you may owe $3,478.40. The reason given is code N-661: \"Provider is not in your plan's network. Services from a non-participating provider are paid at the out-of-network rate.\" Code PR-45 also appears. The document says you may file an appeal in writing within 180 days of the date of this statement. It does not state whether any surprise-billing protection was applied.",
+  "grade_level": 7.2,
+  "terms": [
+    {
+      "term": "EOB (Explanation of Benefits)",
+      "definition": "A statement from your plan showing what a provider charged, what the plan paid, and what you may owe; it is not a bill."
+    },
+    {
+      "term": "out of network",
+      "definition": "Providers without a contract with your plan, where your costs are usually higher unless a surprise-billing protection applies."
+    },
+    {
+      "term": "provider",
+      "definition": "Any doctor, hospital, lab, or clinic that gives you care."
+    },
+    {
+      "term": "appeal",
+      "definition": "A formal request asking your plan to change its decision."
+    },
+    {
+      "term": "balance billing",
+      "definition": "When an out-of-network provider bills you for the difference between what they charged and what your plan paid; the No Surprises Act bans this in emergencies and at in-network facilities."
+    },
+    {
+      "term": "CPT code",
+      "definition": "A standard number used to identify a specific medical service on a bill."
+    }
+  ]
+}

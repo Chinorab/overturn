@@ -1,0 +1,150 @@
+{
+  "document_type": {
+    "value": "eob",
+    "confidence": 0.98,
+    "quote": "Explanation of Benefits THIS IS NOT A BILL",
+    "page": 1
+  },
+  "program_signals": {
+    "value": "commercial",
+    "confidence": 0.85,
+    "quote": "Group: GRP-3391 (Bayou City Marketplace Plan)",
+    "page": 1
+  },
+  "insurer_name": {
+    "value": "Lone Star Benefit Solutions",
+    "confidence": 0.97,
+    "quote": "Lone Star Benefit Solutions",
+    "page": 1
+  },
+  "member_id": {
+    "value": "LSB-20481-03",
+    "confidence": 0.97,
+    "quote": "Member ID: LSB-20481-03",
+    "page": 1
+  },
+  "claim_number": {
+    "value": "EOB-26-88120-4",
+    "confidence": 0.97,
+    "quote": "Claim number: EOB-26-88120-4",
+    "page": 1
+  },
+  "letter_date": {
+    "value": "2026-09-05",
+    "confidence": 0.96,
+    "quote": "Statement date: September 5, 2026",
+    "page": 1
+  },
+  "provider_name": {
+    "value": "Gulf Coast Emergency Physicians, PLLC",
+    "confidence": 0.96,
+    "quote": "Gulf Coast Emergency Physicians, PLLC (non-participating)",
+    "page": 1
+  },
+  "service_description": {
+    "value": "Emergency department visit, level 4 (CPT 99284); CT abdomen (CPT 74176)",
+    "confidence": 0.96,
+    "quote": "Emergency department visit, level 4 (CPT 99284); CT abdomen (CPT 74176)",
+    "page": 1
+  },
+  "service_dates": {
+    "value": [
+      "2026-08-14"
+    ],
+    "confidence": 0.96,
+    "quote": "Date of service: 2026-08-14",
+    "page": 1
+  },
+  "denial_category": {
+    "value": "out_of_network",
+    "confidence": 0.9,
+    "quote": "Provider is not in your plan's network",
+    "page": 1
+  },
+  "denial_reason_quote": {
+    "value": "N-661: Provider is not in your plan's network. Services from a non-participating provider are paid at the out-of-network rate.",
+    "confidence": 0.93,
+    "quote": "N-661: Provider is not in your plan's network. Services from a non-participating provider are paid at the out-of-network rate.",
+    "page": 1
+  },
+  "denial_codes": {
+    "value": [
+      "PR-45",
+      "N-661"
+    ],
+    "confidence": 0.95,
+    "quote": "PR-45, N-661",
+    "page": 1
+  },
+  "amounts": {
+    "billed": {
+      "value": 4800,
+      "confidence": 0.95,
+      "quote": "Totals $4,800.00",
+      "page": 1
+    },
+    "allowed": {
+      "value": 1652,
+      "confidence": 0.94,
+      "quote": "$1,652.00",
+      "page": 1
+    },
+    "plan_paid": {
+      "value": 1321.6,
+      "confidence": 0.94,
+      "quote": "$1,321.60",
+      "page": 1
+    },
+    "patient_responsibility": {
+      "value": 3478.4,
+      "confidence": 0.95,
+      "quote": "Amount you may owe the provider: $3,478.40",
+      "page": 1
+    }
+  },
+  "network_status": {
+    "value": "out_of_network",
+    "confidence": 0.95,
+    "quote": "(non-participating)",
+    "page": 1
+  },
+  "emergency_signals": {
+    "value": true,
+    "confidence": 0.95,
+    "quote": "Emergency department visit, level 4 (CPT 99284)",
+    "page": 1
+  },
+  "urgency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "stated_appeal_deadline": {
+    "value": {
+      "kind": "days",
+      "days": 180
+    },
+    "confidence": 0.95,
+    "quote": "file an appeal in writing within 180 days of the date of this statement",
+    "page": 1
+  },
+  "stated_appeal_address": {
+    "value": "Lone Star Benefit Solutions, Appeals, PO Box 660123, Dallas, TX 75266",
+    "confidence": 0.95,
+    "quote": "Lone Star Benefit Solutions, Appeals, PO Box 660123, Dallas, TX 75266",
+    "page": 1
+  },
+  "stated_appeal_instructions": {
+    "value": "you may file an appeal in writing within 180 days of the date of this statement",
+    "confidence": 0.93,
+    "quote": "If you disagree with how this claim was processed, you may file an appeal in writing within 180 days",
+    "page": 1
+  },
+  "state_hint": {
+    "value": "TX",
+    "confidence": 0.96,
+    "quote": "Houston, TX 77040",
+    "page": 1
+  }
+}

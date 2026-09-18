@@ -1,0 +1,38 @@
+{
+  "summary": "Sunbelt Community Health sent a denial letter dated September 14, 2026. It covers physical therapy at Coastal Physical Therapy & Rehab, visits 21-24, on August 25 and September 3, 2026. The letter says the benefit limit was used up: your plan covers a maximum of 20 outpatient rehabilitative therapy visits per calendar year. The denial code is 119. The provider billed $640, and your plan paid $0. The letter does not state how much you may owe or whether the provider is in network. It says an internal appeal may be requested within 180 days of getting the notice, in writing, with your member ID and claim number.",
+  "grade_level": 7.6,
+  "terms": [
+    {
+      "term": "denial letter",
+      "definition": "A notice from your plan explaining that it refused, reduced, or stopped paying for care."
+    },
+    {
+      "term": "benefit limit",
+      "definition": "A cap your plan sets on how much of a service it will cover, such as a number of visits per year."
+    },
+    {
+      "term": "denial code",
+      "definition": "A short code your plan uses to identify the reason it did not pay a claim."
+    },
+    {
+      "term": "internal appeal",
+      "definition": "Your first appeal, decided by the plan itself; you have at least 180 days to file it."
+    },
+    {
+      "term": "member ID",
+      "definition": "The number on your insurance card that identifies you to the plan."
+    },
+    {
+      "term": "claim",
+      "definition": "A bill your provider sends to your plan asking to be paid for a service."
+    },
+    {
+      "term": "provider",
+      "definition": "Any doctor, hospital, lab, or clinic that gives you care."
+    },
+    {
+      "term": "in network",
+      "definition": "Providers that have a contract with your plan, which usually costs you less."
+    }
+  ]
+}

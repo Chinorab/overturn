@@ -1,0 +1,38 @@
+{
+  "summary": "This is an Explanation of Benefits from Empire Harbor Health, dated September 2, 2026. It covers lab work done by MetroLab Diagnostics on August 11, 2026: a comprehensive metabolic panel (CPT 80053) and a lipid panel (CPT 80061). MetroLab is listed as in network. The billed amount was $244. Your plan paid $0, and the document lists $244 as the amount you may owe. The reason given is codes CO-16 and M-76: the claim was missing or had incomplete information, specifically a missing, incomplete, or invalid diagnosis code. This is an administrative or coding issue, not a decision about whether the care was needed. The document says a written appeal may be filed within 180 days of the statement date.",
+  "grade_level": 7.7,
+  "terms": [
+    {
+      "term": "EOB (Explanation of Benefits)",
+      "definition": "A statement from your plan showing what a provider charged, what the plan paid, and what you may owe; it is not a bill."
+    },
+    {
+      "term": "claim",
+      "definition": "A bill your provider sends to your plan asking to be paid for a service."
+    },
+    {
+      "term": "in network",
+      "definition": "Providers that have a contract with your plan, which usually means you pay less."
+    },
+    {
+      "term": "CPT code",
+      "definition": "A standard number used on claims to identify the exact service or test that was performed."
+    },
+    {
+      "term": "diagnosis code",
+      "definition": "A standard code on a claim that tells the plan the medical reason a service was given."
+    },
+    {
+      "term": "appeal",
+      "definition": "A formal request asking your plan to change its decision."
+    },
+    {
+      "term": "medical necessity",
+      "definition": "A plan's judgment about whether care was needed and appropriate, which was not the reason given here."
+    },
+    {
+      "term": "provider",
+      "definition": "Any doctor, hospital, lab, or clinic that gives you care."
+    }
+  ]
+}

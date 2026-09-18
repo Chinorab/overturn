@@ -1,0 +1,38 @@
+{
+  "summary": "Pacific Crest Health Plan sent you a denial letter dated September 11, 2026. It covers a laparoscopic gallbladder removal (CPT 47562) done on September 4, 2026, by Dr. Priya Raman at Valley Surgical Center, an in-network provider. The letter says prior authorization was required for this procedure under your Evidence of Coverage, Section 4.2, and that no authorization request was received before the date of service. The denial code listed is N54. The amount billed was $18,750, and your plan paid $0. The letter does not state how much you may owe. It says an appeal can be filed online at the member portal, by phone at 1-877-555-0130, or in writing to the Grievance and Appeals Unit, within 180 days.",
+  "grade_level": 7.1,
+  "terms": [
+    {
+      "term": "denial letter",
+      "definition": "A notice from your plan explaining that it refused, reduced, or stopped paying for care."
+    },
+    {
+      "term": "prior authorization",
+      "definition": "Approval a plan requires before certain care; denials for missing it can sometimes be reversed, especially for emergencies."
+    },
+    {
+      "term": "in network",
+      "definition": "Providers that have a contract with your plan, which usually means you pay less."
+    },
+    {
+      "term": "CPT code",
+      "definition": "A standard number used to identify a specific medical procedure on a bill."
+    },
+    {
+      "term": "Evidence of Coverage",
+      "definition": "The document that spells out your plan's benefits, rules, and limits."
+    },
+    {
+      "term": "denial code",
+      "definition": "A short code on a claim decision that stands for the reason the plan gave."
+    },
+    {
+      "term": "appeal",
+      "definition": "A formal request asking your plan to change its decision."
+    },
+    {
+      "term": "grievance",
+      "definition": "California's word for a complaint or appeal filed with your health plan."
+    }
+  ]
+}

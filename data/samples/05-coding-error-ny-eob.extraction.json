@@ -1,0 +1,150 @@
+{
+  "document_type": {
+    "value": "eob",
+    "confidence": 0.98,
+    "quote": "Explanation of Benefits",
+    "page": 1
+  },
+  "program_signals": {
+    "value": "commercial",
+    "confidence": 0.7,
+    "quote": "Group: GRP-4402 (Northside Public Library System)",
+    "page": 1
+  },
+  "insurer_name": {
+    "value": "Empire Harbor Health",
+    "confidence": 0.97,
+    "quote": "Empire Harbor Health",
+    "page": 1
+  },
+  "member_id": {
+    "value": "EHH-3320917",
+    "confidence": 0.97,
+    "quote": "Member ID: EHH-3320917",
+    "page": 1
+  },
+  "claim_number": {
+    "value": "EOB-26-51022-9",
+    "confidence": 0.97,
+    "quote": "Claim number: EOB-26-51022-9",
+    "page": 1
+  },
+  "letter_date": {
+    "value": "2026-09-02",
+    "confidence": 0.95,
+    "quote": "Statement date: September 2, 2026",
+    "page": 1
+  },
+  "provider_name": {
+    "value": "MetroLab Diagnostics",
+    "confidence": 0.95,
+    "quote": "Provider: MetroLab Diagnostics (participating)",
+    "page": 1
+  },
+  "service_description": {
+    "value": "Comprehensive metabolic panel (CPT 80053); Lipid panel (CPT 80061)",
+    "confidence": 0.95,
+    "quote": "Comprehensive metabolic panel (CPT 80053); Lipid panel (CPT 80061)",
+    "page": 1
+  },
+  "service_dates": {
+    "value": [
+      "2026-08-11"
+    ],
+    "confidence": 0.95,
+    "quote": "Date of service: 2026-08-11",
+    "page": 1
+  },
+  "denial_category": {
+    "value": "coding_admin",
+    "confidence": 0.93,
+    "quote": "Claim/service lacks information or has submission/billing error(s) which is needed for adjudication.",
+    "page": 1
+  },
+  "denial_reason_quote": {
+    "value": "CO-16: Claim/service lacks information or has submission/billing error(s) which is needed for adjudication. M-76: Missing/incomplete/invalid diagnosis or condition.",
+    "confidence": 0.93,
+    "quote": "CO-16: Claim/service lacks information or has submission/billing error(s) which is needed for adjudication.",
+    "page": 1
+  },
+  "denial_codes": {
+    "value": [
+      "CO-16",
+      "M-76"
+    ],
+    "confidence": 0.95,
+    "quote": "CO-16, M-76",
+    "page": 1
+  },
+  "amounts": {
+    "billed": {
+      "value": 244,
+      "confidence": 0.93,
+      "quote": "Totals $244.00",
+      "page": 1
+    },
+    "allowed": {
+      "value": 0,
+      "confidence": 0.85,
+      "quote": "$244.00 $0.00 $0.00",
+      "page": 1
+    },
+    "plan_paid": {
+      "value": 0,
+      "confidence": 0.85,
+      "quote": "$0.00",
+      "page": 1
+    },
+    "patient_responsibility": {
+      "value": 244,
+      "confidence": 0.95,
+      "quote": "Amount you may owe the provider: $244.00",
+      "page": 1
+    }
+  },
+  "network_status": {
+    "value": "in_network",
+    "confidence": 0.85,
+    "quote": "MetroLab Diagnostics (participating)",
+    "page": 1
+  },
+  "emergency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "urgency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "stated_appeal_deadline": {
+    "value": {
+      "kind": "days",
+      "days": 180
+    },
+    "confidence": 0.95,
+    "quote": "file a written appeal within 180 days of the date of this statement",
+    "page": 1
+  },
+  "stated_appeal_address": {
+    "value": "Empire Harbor Health, Appeals Unit, PO Box 1900, Buffalo, NY 14240",
+    "confidence": 0.95,
+    "quote": "Empire Harbor Health, Appeals Unit, PO Box 1900, Buffalo, NY 14240",
+    "page": 1
+  },
+  "stated_appeal_instructions": {
+    "value": "you may file a written appeal within 180 days of the date of this statement",
+    "confidence": 0.92,
+    "quote": "If you disagree with this determination, you may file a written appeal within 180 days of the date of this statement",
+    "page": 1
+  },
+  "state_hint": {
+    "value": "NY",
+    "confidence": 0.95,
+    "quote": "Brooklyn, NY 11226",
+    "page": 1
+  }
+}

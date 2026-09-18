@@ -1,0 +1,149 @@
+{
+  "document_type": {
+    "value": "denial_letter",
+    "confidence": 0.97,
+    "quote": "Notice of Denial of Payment - Prior Authorization Not Obtained",
+    "page": 1
+  },
+  "program_signals": {
+    "value": "commercial",
+    "confidence": 0.8,
+    "quote": "Group: Individual HMO - Silver 70",
+    "page": 1
+  },
+  "insurer_name": {
+    "value": "Pacific Crest Health Plan",
+    "confidence": 0.97,
+    "quote": "Pacific Crest Health Plan",
+    "page": 1
+  },
+  "member_id": {
+    "value": "PCH-5590213",
+    "confidence": 0.97,
+    "quote": "Member ID: PCH-5590213",
+    "page": 1
+  },
+  "claim_number": {
+    "value": "AUTH-26-33107",
+    "confidence": 0.95,
+    "quote": "Claim / Ref #: AUTH-26-33107",
+    "page": 1
+  },
+  "letter_date": {
+    "value": "2026-09-11",
+    "confidence": 0.96,
+    "quote": "September 11, 2026",
+    "page": 1
+  },
+  "provider_name": {
+    "value": "Valley Surgical Center / Dr. Priya Raman, MD",
+    "confidence": 0.95,
+    "quote": "Provider: Valley Surgical Center / Dr. Priya Raman, MD",
+    "page": 1
+  },
+  "service_description": {
+    "value": "Laparoscopic cholecystectomy (CPT 47562)",
+    "confidence": 0.96,
+    "quote": "Service: Laparoscopic cholecystectomy (CPT 47562)",
+    "page": 1
+  },
+  "service_dates": {
+    "value": [
+      "2026-09-04"
+    ],
+    "confidence": 0.96,
+    "quote": "Date(s) of service: 2026-09-04",
+    "page": 1
+  },
+  "denial_category": {
+    "value": "prior_auth",
+    "confidence": 0.96,
+    "quote": "Prior authorization was required for this procedure under your Evidence of Coverage, Section 4.2",
+    "page": 1
+  },
+  "denial_reason_quote": {
+    "value": "Prior authorization was required for this procedure under your Evidence of Coverage, Section 4.2, and no authorization request was received before the date of service.",
+    "confidence": 0.95,
+    "quote": "no authorization request was received before the date of service",
+    "page": 1
+  },
+  "denial_codes": {
+    "value": [
+      "N54"
+    ],
+    "confidence": 0.93,
+    "quote": "Remark code: N54 - claim information is inconsistent with pre-certified/authorized services.",
+    "page": 1
+  },
+  "amounts": {
+    "billed": {
+      "value": 18750,
+      "confidence": 0.96,
+      "quote": "Amount billed: $18,750.00",
+      "page": 1
+    },
+    "allowed": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "plan_paid": {
+      "value": 0,
+      "confidence": 0.94,
+      "quote": "Amount paid by the plan: $0.00",
+      "page": 1
+    },
+    "patient_responsibility": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    }
+  },
+  "network_status": {
+    "value": "in_network",
+    "confidence": 0.85,
+    "quote": "Dr. Raman is a participating provider",
+    "page": 1
+  },
+  "emergency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "urgency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "stated_appeal_deadline": {
+    "value": {
+      "kind": "days",
+      "days": 180
+    },
+    "confidence": 0.95,
+    "quote": "file a grievance (appeal) with Pacific Crest Health Plan within 180 days of receiving this notice",
+    "page": 1
+  },
+  "stated_appeal_address": {
+    "value": "Pacific Crest Health Plan, Grievance and Appeals Unit, PO Box 21980, Sacramento, CA 95821",
+    "confidence": 0.95,
+    "quote": "Pacific Crest Health Plan, Grievance and Appeals Unit, PO Box 21980, Sacramento, CA 95821",
+    "page": 1
+  },
+  "stated_appeal_instructions": {
+    "value": "You may file online at the member portal, by calling 1-877-555-0130, or in writing to Pacific Crest Health Plan, Grievance and Appeals Unit",
+    "confidence": 0.92,
+    "quote": "You may file online at the member portal, by calling 1-877-555-0130, or in writing",
+    "page": 1
+  },
+  "state_hint": {
+    "value": "CA",
+    "confidence": 0.95,
+    "quote": "Fresno, CA 93728",
+    "page": 1
+  }
+}

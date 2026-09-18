@@ -16,7 +16,8 @@ async function main() {
   const { explainExtraction } = await import("../lib/ai/explain");
   const { SAMPLES } = await import("../lib/samples");
 
-  const only = process.argv.slice(2);
+  const explainOnly = process.argv.includes("--explain-only");
+  const only = process.argv.slice(2).filter((a) => !a.startsWith("--"));
   const targets = SAMPLES.filter((s) => s.category !== "unsupported" && (only.length === 0 || only.includes(s.id)));
   let totalIn = 0;
   let totalOut = 0;
@@ -24,7 +25,9 @@ async function main() {
   for (const s of targets) {
     const pdf = await readFile(path.join(dir, `${s.id}.pdf`));
     const t0 = Date.now();
-    const { extraction, usage } = await extractDocument({ kind: "pdf", base64: pdf.toString("base64") });
+    const { extraction, usage } = explainOnly
+      ? { extraction: JSON.parse(await readFile(path.join(dir, `${s.id}.extraction.json`), "utf8")), usage: { input: 0, output: 0 } }
+      : await extractDocument({ kind: "pdf", base64: pdf.toString("base64") });
     const { explanation, usage: u2, regenerated } = await explainExtraction(extraction);
     await writeFile(path.join(dir, `${s.id}.extraction.json`), JSON.stringify(extraction, null, 2) + "\n");
     await writeFile(path.join(dir, `${s.id}.explain.json`), JSON.stringify(explanation, null, 2) + "\n");

@@ -1,0 +1,150 @@
+{
+  "document_type": {
+    "value": "denial_letter",
+    "confidence": 0.97,
+    "quote": "Explanation of Denied Claim",
+    "page": 1
+  },
+  "program_signals": {
+    "value": "commercial",
+    "confidence": 0.9,
+    "quote": "Group: Marketplace Bronze 60 - Individual",
+    "page": 1
+  },
+  "insurer_name": {
+    "value": "Sunbelt Community Health",
+    "confidence": 0.97,
+    "quote": "Sunbelt Community Health",
+    "page": 1
+  },
+  "member_id": {
+    "value": "SCH-71133820",
+    "confidence": 0.97,
+    "quote": "Member ID: SCH-71133820",
+    "page": 1
+  },
+  "claim_number": {
+    "value": "CLM-26-0904-11907",
+    "confidence": 0.97,
+    "quote": "Claim / Ref #: CLM-26-0904-11907",
+    "page": 1
+  },
+  "letter_date": {
+    "value": "2026-09-14",
+    "confidence": 0.97,
+    "quote": "September 14, 2026",
+    "page": 1
+  },
+  "provider_name": {
+    "value": "Coastal Physical Therapy & Rehab",
+    "confidence": 0.97,
+    "quote": "Provider: Coastal Physical Therapy & Rehab",
+    "page": 1
+  },
+  "service_description": {
+    "value": "Physical therapy, therapeutic exercise (CPT 97110), visits 21-24",
+    "confidence": 0.96,
+    "quote": "Physical therapy, therapeutic exercise (CPT 97110), visits 21-24",
+    "page": 1
+  },
+  "service_dates": {
+    "value": [
+      "2026-08-25",
+      "2026-09-03"
+    ],
+    "confidence": 0.95,
+    "quote": "Date(s) of service: 2026-08-25 to 2026-09-03",
+    "page": 1
+  },
+  "denial_category": {
+    "value": "not_covered",
+    "confidence": 0.95,
+    "quote": "Visits 21 through 24 are not a covered benefit.",
+    "page": 1
+  },
+  "denial_reason_quote": {
+    "value": "Benefit limit exhausted. Your plan covers a maximum of 20 outpatient rehabilitative therapy visits per calendar year",
+    "confidence": 0.95,
+    "quote": "Benefit limit exhausted. Your plan covers a maximum of 20 outpatient rehabilitative therapy visits per calendar year",
+    "page": 1
+  },
+  "denial_codes": {
+    "value": [
+      "119"
+    ],
+    "confidence": 0.92,
+    "quote": "Reason code: 119 - benefit maximum for this time period has been reached.",
+    "page": 1
+  },
+  "amounts": {
+    "billed": {
+      "value": 640,
+      "confidence": 0.96,
+      "quote": "Amount billed: $640.00",
+      "page": 1
+    },
+    "allowed": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "plan_paid": {
+      "value": 0,
+      "confidence": 0.93,
+      "quote": "Amount paid: $0.00",
+      "page": 1
+    },
+    "patient_responsibility": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    }
+  },
+  "network_status": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "emergency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "urgency_signals": {
+    "value": null,
+    "confidence": 0,
+    "quote": null,
+    "page": null
+  },
+  "stated_appeal_deadline": {
+    "value": {
+      "kind": "days",
+      "days": 180
+    },
+    "confidence": 0.95,
+    "quote": "request an internal appeal within 180 days of receiving this notice",
+    "page": 1
+  },
+  "stated_appeal_address": {
+    "value": "Sunbelt Community Health, Member Appeals, 5100 Coral Way, Miami, FL 33134",
+    "confidence": 0.95,
+    "quote": "Sunbelt Community Health, Member Appeals, 5100 Coral Way, Miami, FL 33134",
+    "page": 1
+  },
+  "stated_appeal_instructions": {
+    "value": "You may request an internal appeal within 180 days of receiving this notice by writing ... Include your member ID and claim number.",
+    "confidence": 0.9,
+    "quote": "by writing to Sunbelt Community Health, Member Appeals ... or by calling 1-855-555-0161. Include your member ID and claim number.",
+    "page": 1
+  },
+  "state_hint": {
+    "value": "FL",
+    "confidence": 0.96,
+    "quote": "Fort Lauderdale, FL 33304",
+    "page": 1
+  }
+}

@@ -41,19 +41,23 @@ export async function explainExtraction(ex: Extraction): Promise<{ explanation: 
     const p: string[] = [];
     const grade = fleschKincaidGrade(d.summary);
     if (grade > MAX_GRADE) p.push(`reads at grade ${grade}; use shorter sentences and simpler words`);
-    if (wordCount(d.summary) > MAX_WORDS) p.push(`is ${wordCount(d.summary)} words; cut to ${MAX_WORDS} or fewer`);
+    if (wordCount(d.summary) > MAX_WORDS) p.push(`is ${wordCount(d.summary)} words; cut it to ${MAX_WORDS - 20} words or fewer by dropping the least important details`);
     const hits = findPrescriptive(d.summary);
     if (hits.length) p.push(`contains advice-like phrasing (${hits.join(", ")}); describe, do not instruct`);
     return p;
   };
 
-  const issues = problems(draft);
-  if (issues.length) {
-    const second = await ask(`Your previous summary ${issues.join("; ")}. Rewrite it. Same facts, same rules.`);
-    if (second) {
-      draft = second;
-      regenerated = true;
-    }
+  // Up to two corrective passes; the last draft ships regardless, with its measured grade.
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const issues = problems(draft);
+    if (!issues.length) break;
+    const next = await ask(`Your previous summary ${issues.join("; ")}. Rewrite it. Same facts, same rules.
+
+Previous summary:
+${draft.summary}`);
+    if (!next) break;
+    draft = next;
+    regenerated = true;
   }
 
   const explanation = Explanation.parse({ ...draft, grade_level: fleschKincaidGrade(draft.summary) });
