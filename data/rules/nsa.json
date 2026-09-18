@@ -1,0 +1,81 @@
+[
+  {
+    "id": "nsa.emergency.no_balance_billing",
+    "jurisdiction": "nsa",
+    "category": "protection",
+    "title": "Emergency care: no surprise bills, in-network cost sharing, no prior authorization",
+    "summary": "For emergency services, the No Surprises Act says your plan must cover the care without prior authorization even if the hospital or doctor was out of network, your share of the cost cannot be higher than the in-network amount, and the provider cannot bill you for the difference.",
+    "legal_ref": "45 CFR 149.110(b)(1), (b)(3)(ii); 45 CFR 149.410(a)",
+    "source_url": "https://www.law.cornell.edu/cfr/text/45/149.110",
+    "last_verified": "2026-09-18",
+    "applies_if": { "emergency": true },
+    "priority": 1,
+    "why_template": "You said this was emergency care, so these protections apply regardless of network status."
+  },
+  {
+    "id": "nsa.emergency.counts_in_network",
+    "jurisdiction": "nsa",
+    "category": "protection",
+    "title": "What you pay for out-of-network emergency care counts toward your in-network deductible",
+    "summary": "Any cost sharing you owe for protected emergency services must be counted toward your in-network deductible and in-network out-of-pocket maximum, as if the care had been in network.",
+    "legal_ref": "45 CFR 149.110(b)(3)(v)",
+    "source_url": "https://www.law.cornell.edu/cfr/text/45/149.110",
+    "last_verified": "2026-09-18",
+    "applies_if": { "emergency": true },
+    "priority": 6,
+    "why_template": "Check the EOB: the amount should be applied to your in-network totals, not a separate out-of-network bucket."
+  },
+  {
+    "id": "nsa.facility.oon_provider_at_in_network_facility",
+    "jurisdiction": "nsa",
+    "category": "protection",
+    "title": "Out-of-network doctor at an in-network hospital: in-network cost sharing applies",
+    "summary": "If you had non-emergency care at an in-network hospital or facility but a doctor there was out of network, your cost sharing is limited to the in-network level and that doctor cannot bill you the difference, unless you signed a valid advance notice-and-consent form.",
+    "legal_ref": "45 CFR 149.120(c)(1); 45 CFR 149.420(a)",
+    "source_url": "https://www.law.cornell.edu/cfr/text/45/149.120",
+    "last_verified": "2026-09-18",
+    "applies_if": { "denial_category": ["out_of_network"], "emergency": false },
+    "priority": 2,
+    "why_template": "Your denial is about network status; if the facility itself was in network, this protection may apply.",
+    "caveat": "This applies when the facility was in your plan's network. If the facility was also out of network, the protection does not apply to non-emergency care."
+  },
+  {
+    "id": "nsa.facility.no_consent_for_ancillary",
+    "jurisdiction": "nsa",
+    "category": "protection",
+    "title": "Some specialties can never make you waive the protection",
+    "summary": "Providers of emergency medicine, anesthesiology, pathology, radiology, neonatology, diagnostic services, and assistant surgeons, hospitalists, and intensivists cannot use a consent form to bill you out-of-network rates at an in-network facility. Neither can a provider when no in-network alternative was available or the need was unforeseen and urgent.",
+    "legal_ref": "45 CFR 149.420(b)",
+    "source_url": "https://www.law.cornell.edu/cfr/text/45/149.420",
+    "last_verified": "2026-09-18",
+    "applies_if": { "denial_category": ["out_of_network"] },
+    "priority": 3,
+    "why_template": "If the out-of-network provider was an anesthesiologist, radiologist, pathologist, or similar, any consent form you signed does not count."
+  },
+  {
+    "id": "nsa.consent.timing",
+    "jurisdiction": "nsa",
+    "category": "protection",
+    "title": "A consent form only counts if it was given in time and in writing",
+    "summary": "For a notice-and-consent waiver to be valid, the provider had to give you written notice at least 72 hours before a scheduled service (or at least 3 hours before, for same-day scheduling) and you had to consent in writing.",
+    "legal_ref": "45 CFR 149.420(c)",
+    "source_url": "https://www.law.cornell.edu/cfr/text/45/149.420",
+    "last_verified": "2026-09-18",
+    "applies_if": { "denial_category": ["out_of_network"], "emergency": false },
+    "priority": 4,
+    "why_template": "If you were handed a form at check-in or after the fact, the waiver may not be valid."
+  },
+  {
+    "id": "nsa.complaint.help_desk",
+    "jurisdiction": "nsa",
+    "category": "process",
+    "title": "You can report a surprise bill to the federal No Surprises Help Desk",
+    "summary": "If a provider or plan is not following the No Surprises Act, you can submit a complaint to the federal government online or by phone; the Help Desk also answers questions about whether your bill is protected.",
+    "legal_ref": "No Surprises Act, Consolidated Appropriations Act 2021, Div. BB; CMS complaint process",
+    "source_url": "https://www.cms.gov/medical-bill-rights/help/submit-a-complaint",
+    "last_verified": "2026-09-18",
+    "applies_if": { "denial_category": ["out_of_network"] },
+    "priority": 70,
+    "why_template": "This is a free federal channel, separate from your appeal to the plan."
+  }
+]

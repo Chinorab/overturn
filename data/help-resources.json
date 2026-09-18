@@ -1,0 +1,73 @@
+[
+  {
+    "id": "fed.cms.cap_list",
+    "scope": "federal",
+    "name": "Consumer Assistance Programs (by state)",
+    "kind": "CAP",
+    "url": "https://www.cms.gov/cciio/resources/consumer-assistance-grants",
+    "what_they_do": "Free, government-funded programs in many states that help people file appeals and understand their coverage. Find the one for your state on this list."
+  },
+  {
+    "id": "fed.dol.ebsa",
+    "scope": "federal",
+    "name": "U.S. Department of Labor, EBSA",
+    "kind": "regulator",
+    "phone": "1-866-444-3272",
+    "url": "https://www.dol.gov/agencies/ebsa/about-ebsa/ask-a-question/ask-ebsa",
+    "what_they_do": "Benefits advisors who help with job-based health plans, including self-funded (ERISA) plans that state regulators cannot help with."
+  },
+  {
+    "id": "fed.cms.no_surprises_help_desk",
+    "scope": "federal",
+    "name": "No Surprises Help Desk",
+    "kind": "helpdesk",
+    "phone": "1-800-985-3059",
+    "url": "https://www.cms.gov/medical-bill-rights/help",
+    "what_they_do": "Federal help desk for surprise medical bills: answers whether a bill is protected under the No Surprises Act and takes complaints. Open 7 days a week, many languages."
+  },
+  {
+    "id": "ca.dmhc.help_center",
+    "scope": "CA",
+    "name": "DMHC Help Center",
+    "kind": "regulator",
+    "phone": "1-888-466-2219",
+    "url": "https://www.dmhc.ca.gov/FileaComplaint.aspx",
+    "what_they_do": "California's regulator for most health plans. Helps with grievances, Independent Medical Review applications, and complaints. Free."
+  },
+  {
+    "id": "ca.cdi.hotline",
+    "scope": "CA",
+    "name": "California Department of Insurance consumer hotline",
+    "kind": "regulator",
+    "phone": "1-800-927-4357",
+    "url": "https://www.insurance.ca.gov/01-consumers/",
+    "what_they_do": "Regulator for California insurance policies not covered by the DMHC (some PPOs). Handles complaints and its own independent medical review."
+  },
+  {
+    "id": "ny.cha",
+    "scope": "NY",
+    "name": "Community Health Advocates",
+    "kind": "CAP",
+    "phone": "1-888-614-5400",
+    "url": "https://communityhealthadvocates.org/",
+    "what_they_do": "New York's free Consumer Assistance Program. Advocates help you understand denials, file internal and external appeals, and deal with medical bills."
+  },
+  {
+    "id": "ny.dfs",
+    "scope": "NY",
+    "name": "New York Department of Financial Services",
+    "kind": "regulator",
+    "phone": "1-800-400-8882",
+    "url": "https://www.dfs.ny.gov/ExternalAppeal/",
+    "what_they_do": "New York's insurance regulator. Runs the External Appeal program and takes complaints about health plans."
+  },
+  {
+    "id": "tx.tdi.help_line",
+    "scope": "TX",
+    "name": "Texas Department of Insurance Consumer Help Line",
+    "kind": "regulator",
+    "phone": "1-800-252-3439",
+    "url": "https://www.tdi.texas.gov/consumer/complaint-health.html",
+    "what_they_do": "Texas's insurance regulator. Explains appeals and independent review, and takes complaints about plans it regulates."
+  }
+]

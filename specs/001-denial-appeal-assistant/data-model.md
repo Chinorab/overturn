@@ -91,8 +91,9 @@ caveat?:       string   // shown when self_funded === "unknown", etc.
 ```
 rules:     [{ rule: Rule, why: string, caveat?: string }]          // ordered
 deadlines: [{
-  rule_id, label, due: ISODate, days_left: number, anchor: ISODate, anchor_label,
-  status: "ok" | "soon" (≤30d) | "urgent" (≤7d) | "passed",
+  rule_id, label, due: ISODate | null, days_left: number | null, anchor: ISODate | null, anchor_label,
+  status: "ok" | "soon" (≤30d) | "urgent" (≤7d) | "passed" | "pending",   // pending = anchor not yet known
+  pending_reason?: string,
   letter_stated?: ISODate, discrepancy?: "letter_shorter" | "letter_longer"
 }]
 route:     "federal_only" | "state_overlay"

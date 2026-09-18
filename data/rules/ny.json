@@ -1,0 +1,69 @@
+[
+  {
+    "id": "ny.external_appeal.filing_window",
+    "jurisdiction": "NY",
+    "category": "deadline",
+    "title": "New York: 4 months to file an external appeal with DFS",
+    "summary": "After your plan's final denial on internal appeal, you can file a New York State External Appeal with the Department of Financial Services. The application must be sent within 4 months of the final adverse determination. An outside doctor decides, and the plan must follow the decision.",
+    "legal_ref": "N.Y. Ins. Law § 4914; DFS External Appeal program",
+    "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
+    "last_verified": "2026-09-18",
+    "applies_if": { "state": ["NY"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "out_of_network", "prior_auth", "other"] },
+    "deadline": { "anchor": "final_internal_denial_date", "amount": 4, "unit": "months", "who": "consumer" },
+    "priority": 12,
+    "why_template": "Your plan is regulated by New York, so the state's external appeal is available to you.",
+    "caveat": "State external appeal applies to plans regulated by New York. If your employer plan is self-funded, use the federal external review instead."
+  },
+  {
+    "id": "ny.external_appeal.scope",
+    "jurisdiction": "NY",
+    "category": "protection",
+    "title": "New York external appeal covers more than medical necessity",
+    "summary": "New York's external appeal can review denials for medical necessity, experimental or investigational treatment, out-of-network services, clinical trials, rare diseases, and formulary (drug) exceptions, as well as certain No Surprises Act disputes.",
+    "legal_ref": "N.Y. Ins. Law § 4910; DFS External Appeal program",
+    "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
+    "last_verified": "2026-09-18",
+    "applies_if": { "state": ["NY"], "self_funded": "no" },
+    "priority": 22,
+    "why_template": "This tells you whether your kind of denial can go to an outside reviewer in New York."
+  },
+  {
+    "id": "ny.external_appeal.fee",
+    "jurisdiction": "NY",
+    "category": "process",
+    "title": "New York external appeal may cost up to $25, refunded if you win",
+    "summary": "A plan may charge up to $25 per external appeal (no more than $75 per plan year). The fee is waived for hardship and for Medicaid or Child Health Plus members, and it is returned if the denial is overturned.",
+    "legal_ref": "N.Y. Ins. Law § 4914(b); DFS External Appeal program",
+    "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
+    "last_verified": "2026-09-18",
+    "applies_if": { "state": ["NY"], "self_funded": "no" },
+    "priority": 45,
+    "why_template": "Good to know before filing: the cost is small and refundable."
+  },
+  {
+    "id": "ny.external_appeal.decision_windows",
+    "jurisdiction": "NY",
+    "category": "process",
+    "title": "New York external appeal is decided in 30 days, or 72 hours if expedited",
+    "summary": "Standard external appeals are decided within 30 days. Expedited appeals are decided within 72 hours. You may ask for an expedited internal appeal and an expedited external appeal at the same time.",
+    "legal_ref": "N.Y. Ins. Law § 4914(b); DFS External Appeal program",
+    "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
+    "last_verified": "2026-09-18",
+    "applies_if": { "state": ["NY"], "self_funded": "no" },
+    "priority": 42,
+    "why_template": "This is how long the New York outside review takes once filed."
+  },
+  {
+    "id": "ny.internal_appeal.deemed_reversal",
+    "jurisdiction": "NY",
+    "category": "protection",
+    "title": "New York: if the plan misses its appeal deadline, the denial is reversed",
+    "summary": "Under New York law, a utilization review agent that fails to decide your appeal within the required time (30 days for a standard appeal after receiving the necessary information; 2 business days for an expedited appeal) is deemed to have reversed its denial.",
+    "legal_ref": "N.Y. Ins. Law § 4904(b), (c), (e)",
+    "source_url": "https://www.nysenate.gov/legislation/laws/ISC/4904",
+    "last_verified": "2026-09-18",
+    "applies_if": { "state": ["NY"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "priority": 21,
+    "why_template": "Write down the date you sent your appeal; New York's deadline for the plan is short and the consequence for missing it is strong."
+  }
+]
