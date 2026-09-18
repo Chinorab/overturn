@@ -57,6 +57,8 @@ test("sample flow: understand → rights → letter → download, on a phone", a
   await expect(page.locator("mark.placeholder-chip").first()).toBeVisible();
   await expect(page.getByText("45 CFR 149.110", { exact: false }).first()).toBeVisible();
   await expect(page.getByRole("heading", { name: "Before you send" })).toBeVisible();
+  await expectNoHorizontalScroll(page);
+  await expectNoA11yViolations(page, "letter");
 
   // Edit persists
   await page.getByRole("button", { name: /Edit section: Purpose|Edit section: intro/ }).click();
@@ -68,9 +70,6 @@ test("sample flow: understand → rights → letter → download, on a phone", a
   // Download produces a PDF
   const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "PDF" }).click()]);
   expect(download.suggestedFilename()).toBe("appeal-letter.pdf");
-
-  await expectNoHorizontalScroll(page);
-  await expectNoA11yViolations(page, "letter");
 });
 
 test("unsupported document stops honestly", async ({ page }) => {
