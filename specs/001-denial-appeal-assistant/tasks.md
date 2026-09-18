@@ -12,12 +12,12 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 1: Setup — Day 1 (Thu Sept 18, after scope validation)
 
-- [ ] T001 Scaffold Next.js 15 + TypeScript + Tailwind 4 + shadcn/ui; pnpm; strict TS — `package.json`, `app/layout.tsx`, `tailwind.config.ts`
-- [ ] T002 [P] Add fonts (Public Sans, Source Serif 4), design tokens from the plan's design brief as CSS variables, light/dark — `app/globals.css`
-- [ ] T003 [P] Vitest + Playwright + `@axe-core/playwright` config; `pnpm test`, `pnpm test:e2e` scripts — `vitest.config.ts`, `playwright.config.ts`
-- [ ] T004 [P] GitHub repo (public), `.gitignore` incl. `.env*`, `.specify/feature.json`; CI: typecheck, vitest, gitleaks, build — `.github/workflows/ci.yml`
-- [ ] T005 Vercel project linked to `main`; `ANTHROPIC_API_KEY` set in Vercel env; first deploy of the scaffold (public URL exists on Day 1) — Vercel dashboard
-- [ ] T006 [P] `README.md` skeleton with sections: Problem, What it does, What it deliberately does not do, Architecture, Legal design ("information, not advice"), Privacy, Stack & credits, Run locally — `README.md`
+- [x] T001 Scaffold Next.js 15 + TypeScript + Tailwind 4 + shadcn/ui; pnpm; strict TS — `package.json`, `app/layout.tsx`, `tailwind.config.ts`
+- [x] T002 [P] Add fonts (Public Sans, Source Serif 4), design tokens from the plan's design brief as CSS variables, light/dark — `app/globals.css`
+- [x] T003 [P] Vitest + Playwright + `@axe-core/playwright` config; `pnpm test`, `pnpm test:e2e` scripts — `vitest.config.ts`, `playwright.config.ts`
+- [x] T004 [P] GitHub repo (public), `.gitignore` incl. `.env*`, `.specify/feature.json`; CI: typecheck, vitest, gitleaks, build — `.github/workflows/ci.yml`
+- [ ] T005 (waiting: Vercel dashboard link by the owner) Vercel project linked to `main`; `ANTHROPIC_API_KEY` set in Vercel env; first deploy of the scaffold (public URL exists on Day 1) — Vercel dashboard
+- [x] T006 [P] `README.md` skeleton with sections: Problem, What it does, What it deliberately does not do, Architecture, Legal design ("information, not advice"), Privacy, Stack & credits, Run locally — `README.md`
 
 **Checkpoint**: public URL shows a styled placeholder landing page; CI green.
 
