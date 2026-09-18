@@ -4,7 +4,7 @@
 
 **Created**: 2026-09-18
 
-**Status**: Draft — awaiting scope validation
+**Status**: Delivered (v1, 2026-09-19) — scope validated 2026-09-18; see "Delivery notes" at the end
 
 **Input**: User description: "A tool that helps Americans contest a health insurance denial or an
 erroneous medical bill. The user uploads a denial letter or Explanation of Benefits; the tool
@@ -296,3 +296,22 @@ and that "Try a sample" reaches the summary screen without any upload.
    "I don't know" is the honest common case. Confirm.
 4. **Letter export**: PDF + copy-as-text proposed; DOCX would add a library and little value.
    Confirm.
+
+## Delivery notes (2026-09-19)
+
+All four user stories shipped and are verified end-to-end against the production deployment
+(https://overturn-peach.vercel.app). Additions beyond the original spec, made after the first
+owner review on a phone:
+
+- A public **home page** (`/`) separate from the flow, which now starts at `/start`. Hero with a
+  before/after reading of a sample sentence, KFF 2024 figures, three illustrated steps,
+  differentiators, trust panel, call to action.
+- **/learn** ("How appeals work"): the four stages of a US appeal, what each covered state adds,
+  and a FAQ, all rendered from the same rules dataset the engine uses (FR-022 applies to it).
+- **/about**: the problem, the information-vs-advice line, privacy, scope, authorship.
+- Progressive disclosure on Understand (6 key facts, 12 more on demand) and Rights (4 rules,
+  more on demand); a light/dark switch; step transitions.
+
+Success criteria status: SC-001 to SC-009 met; SC-006 measured as Lighthouse accessibility 100
+and zero axe violations on every screen; SC-002 measured on the five supported samples at 100 %
+of golden fields. Open scope questions 1–4 were all answered "yes" by the owner on 2026-09-18.
