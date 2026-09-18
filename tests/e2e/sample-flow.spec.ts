@@ -88,3 +88,15 @@ test("keyboard only: a sample can be opened without a mouse", async ({ page }) =
   await page.keyboard.press("Enter");
   await expect(page.getByRole("heading", { name: "Here is what your document says" })).toBeVisible();
 });
+
+test("learn and about pages render from the rules dataset and pass axe", async ({ page }) => {
+  await page.goto("/learn");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("How appealing");
+  await expect(page.getByText("You have at least 180 days to file an internal appeal")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Source/ }).first()).toHaveAttribute("href", /^https:\/\//);
+  await expectNoHorizontalScroll(page);
+  await expectNoA11yViolations(page, "learn");
+  await page.goto("/about");
+  await expect(page.getByRole("heading", { name: "Information, not advice" })).toBeVisible();
+  await expectNoA11yViolations(page, "about");
+});

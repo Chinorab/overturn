@@ -18,11 +18,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
       <div className="mx-auto flex h-14 max-w-[680px] items-center justify-between gap-3 px-4">
-        <Link href="/" className="font-semibold tracking-tight text-primary">
-          Overturn
-        </Link>
+        <div className="flex items-center gap-5">
+          <Link href="/" className="font-semibold tracking-tight text-primary">
+            Overturn
+          </Link>
+          <nav aria-label="Site" className="hidden items-center gap-4 text-sm sm:flex">
+            <NavLink href="/learn">How appeals work</NavLink>
+            <NavLink href="/about">About</NavLink>
+          </nav>
+        </div>
         <div className="flex items-center gap-2">
-          <span className="hidden text-sm text-muted-foreground sm:inline">Information, not legal advice</span>
           <HelpDrawer />
           <ThemeToggle />
         </div>
@@ -31,8 +36,25 @@ export function SiteHeader() {
   );
 }
 
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const pathname = usePathname();
+  const active = pathname.startsWith(href);
+  return (
+    <Link
+      href={href}
+      aria-current={active ? "page" : undefined}
+      className={cn("inline-flex min-h-11 items-center underline-offset-4 hover:underline", active ? "font-semibold text-foreground underline" : "text-muted-foreground")}
+    >
+      {children}
+    </Link>
+  );
+}
+
+const FLOW = ["/", "/understand", "/rights", "/letter"];
+
 export function Stepper() {
   const pathname = usePathname();
+  if (!FLOW.includes(pathname)) return null;
   const current = Math.max(
     0,
     STEPS.findIndex((s) => (s.href === "/" ? pathname === "/" : pathname.startsWith(s.href))),
@@ -78,6 +100,14 @@ export function SiteFooter() {
           advice, and cannot predict the outcome of an appeal. Documents are processed in memory and never stored.
         </p>
         <p className="mt-2">
+          <Link href="/learn" className="underline underline-offset-4 decoration-primary/40">
+            How appeals work
+          </Link>
+          {" · "}
+          <Link href="/about" className="underline underline-offset-4 decoration-primary/40">
+            About
+          </Link>
+          {" · "}
           Source code on{" "}
           <a className="underline underline-offset-4" href="https://github.com/Chinorab/overturn">
             GitHub

@@ -1,4 +1,5 @@
-import { BookOpenCheck, FileSearch, Lock, Scale, Send, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, BookOpen, Lock, Scale } from "lucide-react";
 import { IntakePanel } from "@/components/intake-panel";
 
 export default function Home() {
@@ -27,51 +28,24 @@ export default function Home() {
         <IntakePanel />
       </section>
 
-      <section aria-labelledby="how">
-        <h2 id="how" className="text-lg font-semibold">
-          How it works
-        </h2>
-        <ol className="mt-3 grid gap-3 sm:grid-cols-3">
-          {[
-            { icon: FileSearch, t: "The model reads", d: "An AI reads your document and shows the exact words each fact came from." },
-            { icon: BookOpenCheck, t: "The code decides", d: "Which rights and deadlines apply is computed by rules, each linked to the law it comes from. Never by the AI." },
-            { icon: Send, t: "You send", d: "The letter is yours to edit. Free human help is one tap away at every step." },
-          ].map((s, i) => (
-            <li key={s.t} className="rounded-2xl border bg-card p-4">
-              <div className="flex items-center gap-2">
-                <span className="flex size-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">{i + 1}</span>
-                <s.icon className="size-5 text-primary" aria-hidden="true" />
-              </div>
-              <p className="mt-3 font-semibold">{s.t}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{s.d}</p>
-            </li>
-          ))}
-        </ol>
+      <section aria-label="Learn more" className="grid gap-3 sm:grid-cols-2">
+        <Link href="/learn" className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/60 focus-visible:border-primary">
+          <BookOpen className="size-5 text-primary" aria-hidden="true" />
+          <p className="mt-3 font-semibold group-hover:text-primary">How appeals work in the US</p>
+          <p className="mt-1 text-sm text-muted-foreground">The four stages, the deadlines, what your state adds, and where to get free help. Read it before or after.</p>
+          <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
+            Know your rights <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </span>
+        </Link>
+        <Link href="/about" className="group rounded-2xl border bg-card p-5 transition-colors hover:border-primary/60 focus-visible:border-primary">
+          <Scale className="size-5 text-primary" aria-hidden="true" />
+          <p className="mt-3 font-semibold group-hover:text-primary">Why this is information, not advice</p>
+          <p className="mt-1 text-sm text-muted-foreground">The model reads, the code decides, you send. How Overturn stays honest, what it covers, and what happens to your document.</p>
+          <span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-primary">
+            About Overturn <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+          </span>
+        </Link>
       </section>
-
-      <section aria-labelledby="isnot" className="grid gap-3 sm:grid-cols-3">
-        <h2 id="isnot" className="sr-only">
-          What Overturn is and is not
-        </h2>
-        {[
-          { icon: Scale, t: "Information, not advice", d: "It explains; it does not tell you what to do." },
-          { icon: ShieldCheck, t: "Not a lawyer", d: "No prediction of whether an appeal will succeed." },
-          { icon: Lock, t: "Nothing stored", d: "Your document is read once, then discarded." },
-        ].map((c) => (
-          <div key={c.t} className="flex items-start gap-3 rounded-2xl border bg-card p-4">
-            <c.icon className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
-            <div>
-              <p className="font-semibold">{c.t}</p>
-              <p className="text-sm text-muted-foreground">{c.d}</p>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <p className="text-sm text-muted-foreground">
-        Covers job-based, Marketplace, and individual plans, with state rules for California, New York, and Texas and the federal baseline
-        everywhere else. Does not cover Medicare, Medicaid, TRICARE, or VA.
-      </p>
     </div>
   );
 }
