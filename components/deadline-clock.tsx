@@ -77,7 +77,7 @@ export function DeadlineClock({ deadline, rule, compact = false }: { deadline: C
 
       {!compact && (
         <details className="mt-4 text-sm">
-          <summary className="cursor-pointer text-muted-foreground underline-offset-4 hover:underline">How this date was calculated</summary>
+          <summary className="cursor-pointer text-muted-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-primary">How this date was calculated</summary>
           <div className="mt-2 space-y-2 text-muted-foreground">
             <p>
               {deadline.anchor ? (
@@ -92,7 +92,7 @@ export function DeadlineClock({ deadline, rule, compact = false }: { deadline: C
             <p>{rule.summary}</p>
             <p className="flex flex-wrap items-center gap-2">
               <RuleLabel />
-              <a href={rule.source_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary underline-offset-4 hover:underline">
+              <a href={rule.source_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
                 Read the source <ExternalLink className="size-3.5" aria-hidden="true" />
                 <span className="sr-only">(opens in a new tab)</span>
               </a>

@@ -135,7 +135,7 @@ export function IntakePanel() {
           </p>
           <p className="mt-2 text-sm">{phase.message}</p>
           {phase.resource_url && (
-            <a href={phase.resource_url} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm font-medium text-primary underline-offset-4 hover:underline">
+            <a href={phase.resource_url} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
               Go to the right place for this document
             </a>
           )}

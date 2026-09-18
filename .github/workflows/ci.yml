@@ -27,3 +27,7 @@ jobs:
       - run: pnpm build
         env:
           ANTHROPIC_API_KEY: ci-placeholder-not-a-real-key
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm test:e2e
+        env:
+          ANTHROPIC_API_KEY: ci-placeholder-not-a-real-key

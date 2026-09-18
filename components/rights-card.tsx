@@ -46,7 +46,7 @@ export function RightsCard({ applied, highlight = false }: { applied: AppliedRul
       <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-muted-foreground">
         <RuleLabel />
         <span>{rule.legal_ref}</span>
-        <a href={rule.source_url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-8 items-center gap-1 text-primary underline-offset-4 hover:underline">
+        <a href={rule.source_url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-8 items-center gap-1 text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
           Source <ExternalLink className="size-3.5" aria-hidden="true" />
           <span className="sr-only">(opens in a new tab)</span>
         </a>

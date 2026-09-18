@@ -272,7 +272,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
             <p key={h.id} className="mt-1">
               {h.name}
               {h.phone ? ` · ${h.phone}` : ""} ·{" "}
-              <a href={h.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary underline-offset-4 hover:underline">
+              <a href={h.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
                 website <ExternalLink className="size-3" aria-hidden="true" />
               </a>
             </p>
@@ -289,7 +289,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
             {rules.map((r) => (
               <li key={r.id}>
                 {r.legal_ref} — {r.title}.{" "}
-                <a href={r.source_url} target="_blank" rel="noopener noreferrer" className="text-primary underline-offset-4 hover:underline">
+                <a href={r.source_url} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
                   source
                 </a>
               </li>

@@ -41,7 +41,7 @@ export function FactCard({
             type="button"
             onClick={() => setShowQuote((v) => !v)}
             aria-expanded={showQuote}
-            className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md px-2 text-sm text-primary underline-offset-4 hover:underline"
+            className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md px-2 text-sm text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
           >
             <Quote className="size-4" aria-hidden="true" />
             {showQuote ? "Hide source" : "Where is this from?"}

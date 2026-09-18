@@ -33,7 +33,7 @@ export default async function UnsupportedPage({ searchParams }: { searchParams: 
           right place, and it is free.
         </p>
         {safeUrl && (
-          <a href={safeUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-primary underline-offset-4 hover:underline">
+          <a href={safeUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-11 items-center gap-2 font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
             Official appeal instructions <ExternalLink className="size-4" aria-hidden="true" />
             <span className="sr-only">(opens in a new tab)</span>
           </a>

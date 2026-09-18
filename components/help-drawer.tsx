@@ -55,12 +55,12 @@ export function HelpDrawer() {
               <p className="mt-1 text-sm text-muted-foreground">{h.what_they_do}</p>
               <div className="mt-3 flex flex-wrap gap-3 text-sm">
                 {h.phone && (
-                  <a href={`tel:${h.phone.replace(/[^\d+]/g, "")}`} className="inline-flex min-h-11 items-center gap-1.5 font-medium text-primary underline-offset-4 hover:underline">
+                  <a href={`tel:${h.phone.replace(/[^\d+]/g, "")}`} className="inline-flex min-h-11 items-center gap-1.5 font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
                     <Phone className="size-4" aria-hidden="true" />
                     {h.phone}
                   </a>
                 )}
-                <a href={h.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1.5 font-medium text-primary underline-offset-4 hover:underline">
+                <a href={h.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-1.5 font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
                   <ExternalLink className="size-4" aria-hidden="true" />
                   Website
                   <span className="sr-only"> (opens in a new tab)</span>
