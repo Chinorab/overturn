@@ -60,10 +60,10 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 4: US2 — Rights & deadlines — Day 5 (Mon Sept 22)
 
-- [ ] T040 Questions screen: state (pre-filled from `state_hint`, searchable select), plan source, self-funded (with "how to find out" helper), emergency / in-network facility, urgent — one question per card, big radio targets — `app/(flow)/rights/page.tsx`
-- [ ] T041 Rights list: ordered cards with "why this applies" + caveat + source chip + expandable detail; NSA first when applicable; federal-only note for unsupported states — `components/rights-card.tsx`
-- [ ] T042 Deadline clock full version: multiple clocks (internal, external), anchor formula, discrepancy handling, "passed" state with what remains possible — `components/deadline-clock.tsx`
-- [ ] T043 Help drawer (persistent entry point; content from `help-resources.json` for chosen state) — `components/help-drawer.tsx`
+- [x] T040 Questions screen: state (pre-filled from `state_hint`, searchable select), plan source, self-funded (with "how to find out" helper), emergency / in-network facility, urgent — one question per card, big radio targets — `app/(flow)/rights/page.tsx`
+- [x] T041 Rights list: ordered cards with "why this applies" + caveat + source chip + expandable detail; NSA first when applicable; federal-only note for unsupported states — `components/rights-card.tsx`
+- [x] T042 Deadline clock full version: multiple clocks (internal, external), anchor formula, discrepancy handling, "passed" state with what remains possible — `components/deadline-clock.tsx`
+- [x] T043 Help drawer (persistent entry point; content from `help-resources.json` for chosen state) — `components/help-drawer.tsx`
 - [ ] T044 e2e: sample 01 flow through rights at 375 px + axe — `tests/e2e/sample-flow.spec.ts`
 
 **Checkpoint**: deploy; US1 + US2 live.
