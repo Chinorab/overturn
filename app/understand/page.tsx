@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AiLabel } from "@/components/ai-label";
+import { BottomLine } from "@/components/bottom-line";
 import { DeadlineClock } from "@/components/deadline-clock";
 import { FactCard } from "@/components/fact-card";
 import { GlossaryText } from "@/components/glossary-text";
@@ -15,6 +16,7 @@ import { ALL_RULES, HELP_RESOURCES } from "@/lib/rules/load";
 import { DENIAL_CATEGORY_LABEL, DenialCategory, US_STATES, type USStateCode } from "@/lib/schemas/core";
 import { CONFIDENCE_AUTO_ACCEPT, type Explanation, type Extraction, type Field } from "@/lib/schemas/extraction";
 import { useSession } from "@/lib/session";
+import { cn } from "@/lib/utils";
 import { provisionalSituation } from "@/lib/situation";
 import { fmtShort } from "@/components/deadline-clock";
 
@@ -55,6 +57,7 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
   const [state, setState] = useState<string>(ex.state_hint.value ?? "");
   const [docKind, setDocKind] = useState<string>(ex.document_type.value ?? "");
   const [showAll, setShowAll] = useState(false);
+  const [editingDetails, setEditingDetails] = useState(false);
 
   const preview = useMemo(() => {
     const s = provisionalSituation({ ...ex, letter_date: { ...ex.letter_date, value: letterDate || null } });
@@ -92,6 +95,8 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
         </p>
         <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">Here is what your document says</h1>
       </header>
+
+      <BottomLine ex={{ ...ex, letter_date: { ...ex.letter_date, value: letterDate || null } }} deadlineDue={preview?.d.due ?? null} daysLeft={preview?.d.days_left ?? null} />
 
       <section aria-labelledby="summary" className="rounded-2xl border bg-card p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -163,14 +168,33 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
 
       <section aria-labelledby="confirm" className="rounded-2xl border-2 border-primary/30 bg-card p-5">
         <h2 id="confirm" className="text-lg font-semibold">
-          Check these four details
+          {attention > 0 ? "Check these details" : "Four details the next step relies on"}
         </h2>
-        <p className="mt-1 text-sm text-muted-foreground">
-          {attention > 0
-            ? `Overturn is unsure about ${attention} of them. The next step computes your deadlines and rights from these, so a wrong date here means a wrong deadline there.`
-            : "They looked clear in the document. A quick glance is enough; the next step depends on them."}
-        </p>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2">
+        {attention > 0 ? (
+          <p className="mt-1 text-sm text-muted-foreground">
+            Overturn is unsure about {attention} of them. The next step computes your deadlines and rights from these, so a wrong date here means a
+            wrong deadline there.
+          </p>
+        ) : (
+          <p className="mt-1 text-sm text-muted-foreground">They were clear in the document. Change them only if something looks wrong.</p>
+        )}
+        {!editingDetails && attention === 0 && (
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+            <p className="text-base">
+              <span className="font-medium">{docKind === "eob" ? "Explanation of Benefits" : "Denial letter"}</span>
+              <span aria-hidden="true"> · </span>
+              {letterDate ? fmtShort(letterDate) : "no date"}
+              <span aria-hidden="true"> · </span>
+              {DenialCategory.safeParse(category).success ? DENIAL_CATEGORY_LABEL[category as DenialCategory] : "reason unknown"}
+              <span aria-hidden="true"> · </span>
+              {state || "state unknown"}
+            </p>
+            <button type="button" onClick={() => setEditingDetails(true)} className="inline-flex min-h-11 items-center text-sm font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
+              Something is wrong? Change
+            </button>
+          </div>
+        )}
+        <div className={cn("mt-4 grid gap-4 sm:grid-cols-2", !editingDetails && attention === 0 && "hidden")}>
           <label className="block text-sm font-medium">
             Date on the document
             <TextInput type="date" value={letterDate} onChange={(e) => setLetterDate(e.target.value)} className="mt-1" required />

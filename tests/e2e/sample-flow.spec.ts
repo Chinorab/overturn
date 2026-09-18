@@ -62,12 +62,18 @@ test("sample flow: understand → rights → letter → download, on a phone", a
 
   // Letter (cached)
   await expect(page.getByRole("heading", { name: "Your appeal letter" })).toBeVisible();
-  await expect(page.getByText(/blanks to fill in/)).toBeVisible();
+  await expect(page.getByText(/still to fill in the letter/)).toBeVisible();
   await expect(page.locator("mark.placeholder-chip").first()).toBeVisible();
   await expect(page.getByText("45 CFR 149.110", { exact: false }).first()).toBeVisible();
   await expect(page.getByRole("heading", { name: "Before you send" })).toBeVisible();
   await expectNoHorizontalScroll(page);
   await expectNoA11yViolations(page, "letter");
+
+  // Fill-in form replaces the standard blanks at once
+  await page.getByLabel("Your full name").fill("Jasmine R. Whitfield");
+  await page.getByRole("button", { name: "Put these in the letter" }).click();
+  await expect(page.locator("section[aria-labelledby=letter]")).toContainText("Jasmine R. Whitfield");
+  await expect(page.locator("section[aria-labelledby=letter]")).not.toContainText("[ADD: your full name]");
 
   // Edit persists
   await page.getByRole("button", { name: /Edit section: Purpose|Edit section: intro/ }).click();
@@ -77,7 +83,7 @@ test("sample flow: understand → rights → letter → download, on a phone", a
   await expect(page.getByText("EDITED PARAGRAPH FOR TEST")).toBeVisible();
 
   // Download produces a PDF
-  const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "PDF" }).click()]);
+  const [download] = await Promise.all([page.waitForEvent("download"), page.getByRole("button", { name: "Download PDF" }).click()]);
   expect(download.suggestedFilename()).toBe("appeal-letter.pdf");
 });
 

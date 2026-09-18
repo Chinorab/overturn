@@ -34,7 +34,7 @@ export default function Home() {
               Try a sample first
             </Button>
           </div>
-          <p className="mt-3 text-sm text-muted-foreground">About a minute. Works on a phone. No account.</p>
+          <p className="mt-3 text-sm text-muted-foreground">About a minute. Works on a phone. No account. Samples need no upload at all.</p>
         </div>
 
         {/* Before / after */}

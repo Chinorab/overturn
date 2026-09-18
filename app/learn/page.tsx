@@ -134,7 +134,7 @@ export default function LearnPage() {
                 <p className="mt-1 text-sm text-muted-foreground">{st.blurb}</p>
                 <details className="mt-3">
                   <summary className="cursor-pointer text-sm font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
-                    {rules.length} state rules and {help.length} places to get free help
+                    {rules.length} state {rules.length === 1 ? "rule" : "rules"} and {help.length} {help.length === 1 ? "place" : "places"} to get free help
                   </summary>
                   <ul className="mt-3 space-y-2">
                     {rules.map((r) => (

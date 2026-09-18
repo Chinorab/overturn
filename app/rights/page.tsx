@@ -84,6 +84,12 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
       <header>
         <h1 className="font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">Your rights and deadlines</h1>
         <p className="mt-2 text-muted-foreground">Five quick questions. The answers decide which rules apply; the list below updates as you go.</p>
+        {initial && (
+          <p className="mt-2 inline-flex items-center gap-2 rounded-lg bg-secondary/60 px-3 py-2 text-sm text-secondary-foreground">
+            <Info className="size-4 shrink-0" aria-hidden="true" />
+            Some answers are already filled in from your document. Change any that are wrong.
+          </p>
+        )}
       </header>
 
       <div className="space-y-4">
@@ -115,7 +121,7 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
             { value: "employer", label: "A job", hint: "Yours or a family member's employer" },
             { value: "marketplace", label: "The Marketplace", hint: "HealthCare.gov or a state exchange" },
             { value: "direct", label: "Bought directly", hint: "From an insurer or broker" },
-            { value: "other", label: "Something else", hint: "Union, school, association…" },
+            { value: "other", label: "Something else, or not sure", hint: "Union, school, association… or you don't know: the federal rules apply either way" },
           ]}
         />
 
@@ -156,7 +162,7 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
         <ChoiceGroup<"yes" | "no">
           name="urgent"
           legend="Is the treatment ongoing or urgent?"
-          help="For example you are in the hospital now, or waiting would seriously harm your health. Urgent cases get a 72-hour fast track."
+          help="For example you are in the hospital now, or waiting would seriously harm your health. Urgent cases get a 72-hour fast track for the appeal."
           value={urgent}
           onChange={setUrgent}
           options={[
@@ -171,6 +177,7 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
             If the plan has already sent its final decision on your internal appeal, enter that date. It starts the clock for outside review.
           </p>
           <TextInput type="date" aria-label="Date of the plan's final internal appeal decision" className="mt-3 sm:max-w-xs" value={finalDate} onChange={(e) => setFinalDate(e.target.value)} />
+          <p className="mt-2 text-xs text-muted-foreground">Leave it empty if you have not appealed yet.</p>
         </fieldset>
       </div>
 
@@ -197,7 +204,8 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
               What applies to your situation
             </h2>
             <p className="text-sm text-muted-foreground">
-              {result.rules.length} rules, most relevant first. Each one links to the law or regulator page it comes from.
+              {nonDeadline.length} {nonDeadline.length === 1 ? "rule" : "rules"} besides the deadlines above, most relevant first. Each one links to the law or regulator
+              page it comes from.
             </p>
             {visibleRules.map((r, i) => (
               <RightsCard key={r.rule.id} applied={r} highlight={i < 2} />

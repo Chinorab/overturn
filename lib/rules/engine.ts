@@ -37,7 +37,7 @@ export type RightsResult = {
 };
 
 const ANCHOR_LABEL: Record<DeadlineAnchor, string> = {
-  letter_date: "date of the denial letter",
+  letter_date: "date on the document",
   final_internal_denial_date: "date of the plan's final internal appeal decision",
   service_date: "date of service",
 };

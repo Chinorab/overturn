@@ -7,6 +7,7 @@ import { AlertTriangle, ArrowLeft, Check, ClipboardCopy, Download, ExternalLink,
 import { Button } from "@/components/ui/button";
 import { AiLabel } from "@/components/ai-label";
 import { citedRules, LetterRichText, letterToPlainText } from "@/components/letter-text";
+import { FillInForm } from "@/components/fill-in-form";
 import { computeRights } from "@/lib/rules/engine";
 import { ALL_RULES, HELP_RESOURCES } from "@/lib/rules/load";
 import { LetterDraft } from "@/lib/schemas/letter";
@@ -154,7 +155,8 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
           <AiLabel what="Drafted by AI from your facts and rights" />
         </div>
         <p className="mt-2 text-muted-foreground">
-          A draft, in your voice, for you to finish. Tap any part to edit it. The highlighted blanks are things only you know.
+          A draft written in the first person, for you to finish. Fill in the blanks below, then tap any part of the letter to edit it. The bracketed
+          legal references are part of the letter; the plan expects them.
         </p>
       </header>
 
@@ -168,12 +170,14 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
         </div>
       )}
 
+      <FillInForm letter={letter} onApply={(next) => setLetter(next)} />
+
       {placeholders.length > 0 && (
         <section aria-labelledby="blanks" className="rounded-2xl border bg-card p-5">
           <h2 id="blanks" className="font-semibold">
-            {placeholders.length} {placeholders.length === 1 ? "blank" : "blanks"} to fill in
+            {placeholders.length} {placeholders.length === 1 ? "blank" : "blanks"} still to fill in the letter
           </h2>
-          <p className="mt-1 text-sm text-muted-foreground">Overturn never guesses a fact it does not have. These are marked in the letter like this:</p>
+          <p className="mt-1 text-sm text-muted-foreground">Overturn never guesses a fact it does not have. Tap the section that contains one to write it in:</p>
           <ul className="mt-3 flex flex-wrap gap-2">
             {placeholders.map((p) => (
               <li key={p}>
@@ -306,10 +310,10 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
 
       <div className="fixed inset-x-0 bottom-0 z-30 flex gap-2 border-t bg-card/95 p-3 backdrop-blur sm:hidden">
         <Button className="h-12 flex-1 text-base" onClick={downloadPdf} disabled={downloading}>
-          {downloading ? <Loader2 className="animate-spin" aria-hidden="true" /> : <Download aria-hidden="true" />} PDF
+          {downloading ? <Loader2 className="animate-spin" aria-hidden="true" /> : <Download aria-hidden="true" />} Download PDF
         </Button>
         <Button variant="outline" className="h-12 flex-1 text-base" onClick={copyText}>
-          {copied ? <Check aria-hidden="true" /> : <ClipboardCopy aria-hidden="true" />} {copied ? "Copied" : "Copy"}
+          {copied ? <Check aria-hidden="true" /> : <ClipboardCopy aria-hidden="true" />} {copied ? "Copied" : "Copy text"}
         </Button>
       </div>
     </div>

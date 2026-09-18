@@ -156,7 +156,7 @@ export function IntakePanel() {
         </TabsList>
 
         <TabsContent value="sample" className="animate-in fade-in-0 slide-in-from-bottom-1 duration-200">
-          <p className="text-sm text-muted-foreground">Seven fictional documents, already read. Pick one to see the whole flow; nothing is uploaded.</p>
+          <p className="text-sm text-muted-foreground">Seven fictional documents, already read. Pick one to see the whole flow; nothing is uploaded. (EOB = Explanation of Benefits, the statement your plan sends after a claim.)</p>
           <ul className="mt-3 grid gap-2 sm:grid-cols-2">
             {SAMPLES.map((s) => (
               <li key={s.id}>
