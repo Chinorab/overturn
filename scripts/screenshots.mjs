@@ -56,7 +56,7 @@ await phone("02-understand-summary", async (p) => {
 
 await phone("03-understand-quote", async (p) => {
   await openSample(p, /MRI denied/);
-  const btn = p.getByRole("button", { name: "Where is this from?" }).nth(8);
+  const btn = p.getByRole("button", { name: "Where is this from?" }).first();
   await btn.scrollIntoViewIfNeeded();
   await btn.click();
   await p.locator("blockquote").first().scrollIntoViewIfNeeded();
