@@ -106,6 +106,10 @@ await phone("09-unsupported", async (p) => {
   await p.getByRole("heading", { name: /outside what Overturn covers/ }).waitFor();
 });
 
+await phone("11-learn", async (p) => {
+  await p.goto(`${BASE}/learn`);
+});
+
 await desktop("10-desktop-rights", async (p) => {
   await openSample(p, /ER visit billed/);
   await toRights(p);

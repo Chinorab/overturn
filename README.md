@@ -35,7 +35,10 @@ Four screens, one task each, on a phone.
 | **4. Letter** | An appeal letter drafted from your facts and those rights only, with visible blanks for everything Overturn does not know. Edit, download as PDF, or copy. | You send |
 
 Every screen has a "Get free human help" button that lists the state Consumer Assistance
-Program and regulator.
+Program and regulator. Two more pages carry the context without crowding the flow:
+**/learn** ("How appeals work": the four stages, what each state adds, FAQ, all rendered from
+the same rules dataset) and **/about** (the problem, the information-vs-advice line, privacy,
+scope).
 
 <p align="center">
   <img src="docs/screenshots/02-understand-summary.png" width="230" alt="Understand screen: plain-English summary and the first deadline" />
