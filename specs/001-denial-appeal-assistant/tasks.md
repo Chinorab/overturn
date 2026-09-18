@@ -52,7 +52,7 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 - [x] T029 Stepper + layout chrome + skip link + AI-assisted label component — `components/stepper.tsx`, `components/ai-label.tsx`, `app/layout.tsx`
 - [x] T030 Understand screen: extraction skeleton with progress line; summary; fact cards with "where did this come from?" quote reveal; low-confidence fields flagged + editable confirm form; deadline clock (federal internal appeal preview from letter date) — `app/(flow)/understand/page.tsx`, `components/fact-card.tsx`, `components/deadline-clock.tsx`
 - [x] T031 Designed error/empty states: unreadable, unsupported (Medicare/Medicaid/non-English), too large, model unavailable — `app/unsupported/page.tsx`, `components/state-screens.tsx`
-- [ ] T032 Deploy; run the 6 samples live; tune the extraction prompt against golden `*.extraction.json` until ≥ 90 % field match (SC-002) — `tests/unit/extraction.golden.test.ts` (offline compare of cached outputs)
+- [x] T032 Deploy; run the 6 samples live; tune the extraction prompt against golden `*.extraction.json` until ≥ 90 % field match (SC-002) — `tests/unit/extraction.golden.test.ts` (offline compare of cached outputs)
 
 **Checkpoint (end Day 4)**: public URL: upload or pick a sample → understand screen with facts, explanation, deadline. **This alone is a submittable MVP.**
 
@@ -64,7 +64,7 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 - [x] T041 Rights list: ordered cards with "why this applies" + caveat + source chip + expandable detail; NSA first when applicable; federal-only note for unsupported states — `components/rights-card.tsx`
 - [x] T042 Deadline clock full version: multiple clocks (internal, external), anchor formula, discrepancy handling, "passed" state with what remains possible — `components/deadline-clock.tsx`
 - [x] T043 Help drawer (persistent entry point; content from `help-resources.json` for chosen state) — `components/help-drawer.tsx`
-- [ ] T044 e2e: sample 01 flow through rights at 375 px + axe — `tests/e2e/sample-flow.spec.ts`
+- [x] T044 e2e: sample 01 flow through rights at 375 px + axe — `tests/e2e/sample-flow.spec.ts`
 
 **Checkpoint**: deploy; US1 + US2 live.
 
@@ -78,7 +78,7 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 - [x] T053 Letter screen: serif preview, section-level editing, placeholder chips, streaming reveal, guard warnings highlighted, attachment checklist, where-to-send block with verify note, "Before you send" panel, human-help pointer — `app/(flow)/letter/page.tsx`, `components/letter-editor.tsx`
 - [x] T054 PDF export via `@react-pdf/renderer` + copy-as-text; sticky download bar on mobile — `components/letter-pdf.tsx`
 - [x] T055 Precompute sample letters too (demo resilience) — extend `scripts/precompute-samples.ts`
-- [ ] T056 Deploy; full e2e extended to download — `tests/e2e/sample-flow.spec.ts`
+- [x] T056 Deploy; full e2e extended to download — `tests/e2e/sample-flow.spec.ts`
 
 **Checkpoint (end Day 7)**: complete flow live. Feature freeze on new scope.
 
@@ -86,13 +86,13 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 6: Polish, trust, docs — Day 8 (Thu Sept 25)
 
-- [ ] T060 Copy pass over every screen against the copy rules (descriptive, Grade 8, inline definitions, no exclamation marks); prescriptive-language grep over `app/` and `components/` — all UI files
-- [ ] T061 Accessibility pass: keyboard-only run, screen-reader announcements (`aria-live` on async results), focus management between steps, reduced motion; Lighthouse ≥ 95 a11y on all screens — all UI files
-- [ ] T062 Dark mode check, 375/768/1024/1440 check, no horizontal scroll — `app/globals.css`
-- [ ] T063 README complete: problem (with sourced stats), solution, "the model reads, the code decides, the human sends", legal design section (three layers), privacy, supported scope table + "not built" table, stack & credits (every lib, model, AI tool incl. Claude Code), local run, screenshots placeholders — `README.md`
-- [ ] T064 [P] `LEGAL_DESIGN.md`: the UPL argument in one page for the jury (what constitutes practice of law vs. legal information; how each layer avoids it; sources) — `LEGAL_DESIGN.md`
-- [ ] T065 [P] `data/rules/README.md`: how to add a state (schema, verification, golden test) — proves extensibility claim
-- [ ] T066 Security review of routes (size caps, rate limit, no content logging, headers) — `app/api/*`
+- [x] T060 Copy pass over every screen against the copy rules (descriptive, Grade 8, inline definitions, no exclamation marks); prescriptive-language grep over `app/` and `components/` — all UI files
+- [x] T061 Accessibility pass: keyboard-only run, screen-reader announcements (`aria-live` on async results), focus management between steps, reduced motion; Lighthouse ≥ 95 a11y on all screens — all UI files
+- [x] T062 Dark mode check, 375/768/1024/1440 check, no horizontal scroll — `app/globals.css`
+- [x] T063 README complete: problem (with sourced stats), solution, "the model reads, the code decides, the human sends", legal design section (three layers), privacy, supported scope table + "not built" table, stack & credits (every lib, model, AI tool incl. Claude Code), local run, screenshots placeholders — `README.md`
+- [x] T064 [P] `LEGAL_DESIGN.md`: the UPL argument in one page for the jury (what constitutes practice of law vs. legal information; how each layer avoids it; sources) — `LEGAL_DESIGN.md`
+- [x] T065 [P] `data/rules/README.md`: how to add a state (schema, verification, golden test) — proves extensibility claim
+- [x] T066 Security review of routes (size caps, rate limit, no content logging, headers) — `app/api/*`
 
 ---
 
