@@ -94,6 +94,8 @@ await phone("07-letter", async (p) => {
   await openSample(p, /ER visit billed/);
   await toRights(p);
   await toLetter(p);
+  await p.locator("section[aria-labelledby=letter]").scrollIntoViewIfNeeded();
+  await p.evaluate(() => window.scrollBy(0, -70));
 });
 
 await phone("08-letter-send", async (p) => {
