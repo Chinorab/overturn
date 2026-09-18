@@ -8,10 +8,27 @@
     "legal_ref": "N.Y. Ins. Law § 4914; DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["NY"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "out_of_network", "prior_auth", "other"] },
-    "deadline": { "anchor": "final_internal_denial_date", "amount": 4, "unit": "months", "who": "consumer" },
+    "applies_if": {
+      "state": [
+        "NY"
+      ],
+      "self_funded": "no",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "out_of_network",
+        "prior_auth",
+        "other"
+      ]
+    },
+    "deadline": {
+      "anchor": "final_internal_denial_date",
+      "amount": 4,
+      "unit": "months",
+      "who": "consumer"
+    },
     "priority": 12,
-    "why_template": "Your plan is regulated by New York, so the state's external appeal is available to you.",
+    "why_template": "This applies to plans regulated by New York, which covers most job-based plans that are insured, and all Marketplace and individual plans in the state.",
     "caveat": "State external appeal applies to plans regulated by New York. If your employer plan is self-funded, use the federal external review instead."
   },
   {
@@ -23,7 +40,12 @@
     "legal_ref": "N.Y. Ins. Law § 4910; DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["NY"], "self_funded": "no" },
+    "applies_if": {
+      "state": [
+        "NY"
+      ],
+      "self_funded": "no"
+    },
     "priority": 22,
     "why_template": "This tells you whether your kind of denial can go to an outside reviewer in New York."
   },
@@ -36,7 +58,12 @@
     "legal_ref": "N.Y. Ins. Law § 4914(b); DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["NY"], "self_funded": "no" },
+    "applies_if": {
+      "state": [
+        "NY"
+      ],
+      "self_funded": "no"
+    },
     "priority": 45,
     "why_template": "Good to know before filing: the cost is small and refundable."
   },
@@ -49,7 +76,12 @@
     "legal_ref": "N.Y. Ins. Law § 4914(b); DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["NY"], "self_funded": "no" },
+    "applies_if": {
+      "state": [
+        "NY"
+      ],
+      "self_funded": "no"
+    },
     "priority": 42,
     "why_template": "This is how long the New York outside review takes once filed."
   },
@@ -62,7 +94,17 @@
     "legal_ref": "N.Y. Ins. Law § 4904(b), (c), (e)",
     "source_url": "https://www.nysenate.gov/legislation/laws/ISC/4904",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["NY"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "applies_if": {
+      "state": [
+        "NY"
+      ],
+      "self_funded": "no",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth"
+      ]
+    },
     "priority": 21,
     "why_template": "Write down the date you sent your appeal; New York's deadline for the plan is short and the consequence for missing it is strong."
   }

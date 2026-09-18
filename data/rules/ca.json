@@ -28,7 +28,7 @@
       "who": "consumer"
     },
     "priority": 12,
-    "why_template": "Your plan is regulated by California, so IMR is available for medical-necessity type denials.",
+    "why_template": "This applies to plans regulated by California (insured job-based plans, Marketplace and individual plans), for denials that turn on medical judgment.",
     "caveat": "IMR applies to plans regulated by California (most HMOs and many PPOs through the DMHC; some PPO policies through the Department of Insurance, which runs a parallel review). Self-funded employer plans use the federal external review instead."
   },
   {

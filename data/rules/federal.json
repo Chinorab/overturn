@@ -8,8 +8,15 @@
     "legal_ref": "29 CFR 2560.503-1(h)(3)(i); 45 CFR 147.136(b)(2)(i), (b)(3)(i)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any" },
-    "deadline": { "anchor": "letter_date", "amount": 180, "unit": "days", "who": "consumer" },
+    "applies_if": {
+      "self_funded": "any"
+    },
+    "deadline": {
+      "anchor": "letter_date",
+      "amount": 180,
+      "unit": "days",
+      "who": "consumer"
+    },
     "priority": 10,
     "why_template": "This is the federal minimum for every job-based, Marketplace, and individual plan, counted from the date you received the denial."
   },
@@ -22,7 +29,9 @@
     "legal_ref": "29 CFR 2560.503-1(i)(2); 45 CFR 147.136(b)(2)(ii)(B)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any" },
+    "applies_if": {
+      "self_funded": "any"
+    },
     "priority": 40,
     "why_template": "These limits apply to your plan once your appeal is received."
   },
@@ -35,7 +44,9 @@
     "legal_ref": "29 CFR 2560.503-1(h)(2)(iii), (g)(1)(v); 45 CFR 147.136(b)(2)(ii)(C)(1)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any" },
+    "applies_if": {
+      "self_funded": "any"
+    },
     "priority": 20,
     "why_template": "Asking for the file is often the single most useful first step: it shows exactly what the reviewer looked at and which criteria were used."
   },
@@ -48,7 +59,15 @@
     "legal_ref": "45 CFR 147.136(b)(2)(ii)(E)(2)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any", "denial_category": ["coding_admin", "not_covered", "duplicate", "other"] },
+    "applies_if": {
+      "self_funded": "any",
+      "denial_category": [
+        "coding_admin",
+        "not_covered",
+        "duplicate",
+        "other"
+      ]
+    },
     "priority": 25,
     "why_template": "When a denial turns on a code, seeing the code and its meaning is how you and your provider spot a mistake."
   },
@@ -61,7 +80,14 @@
     "legal_ref": "29 CFR 2560.503-1(h)(3)(ii)-(iii)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "applies_if": {
+      "self_funded": "any",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth"
+      ]
+    },
     "priority": 30,
     "why_template": "Because your denial involves a medical judgment, you can ask who reviewed it and what their specialty is."
   },
@@ -74,7 +100,9 @@
     "legal_ref": "29 CFR 2560.503-1(g)(1); 45 CFR 147.136(b)(2)(ii)(E)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any" },
+    "applies_if": {
+      "self_funded": "any"
+    },
     "priority": 50,
     "why_template": "Compare your letter against this list; missing items are worth naming in your appeal."
   },
@@ -87,7 +115,9 @@
     "legal_ref": "29 CFR 2560.503-1(l); 45 CFR 147.136(b)(2)(ii)(F)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any" },
+    "applies_if": {
+      "self_funded": "any"
+    },
     "priority": 60,
     "why_template": "Keep a record of every date; if the plan misses one, this rule may apply."
   },
@@ -100,8 +130,22 @@
     "legal_ref": "45 CFR 147.136(d)(2)(i)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any", "denial_category": ["medical_necessity", "experimental", "prior_auth", "out_of_network", "other"] },
-    "deadline": { "anchor": "final_internal_denial_date", "amount": 4, "unit": "months", "who": "consumer" },
+    "applies_if": {
+      "self_funded": "any",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth",
+        "out_of_network",
+        "other"
+      ]
+    },
+    "deadline": {
+      "anchor": "final_internal_denial_date",
+      "amount": 4,
+      "unit": "months",
+      "who": "consumer"
+    },
     "priority": 11,
     "why_template": "External review covers denials that involve medical judgment (such as medical necessity, appropriateness, setting, or experimental status) and coverage rescissions.",
     "caveat": "External review generally does not cover denials that turn only on plan terms with no medical judgment involved (for example, a benefit the plan simply excludes)."
@@ -115,7 +159,9 @@
     "legal_ref": "45 CFR 147.136(d)(2)(iii)(B)(6), (d)(3)(iv)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any" },
+    "applies_if": {
+      "self_funded": "any"
+    },
     "priority": 41,
     "why_template": "This is how long the outside review takes once it is filed."
   },
@@ -128,7 +174,10 @@
     "legal_ref": "45 CFR 147.136(b)(2)(ii)(B), (d)(3)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
     "last_verified": "2026-09-18",
-    "applies_if": { "self_funded": "any", "urgent": true },
+    "applies_if": {
+      "self_funded": "any",
+      "urgent": true
+    },
     "priority": 5,
     "why_template": "You said the treatment is ongoing or urgent, so the fast track may apply; say the word \"expedited\" clearly in your request."
   },
@@ -141,9 +190,14 @@
     "legal_ref": "29 U.S.C. 1144 (ERISA preemption); 45 CFR 147.136(d)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
     "last_verified": "2026-09-18",
-    "applies_if": { "plan_source": ["employer"], "self_funded": "yes" },
+    "applies_if": {
+      "plan_source": [
+        "employer"
+      ],
+      "self_funded": "yes"
+    },
     "priority": 15,
-    "why_template": "Your plan is self-funded, so the federal route is the one that applies.",
+    "why_template": "This is the route for employer plans that pay their own claims (self-funded plans).",
     "caveat": "Not sure whether your plan is self-funded? Ask HR, or look at the Summary Plan Description; insurance cards for self-funded plans often say \"administered by\" rather than \"insured by\"."
   }
 ]

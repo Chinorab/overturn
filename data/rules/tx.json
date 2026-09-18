@@ -8,7 +8,17 @@
     "legal_ref": "Tex. Ins. Code § 4201.359(a)",
     "source_url": "https://texas.public.law/statutes/tex._ins._code_section_4201.359",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["TX"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "applies_if": {
+      "state": [
+        "TX"
+      ],
+      "self_funded": "no",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth"
+      ]
+    },
     "priority": 44,
     "why_template": "Note the date you send the appeal; the plan's clock in Texas is 30 days."
   },
@@ -21,7 +31,17 @@
     "legal_ref": "Tex. Ins. Code § 4201.359(b)",
     "source_url": "https://texas.public.law/statutes/tex._ins._code_section_4201.359",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["TX"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "applies_if": {
+      "state": [
+        "TX"
+      ],
+      "self_funded": "no",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth"
+      ]
+    },
     "priority": 24,
     "why_template": "If the appeal denial skips any of these, name it in your next step."
   },
@@ -34,9 +54,19 @@
     "legal_ref": "Tex. Ins. Code ch. 4201, subch. I; 28 Tex. Admin. Code § 19.1717; TDI IRO FAQ",
     "source_url": "https://www.tdi.texas.gov/hmo/mcqa/irofaqs.html",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["TX"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "applies_if": {
+      "state": [
+        "TX"
+      ],
+      "self_funded": "no",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth"
+      ]
+    },
     "priority": 13,
-    "why_template": "Your plan is regulated by Texas, so the state IRO process is available for this kind of denial.",
+    "why_template": "This applies to plans regulated by the Texas Department of Insurance, for denials that turn on medical judgment.",
     "caveat": "The IRO process applies to plans regulated by the Texas Department of Insurance (look for \"TDI\" or \"DOI\" on your insurance card). Self-funded employer plans, Medicare, Medicaid, and government employee plans are not covered; they use their own routes."
   },
   {
@@ -48,7 +78,17 @@
     "legal_ref": "28 Tex. Admin. Code § 19.1717; TDI IRO FAQ",
     "source_url": "https://www.tdi.texas.gov/hmo/mcqa/irofaqs.html",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["TX"], "self_funded": "no", "denial_category": ["medical_necessity", "experimental", "prior_auth"] },
+    "applies_if": {
+      "state": [
+        "TX"
+      ],
+      "self_funded": "no",
+      "denial_category": [
+        "medical_necessity",
+        "experimental",
+        "prior_auth"
+      ]
+    },
     "priority": 47,
     "why_template": "There is no cost to you and the outside review is fast."
   },
@@ -61,7 +101,12 @@
     "legal_ref": "Texas Department of Insurance consumer guidance",
     "source_url": "https://www.tdi.texas.gov/consumer/complaint-health.html",
     "last_verified": "2026-09-18",
-    "applies_if": { "state": ["TX"], "self_funded": "no" },
+    "applies_if": {
+      "state": [
+        "TX"
+      ],
+      "self_funded": "no"
+    },
     "priority": 49,
     "why_template": "This tells you whether the Texas regulator is the right place to call."
   }
