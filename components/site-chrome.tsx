@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HelpDrawer } from "@/components/help-drawer";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const STEPS = [
   { href: "/", label: "Upload" },
@@ -23,6 +24,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2">
           <span className="hidden text-sm text-muted-foreground sm:inline">Information, not legal advice</span>
           <HelpDrawer />
+          <ThemeToggle />
         </div>
       </div>
     </header>

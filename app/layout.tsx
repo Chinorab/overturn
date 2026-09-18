@@ -38,7 +38,15 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={`${publicSans.variable} ${sourceSerif.variable} h-full antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${publicSans.variable} ${sourceSerif.variable} h-full antialiased`}>
+      <head>
+        {/* Apply the saved theme before first paint so there is no flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var t=localStorage.getItem("overturn.theme");if(t==="light"||t==="dark"){document.documentElement.classList.add(t)}}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col">
         <a
           href="#main"
