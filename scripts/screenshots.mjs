@@ -32,7 +32,7 @@ async function desktop(name, fn) {
 }
 
 const openSample = async (page, re) => {
-  await page.goto(`${BASE}/`);
+  await page.goto(`${BASE}/start`);
   await page.getByRole("button", { name: re }).click();
   await page.getByRole("heading", { name: "Here is what your document says" }).waitFor();
 };
