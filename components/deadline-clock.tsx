@@ -3,15 +3,8 @@ import type { ComputedDeadline } from "@/lib/rules/engine";
 import type { Rule } from "@/lib/rules/schema";
 import { cn } from "@/lib/utils";
 import { RuleLabel } from "@/components/ai-label";
-
-export function fmtLong(iso: string) {
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
-}
-export function fmtShort(iso: string) {
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
-}
+import { fmtLong, fmtShort } from "@/lib/format";
+export { fmtLong, fmtShort };
 
 const TONE = {
   ok: { ring: "border-border", badge: "bg-muted text-foreground", icon: Clock, word: "On track" },

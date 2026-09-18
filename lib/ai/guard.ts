@@ -8,7 +8,6 @@ const PRESCRIPTIVE_PATTERNS: RegExp[] = [
   /\byou (should|must|need to|have to|ought to)\b/i,
   /\bi (recommend|advise|suggest)\b/i,
   /\bwe (recommend|advise)\b/i,
-  /\b(is|are) guaranteed\b/i,
   /\bguaranteed\b/i,
   /\b(will|would|going to) (win|succeed|prevail|be (overturned|reversed|approved))\b/i,
   /\blegal advice\b/i,

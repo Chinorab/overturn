@@ -1,4 +1,4 @@
-import type { DenialCategory, USStateCode } from "@/lib/schemas/core";
+import type { DenialCategory, PlanSource, USStateCode, YesNoUnknown } from "@/lib/schemas/core";
 
 /**
  * The bundled sample documents. All synthetic: fictional insurers, people, and
@@ -74,3 +74,12 @@ export const SAMPLES: Sample[] = [
 ];
 
 export const sampleById = (id: string) => SAMPLES.find((s) => s.id === id);
+
+/** The cached letter matches the "default" answers shown in the demo for each sample. */
+export const DEFAULT_SAMPLE_ANSWERS: Record<string, { plan_source: PlanSource; self_funded: YesNoUnknown; emergency: YesNoUnknown; urgent: "yes" | "no" }> = {
+  "01-medical-necessity-ny": { plan_source: "employer", self_funded: "unknown", emergency: "no", urgent: "no" },
+  "02-prior-auth-ca": { plan_source: "direct", self_funded: "no", emergency: "no", urgent: "no" },
+  "03-oon-emergency-tx-eob": { plan_source: "marketplace", self_funded: "no", emergency: "yes", urgent: "no" },
+  "04-not-covered-fl": { plan_source: "marketplace", self_funded: "no", emergency: "no", urgent: "no" },
+  "05-coding-error-ny-eob": { plan_source: "employer", self_funded: "no", emergency: "no", urgent: "no" },
+};

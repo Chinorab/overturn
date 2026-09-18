@@ -14,6 +14,7 @@ import { ALL_RULES, HELP_RESOURCES } from "@/lib/rules/load";
 import { isSupportedState, US_STATES, type PlanSource, type USStateCode, type YesNoUnknown } from "@/lib/schemas/core";
 import type { Extraction } from "@/lib/schemas/extraction";
 import { useSession, type Answers } from "@/lib/session";
+import { DEFAULT_SAMPLE_ANSWERS } from "@/lib/samples";
 import { buildSituation } from "@/lib/situation";
 
 /**
@@ -28,7 +29,10 @@ export default function RightsPage() {
     if (hydrated && (!ex || !session.confirmed)) router.replace(ex ? "/understand" : "/");
   }, [hydrated, ex, session.confirmed, router]);
   if (!hydrated || !ex || !session.confirmed) return null;
-  return <RightsView ex={ex} initial={session.answers} />;
+  // Samples open with the answers their cached letter was drafted for; the user can change any of them.
+  const sampleDefaults = session.source?.kind === "sample" ? DEFAULT_SAMPLE_ANSWERS[session.source.id] : undefined;
+  const initial = session.answers ?? (sampleDefaults && ex.state_hint.value ? { ...sampleDefaults, state: ex.state_hint.value } : null);
+  return <RightsView ex={ex} initial={initial} />;
 }
 
 function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }) {
