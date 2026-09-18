@@ -36,8 +36,7 @@ async function main() {
       const rights = computeRights(situation, ALL_RULES, HELP_RESOURCES);
       const t0 = Date.now();
       const { draft, usage } = await draftLetter(situation, rights);
-      await writeFile(path.join(dir, `${s.id}.letter.json`), JSON.stringify(draft, null, 2) + "
-");
+      await writeFile(path.join(dir, `${s.id}.letter.json`), JSON.stringify(draft, null, 2) + "\n");
       totalIn += usage.input;
       totalOut += usage.output;
       const words = draft.sections.map((x) => x.text).join(" ").split(/\s+/).length;
