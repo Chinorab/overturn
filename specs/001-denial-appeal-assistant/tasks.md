@@ -25,14 +25,14 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 2: Foundation (rules + schemas) — Day 2 (Fri Sept 19)
 
-- [ ] T010 Zod schemas: `Field<T>`, `Extraction`, `Explanation`, `Situation`, `LetterDraft`, `HelpResource` — `lib/schemas/*.ts`
-- [ ] T011 Zod `Rule` schema + loader — `lib/rules/schema.ts`, `lib/rules/load.ts`
-- [ ] T012 **T-RULES-VERIFY** Read every primary source listed in research.md; author `federal.json`, `nsa.json`, `ca.json`, `ny.json`, `tx.json` with `legal_ref`, `source_url`, `last_verified = 2026-09-19`, plain summaries, `why_template`, caveats — `data/rules/*.json` *(biggest single task of the build; budget the full afternoon)*
-- [ ] T013 [P] `help-resources.json` (federal CAP list page, CMS No Surprises Help Desk, DMHC Help Center, CDI, NY DFS + Community Health Advocates, TDI Consumer Help Line) — `data/help-resources.json`
-- [ ] T014 [P] `glossary.json` (~25 terms: EOB, adverse benefit determination, prior authorization, medical necessity, allowed amount, balance billing, in-network, external review, IRO, IMR, self-funded, ERISA, SPD, peer-to-peer, CARC…) — `data/glossary.json`
-- [ ] T015 Rules engine: applicability, deadlines, letter-stated-deadline discrepancy, ordering, federal-only fallback — `lib/rules/engine.ts`, `lib/rules/deadlines.ts`
-- [ ] T016 Schema test (every rule has https source + fresh `last_verified` + legal_ref) — `tests/unit/rules.schema.test.ts`
-- [ ] T017 Golden table: ≥ 12 situations covering (CA|NY|TX|other) × (fully insured|self-funded|unknown) × key denial categories × emergency; engine test — `tests/unit/golden/*.json`, `tests/unit/rules.engine.test.ts`
+- [x] T010 Zod schemas: `Field<T>`, `Extraction`, `Explanation`, `Situation`, `LetterDraft`, `HelpResource` — `lib/schemas/*.ts`
+- [x] T011 Zod `Rule` schema + loader — `lib/rules/schema.ts`, `lib/rules/load.ts`
+- [x] T012 **T-RULES-VERIFY** Read every primary source listed in research.md; author `federal.json`, `nsa.json`, `ca.json`, `ny.json`, `tx.json` with `legal_ref`, `source_url`, `last_verified = 2026-09-19`, plain summaries, `why_template`, caveats — `data/rules/*.json` *(biggest single task of the build; budget the full afternoon)*
+- [x] T013 [P] `help-resources.json` (federal CAP list page, CMS No Surprises Help Desk, DMHC Help Center, CDI, NY DFS + Community Health Advocates, TDI Consumer Help Line) — `data/help-resources.json`
+- [x] T014 [P] `glossary.json` (~25 terms: EOB, adverse benefit determination, prior authorization, medical necessity, allowed amount, balance billing, in-network, external review, IRO, IMR, self-funded, ERISA, SPD, peer-to-peer, CARC…) — `data/glossary.json`
+- [x] T015 Rules engine: applicability, deadlines, letter-stated-deadline discrepancy, ordering, federal-only fallback — `lib/rules/engine.ts`, `lib/rules/deadlines.ts`
+- [x] T016 Schema test (every rule has https source + fresh `last_verified` + legal_ref) — `tests/unit/rules.schema.test.ts`
+- [x] T017 Golden table: ≥ 12 situations covering (CA|NY|TX|other) × (fully insured|self-funded|unknown) × key denial categories × emergency; engine test — `tests/unit/golden/*.json`, `tests/unit/rules.engine.test.ts`
 
 **Checkpoint**: `pnpm test` green; the engine is demonstrably correct before any AI code exists.
 
