@@ -1,0 +1,45 @@
+/**
+ * Runs extraction + explanation once per sample and commits the outputs so the demo
+ * never depends on the API. Costs money: prints token usage per sample.
+ * Run: pnpm precompute [sample-id ...]
+ */
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { config } from "dotenv";
+
+config({ path: ".env.local" });
+
+const dir = path.join(process.cwd(), "data", "samples");
+
+async function main() {
+  const { extractDocument } = await import("../lib/ai/extract");
+  const { explainExtraction } = await import("../lib/ai/explain");
+  const { SAMPLES } = await import("../lib/samples");
+
+  const only = process.argv.slice(2);
+  const targets = SAMPLES.filter((s) => s.category !== "unsupported" && (only.length === 0 || only.includes(s.id)));
+  let totalIn = 0;
+  let totalOut = 0;
+
+  for (const s of targets) {
+    const pdf = await readFile(path.join(dir, `${s.id}.pdf`));
+    const t0 = Date.now();
+    const { extraction, usage } = await extractDocument({ kind: "pdf", base64: pdf.toString("base64") });
+    const { explanation, usage: u2, regenerated } = await explainExtraction(extraction);
+    await writeFile(path.join(dir, `${s.id}.extraction.json`), JSON.stringify(extraction, null, 2) + "\n");
+    await writeFile(path.join(dir, `${s.id}.explain.json`), JSON.stringify(explanation, null, 2) + "\n");
+    totalIn += usage.input + u2.input;
+    totalOut += usage.output + u2.output;
+    console.log(
+      `${s.id}: ${Date.now() - t0}ms  extract in=${usage.input} out=${usage.output}  explain in=${u2.input} out=${u2.output}${regenerated ? " (explanation regenerated)" : ""}  grade=${explanation.grade_level}`,
+    );
+  }
+  // Opus 5 list price: $5 / M input, $25 / M output.
+  const cost = (totalIn / 1e6) * 5 + (totalOut / 1e6) * 25;
+  console.log(`total in=${totalIn} out=${totalOut}  ≈ $${cost.toFixed(3)}`);
+}
+
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

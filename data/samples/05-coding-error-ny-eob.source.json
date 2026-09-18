@@ -1,0 +1,17 @@
+{
+  "kind": "eob",
+  "insurer": { "name": "Empire Harbor Health", "address": "PO Box 1900, Buffalo, NY 14240", "phone": "1-800-555-0188", "logo_text": "EMPIRE HARBOR" },
+  "date": "2026-09-02",
+  "member": { "name": "Priya S. Natarajan", "address": "66 Linden Boulevard, #12\nBrooklyn, NY 11226", "member_id": "EHH-3320917", "group": "GRP-4402 (Northside Public Library System)" },
+  "claim": { "claim_number": "EOB-26-51022-9", "provider": "MetroLab Diagnostics (participating)", "facility": "", "service_date": "2026-08-11", "service": "Comprehensive metabolic panel (CPT 80053); Lipid panel (CPT 80061)" },
+  "lines": [
+    { "service": "Comprehensive metabolic panel - 80053", "billed": "148.00", "allowed": "0.00", "plan_paid": "0.00", "copay": "0.00", "deductible": "0.00", "coinsurance": "0.00", "not_covered": "148.00", "remark": "CO-16, M-76" },
+    { "service": "Lipid panel - 80061", "billed": "96.00", "allowed": "0.00", "plan_paid": "0.00", "copay": "0.00", "deductible": "0.00", "coinsurance": "0.00", "not_covered": "96.00", "remark": "CO-16, M-76" }
+  ],
+  "totals": { "billed": "244.00", "allowed": "0.00", "plan_paid": "0.00", "you_may_owe": "244.00" },
+  "remarks": [
+    "CO-16: Claim/service lacks information or has submission/billing error(s) which is needed for adjudication.",
+    "M-76: Missing/incomplete/invalid diagnosis or condition. The diagnosis code submitted is not valid for the date of service."
+  ],
+  "appeal": "This is not a bill. The provider may resubmit a corrected claim. If you disagree with this determination, you may file a written appeal within 180 days of the date of this statement to Empire Harbor Health, Appeals Unit, PO Box 1900, Buffalo, NY 14240. Questions: 1-800-555-0188."
+}

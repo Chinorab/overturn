@@ -1,0 +1,19 @@
+{
+  "kind": "letter",
+  "insurer": { "name": "SilverLine Medicare Advantage (HMO)", "address": "PO Box 30250, San Antonio, TX 78265", "phone": "1-800-555-0120 (TTY 711)", "logo_text": "SILVERLINE" },
+  "date": "2026-09-10",
+  "member": { "name": "Harold J. Brennan", "address": "1502 Mesquite Lane\nSan Antonio, TX 78230", "member_id": "SLM-880-44-2107", "group": "Medicare Advantage Plan H5521-004" },
+  "re": { "claim_number": "ORG-26-77312", "provider": "Alamo Home Health Services", "service": "Skilled nursing visits, home health (HCPCS G0299)", "service_date": "2026-09-15 onward", "billed": "" },
+  "title": "Notice of Denial of Medical Coverage (Medicare Advantage)",
+  "paragraphs": [
+    "Your request for coverage of home health skilled nursing visits has been denied. This is a Medicare Advantage organization determination.",
+    "Reason: Medicare coverage rules require that you be homebound and need intermittent skilled nursing care. The information we received does not show that you are homebound. See Medicare Benefit Policy Manual, Chapter 7, Section 30.1.",
+    "You have the right to ask us to reconsider this decision (a Level 1 appeal). If we deny your appeal, it will automatically be sent to an Independent Review Entity (Level 2). Further levels include an Administrative Law Judge hearing, the Medicare Appeals Council, and federal district court."
+  ],
+  "appeal": {
+    "heading": "How to Ask for a Reconsideration",
+    "text": "You must ask for a reconsideration within 65 days of the date of this notice. Call 1-800-555-0120 (TTY 711) or write to SilverLine Medicare Advantage, Appeals and Grievances, PO Box 30250, San Antonio, TX 78265. For a fast appeal, we will decide within 72 hours.",
+    "external": "For help, call 1-800-MEDICARE (1-800-633-4227) or visit Medicare.gov."
+  },
+  "signature": "Appeals and Grievances Department\nSilverLine Medicare Advantage"
+}

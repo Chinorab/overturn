@@ -1,0 +1,20 @@
+{
+  "kind": "letter",
+  "insurer": { "name": "Meridian Health Plan of New York", "address": "PO Box 4410, Albany, NY 12204", "phone": "1-800-555-0142", "logo_text": "MERIDIAN" },
+  "date": "2026-09-08",
+  "member": { "name": "Maria T. Alvarez", "address": "418 Willow Court, Apt 3B\nYonkers, NY 10701", "member_id": "MHP-448201-07", "group": "GRP-77120 (Hudson Valley Logistics, Inc.)" },
+  "re": { "claim_number": "CLM-26-0917-55831", "provider": "Riverside Orthopedic Associates", "service": "MRI of the left knee without contrast (CPT 73721)", "service_date": "2026-08-20", "billed": "2,400.00" },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We have reviewed the claim submitted by Riverside Orthopedic Associates for services provided to you on August 20, 2026. After review, we are unable to approve payment for this claim.",
+    "Reason for denial: The requested service is not medically necessary. Based on the clinical information submitted, our medical guideline MHP-MSK-014 (Advanced Imaging of the Knee) requires documentation of at least six weeks of conservative treatment, including physical therapy, prior to advanced imaging. The records submitted do not document conservative treatment. Reason code: 50 (non-covered services because this is not deemed a medical necessity).",
+    "As a result, the plan paid $0.00 of the $2,400.00 billed. You may be responsible for the billed amount. Please contact the provider regarding any balance.",
+    "This decision was made by a physician reviewer board-certified in family medicine. A copy of the guideline used, and of the records considered, is available to you free of charge on request."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "If you disagree with this decision, you or your authorized representative may file a written internal appeal within 180 days of the date you receive this notice. Send your appeal, with any additional medical records or a letter from your treating physician, to: Meridian Health Plan, Appeals Department, PO Box 4410, Albany, NY 12204, or fax 1-800-555-0199. We will notify you of our decision within 30 days for services not yet received, or 60 days for services already received. If your situation is urgent, you may request an expedited appeal by calling 1-800-555-0142 and we will decide within 72 hours.",
+    "external": "After the internal appeal, you may have the right to an independent external review through the New York State Department of Financial Services or under federal law. You may also contact Community Health Advocates at 1-888-614-5400 for free assistance."
+  },
+  "signature": "Utilization Management Department\nMeridian Health Plan of New York"
+}

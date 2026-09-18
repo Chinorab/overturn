@@ -1,0 +1,17 @@
+{
+  "kind": "eob",
+  "insurer": { "name": "Lone Star Benefit Solutions", "address": "PO Box 660123, Dallas, TX 75266", "phone": "1-866-555-0177", "logo_text": "LONE STAR" },
+  "date": "2026-09-05",
+  "member": { "name": "Jasmine R. Whitfield", "address": "7704 Pecan Ridge Drive\nHouston, TX 77040", "member_id": "LSB-20481-03", "group": "GRP-3391 (Bayou City Marketplace Plan)" },
+  "claim": { "claim_number": "EOB-26-88120-4", "provider": "Gulf Coast Emergency Physicians, PLLC (non-participating)", "facility": "Memorial Northwest Medical Center (participating)", "service_date": "2026-08-14", "service": "Emergency department visit, level 4 (CPT 99284); CT abdomen (CPT 74176)" },
+  "lines": [
+    { "service": "ED visit level 4 - 99284", "billed": "1,860.00", "allowed": "612.00", "plan_paid": "489.60", "copay": "0.00", "deductible": "0.00", "coinsurance": "122.40", "not_covered": "1,248.00", "remark": "PR-45, N-661" },
+    { "service": "CT abdomen/pelvis - 74176", "billed": "2,940.00", "allowed": "1,040.00", "plan_paid": "832.00", "copay": "0.00", "deductible": "0.00", "coinsurance": "208.00", "not_covered": "1,900.00", "remark": "PR-45, N-661" }
+  ],
+  "totals": { "billed": "4,800.00", "allowed": "1,652.00", "plan_paid": "1,321.60", "you_may_owe": "3,478.40" },
+  "remarks": [
+    "PR-45: Charge exceeds fee schedule/maximum allowable. Patient responsibility.",
+    "N-661: Provider is not in your plan's network. Services from a non-participating provider are paid at the out-of-network rate. You may be billed for the difference between the billed amount and the allowed amount."
+  ],
+  "appeal": "This is not a bill. If you disagree with how this claim was processed, you may file an appeal in writing within 180 days of the date of this statement to Lone Star Benefit Solutions, Appeals, PO Box 660123, Dallas, TX 75266. For questions call 1-866-555-0177. This plan is regulated by the Texas Department of Insurance (TDI)."
+}

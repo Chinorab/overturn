@@ -1,0 +1,20 @@
+{
+  "kind": "letter",
+  "insurer": { "name": "Pacific Crest Health Plan", "address": "1200 Harbor Boulevard, Suite 400, Sacramento, CA 95814", "phone": "1-877-555-0130", "logo_text": "PACIFIC CREST" },
+  "date": "2026-09-11",
+  "member": { "name": "Daniel K. Okafor", "address": "2261 Alder Street\nFresno, CA 93728", "member_id": "PCH-5590213", "group": "Individual HMO - Silver 70" },
+  "re": { "claim_number": "AUTH-26-33107", "provider": "Valley Surgical Center / Dr. Priya Raman, MD", "service": "Laparoscopic cholecystectomy (CPT 47562)", "service_date": "2026-09-04", "billed": "18,750.00" },
+  "title": "Notice of Denial of Payment - Prior Authorization Not Obtained",
+  "paragraphs": [
+    "We received a claim from Valley Surgical Center for a laparoscopic cholecystectomy performed on September 4, 2026. This is to inform you that the claim has been denied.",
+    "Reason for denial: Prior authorization was required for this procedure under your Evidence of Coverage, Section 4.2, and no authorization request was received before the date of service. Remark code: N54 - claim information is inconsistent with pre-certified/authorized services.",
+    "Because this is a denial of payment and not a denial of care, you may receive a bill from the facility. Amount billed: $18,750.00. Amount paid by the plan: $0.00.",
+    "Our records indicate that Dr. Raman is a participating provider. Participating providers are responsible for obtaining prior authorization for scheduled, non-emergency procedures; however, this responsibility does not apply to emergency services."
+  ],
+  "appeal": {
+    "heading": "How to File a Grievance or Appeal",
+    "text": "You have the right to file a grievance (appeal) with Pacific Crest Health Plan within 180 days of receiving this notice. You may file online at the member portal, by calling 1-877-555-0130, or in writing to Pacific Crest Health Plan, Grievance and Appeals Unit, PO Box 21980, Sacramento, CA 95821. We will send you a written decision within 30 calendar days. If your grievance involves an imminent and serious threat to your health, we will decide within 72 hours.",
+    "external": "The California Department of Managed Health Care is responsible for regulating health care service plans. If you have a grievance against your health plan, you should first telephone your health plan at 1-877-555-0130 and use your health plan's grievance process before contacting the department. If you need help with a grievance involving an emergency, a grievance that has not been satisfactorily resolved by your health plan, or a grievance that has remained unresolved for more than 30 days, you may call the department for assistance. You may also be eligible for an Independent Medical Review (IMR). The department's toll-free telephone number is 1-888-466-2219."
+  },
+  "signature": "Grievance and Appeals Unit\nPacific Crest Health Plan"
+}

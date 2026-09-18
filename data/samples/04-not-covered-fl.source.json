@@ -1,0 +1,19 @@
+{
+  "kind": "letter",
+  "insurer": { "name": "Sunbelt Community Health", "address": "5100 Coral Way, Miami, FL 33134", "phone": "1-855-555-0161", "logo_text": "SUNBELT" },
+  "date": "2026-09-14",
+  "member": { "name": "Robert L. Chen", "address": "930 NE 14th Avenue\nFort Lauderdale, FL 33304", "member_id": "SCH-71133820", "group": "Marketplace Bronze 60 - Individual" },
+  "re": { "claim_number": "CLM-26-0904-11907", "provider": "Coastal Physical Therapy & Rehab", "service": "Physical therapy, therapeutic exercise (CPT 97110), visits 21-24", "service_date": "2026-08-25 to 2026-09-03", "billed": "640.00" },
+  "title": "Explanation of Denied Claim",
+  "paragraphs": [
+    "We reviewed four claims from Coastal Physical Therapy & Rehab for services between August 25 and September 3, 2026. These claims have been denied.",
+    "Reason for denial: Benefit limit exhausted. Your plan covers a maximum of 20 outpatient rehabilitative therapy visits per calendar year (see your Summary of Benefits and Coverage, page 3, \"Rehabilitation services\"). Our records show that 20 visits were used as of August 22, 2026. Visits 21 through 24 are not a covered benefit. Reason code: 119 - benefit maximum for this time period has been reached.",
+    "Amount billed: $640.00. Amount paid: $0.00. Because these visits are not covered, the provider may bill you directly."
+  ],
+  "appeal": {
+    "heading": "Appeal Rights",
+    "text": "You may request an internal appeal within 180 days of receiving this notice by writing to Sunbelt Community Health, Member Appeals, 5100 Coral Way, Miami, FL 33134, or by calling 1-855-555-0161. Include your member ID and claim number. We will decide within 60 days for services already received.",
+    "external": "If the appeal decision involves medical judgment, you may be entitled to an external review by an independent review organization under federal rules. This plan uses the federally administered external review process."
+  },
+  "signature": "Member Appeals\nSunbelt Community Health"
+}
