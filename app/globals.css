@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 /*
   Overturn design tokens.
@@ -122,6 +122,39 @@
   --border: #2b383e;
   --input: #34434a;
   --ring: #7fc4d4;
+}
+
+/* Follow the system preference unless a theme class forces one. */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0f1518;
+    --foreground: #e9ecee;
+    --card: #161e22;
+    --card-foreground: #e9ecee;
+    --popover: #161e22;
+    --popover-foreground: #e9ecee;
+    --paper: #1b2428;
+
+    --primary: #7fc4d4;
+    --primary-foreground: #0f1518;
+    --secondary: #1f2c31;
+    --secondary-foreground: #cfe6ec;
+    --accent: #1f2c31;
+    --accent-foreground: #e9ecee;
+    --muted: #1f2c31;
+    --muted-foreground: #a7b3b9;
+
+    --success: #5ccf9f;
+    --success-foreground: #0f1518;
+    --warning: #e7b35a;
+    --warning-foreground: #0f1518;
+    --destructive: #f08a80;
+    --destructive-foreground: #0f1518;
+
+    --border: #2b383e;
+    --input: #34434a;
+    --ring: #7fc4d4;
+  }
 }
 
 @layer base {
