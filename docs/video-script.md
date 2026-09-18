@@ -19,7 +19,7 @@ the No Surprises Act moment, and a letter with real citations, in one path.
 
 ## Recording checklist
 
-- Deployed URL, not localhost. Clear sessionStorage before recording (new private window).
+- Deployed URL (https://overturn-peach.vercel.app), not localhost. Clear sessionStorage before recording (new private window).
 - Browser zoom 100 %, phone-width window (375 × 812) or DevTools device mode without the frame.
 - Hide bookmarks bar, extensions, notifications. Light mode.
 - Cursor: slow, deliberate, no jitter. Pause 1 s on each thing named in the voice-over.

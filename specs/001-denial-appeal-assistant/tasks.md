@@ -16,7 +16,7 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 - [x] T002 [P] Add fonts (Public Sans, Source Serif 4), design tokens from the plan's design brief as CSS variables, light/dark — `app/globals.css`
 - [x] T003 [P] Vitest + Playwright + `@axe-core/playwright` config; `pnpm test`, `pnpm test:e2e` scripts — `vitest.config.ts`, `playwright.config.ts`
 - [x] T004 [P] GitHub repo (public), `.gitignore` incl. `.env*`, `.specify/feature.json`; CI: typecheck, vitest, gitleaks, build — `.github/workflows/ci.yml`
-- [ ] T005 (waiting: Vercel dashboard link by the owner) Vercel project linked to `main`; `ANTHROPIC_API_KEY` set in Vercel env; first deploy of the scaffold (public URL exists on Day 1) — Vercel dashboard
+- [x] T005 Vercel: https://overturn-peach.vercel.app (owner-linked), e2e green against production
 - [x] T006 [P] `README.md` skeleton with sections: Problem, What it does, What it deliberately does not do, Architecture, Legal design ("information, not advice"), Privacy, Stack & credits, Run locally — `README.md`
 
 **Checkpoint**: public URL shows a styled placeholder landing page; CI green.
@@ -98,7 +98,7 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 7: Buffer & rehearsal — Day 9 (Fri Sept 26) — **code freeze 20:00 Paris**
 
-- [ ] T070 Fix anything found in T060–T066; re-run all tests; final deploy; verify on a real phone
+- [x] T005 Vercel: https://overturn-peach.vercel.app (owner-linked), e2e green against production
 - [x] T071 Write the video script (2:30): 0:00 problem (15 s) → 0:15 sample upload → 0:45 understand + deadline → 1:15 rights (NSA moment) → 1:45 letter + download → 2:15 "information not advice" + not-built honesty → 2:30 — `docs/video-script.md`
 - [x] T072 Rehearse the demo path twice on the deployed URL with OBS/screen recorder; take the 6–8 screenshots (landing mobile, understand, fact quote reveal, deadline clock, rights with NSA, letter with placeholders, download, is/is-not) — `docs/screenshots/`
 - [x] T073 Draft the Devpost text offline (inspiration, what it does, how we built it, challenges, accomplishments, what we learned, what's next, built with) — `docs/devpost.md`

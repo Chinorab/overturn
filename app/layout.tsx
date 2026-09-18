@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description:
     "Upload a denial letter or Explanation of Benefits. Overturn explains what happened in plain English, shows the deadlines and protections that apply, and drafts an appeal letter you edit and send. Information, not legal advice. Nothing is stored.",
-  metadataBase: process.env.NEXT_PUBLIC_SITE_URL ? new URL(process.env.NEXT_PUBLIC_SITE_URL) : undefined,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://overturn-peach.vercel.app"),
 };
 
 export const viewport: Viewport = {

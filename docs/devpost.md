@@ -9,7 +9,7 @@
 
 **Tracks:** Access to Justice & Civic Tech (primary); Legal Automation & Workflow Innovation
 
-**Links:** Live demo: `<VERCEL URL>` · Code: https://github.com/Chinorab/overturn · Video: `<YOUTUBE URL>`
+**Links:** Live demo: https://overturn-peach.vercel.app · Code: https://github.com/Chinorab/overturn · Video: `<YOUTUBE URL>`
 
 ---
 
