@@ -77,6 +77,12 @@ argument, with the line we drew and how each layer holds it, is in
 | Sending the letter, accounts, case history | Would require storing protected health information. |
 | Spanish | High impact, deferred; because rules are data and prose comes from the model, it is a cheap next step. |
 
+## Quality, measured
+
+- Lighthouse on the production landing page (2026-09-19): **accessibility 100**, SEO 100, best practices 96, performance 100 desktop / 91 mobile; the Learn page scores 100 / 100 / 96 / 92.
+- Zero axe-core violations (WCAG 2.2 AA) on every screen, light and dark, phone and desktop; keyboard-only flow; verified in CI on each push and against the production deployment.
+- 113 unit tests (rules engine golden table, dataset schema, guard, cached model outputs) and 5 end-to-end tests.
+
 ## Privacy
 
 Documents are processed in memory during a single request and discarded. No database, no

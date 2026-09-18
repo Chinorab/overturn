@@ -57,7 +57,7 @@ A "Get free human help" button on every screen lists the state Consumer Assistan
 
 - The information-vs-advice line is enforced in code at three layers, and the argument is written down in one page (`LEGAL_DESIGN.md`).
 - Every deadline on screen shows its formula and its source. Every fact shows its quote.
-- WCAG 2.2 AA with zero axe violations, light and dark, phone and desktop, keyboard-only flow, verified in CI on every push.
+- WCAG 2.2 AA with zero axe violations, light and dark, phone and desktop, keyboard-only flow, verified in CI on every push. Lighthouse on production: accessibility 100, SEO 100, performance 100 desktop / 91 mobile.
 - An honest stop for Medicare, Medicaid, and TRICARE documents instead of a wrong answer.
 - A rules dataset another state can be added to in half a day, with a test that refuses unsourced rules.
 
