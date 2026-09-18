@@ -25,7 +25,7 @@ for the people who can afford someone to read the letter for them.
 
 ## What Overturn does
 
-Four screens, one task each, on a phone.
+A public home page, then four screens, one task each, on a phone.
 
 | Step | What happens | Who does it |
 |---|---|---|

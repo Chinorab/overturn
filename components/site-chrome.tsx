@@ -8,7 +8,7 @@ import { HelpDrawer } from "@/components/help-drawer";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const STEPS = [
-  { href: "/", label: "Upload" },
+  { href: "/start", label: "Upload" },
   { href: "/understand", label: "Understand" },
   { href: "/rights", label: "Rights" },
   { href: "/letter", label: "Letter" },
@@ -17,7 +17,7 @@ const STEPS = [
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="mx-auto flex h-14 max-w-[680px] items-center justify-between gap-3 px-4">
+      <div className="mx-auto flex h-14 max-w-[1040px] items-center justify-between gap-3 px-4">
         <div className="flex items-center gap-5">
           <Link href="/" className="font-semibold tracking-tight text-primary">
             Overturn
@@ -50,14 +50,14 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   );
 }
 
-const FLOW = ["/", "/understand", "/rights", "/letter"];
+const FLOW = ["/start", "/understand", "/rights", "/letter"];
 
 export function Stepper() {
   const pathname = usePathname();
   if (!FLOW.includes(pathname)) return null;
   const current = Math.max(
     0,
-    STEPS.findIndex((s) => (s.href === "/" ? pathname === "/" : pathname.startsWith(s.href))),
+    STEPS.findIndex((s) => pathname.startsWith(s.href)),
   );
   return (
     <nav aria-label="Progress" className="mx-auto w-full max-w-[680px] px-4 pt-5">
@@ -94,7 +94,7 @@ export function Stepper() {
 export function SiteFooter() {
   return (
     <footer className="mt-12 border-t">
-      <div className="mx-auto max-w-[680px] px-4 py-6 text-sm text-muted-foreground">
+      <div className="mx-auto max-w-[1040px] px-4 py-6 text-sm text-muted-foreground">
         <p>
           Overturn provides general legal information for people in the United States. It is not a lawyer, does not give legal
           advice, and cannot predict the outcome of an appeal. Documents are processed in memory and never stored.
@@ -122,8 +122,9 @@ export function SiteFooter() {
 /** A short fade-and-rise on each step change; disabled by prefers-reduced-motion in globals.css. */
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const wide = pathname === "/";
   return (
-    <div key={pathname} className="animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
+    <div key={pathname} className={cn("mx-auto w-full animate-in fade-in-0 slide-in-from-bottom-2 duration-300", wide ? "max-w-[1040px]" : "max-w-[680px]")}>
       {children}
     </div>
   );

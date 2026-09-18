@@ -17,8 +17,17 @@ async function expectNoHorizontalScroll(page: import("@playwright/test").Page) {
   expect(overflow).toBeLessThanOrEqual(0);
 }
 
-test("landing: framing is visible above the fold, samples need no upload", async ({ page }) => {
+test("home: hero, primary call to action, and framing above the fold", async ({ page }) => {
   await page.goto("/");
+  await expect(page.getByRole("heading", { level: 1 })).toContainText("Your insurer said no");
+  await expect(page.getByText("Start with my document")).toBeInViewport();
+  await expect(page.getByText(/Nothing stored · Information, not legal advice/)).toBeInViewport();
+  await expectNoHorizontalScroll(page);
+  await expectNoA11yViolations(page, "home");
+});
+
+test("start: framing is visible above the fold, samples need no upload", async ({ page }) => {
+  await page.goto("/start");
   await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
   await expect(page.getByText(/Nothing stored · Information, not legal advice/)).toBeInViewport();
   await expect(page.getByRole("tab", { name: /Try a sample/ })).toBeInViewport();
@@ -27,7 +36,7 @@ test("landing: framing is visible above the fold, samples need no upload", async
 });
 
 test("sample flow: understand → rights → letter → download, on a phone", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/start");
   await page.getByRole("button", { name: /ER visit billed out of network/ }).click();
 
   // Understand
@@ -73,7 +82,7 @@ test("sample flow: understand → rights → letter → download, on a phone", a
 });
 
 test("unsupported document stops honestly", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/start");
   await page.getByRole("button", { name: /Medicare Advantage denial/ }).click();
   await expect(page.getByRole("heading", { name: /outside what Overturn covers/ })).toBeVisible();
   await expect(page.getByRole("link", { name: /Official appeal instructions/ })).toHaveAttribute("href", /medicare\.gov/);
@@ -81,7 +90,7 @@ test("unsupported document stops honestly", async ({ page }) => {
 });
 
 test("keyboard only: a sample can be opened without a mouse", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/start");
   await page.keyboard.press("Tab"); // skip link
   await expect(page.getByRole("link", { name: "Skip to main content" })).toBeFocused();
   await page.getByRole("button", { name: /MRI denied/ }).focus();

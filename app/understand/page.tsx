@@ -39,7 +39,7 @@ export default function UnderstandPage() {
   const xp = session.explanation;
 
   useEffect(() => {
-    if (hydrated && !ex) router.replace("/");
+    if (hydrated && !ex) router.replace("/start");
   }, [hydrated, ex, router]);
 
   if (!hydrated || !ex || !xp) return null;
@@ -213,7 +213,7 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
           </label>
         </div>
         <div className="mt-5 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <Button variant="ghost" className="h-11" nativeButton={false} render={<Link href="/" />}>
+          <Button variant="ghost" className="h-11" nativeButton={false} render={<Link href="/start" />}>
             <ArrowLeft aria-hidden="true" /> Start over
           </Button>
           <Button className="h-12 text-base" disabled={!valid} onClick={confirm}>

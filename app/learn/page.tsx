@@ -196,7 +196,7 @@ export default function LearnPage() {
       <section className="rounded-3xl border bg-muted/40 p-6 text-center">
         <h2 className="text-xl font-semibold">Have a denial in hand?</h2>
         <p className="mt-1 text-muted-foreground">Overturn applies all of this to your document in about a minute.</p>
-        <Button className="mt-4 h-12 text-base" nativeButton={false} render={<Link href="/" />}>
+        <Button className="mt-4 h-12 text-base" nativeButton={false} render={<Link href="/start" />}>
           Start with my document <ArrowRight aria-hidden="true" />
         </Button>
       </section>

@@ -126,7 +126,7 @@ export default function AboutPage() {
       </section>
 
       <div className="flex flex-wrap gap-3">
-        <Button className="h-12 text-base" nativeButton={false} render={<Link href="/" />}>
+        <Button className="h-12 text-base" nativeButton={false} render={<Link href="/start" />}>
           Start with my document <ArrowRight aria-hidden="true" />
         </Button>
         <Button variant="outline" className="h-12 text-base" nativeButton={false} render={<Link href="/learn" />}>

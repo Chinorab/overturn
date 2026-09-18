@@ -50,6 +50,10 @@ await phone("01-landing", async (p) => {
   await p.goto(`${BASE}/`);
 });
 
+await phone("00-start", async (p) => {
+  await p.goto(`${BASE}/start`);
+});
+
 await phone("02-understand-summary", async (p) => {
   await openSample(p, /ER visit billed/);
 });
@@ -101,7 +105,7 @@ await phone("08-letter-send", async (p) => {
 });
 
 await phone("09-unsupported", async (p) => {
-  await p.goto(`${BASE}/`);
+  await p.goto(`${BASE}/start`);
   await p.getByRole("button", { name: /Medicare Advantage denial/ }).click();
   await p.getByRole("heading", { name: /outside what Overturn covers/ }).waitFor();
 });

@@ -26,7 +26,7 @@ export default function LetterPage() {
   const { session, hydrated } = useSession();
   const ready = !!session.extraction && session.confirmed && !!session.answers;
   useEffect(() => {
-    if (hydrated && !ready) router.replace(session.extraction ? (session.confirmed ? "/rights" : "/understand") : "/");
+    if (hydrated && !ready) router.replace(session.extraction ? (session.confirmed ? "/rights" : "/understand") : "/start");
   }, [hydrated, ready, router, session.extraction, session.confirmed]);
   if (!hydrated || !ready) return null;
   const situation = buildSituation(session.extraction!, session.answers!);

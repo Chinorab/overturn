@@ -43,7 +43,7 @@ export default async function UnsupportedPage({ searchParams }: { searchParams: 
         Overturn covers job-based, Marketplace, and individual health plans. Medicare, Medicaid, CHIP, TRICARE, and VA use different appeal
         systems with different deadlines.
       </p>
-      <Button variant="outline" className="h-11" nativeButton={false} render={<Link href="/" />}>
+      <Button variant="outline" className="h-11" nativeButton={false} render={<Link href="/start" />}>
         <ArrowLeft aria-hidden="true" /> Back to start
       </Button>
     </div>

@@ -26,7 +26,7 @@ export default function RightsPage() {
   const { session, hydrated } = useSession();
   const ex = session.extraction;
   useEffect(() => {
-    if (hydrated && (!ex || !session.confirmed)) router.replace(ex ? "/understand" : "/");
+    if (hydrated && (!ex || !session.confirmed)) router.replace(ex ? "/understand" : "/start");
   }, [hydrated, ex, session.confirmed, router]);
   if (!hydrated || !ex || !session.confirmed) return null;
   // Samples open with the answers their cached letter was drafted for; the user can change any of them.

@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SessionProvider>
           <SiteHeader />
           <Stepper />
-          <main id="main" className="mx-auto w-full max-w-[680px] flex-1 px-4 py-6">
+          <main id="main" className="w-full flex-1 px-4 py-6">
             <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />
