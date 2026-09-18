@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   description:
     "Upload a denial letter or Explanation of Benefits. Overturn explains what happened in plain English, shows the deadlines and protections that apply, and drafts an appeal letter you edit and send. Information, not legal advice. Nothing is stored.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://overturn-peach.vercel.app"),
+  openGraph: {
+    title: "Overturn — understand and contest a health insurance denial",
+    description: "Reads your denial letter, shows the rights and deadlines that apply with the law behind each one, and drafts the appeal. Information, not legal advice.",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Overturn: Your insurer said no. Understand why. Know your deadline. Answer back." }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
