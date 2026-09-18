@@ -16,7 +16,8 @@ import { toISO } from "@/lib/rules/deadlines";
 type Field = { key: string; label: string; match: RegExp; type?: string; autoComplete?: string };
 
 const FIELDS: Field[] = [
-  { key: "name", label: "Your full name", match: /\[ADD:\s*(your full name|full name|your name|member name|your signature)\s*\]/gi, autoComplete: "name" },
+  // "[ADD: your signature]" is deliberately left alone: it is signed by hand.
+  { key: "name", label: "Your full name", match: /\[ADD:\s*(your full name|full name|your name|member name)\s*\]/gi, autoComplete: "name" },
   { key: "street", label: "Street address", match: /\[ADD:\s*(your street address|street address|your address|your mailing address)\s*\]/gi, autoComplete: "street-address" },
   { key: "city", label: "City, state, ZIP", match: /\[ADD:\s*(city, state,? zip|city, state, and zip|your city, state,? zip)\s*\]/gi },
   { key: "phone", label: "Phone number", match: /\[ADD:\s*(your phone number|phone number|your telephone number)\s*\]/gi, type: "tel", autoComplete: "tel" },

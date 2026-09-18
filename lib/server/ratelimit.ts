@@ -6,7 +6,8 @@ import "server-only";
  * judging; not a substitute for real infrastructure, and documented as such.
  */
 const WINDOW_MS = 15 * 60 * 1000;
-const MAX_PER_WINDOW = Number(process.env.OVERTURN_RATE_LIMIT ?? 3);
+const parsed = Number(process.env.OVERTURN_RATE_LIMIT);
+const MAX_PER_WINDOW = Number.isFinite(parsed) && parsed > 0 ? parsed : 3;
 
 const buckets = new Map<string, number[]>();
 

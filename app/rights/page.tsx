@@ -46,7 +46,9 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
   const [urgent, setUrgent] = useState<"yes" | "no" | "">(initial?.urgent ?? (ex.urgency_signals.value ? "yes" : ""));
   const [finalDate, setFinalDate] = useState(initial?.final_internal_denial_date ?? "");
 
-  const effectiveSelfFunded: YesNoUnknown | "" = plan === "employer" ? selfFunded : plan === "" ? "" : "no";
+  // Marketplace and direct plans are always insured (state-regulated). "Something else, or not sure"
+  // may be a self-funded union or government plan, so both routes are shown with a caveat.
+  const effectiveSelfFunded: YesNoUnknown | "" = plan === "employer" ? selfFunded : plan === "" ? "" : plan === "other" ? "unknown" : "no";
   const complete = state !== "" && plan !== "" && effectiveSelfFunded !== "" && emergency !== "" && urgent !== "";
 
   const answers: Answers | null = complete
