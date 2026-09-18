@@ -72,12 +72,12 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 5: US3 — The letter — Days 6–7 (Tue–Wed Sept 23–24)
 
-- [ ] T050 Draft prompt: inputs = facts + answers + computed rights (with `legal_ref`); rules: only these facts, `[ADD: …]` for unknowns, `[[cite:rule_id]]` markers, per-category argument templates, requests block (claim file, criteria, reviewer credentials, written decision), non-prescriptive register — `lib/ai/prompts/draft.ts`, `lib/ai/draft.ts`
-- [ ] T051 Guard: citation-subset check, prescriptive-phrase scan, single regeneration, `guard_report` — `lib/ai/guard.ts`, `tests/unit/guard.test.ts`
-- [ ] T052 `POST /api/draft` (JSON + SSE streaming) — `app/api/draft/route.ts`
-- [ ] T053 Letter screen: serif preview, section-level editing, placeholder chips, streaming reveal, guard warnings highlighted, attachment checklist, where-to-send block with verify note, "Before you send" panel, human-help pointer — `app/(flow)/letter/page.tsx`, `components/letter-editor.tsx`
-- [ ] T054 PDF export via `@react-pdf/renderer` + copy-as-text; sticky download bar on mobile — `components/letter-pdf.tsx`
-- [ ] T055 Precompute sample letters too (demo resilience) — extend `scripts/precompute-samples.ts`
+- [x] T050 Draft prompt: inputs = facts + answers + computed rights (with `legal_ref`); rules: only these facts, `[ADD: …]` for unknowns, `[[cite:rule_id]]` markers, per-category argument templates, requests block (claim file, criteria, reviewer credentials, written decision), non-prescriptive register — `lib/ai/prompts/draft.ts`, `lib/ai/draft.ts`
+- [x] T051 Guard: citation-subset check, prescriptive-phrase scan, single regeneration, `guard_report` — `lib/ai/guard.ts`, `tests/unit/guard.test.ts`
+- [x] T052 `POST /api/draft` (JSON + SSE streaming) — `app/api/draft/route.ts`
+- [x] T053 Letter screen: serif preview, section-level editing, placeholder chips, streaming reveal, guard warnings highlighted, attachment checklist, where-to-send block with verify note, "Before you send" panel, human-help pointer — `app/(flow)/letter/page.tsx`, `components/letter-editor.tsx`
+- [x] T054 PDF export via `@react-pdf/renderer` + copy-as-text; sticky download bar on mobile — `components/letter-pdf.tsx`
+- [x] T055 Precompute sample letters too (demo resilience) — extend `scripts/precompute-samples.ts`
 - [ ] T056 Deploy; full e2e extended to download — `tests/e2e/sample-flow.spec.ts`
 
 **Checkpoint (end Day 7)**: complete flow live. Feature freeze on new scope.

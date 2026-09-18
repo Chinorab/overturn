@@ -1,0 +1,114 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "text": "[ADD: your full name]\n[ADD: your street address]\n[ADD: city, state, ZIP]\n[ADD: your phone number]\n\n[ADD: today's date]\n\nLone Star Benefit Solutions\nAppeals\nPO Box 660123\nDallas, TX 75266"
+    },
+    {
+      "id": "re",
+      "text": "Re: Internal appeal of claim denial\nMember name: [ADD: your full name]\nMember ID: LSB-20481-03\nClaim / reference number: EOB-26-88120-4\nDate of service: August 14, 2026\nService: Emergency department visit, level 4 (CPT 99284); CT abdomen (CPT 74176)\nProvider: Gulf Coast Emergency Physicians, PLLC"
+    },
+    {
+      "id": "intro",
+      "heading": "Purpose of this letter",
+      "text": "This is a formal internal appeal of the denial dated September 5, 2026 for the emergency department visit and CT of the abdomen provided on August 14, 2026. The stated reason was that the provider is not in the plan's network and that the services were paid at the out-of-network rate. I ask Lone Star Benefit Solutions to overturn that decision and to reprocess the claim at the in-network cost-sharing level. This appeal is filed within the 180-day window allowed for internal appeals [[cite:fed.internal_appeal.filing_window]]."
+    },
+    {
+      "id": "facts",
+      "heading": "What happened",
+      "text": "On August 14, 2026 I received emergency care from Gulf Coast Emergency Physicians, PLLC. The services billed were an emergency department visit, level 4 (CPT 99284) and a CT of the abdomen (CPT 74176). [ADD: briefly describe the symptoms that led you to seek emergency care.]\n\nThe explanation of benefits dated September 5, 2026 shows $4,800.00 billed, $1,321.60 paid by the plan, and $3,478.40 listed as my responsibility. The denial codes are PR-45 and N-661. The reason is quoted here exactly as written: \"N-661: Provider is not in your plan's network. Services from a non-participating provider are paid at the out-of-network rate.\""
+    },
+    {
+      "id": "argument",
+      "heading": "Why the claim should be reprocessed",
+      "text": "This claim is for emergency services. Under the No Surprises Act, a plan must cover emergency care without prior authorization even when the treating provider is out of network, my cost sharing cannot be more than the in-network amount, and the provider cannot bill me for the balance [[cite:nsa.emergency.no_balance_billing]]. Paying the claim at the out-of-network rate and listing $3,478.40 as my responsibility does not match that protection [[cite:nsa.emergency.no_balance_billing]].\n\nEmergency medicine, radiology, and diagnostic services are also among the specialties that cannot use a consent form to charge out-of-network rates, and consent cannot be used where the need was unforeseen and urgent [[cite:nsa.facility.no_consent_for_ancillary]]. [ADD: state whether you signed any consent or waiver form at the facility.]\n\nAny cost sharing I do owe for these protected emergency services must be applied to my in-network deductible and in-network out-of-pocket maximum [[cite:nsa.emergency.counts_in_network]].\n\nI will also supply a statement from the treating provider if the plan finds it helpful [ADD: name of treating provider, if you have it]."
+    },
+    {
+      "id": "requests",
+      "heading": "Requests",
+      "text": "1. A complete copy of the claim file and every document, record, rule, guideline, or protocol relied on in deciding this claim, free of charge [[cite:fed.claim_file.free_copies]].\n\n2. The specific plan provision and any internal criterion applied to this claim, together with the name and credentials of the person who made the decision [[cite:fed.notice.required_content]].\n\n3. A written decision on this appeal within the time limit that applies to a post-service claim [[cite:fed.internal_appeal.decision_windows]].\n\n4. Reprocessing of claim EOB-26-88120-4 at in-network cost sharing as protected emergency services, with the balance removed from my responsibility [[cite:nsa.emergency.no_balance_billing]].\n\n5. Confirmation that any remaining cost sharing is credited to my in-network deductible and in-network out-of-pocket maximum [[cite:nsa.emergency.counts_in_network]].\n\n6. A copy of any notice-and-consent form the plan believes applies to these services, or written confirmation that none exists [[cite:nsa.facility.no_consent_for_ancillary]]."
+    },
+    {
+      "id": "closing",
+      "text": "I can be reached at [ADD: your phone number] or [ADD: your email address]. I reserve the right to request an independent external review after the plan's final internal decision [[cite:fed.external_review.filing_window]], and to raise this matter with the Texas Department of Insurance if the plan is one it regulates [[cite:tx.regulator.scope]] or with the federal No Surprises Help Desk [[cite:nsa.complaint.help_desk]].\n\nSincerely,\n\n[ADD: your full name]\n\nEnclosures: copy of the explanation of benefits dated September 5, 2026; [ADD: provider bill or balance-due statement]; [ADD: emergency department records or discharge summary]; [ADD: letter of support from the treating provider]"
+    }
+  ],
+  "placeholders": [
+    "your full name",
+    "your street address",
+    "city, state, ZIP",
+    "your phone number",
+    "today's date",
+    "briefly describe the symptoms that led you to seek emergency care.",
+    "state whether you signed any consent or waiver form at the facility.",
+    "name of treating provider, if you have it",
+    "your email address",
+    "provider bill or balance-due statement",
+    "emergency department records or discharge summary",
+    "letter of support from the treating provider"
+  ],
+  "cited_rule_ids": [
+    "fed.internal_appeal.filing_window",
+    "nsa.emergency.no_balance_billing",
+    "nsa.facility.no_consent_for_ancillary",
+    "nsa.emergency.counts_in_network",
+    "fed.claim_file.free_copies",
+    "fed.notice.required_content",
+    "fed.internal_appeal.decision_windows",
+    "fed.external_review.filing_window",
+    "tx.regulator.scope",
+    "nsa.complaint.help_desk"
+  ],
+  "checklist": [
+    {
+      "item": "The explanation of benefits dated September 5, 2026 from Lone Star Benefit Solutions",
+      "why": "It is the decision being appealed and shows the amounts and denial codes."
+    },
+    {
+      "item": "Any bill or balance-due statement from Gulf Coast Emergency Physicians, PLLC",
+      "why": "Shows the amount being billed to you beyond in-network cost sharing."
+    },
+    {
+      "item": "Emergency department records, triage notes, and discharge summary for August 14, 2026",
+      "why": "Documents that the visit was for an emergency condition."
+    },
+    {
+      "item": "Imaging report for the CT abdomen (CPT 74176)",
+      "why": "Confirms the diagnostic service was part of the same emergency episode."
+    },
+    {
+      "item": "Letter of support from the treating provider",
+      "why": "Confirms the urgency and the clinical reason for the visit and the CT."
+    },
+    {
+      "item": "Any consent or waiver form you were asked to sign at the facility, or a note that you signed none",
+      "why": "Consent cannot be used for emergency and diagnostic services, so the plan should see what exists."
+    },
+    {
+      "item": "Notes of any calls with the plan or provider, with dates and names",
+      "why": "Creates a record of what you were told about network status and billing."
+    },
+    {
+      "item": "A copy of your insurance card, front and back",
+      "why": "Shows whether the card carries TDI or DOI markings for state oversight."
+    },
+    {
+      "item": "Your plan's summary of benefits and coverage",
+      "why": "Lets you compare in-network cost sharing to what was charged."
+    },
+    {
+      "item": "Any prior correspondence or appeal responses from the plan",
+      "why": "Shows the full history if the plan has already replied in writing."
+    }
+  ],
+  "send_to": {
+    "address": "Lone Star Benefit Solutions, Appeals, PO Box 660123, Dallas, TX 75266",
+    "source": "letter",
+    "verify_note": "This address was read from your document. Check it against the original before sending."
+  },
+  "guard_report": {
+    "prescriptive_hits": [],
+    "unknown_citations": [],
+    "regenerated": false
+  }
+}

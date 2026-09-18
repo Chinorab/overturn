@@ -1,0 +1,114 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "text": "[ADD: your full name]\n[ADD: your street address]\n[ADD: your city, state, ZIP]\n[ADD: your phone number]\n\n[ADD: today's date]\n\nPacific Crest Health Plan\nGrievance and Appeals Unit\nPO Box 21980\nSacramento, CA 95821"
+    },
+    {
+      "id": "re",
+      "text": "Re: Internal appeal and grievance — denial dated September 11, 2026\nMember name: [ADD: your full name]\nMember ID: PCH-5590213\nClaim / reference number: AUTH-26-33107\nDate of service: September 4, 2026\nService: Laparoscopic cholecystectomy (CPT 47562)\nProvider: Valley Surgical Center / Dr. Priya Raman, MD"
+    },
+    {
+      "id": "intro",
+      "heading": "Purpose of this letter",
+      "text": "This is a formal internal appeal and grievance of the denial dated September 11, 2026 for a laparoscopic cholecystectomy (CPT 47562) performed on September 4, 2026. The denial states that prior authorization was required and was not received before the date of service. I ask Pacific Crest Health Plan to overturn the denial and process the claim as a covered service. This appeal is filed within the time allowed [[cite:fed.internal_appeal.filing_window]]."
+    },
+    {
+      "id": "facts",
+      "heading": "What happened",
+      "text": "On September 4, 2026, I received a laparoscopic cholecystectomy (CPT 47562) at Valley Surgical Center, performed by Dr. Priya Raman, MD. Valley Surgical Center is in network with the plan.\n\nThe billed amount was $18,750. The plan paid $0. The notice lists denial code N54 and does not state a patient responsibility amount.\n\nThe denial reason, quoted from the notice, is: \"Prior authorization was required for this procedure under your Evidence of Coverage, Section 4.2, and no authorization request was received before the date of service.\"\n\nThe care was not emergency care, and I am not currently in urgent treatment."
+    },
+    {
+      "id": "argument",
+      "heading": "Why the denial should be overturned",
+      "text": "The denial rests on an administrative step, not on the medical value of the surgery. The notice does not state that the cholecystectomy was unnecessary or excluded. It states only that an authorization request was not received in time.\n\nValley Surgical Center is an in-network provider. Under the plan's contract with its participating providers, obtaining prior authorization is normally the provider's responsibility, not the patient's. I relied on my in-network provider to complete that step. [ADD: describe what you were told about authorization and by whom, with dates].\n\nDr. Priya Raman considers the surgery medically necessary and will provide a supporting statement. [ADD: letter of medical necessity from Dr. Raman]. [ADD: your symptoms, diagnosis, and any earlier treatment you tried before surgery].\n\nI ask the plan to grant retroactive authorization, or in the alternative to review the underlying medical necessity of the surgery and process the claim. Any medical-judgment question must be reviewed by a different, qualified reviewer with appropriate training and experience [[cite:fed.internal_appeal.independent_reviewer]]. The plan's written answer must explain its reasons and, for a medical-necessity determination, the criteria used [[cite:ca.grievance.written_reasons]]."
+    },
+    {
+      "id": "requests",
+      "heading": "Specific requests",
+      "text": "1. A complete copy of the claim file and every document, record, guideline, and internal rule relied on for this decision, free of charge [[cite:fed.claim_file.free_copies]].\n\n2. The exact plan provision and any clinical criteria applied, and the name and credentials of the person who made the decision [[cite:fed.notice.required_content]] [[cite:ca.grievance.written_reasons]].\n\n3. A written decision within the required time frame for this post-service claim [[cite:fed.internal_appeal.decision_windows]].\n\n4. Retroactive authorization for CPT 47562, or a full medical-necessity review of the surgery by a reviewer with appropriate training and experience [[cite:fed.internal_appeal.independent_reviewer]].\n\n5. Any record of authorization requests, calls, or portal submissions from Valley Surgical Center for this procedure, and confirmation that I am not billed while this appeal is pending [[cite:fed.claim_file.free_copies]]."
+    },
+    {
+      "id": "closing",
+      "text": "I can be reached at [ADD: your phone number] or [ADD: your email address]. If Pacific Crest Health Plan does not resolve this grievance within 30 days, or if I disagree with the answer, I may bring the matter to the California Department of Managed Health Care [[cite:ca.grievance.then_dmhc_30_days]]. I also reserve the right to request Independent Medical Review [[cite:ca.imr.filing_window]] or federal external review after the plan's final decision [[cite:fed.external_review.filing_window]].\n\nSincerely,\n\n[ADD: your full name]\nMember ID: PCH-5590213\n\nEnclosures: copy of the denial letter dated September 11, 2026; [ADD: letter of medical necessity from Dr. Priya Raman]; [ADD: operative report and related medical records]; [ADD: billing statement or EOB]; [ADD: any authorization records from Valley Surgical Center]"
+    }
+  ],
+  "placeholders": [
+    "your full name",
+    "your street address",
+    "your city, state, ZIP",
+    "your phone number",
+    "today's date",
+    "describe what you were told about authorization and by whom, with dates",
+    "letter of medical necessity from Dr. Raman",
+    "your symptoms, diagnosis, and any earlier treatment you tried before surgery",
+    "your email address",
+    "letter of medical necessity from Dr. Priya Raman",
+    "operative report and related medical records",
+    "billing statement or EOB",
+    "any authorization records from Valley Surgical Center"
+  ],
+  "cited_rule_ids": [
+    "fed.internal_appeal.filing_window",
+    "fed.internal_appeal.independent_reviewer",
+    "ca.grievance.written_reasons",
+    "fed.claim_file.free_copies",
+    "fed.notice.required_content",
+    "fed.internal_appeal.decision_windows",
+    "ca.grievance.then_dmhc_30_days",
+    "ca.imr.filing_window",
+    "fed.external_review.filing_window"
+  ],
+  "checklist": [
+    {
+      "item": "The denial letter dated September 11, 2026 and any related EOB",
+      "why": "Shows the reason and codes being appealed and proves the appeal is timely."
+    },
+    {
+      "item": "Itemized bill or statement from Valley Surgical Center",
+      "why": "Documents the $18,750 billed and that the plan paid $0."
+    },
+    {
+      "item": "Operative report and medical records for the September 4, 2026 surgery",
+      "why": "Supports that the cholecystectomy was medically appropriate."
+    },
+    {
+      "item": "Letter of medical necessity from Dr. Priya Raman",
+      "why": "Gives the treating surgeon's clinical rationale for the procedure."
+    },
+    {
+      "item": "Any prior authorization request records, portal screenshots, or fax confirmations",
+      "why": "Shows whether the in-network provider attempted authorization and when."
+    },
+    {
+      "item": "Notes of calls with the plan or the provider, with dates and names",
+      "why": "Documents what you were told about authorization responsibility."
+    },
+    {
+      "item": "Proof that Valley Surgical Center is in network (directory printout or card)",
+      "why": "Supports the point that the provider was responsible for authorization."
+    },
+    {
+      "item": "Your insurance card and Evidence of Coverage, including Section 4.2",
+      "why": "Identifies your regulator and the exact provision the plan relied on [[cite:ca.regulator.which_one]]."
+    },
+    {
+      "item": "Records of any earlier conservative treatment for your condition",
+      "why": "Backs a medical-necessity review if the plan converts the issue."
+    },
+    {
+      "item": "A dated copy of this appeal and proof of mailing or portal submission",
+      "why": "Starts the clock on the plan's decision deadline and preserves next steps."
+    }
+  ],
+  "send_to": {
+    "address": "Pacific Crest Health Plan, Grievance and Appeals Unit, PO Box 21980, Sacramento, CA 95821",
+    "source": "letter",
+    "verify_note": "This address was read from your document. Check it against the original before sending."
+  },
+  "guard_report": {
+    "prescriptive_hits": [],
+    "unknown_citations": [],
+    "regenerated": false
+  }
+}

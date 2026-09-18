@@ -1,0 +1,102 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "text": "[ADD: your full name]\n[ADD: your street address]\n[ADD: your city, state, ZIP]\n[ADD: your phone number]\n\n[ADD: today's date]\n\nSunbelt Community Health\nMember Appeals\n5100 Coral Way\nMiami, FL 33134"
+    },
+    {
+      "id": "re",
+      "text": "Re: Internal appeal of claim denial\nMember name: [ADD: patient name as shown on the ID card]\nMember ID: SCH-71133820\nClaim / reference number: CLM-26-0904-11907\nDates of service: August 25, 2026 and September 3, 2026\nProvider: Coastal Physical Therapy & Rehab\nService: Physical therapy, therapeutic exercise (CPT 97110), visits 21-24\nDenial notice date: September 14, 2026"
+    },
+    {
+      "id": "intro",
+      "text": "This letter is a formal internal appeal of the denial dated September 14, 2026 for physical therapy visits 21 through 24 (CPT 97110). The plan stated that the benefit limit was exhausted. I ask Sunbelt Community Health to review this decision again and to overturn the denial. This appeal is filed within the time allowed after receipt of the notice [[cite:fed.internal_appeal.filing_window]]."
+    },
+    {
+      "id": "facts",
+      "heading": "What happened",
+      "text": "I received outpatient physical therapy at Coastal Physical Therapy & Rehab on August 25, 2026 and September 3, 2026. The services were billed as therapeutic exercise, CPT 97110, described in the notice as visits 21 through 24.\n\nThe amount billed was $640.00. The plan paid $0.00. The notice does not state an amount of patient responsibility.\n\nThe reason given in the denial, quoted word for word, is: \"Benefit limit exhausted. Your plan covers a maximum of 20 outpatient rehabilitative therapy visits per calendar year.\" The notice lists denial code 119."
+    },
+    {
+      "id": "argument",
+      "heading": "Why I am appealing",
+      "text": "The denial rests on a visit count, not on the need for the care. Before I can agree that the limit applies, I need to see the exact plan language relied on and how the plan counted my visits.\n\nI ask for the full text of the plan provision that sets the 20-visit limit, including any definition of \"outpatient rehabilitative therapy\" and any exceptions. A denial notice must state the specific reason and identify the plan provision relied on [[cite:fed.notice.required_content]].\n\nI also ask for the visit-by-visit accounting the plan used: each date of service, provider, and code that was counted toward the 20 visits in calendar year 2026. I believe the count may be incorrect for these reasons: [ADD: your specific concerns, for example visits that were denied, canceled, billed by a different provider, or that were habilitative rather than rehabilitative]. I have received the following therapy in 2026: [ADD: list of your therapy dates and providers].\n\nIf any visits counted toward the limit fall under a different benefit, the claim should be reprocessed under the correct benefit. I ask the plan to confirm the meaning of the codes used on this claim, including code 119 and CPT 97110 [[cite:fed.claim_file.codes_meaning]].\n\nMy treating provider supports continued care. I am enclosing or will forward a supporting statement from [ADD: treating provider name and credentials] describing my condition and the reason these visits were ordered."
+    },
+    {
+      "id": "requests",
+      "heading": "What I am asking for",
+      "text": "1. A complete copy of the claim file and every document, record, rule, guideline, and protocol used in deciding this claim, free of charge [[cite:fed.claim_file.free_copies]].\n\n2. The exact plan provision applied, any internal criterion used, and the name and credentials of the person who reviewed the claim [[cite:fed.notice.required_content]].\n\n3. A written decision on this appeal within the time frame required for care already received [[cite:fed.internal_appeal.decision_windows]].\n\n4. The plan's full calculation of my 2026 visit count, with each date and code counted toward the 20-visit maximum [[cite:fed.claim_file.free_copies]].\n\n5. The meaning of each diagnosis and treatment code applied to this claim [[cite:fed.claim_file.codes_meaning]].\n\n6. Reprocessing of claim CLM-26-0904-11907 under the correct benefit if the count or benefit category is wrong."
+    },
+    {
+      "id": "closing",
+      "text": "I can be reached at [ADD: your phone number] or [ADD: your email address]. Written correspondence may be sent to the address above. If the plan does not follow the required claims procedure, I may be treated as having completed the internal appeal [[cite:fed.deemed_exhaustion]]. I reserve the right to request an independent external review after the plan's decision, which is due within the applicable time limit [[cite:fed.external_review.decision_windows]].\n\nRespectfully,\n\n[ADD: your full name]\nMember ID: SCH-71133820\n\nEnclosures: Copy of the denial notice dated September 14, 2026; itemized bill or EOB from Coastal Physical Therapy & Rehab; supporting statement from [ADD: treating provider name]; my record of 2026 therapy visit dates; [ADD: any other documents you are attaching]"
+    }
+  ],
+  "placeholders": [
+    "your full name",
+    "your street address",
+    "your city, state, ZIP",
+    "your phone number",
+    "today's date",
+    "patient name as shown on the ID card",
+    "your specific concerns, for example visits that were denied, canceled, billed by a different provider, or that were habilitative rather than rehabilitative",
+    "list of your therapy dates and providers",
+    "treating provider name and credentials",
+    "your email address",
+    "treating provider name",
+    "any other documents you are attaching"
+  ],
+  "cited_rule_ids": [
+    "fed.internal_appeal.filing_window",
+    "fed.notice.required_content",
+    "fed.claim_file.codes_meaning",
+    "fed.claim_file.free_copies",
+    "fed.internal_appeal.decision_windows",
+    "fed.deemed_exhaustion",
+    "fed.external_review.decision_windows"
+  ],
+  "checklist": [
+    {
+      "item": "The denial letter dated September 14, 2026",
+      "why": "It is the decision being appealed and contains the claim and member numbers."
+    },
+    {
+      "item": "EOBs and itemized bills for all 2026 therapy visits",
+      "why": "They show how many visits were billed and paid, which tests the plan's 20-visit count."
+    },
+    {
+      "item": "Your own list of 2026 therapy dates, providers, and codes",
+      "why": "It lets you point to any visit that should not count toward the limit."
+    },
+    {
+      "item": "Plan documents: Summary of Benefits and Coverage and the full policy or evidence of coverage",
+      "why": "They contain the exact rehabilitative therapy benefit language and any exceptions."
+    },
+    {
+      "item": "Medical records for the August 25 and September 3, 2026 visits",
+      "why": "They document what care was given and under which type of therapy."
+    },
+    {
+      "item": "Letter of support from your treating provider",
+      "why": "It explains why the additional visits were ordered and supports reprocessing."
+    },
+    {
+      "item": "Any prior authorization or referral paperwork for the therapy course",
+      "why": "It may show how the plan classified or approved the course of care."
+    },
+    {
+      "item": "Notes of any calls with Sunbelt Community Health, with dates and names",
+      "why": "They create a record of what the plan told you about the visit limit."
+    }
+  ],
+  "send_to": {
+    "address": "Sunbelt Community Health, Member Appeals, 5100 Coral Way, Miami, FL 33134",
+    "source": "letter",
+    "verify_note": "This address was read from your document. Check it against the original before sending."
+  },
+  "guard_report": {
+    "prescriptive_hits": [],
+    "unknown_citations": [],
+    "regenerated": false
+  }
+}

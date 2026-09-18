@@ -1,0 +1,103 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "text": "[ADD: your full name]\n[ADD: your street address]\n[ADD: city, state, ZIP]\n[ADD: your phone number]\n\n[ADD: today's date]\n\nEmpire Harbor Health\nAppeals Unit\nPO Box 1900\nBuffalo, NY 14240"
+    },
+    {
+      "id": "re",
+      "text": "Re: Internal appeal of claim denial\nMember ID: EHH-3320917\nClaim/reference number: EOB-26-51022-9\nDate of service: August 11, 2026\nProvider: MetroLab Diagnostics\nServices: Comprehensive metabolic panel (CPT 80053) and lipid panel (CPT 80061)\nPatient name: [ADD: patient's full name, if different from sender]"
+    },
+    {
+      "id": "intro",
+      "text": "This is a formal internal appeal of the denial shown on the Empire Harbor Health Explanation of Benefits dated September 2, 2026, for laboratory services provided on August 11, 2026. The stated reason is a claim submission or billing error and a missing or invalid diagnosis code. I ask the plan to overturn this denial and pay the claim. This appeal is filed within the 180-day window allowed for internal appeals [[cite:fed.internal_appeal.filing_window]]."
+    },
+    {
+      "id": "facts",
+      "heading": "What happened",
+      "text": "On August 11, 2026, I received a comprehensive metabolic panel (CPT 80053) and a lipid panel (CPT 80061) from MetroLab Diagnostics, an in-network provider. The tests were ordered by [ADD: name of the ordering provider].\n\nThe amount billed was $244. The plan paid $0 and listed $244 as my responsibility.\n\nThe denial reason is quoted here word for word from the Explanation of Benefits: \"CO-16: Claim/service lacks information or has submission/billing error(s) which is needed for adjudication. M-76: Missing/incomplete/invalid diagnosis or condition.\""
+    },
+    {
+      "id": "argument",
+      "heading": "Why the denial should be overturned",
+      "text": "This denial does not rest on coverage. The plan has not found that the laboratory tests were unnecessary, excluded, or outside my benefits. The denial rests entirely on a claim-form problem: a missing or invalid diagnosis code on the submission from MetroLab Diagnostics.\n\nThe services were performed and were ordered by my treating provider for [ADD: the reason the tests were ordered, such as monitoring a condition]. A supporting statement and the order with the diagnosis are available from [ADD: name of the ordering provider].\n\nI have asked MetroLab Diagnostics to submit a corrected claim with the complete diagnosis information. [ADD: date you contacted the provider, and the date they said the corrected claim would be sent].\n\nBecause the provider is in network, the billing paperwork is the provider's responsibility, not mine. A coding omission on the provider's claim form should not shift $244 to me while the correction is being made.\n\nThe denial notice must state the specific reason, the plan provision relied on, and exactly what added information is needed and why [[cite:fed.notice.required_content]]. I am also entitled, on request, to be told the diagnosis and treatment codes used for this claim and what each one means [[cite:fed.claim_file.codes_meaning]]."
+    },
+    {
+      "id": "requests",
+      "heading": "What I am asking for",
+      "text": "1. A complete copy of the claim file and every document, record, rule, guideline, or protocol relied on for this claim, free of charge [[cite:fed.claim_file.free_copies]].\n\n2. The specific plan provision or claims-processing rule applied, and the name and credentials of the person who reviewed the claim [[cite:fed.claim_file.free_copies]].\n\n3. A written decision on this appeal within the required time frame for care already received [[cite:fed.internal_appeal.decision_windows]].\n\n4. The diagnosis code and treatment codes the plan received on this claim, and what each code means, so the correction can be confirmed [[cite:fed.claim_file.codes_meaning]].\n\n5. Reprocessing and payment of the claim as soon as the corrected claim from MetroLab Diagnostics is received, with no balance held against me in the meantime."
+    },
+    {
+      "id": "closing",
+      "text": "I can be reached at [ADD: your phone number] or [ADD: your email address]. Please send all correspondence to the address above.\n\nIf the plan does not fully overturn this denial, I reserve the right to pursue an external appeal in New York within the applicable time frames [[cite:ny.external_appeal.scope]] [[cite:ny.external_appeal.decision_windows]]. I also reserve the right to proceed if the plan does not follow the required claims procedure [[cite:fed.deemed_exhaustion]].\n\nSincerely,\n\n[ADD: your full name]\nMember ID: EHH-3320917\n\nEnclosures: Explanation of Benefits dated September 2, 2026; copy of the test order; [ADD: copy of corrected claim confirmation from MetroLab Diagnostics]; [ADD: supporting statement from the ordering provider]"
+    }
+  ],
+  "placeholders": [
+    "your full name",
+    "your street address",
+    "city, state, ZIP",
+    "your phone number",
+    "today's date",
+    "patient's full name, if different from sender",
+    "name of the ordering provider",
+    "the reason the tests were ordered, such as monitoring a condition",
+    "date you contacted the provider, and the date they said the corrected claim would be sent",
+    "your email address",
+    "copy of corrected claim confirmation from MetroLab Diagnostics",
+    "supporting statement from the ordering provider"
+  ],
+  "cited_rule_ids": [
+    "fed.internal_appeal.filing_window",
+    "fed.notice.required_content",
+    "fed.claim_file.codes_meaning",
+    "fed.claim_file.free_copies",
+    "fed.internal_appeal.decision_windows",
+    "ny.external_appeal.scope",
+    "ny.external_appeal.decision_windows",
+    "fed.deemed_exhaustion"
+  ],
+  "checklist": [
+    {
+      "item": "Explanation of Benefits dated September 2, 2026",
+      "why": "It contains the denial codes and the amounts being appealed."
+    },
+    {
+      "item": "Any later letters or statements from Empire Harbor Health on this claim",
+      "why": "Shows whether the plan has already changed or repeated its position."
+    },
+    {
+      "item": "The lab order and medical records for the August 11, 2026 tests",
+      "why": "Documents the diagnosis that was missing from the claim form."
+    },
+    {
+      "item": "Letter of support from the ordering provider",
+      "why": "Confirms why the tests were ordered and supports the correct diagnosis code."
+    },
+    {
+      "item": "Written confirmation from MetroLab Diagnostics that a corrected claim was submitted",
+      "why": "Shows the coding problem is being fixed by the provider."
+    },
+    {
+      "item": "Notes of any calls with the plan or the lab, with dates and names",
+      "why": "Creates a record of your efforts to resolve the billing error."
+    },
+    {
+      "item": "Any bill or collection notice for the $244",
+      "why": "Shows the amount being charged to you while the claim is unresolved."
+    },
+    {
+      "item": "Your plan's summary of benefits or member handbook",
+      "why": "Lets you check the appeal address, deadlines, and lab benefit terms."
+    }
+  ],
+  "send_to": {
+    "address": "Empire Harbor Health, Appeals Unit, PO Box 1900, Buffalo, NY 14240",
+    "source": "letter",
+    "verify_note": "This address was read from your document. Check it against the original before sending."
+  },
+  "guard_report": {
+    "prescriptive_hits": [],
+    "unknown_citations": [],
+    "regenerated": false
+  }
+}

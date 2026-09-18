@@ -1,0 +1,113 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "text": "[ADD: your full name]\n[ADD: your street address]\n[ADD: city, state, ZIP]\n[ADD: your phone number]\n\n[ADD: today's date]\n\nMeridian Health Plan\nAppeals Department\nPO Box 4410\nAlbany, NY 12204\n(Fax: 1-800-555-0199)"
+    },
+    {
+      "id": "re",
+      "text": "Re: Internal appeal of denial dated September 8, 2026\nMember name: [ADD: your full name]\nMember ID: MHP-448201-07\nClaim/reference number: CLM-26-0917-55831\nDate of service: August 20, 2026\nService: MRI of the left knee without contrast (CPT 73721)\nProvider: Riverside Orthopedic Associates"
+    },
+    {
+      "id": "intro",
+      "text": "This is a formal internal appeal of the denial dated September 8, 2026 for an MRI of the left knee without contrast (CPT 73721). The plan denied the claim as not medically necessary, citing medical guideline MHP-MSK-014 and a requirement of at least six weeks of conservative treatment. I ask Meridian Health Plan of New York to overturn the denial and pay the claim. This appeal is filed within the time allowed [[cite:fed.internal_appeal.filing_window]]."
+    },
+    {
+      "id": "facts",
+      "heading": "Background",
+      "text": "On August 20, 2026, I received an MRI of the left knee without contrast (CPT 73721) at Riverside Orthopedic Associates. The billed amount was $2,400. The plan paid $0. The amount listed as my responsibility is [ADD: patient responsibility amount from your EOB, if stated].\n\nThe denial notice dated September 8, 2026 states, using denial code 50: \"The requested service is not medically necessary. Based on the clinical information submitted, our medical guideline MHP-MSK-014 (Advanced Imaging of the Knee) requires documentation of at least six weeks of conservative treatment.\"\n\nMy relevant history includes [ADD: your symptoms, when they started, and how they affect daily activities]. Before the MRI, I completed the following conservative treatment: [ADD: dates and details of physical therapy, rest, bracing, anti-inflammatory medication, injections, or other treatment, with dates]."
+    },
+    {
+      "id": "argument",
+      "heading": "Why the denial should be overturned",
+      "text": "My treating provider at Riverside Orthopedic Associates ordered this MRI and considers it medically necessary. A supporting statement from the treating provider is enclosed or will follow: [ADD: treating provider's letter of medical necessity].\n\nThe denial appears to rest on missing documentation of conservative treatment rather than on a finding that the imaging had no clinical value. The records described above, together with the provider's statement, address that point directly and are submitted with this appeal.\n\nBecause this is a question of medical judgment, the appeal must be decided by a reviewer who was not involved in the first decision and who has appropriate clinical training and experience for knee and musculoskeletal care [[cite:fed.internal_appeal.independent_reviewer]]. I also ask the plan to provide the full text of guideline MHP-MSK-014 and the specific clinical criteria applied, which the notice must make available [[cite:fed.notice.required_content]] and which I may receive free of charge [[cite:fed.claim_file.free_copies]]."
+    },
+    {
+      "id": "requests",
+      "heading": "Requests",
+      "text": "1. A complete copy of the claim file and every document, record, guideline, and protocol relied on in this decision, free of charge [[cite:fed.claim_file.free_copies]].\n\n2. The specific clinical criteria and plan provision applied, including the full text of guideline MHP-MSK-014, and the name, specialty, and credentials of the reviewer who made the decision [[cite:fed.notice.required_content]] [[cite:fed.internal_appeal.independent_reviewer]].\n\n3. A written decision within the time frame required for a post-service appeal [[cite:fed.internal_appeal.decision_windows]], and under New York rules for utilization review appeals [[cite:ny.internal_appeal.deemed_reversal]].\n\n4. Review by a health professional with training and experience in orthopedics or musculoskeletal imaging, with no deference given to the original decision [[cite:fed.internal_appeal.independent_reviewer]].\n\n5. A written explanation of what conservative treatment documentation the plan found missing, and consideration of the records enclosed with this appeal [[cite:fed.notice.required_content]]."
+    },
+    {
+      "id": "closing",
+      "text": "I can be reached at [ADD: your phone number] or [ADD: your email address]. If Meridian Health Plan of New York upholds the denial, I reserve the right to request an independent external review [[cite:fed.external_review.filing_window]] or a New York State external appeal with the Department of Financial Services, which covers medical necessity denials [[cite:ny.external_appeal.scope]] [[cite:ny.external_appeal.filing_window]]. My employer plan may be self-funded, in which case the federal external review route applies [[cite:fed.erisa.self_funded_route]].\n\nThank you for reviewing this appeal.\n\nSincerely,\n[ADD: your full name]\n[ADD: your signature]\n\nEnclosures: copy of denial letter dated September 8, 2026; explanation of benefits; treating provider's letter of medical necessity; medical records and conservative treatment records; [ADD: any other documents you are attaching]"
+    }
+  ],
+  "placeholders": [
+    "your full name",
+    "your street address",
+    "city, state, ZIP",
+    "your phone number",
+    "today's date",
+    "patient responsibility amount from your EOB, if stated",
+    "your symptoms, when they started, and how they affect daily activities",
+    "dates and details of physical therapy, rest, bracing, anti-inflammatory medication, injections, or other treatment, with dates",
+    "treating provider's letter of medical necessity",
+    "your email address",
+    "your signature",
+    "any other documents you are attaching"
+  ],
+  "cited_rule_ids": [
+    "fed.internal_appeal.filing_window",
+    "fed.internal_appeal.independent_reviewer",
+    "fed.notice.required_content",
+    "fed.claim_file.free_copies",
+    "fed.internal_appeal.decision_windows",
+    "ny.internal_appeal.deemed_reversal",
+    "fed.external_review.filing_window",
+    "ny.external_appeal.scope",
+    "ny.external_appeal.filing_window",
+    "fed.erisa.self_funded_route"
+  ],
+  "checklist": [
+    {
+      "item": "Denial letter dated September 8, 2026",
+      "why": "Identifies the claim and the exact reason being appealed."
+    },
+    {
+      "item": "Explanation of benefits for claim CLM-26-0917-55831",
+      "why": "Shows the billed amount, plan payment, and any patient responsibility."
+    },
+    {
+      "item": "Medical records from Riverside Orthopedic Associates for the knee",
+      "why": "Documents symptoms, exam findings, and why imaging was ordered."
+    },
+    {
+      "item": "Letter of medical necessity from the treating provider",
+      "why": "Directly answers the plan's medical necessity finding."
+    },
+    {
+      "item": "Records of conservative treatment with dates (physical therapy notes, prescriptions, brace or injection records)",
+      "why": "Addresses the guideline's six-week conservative treatment requirement."
+    },
+    {
+      "item": "MRI report and any prior imaging",
+      "why": "Shows the clinical value of the study that was performed."
+    },
+    {
+      "item": "Any prior authorization request or communication about the MRI",
+      "why": "Shows what clinical information the plan already received."
+    },
+    {
+      "item": "Notes of phone calls with the plan, with dates and representative names",
+      "why": "Creates a record of what the plan said before the appeal."
+    },
+    {
+      "item": "Summary Plan Description or insurance card",
+      "why": "Helps confirm whether the employer plan is self-funded, which decides the external review route."
+    },
+    {
+      "item": "Authorized representative form, if someone is filing for you",
+      "why": "The plan may require it before it will discuss or decide the appeal."
+    }
+  ],
+  "send_to": {
+    "address": "Meridian Health Plan, Appeals Department, PO Box 4410, Albany, NY 12204, or fax 1-800-555-0199",
+    "source": "letter",
+    "verify_note": "This address was read from your document. Check it against the original before sending."
+  },
+  "guard_report": {
+    "prescriptive_hits": [],
+    "unknown_citations": [],
+    "regenerated": false
+  }
+}
