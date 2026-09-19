@@ -274,14 +274,12 @@
   .dark .shell {
     background: color-mix(in oklch, var(--primary) 8%, var(--background));
   }
-  /* Eyebrow above a display heading. */
-  .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-primary;
-    background: color-mix(in oklch, var(--primary) 8%, transparent);
-    box-shadow: 0 0 0 1px color-mix(in oklch, var(--primary) 18%, transparent);
-  }
   .tnum {
     font-variant-numeric: tabular-nums;
+  }
+  /* Product screens on the home page: fade out instead of a hard crop. */
+  .screen-fade {
+    mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
   }
   /* Ambient halo behind hero sections. */
   .halo, .before\:halo::before {

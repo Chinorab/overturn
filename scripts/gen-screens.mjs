@@ -41,13 +41,13 @@ const toLetter = async (page) => {
   await page.addStyleTag({ content: HIDE });
   await page.waitForTimeout(800);
 };
-const scrollToHeading = async (page, name) => {
-  await page.getByRole("heading", { name }).evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 16));
+const scrollToHeading = async (page, name, gap = 28) => {
+  await page.getByRole("heading", { name }).evaluate((el, g) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - g), gap);
 };
 
 for (const theme of ["light", "dark"]) {
   await capture("understand", theme, async (page) => {
-    await scrollToHeading(page, "Here is what your document says");
+    await scrollToHeading(page, "Here is what your document says", 10);
   });
   await capture("rights", theme, async (page) => {
     await toRights(page);
@@ -56,7 +56,7 @@ for (const theme of ["light", "dark"]) {
   await capture("letter", theme, async (page) => {
     await toRights(page);
     await toLetter(page);
-    await page.locator("section[aria-labelledby=letter]").evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 16));
+    await page.locator("section[aria-labelledby=letter]").evaluate((el) => window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 28));
   });
 }
 await browser.close();

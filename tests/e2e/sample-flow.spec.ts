@@ -31,7 +31,7 @@ test("home: hero, primary call to action, and framing above the fold", async ({ 
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Your insurer said no");
   await expect(page.getByText("Start with my document").first()).toBeInViewport();
   await expect(page.getByText(/Free · Nothing stored · No account/)).toBeVisible();
-  await expect(page.getByText("Information, not legal advice", { exact: true })).toBeVisible();
+  await expect(page.getByText(/information, not legal advice/i).first()).toBeVisible();
   await expectNoHorizontalScroll(page);
   await expectNoA11yViolations(page, "home");
 });

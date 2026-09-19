@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, BookOpenCheck, CalendarClock, FileSearch, LifeBuoy, Lock, PenLine, Quote, Scale, ScrollText, ShieldCheck } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BookOpenCheck, CalendarClock, FileSearch, LifeBuoy, Lock, PenLine, Quote, Scale, ScrollText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { RevealObserver } from "@/components/reveal";
+import understandLight from "@/public/screens/understand.png";
+import understandDark from "@/public/screens/understand-dark.png";
+import rightsLight from "@/public/screens/rights.png";
+import rightsDark from "@/public/screens/rights-dark.png";
+import letterLight from "@/public/screens/letter.png";
+import letterDark from "@/public/screens/letter-dark.png";
 
 /**
  * The public home page: what Overturn is, why it exists, how it works, and one clear way
@@ -18,7 +24,8 @@ const STEPS = [
     icon: FileSearch,
     t: "Understand",
     d: "Every fact, with the exact words it came from. A summary at an 8th-grade level. Your first deadline as a date and a countdown.",
-    img: "/screens/understand.png",
+    img: understandLight,
+    imgDark: understandDark,
     alt: "Understand screen for the MRI denial: the short version, the amount billed, and the appeal deadline",
   },
   {
@@ -26,7 +33,8 @@ const STEPS = [
     icon: BookOpenCheck,
     t: "Know your rights",
     d: "Five questions. Then the protections that apply, most relevant first, each with its legal citation and a link to the source.",
-    img: "/screens/rights.png",
+    img: rightsLight,
+    imgDark: rightsDark,
     alt: "Rights screen for the MRI denial: the 180-day internal appeal deadline and the first rule that applies, with its source",
   },
   {
@@ -34,7 +42,8 @@ const STEPS = [
     icon: PenLine,
     t: "Send your appeal",
     d: "A letter built only from your facts and those rights, with visible blanks for what only you know. Edit, download, send.",
-    img: "/screens/letter.png",
+    img: letterLight,
+    imgDark: letterDark,
     alt: "Letter screen for the MRI denial: the draft appeal with highlighted blanks to fill in",
   },
 ];
@@ -46,11 +55,6 @@ const PROOFS = [
   { icon: LifeBuoy, t: "A person is one tap away", d: "Your state's free Consumer Assistance Program and regulator, on every screen. Overturn informs; they can advise." },
 ];
 
-const LINES = [
-  { icon: Scale, t: "Information, not legal advice", d: "It explains what your document says and what rules generally apply. It never tells you what to do." },
-  { icon: ShieldCheck, t: "Not a lawyer", d: "No prediction of whether your appeal will succeed, and no claim that the denial was wrong." },
-  { icon: Lock, t: "Nothing stored", d: "Your document is read once, in memory, then discarded. Your session lives in your browser tab." },
-];
 
 export default function Home() {
   return (
@@ -155,7 +159,39 @@ export default function Home() {
         </p>
       </section>
 
-      {/* The one trust argument, right after the numbers: the split of labor, its four proofs, and the three lines it never crosses. */}
+      {/* How it works: three rows, screen and text alternating sides, one case from start to finish. */}
+      <section aria-labelledby="how" className="mx-auto max-w-[1040px] py-16 sm:py-24">
+        <h2 id="how" className="font-serif text-4xl font-medium text-primary sm:text-5xl">
+          Upload once. Then <em>three</em> steps.
+        </h2>
+        <ol className="mt-12 space-y-16 sm:mt-16 sm:space-y-24">
+          {STEPS.map((s, i) => (
+            <li key={s.n} data-reveal="" className="grid items-center gap-8 md:grid-cols-12 md:gap-10">
+              <div className={i % 2 === 1 ? "md:order-2 md:col-span-6 md:col-start-7" : "md:col-span-6"}>
+                <span className="display font-serif text-4xl font-light leading-none text-primary/70 tnum sm:text-5xl" aria-hidden="true">
+                  {s.n}
+                </span>
+                <h3 className="mt-3 flex items-center gap-3 font-serif text-3xl font-medium text-foreground">
+                  <s.icon className="size-7 text-primary" aria-hidden="true" />
+                  {s.t}
+                </h3>
+                <p className="mt-3 max-w-[46ch] text-lg leading-relaxed text-muted-foreground">{s.d}</p>
+              </div>
+              <div className={i % 2 === 1 ? "md:order-1 md:col-span-5" : "md:col-span-5 md:col-start-8"}>
+                <div className="shell rounded-[2rem] p-2">
+                  {/* The screen fades out at the bottom instead of being cut mid-sentence. */}
+                  <div className="surface screen-fade max-h-[420px] overflow-hidden rounded-[calc(2rem-0.5rem)] bg-muted/40">
+                    <Image src={s.img} alt={s.alt} placeholder="blur" sizes="(min-width: 768px) 380px, 90vw" className="h-auto w-full dark:hidden" />
+                    <Image src={s.imgDark} alt="" aria-hidden="true" placeholder="blur" sizes="(min-width: 768px) 380px, 90vw" className="hidden h-auto w-full dark:block" />
+                  </div>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* The trust argument, after the product has shown itself: the split of labor, its four proofs, and the line it never crosses. */}
       <section aria-labelledby="diff" data-reveal="" className="mx-auto max-w-[1040px] py-16 sm:py-24">
         <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <div>
@@ -181,63 +217,18 @@ export default function Home() {
             ))}
           </ul>
         </div>
-        <dl className="mt-12 grid gap-8 sm:grid-cols-3 sm:gap-6">
-          {LINES.map((c) => (
-            <div key={c.t}>
-              <dt className="flex items-center gap-2 font-serif text-xl font-medium">
-                <c.icon className="size-5 text-primary" aria-hidden="true" />
-                {c.t}
-              </dt>
-              <dd className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{c.d}</dd>
-            </div>
-          ))}
-        </dl>
-        <p className="mt-8 text-sm text-muted-foreground">
+        <p className="mt-10 max-w-[70ch] text-lg leading-relaxed">
+          <Scale className="mr-2 inline size-5 align-[-0.2em] text-primary" aria-hidden="true" />
+          Overturn gives <strong className="font-medium">information, not legal advice</strong>: it never tells you what to do, never predicts whether an
+          appeal will succeed, and never stores your document, which is read once, in memory, then discarded.
+        </p>
+        <p className="mt-4 text-sm text-muted-foreground">
           State rules for California, New York, and Texas; the federal baseline everywhere else.{" "}
           <Link href="/about" className="text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary">
             Read how it works and why
           </Link>
           .
         </p>
-      </section>
-
-      {/* How it works: three rows, screen and text alternating sides, one case from start to finish. */}
-      <section aria-labelledby="how" className="mx-auto max-w-[1040px] py-16 sm:py-24">
-        <h2 id="how" className="font-serif text-4xl font-medium text-primary sm:text-5xl">
-          Upload once. Then <em>three</em> steps.
-        </h2>
-        <ol className="mt-12 space-y-16 sm:mt-16 sm:space-y-24">
-          {STEPS.map((s, i) => (
-            <li key={s.n} data-reveal="" className="grid items-center gap-8 md:grid-cols-12 md:gap-10">
-              <div className={i % 2 === 1 ? "md:order-2 md:col-span-6 md:col-start-7" : "md:col-span-6"}>
-                <span className="display font-serif text-4xl font-light leading-none text-primary/70 tnum sm:text-5xl" aria-hidden="true">
-                  {s.n}
-                </span>
-                <h3 className="mt-3 flex items-center gap-3 font-serif text-3xl font-medium text-foreground">
-                  <s.icon className="size-7 text-primary" aria-hidden="true" />
-                  {s.t}
-                </h3>
-                <p className="mt-3 max-w-[46ch] text-lg leading-relaxed text-muted-foreground">{s.d}</p>
-              </div>
-              <div className={i % 2 === 1 ? "md:order-1 md:col-span-5" : "md:col-span-5 md:col-start-8"}>
-                <div className="shell rounded-[2rem] p-2">
-                  <div className="surface max-h-[420px] overflow-hidden rounded-[calc(2rem-0.5rem)] bg-muted/40">
-                    <Image src={s.img} alt={s.alt} width={780} height={1400} sizes="(min-width: 768px) 380px, 90vw" className="h-auto w-full dark:hidden" />
-                    <Image
-                      src={s.img.replace(".png", "-dark.png")}
-                      alt=""
-                      aria-hidden="true"
-                      width={780}
-                      height={1400}
-                      sizes="(min-width: 768px) 380px, 90vw"
-                      className="hidden h-auto w-full dark:block"
-                    />
-                  </div>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ol>
       </section>
 
       {/* Final CTA: the same two actions as the hero, same names. */}
