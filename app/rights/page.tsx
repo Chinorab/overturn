@@ -84,7 +84,7 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
   return (
     <div className="space-y-8">
       <header>
-        <h1 className="font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">Your rights and deadlines</h1>
+        <h1 className="font-serif text-[2.2rem] font-medium leading-[1.08] text-primary sm:text-[2.75rem]">Your rights and deadlines</h1>
         <p className="mt-2 text-muted-foreground">Five quick questions. The answers decide which rules apply; the list below updates as you go.</p>
         {initial && (
           <p className="mt-2 inline-flex items-center gap-2 rounded-lg bg-secondary/60 px-3 py-2 text-sm text-secondary-foreground">
@@ -95,8 +95,8 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
       </header>
 
       <div className="space-y-4">
-        <fieldset className="rounded-2xl border bg-card p-5">
-          <legend className="px-1 text-base font-semibold">Which state do you live in?</legend>
+        <fieldset className="surface rounded-2xl p-5">
+          <legend className="float-left w-full font-serif text-xl font-medium [&+*]:clear-both">Which state do you live in?</legend>
           <p className="mt-1 text-sm text-muted-foreground">
             Read from the addresses in your document. State rules are included for California, New York, and Texas; everywhere else gets the
             federal rules that apply nationwide.
@@ -173,8 +173,8 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
           ]}
         />
 
-        <fieldset className="rounded-2xl border bg-card p-5">
-          <legend className="px-1 text-base font-semibold">Already appealed to the plan? (optional)</legend>
+        <fieldset className="surface rounded-2xl p-5">
+          <legend className="float-left w-full font-serif text-xl font-medium [&+*]:clear-both">Already appealed to the plan? (optional)</legend>
           <p className="mt-1 text-sm text-muted-foreground">
             If the plan has already sent its final decision on your internal appeal, enter that date. It starts the clock for outside review.
           </p>
@@ -223,7 +223,7 @@ function RightsView({ ex, initial }: { ex: Extraction; initial: Answers | null }
             )}
           </section>
 
-          <section aria-labelledby="help" className="rounded-2xl border bg-card p-5">
+          <section aria-labelledby="help" className="surface rounded-2xl p-5">
             <h2 id="help" className="text-xl font-semibold">
               Free help from a person
             </h2>

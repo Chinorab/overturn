@@ -53,7 +53,7 @@ export function FillInForm({ letter, onApply }: { letter: LetterState; onApply: 
   }
 
   return (
-    <section aria-labelledby="fill-in" className="rounded-2xl border-2 border-primary/30 bg-card p-5">
+    <section aria-labelledby="fill-in" className="surface-strong rounded-2xl p-5">
       <h2 id="fill-in" className="flex items-center gap-2 text-lg font-semibold">
         <PenLine className="size-5 text-primary" aria-hidden="true" />
         Fill in your details once

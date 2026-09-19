@@ -22,8 +22,8 @@ export function ChoiceGroup<T extends string>({
   onChange: (v: T) => void;
 }) {
   return (
-    <fieldset className="rounded-2xl border bg-card p-5">
-      <legend className="px-1 text-base font-semibold">{legend}</legend>
+    <fieldset className="surface rounded-2xl p-5">
+      <legend className="float-left w-full font-serif text-xl font-medium [&+*]:clear-both">{legend}</legend>
       {help && <div className="mt-1 text-sm text-muted-foreground">{help}</div>}
       <div className={cn("mt-3 grid gap-2", options.length > 2 ? "sm:grid-cols-2" : "sm:grid-cols-2")}>
         {options.map((o) => {

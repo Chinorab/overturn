@@ -22,7 +22,7 @@ export function RightsCard({ applied, highlight = false }: { applied: AppliedRul
   const k = KIND[rule.category];
   const Icon = k.icon;
   return (
-    <article className={cn("rounded-2xl border bg-card p-5", highlight && "border-primary/50 shadow-[0_0_0_3px_var(--secondary)]")}>
+    <article className={cn("surface rounded-2xl p-5", highlight && "border-primary/50 shadow-[0_0_0_3px_var(--secondary)]")}>
       <div className="flex flex-wrap items-center gap-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
         <span className="inline-flex items-center gap-1">
           <Icon className="size-3.5" aria-hidden="true" />

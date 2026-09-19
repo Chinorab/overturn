@@ -105,7 +105,7 @@ export function IntakePanel() {
 
   if (phase.kind === "working") {
     return (
-      <div role="status" aria-live="polite" className="rounded-2xl border bg-card p-6">
+      <div role="status" aria-live="polite" className="surface rounded-2xl p-6">
         <div className="flex items-center gap-3">
           <Loader2 className="size-6 animate-spin text-primary" aria-hidden="true" />
           <div>
@@ -146,11 +146,11 @@ export function IntakePanel() {
       )}
 
       <Tabs value={mode} onValueChange={(v) => setMode(v as Mode)} className="gap-4">
-        <TabsList className="grid h-auto w-full grid-cols-2 rounded-xl p-1">
-          <TabsTrigger value="sample" className="h-12 rounded-lg text-base data-active:text-primary">
+        <TabsList className="grid h-auto w-full grid-cols-2 rounded-full p-1">
+          <TabsTrigger value="sample" className="h-11 rounded-full text-base data-active:text-primary data-active:shadow-[var(--shadow-ambient)]">
             <FileText aria-hidden="true" /> Try a sample
           </TabsTrigger>
-          <TabsTrigger value="upload" className="h-12 rounded-lg text-base data-active:text-primary">
+          <TabsTrigger value="upload" className="h-11 rounded-full text-base data-active:text-primary data-active:shadow-[var(--shadow-ambient)]">
             <UploadCloud aria-hidden="true" /> Upload mine
           </TabsTrigger>
         </TabsList>
@@ -163,7 +163,7 @@ export function IntakePanel() {
                 <button
                   type="button"
                   onClick={() => onSample(s)}
-                  className="group flex h-full w-full items-start gap-3 rounded-xl border bg-card p-4 text-left transition-colors hover:border-primary/60 hover:bg-muted/40 focus-visible:border-primary"
+                  className="group flex h-full w-full items-start gap-3 surface rounded-xl p-4 text-left transition-[transform,box-shadow,background-color] duration-300 ease-[var(--ease-out-expo)] hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)] hover:bg-muted/30"
                 >
                   <span className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-lg bg-secondary text-secondary-foreground">
                     <FileText className="size-4" aria-hidden="true" />

@@ -30,7 +30,7 @@ export function FactCard({
   const display = absent ? "Not found in the document" : format ? format(field.value) : String(field.value);
 
   return (
-    <div className={cn("rounded-xl border bg-card p-4", needsAttention && "border-warning/70")}>
+    <div className={cn("surface rounded-xl p-4", needsAttention && "border-warning/70")}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</p>

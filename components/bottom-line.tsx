@@ -28,7 +28,7 @@ export function BottomLine({ ex, deadlineDue, daysLeft }: { ex: Extraction; dead
     owe !== null ? `The document says you may owe ${money(owe)}.` : billed !== null ? `${money(billed)} was billed; the document does not say what you may owe.` : "The document does not state an amount.";
 
   return (
-    <section aria-labelledby="bottom-line" className="rounded-2xl border-2 border-primary/30 bg-card p-5">
+    <section aria-labelledby="bottom-line" className="surface-strong rounded-2xl p-5">
       <h2 id="bottom-line" className="text-sm font-medium uppercase tracking-wide text-muted-foreground">
         The short version
       </h2>

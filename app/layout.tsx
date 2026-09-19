@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Public_Sans, Source_Serif_4 } from "next/font/google";
+import { Fraunces, Public_Sans } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "@/lib/session";
 import { PageTransition, SiteFooter, SiteHeader, Stepper } from "@/components/site-chrome";
@@ -10,11 +10,12 @@ const publicSans = Public_Sans({
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
-  variable: "--font-source-serif",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  axes: ["opsz", "SOFT", "WONK"],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +46,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${publicSans.variable} ${sourceSerif.variable} h-full antialiased`}>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning className={`${publicSans.variable} ${fraunces.variable} h-full antialiased`}>
       <head>
         {/* Apply the saved theme before first paint so there is no flash. */}
         <script
@@ -64,7 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SessionProvider>
           <SiteHeader />
           <Stepper />
-          <main id="main" className="w-full flex-1 px-4 py-6">
+          <main id="main" className="w-full flex-1 px-4 py-8">
             <PageTransition>{children}</PageTransition>
           </main>
           <SiteFooter />

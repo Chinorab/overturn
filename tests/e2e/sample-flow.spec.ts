@@ -6,7 +6,16 @@ import AxeBuilder from "@axe-core/playwright";
  * with an axe scan on every screen. No API call is made (samples are cached).
  */
 async function expectNoA11yViolations(page: import("@playwright/test").Page, screen: string) {
-  await page.waitForTimeout(450); // let the step transition finish; axe reads computed opacity
+  // Scroll through once so scroll-revealed sections are shown, then let transitions finish: axe reads computed opacity.
+  await page.evaluate(async () => {
+    for (let y = 0; y < document.body.scrollHeight; y += 400) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForFunction(() => !document.querySelector('[data-reveal=""]'));
+  await page.waitForTimeout(1000);
   const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag22aa"]).analyze();
   const serious = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");
   expect(serious, `${screen}: ${serious.map((v) => `${v.id} (${v.nodes.length})`).join(", ")}`).toEqual([]);

@@ -46,7 +46,7 @@ export function HelpDrawer() {
         </SheetHeader>
         <ul className="flex flex-col gap-3 px-4 pb-6">
           {resources.map((h) => (
-            <li key={h.id} className="rounded-xl border bg-card p-4">
+            <li key={h.id} className="surface rounded-xl p-4">
               <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                 {KIND_LABEL[h.kind]}
                 {h.scope !== "federal" ? ` · ${h.scope}` : " · Federal"}

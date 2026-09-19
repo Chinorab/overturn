@@ -110,7 +110,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
   if (phase.kind === "loading" || !letter) {
     return (
       <div className="space-y-6">
-        <h1 className="font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">Your appeal letter</h1>
+        <h1 className="font-serif text-[2.2rem] font-medium leading-[1.08] text-primary sm:text-[2.75rem]">Your appeal letter</h1>
         {phase.kind === "error" ? (
           <div role="alert" className="rounded-2xl border border-warning/60 bg-warning/5 p-5">
             <p className="flex items-center gap-2 font-semibold">
@@ -127,7 +127,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
             </div>
           </div>
         ) : (
-          <div role="status" aria-live="polite" className="rounded-2xl border bg-card p-6">
+          <div role="status" aria-live="polite" className="surface rounded-2xl p-6">
             <p className="flex items-center gap-3 font-semibold">
               <Loader2 className="size-6 animate-spin text-primary" aria-hidden="true" />
               {phase.kind === "loading" ? phase.msg : "Drafting your letter…"}
@@ -151,7 +151,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
     <div className="space-y-8 pb-24 sm:pb-8">
       <header>
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <h1 className="font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">Your appeal letter</h1>
+          <h1 className="font-serif text-[2.2rem] font-medium leading-[1.08] text-primary sm:text-[2.75rem]">Your appeal letter</h1>
           <AiLabel what="Drafted by AI from your facts and rights" />
         </div>
         <p className="mt-2 text-muted-foreground">
@@ -173,7 +173,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
       <FillInForm letter={letter} onApply={(next) => setLetter(next)} />
 
       {placeholders.length > 0 && (
-        <section aria-labelledby="blanks" className="rounded-2xl border bg-card p-5">
+        <section aria-labelledby="blanks" className="surface rounded-2xl p-5">
           <h2 id="blanks" className="font-semibold">
             {placeholders.length} {placeholders.length === 1 ? "blank" : "blanks"} still to fill in the letter
           </h2>
@@ -188,7 +188,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
         </section>
       )}
 
-      <section aria-labelledby="letter" className="rounded-2xl border bg-paper p-5 shadow-sm sm:p-8">
+      <section aria-labelledby="letter" className="surface rounded-2xl bg-paper p-5 sm:p-8">
         <h2 id="letter" className="sr-only">
           Letter text
         </h2>
@@ -235,7 +235,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <section aria-labelledby="attach" className="rounded-2xl border bg-card p-5">
+        <section aria-labelledby="attach" className="surface rounded-2xl p-5">
           <h2 id="attach" className="font-semibold">
             What to attach
           </h2>
@@ -251,7 +251,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
             ))}
           </ul>
         </section>
-        <section aria-labelledby="sendto" className="rounded-2xl border bg-card p-5">
+        <section aria-labelledby="sendto" className="surface rounded-2xl p-5">
           <h2 id="sendto" className="font-semibold">
             Where to send it
           </h2>
@@ -260,7 +260,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
         </section>
       </div>
 
-      <section aria-labelledby="before" className="rounded-2xl border-2 border-primary/30 bg-card p-5">
+      <section aria-labelledby="before" className="surface-strong rounded-2xl p-5">
         <h2 id="before" className="text-lg font-semibold">
           Before you send
         </h2>

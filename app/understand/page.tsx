@@ -93,12 +93,12 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
           <FileText className="size-4" aria-hidden="true" />
           {session.source?.kind === "sample" ? `Sample: ${session.source.title}` : session.source?.name}
         </p>
-        <h1 className="mt-2 font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">Here is what your document says</h1>
+        <h1 className="mt-2 font-serif text-[2.2rem] font-medium leading-[1.08] text-primary sm:text-[2.75rem]">Here is what your document says</h1>
       </header>
 
       <BottomLine ex={{ ...ex, letter_date: { ...ex.letter_date, value: letterDate || null } }} deadlineDue={preview?.d.due ?? null} daysLeft={preview?.d.days_left ?? null} />
 
-      <section aria-labelledby="summary" className="rounded-2xl border bg-card p-5">
+      <section aria-labelledby="summary" className="surface rounded-2xl p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 id="summary" className="text-lg font-semibold">
             In plain English
@@ -160,13 +160,13 @@ function UnderstandView({ ex, xp }: { ex: Extraction; xp: Explanation }) {
             <FactCard label="State (from the addresses)" field={ex.state_hint} required />
           </div>
         )}
-        <div className="mt-3 rounded-xl border bg-card p-4 text-sm">
+        <div className="mt-3 surface rounded-xl p-4 text-sm">
           <p className="font-medium">What the document says about appealing</p>
           <p className="mt-1 text-muted-foreground">{ex.stated_appeal_instructions.value ?? "The document does not describe how to appeal. That is itself worth noting: federal rules require it."}</p>
         </div>
       </section>
 
-      <section aria-labelledby="confirm" className="rounded-2xl border-2 border-primary/30 bg-card p-5">
+      <section aria-labelledby="confirm" className="surface-strong rounded-2xl p-5">
         <h2 id="confirm" className="text-lg font-semibold">
           {attention > 0 ? "Check these details" : "Four details the next step relies on"}
         </h2>

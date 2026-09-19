@@ -13,7 +13,7 @@ export default function AboutPage() {
     <div className="space-y-12">
       <header>
         <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">About Overturn</p>
-        <h1 className="mt-2 font-serif text-[2rem] font-semibold leading-[1.15] text-primary sm:text-5xl">Most denials are never appealed. Most appeals are worth filing.</h1>
+        <h1 className="mt-2 font-serif text-[2.4rem] font-medium leading-[1.05] text-primary sm:text-5xl">Most denials are never appealed. Most appeals are worth filing.</h1>
         <p className="mt-4 max-w-prose text-lg text-muted-foreground">
           In 2024, insurers on HealthCare.gov denied 19 % of in-network claims. Fewer than 1 % of those denials were appealed, and a third of
           the appeals succeeded.{" "}
@@ -35,7 +35,7 @@ export default function AboutPage() {
             { icon: BookOpenCheck, t: "The code decides", d: "Which rights and deadlines apply is computed by plain rules from a dataset where every rule carries its legal citation, its source, and the date a person last verified it. The AI has no say in this." },
             { icon: Send, t: "You send", d: "The letter is drafted from your facts and those rules only, with visible blanks for what only you know. You edit it, download it, and send it." },
           ].map((s, i) => (
-            <li key={s.t} className="rounded-2xl border bg-card p-4">
+            <li key={s.t} className="surface rounded-2xl p-4">
               <div className="flex items-center gap-2">
                 <span className="flex size-8 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground">{i + 1}</span>
                 <s.icon className="size-5 text-primary" aria-hidden="true" />
@@ -47,7 +47,7 @@ export default function AboutPage() {
         </ol>
       </section>
 
-      <section aria-labelledby="line" className="rounded-3xl border bg-card p-6">
+      <section aria-labelledby="line" className="surface rounded-3xl p-6">
         <h2 id="line" className="flex items-center gap-2 text-xl font-semibold">
           <Scale className="size-5 text-primary" aria-hidden="true" />
           Information, not advice
@@ -86,7 +86,7 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="privacy" className="grid gap-4 sm:grid-cols-2">
-        <div className="rounded-2xl border bg-card p-5">
+        <div className="surface rounded-2xl p-5">
           <h2 id="privacy" className="flex items-center gap-2 text-lg font-semibold">
             <Lock className="size-5 text-primary" aria-hidden="true" />
             Your document
@@ -96,7 +96,7 @@ export default function AboutPage() {
             session lives in your browser tab and disappears when you close it. The sample documents are fictional.
           </p>
         </div>
-        <div className="rounded-2xl border bg-card p-5">
+        <div className="surface rounded-2xl p-5">
           <h2 className="flex items-center gap-2 text-lg font-semibold">
             <ShieldCheck className="size-5 text-primary" aria-hidden="true" />
             What it covers

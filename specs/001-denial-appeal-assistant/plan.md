@@ -122,7 +122,7 @@ government/healthcare/legal) adapted to the audience.
   success green `#0E7C5B`, deadline-warning amber `#B7791F`, destructive `#B42318`.
   All text ≥ 4.5:1. Avoid cyan, neon, purple gradients.
 - **Type**: Public Sans (US Web Design System's typeface — a deliberate civic signal) for
-  UI/body at 17 px base, 1.55 line height; Source Serif 4 for the letter preview and the
+  UI/body at 17 px base, 1.55 line height; Fraunces (variable serif) for display headings, the letter preview and the
   H1 on the landing page. Both Google Fonts, `font-display: swap`.
 - **Layout**: single centered column (max 680 px), 4-step stepper always visible
   (Upload → Understand → Rights → Letter); each step is one screen with one primary action.

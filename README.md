@@ -126,7 +126,7 @@ Browser (Next.js, React)                       Server (Next.js route handlers, N
 |---|---|
 | Framework | [Next.js](https://nextjs.org) 16 (App Router), React 19, TypeScript 5 — MIT/Apache-2.0 |
 | UI | [Tailwind CSS](https://tailwindcss.com) 4, [shadcn/ui](https://ui.shadcn.com) on [Base UI](https://base-ui.com), [lucide](https://lucide.dev) icons — MIT/ISC |
-| Fonts | [Public Sans](https://public-sans.digital.gov) (US Web Design System) and Source Serif 4 — OFL |
+| Fonts | [Public Sans](https://public-sans.digital.gov) (US Web Design System) and [Fraunces](https://github.com/undercasetype/Fraunces) (display serif) — OFL |
 | Model | [Claude Opus 5](https://www.anthropic.com) via `@anthropic-ai/sdk`, structured outputs, PDF and image input — server-side only |
 | Validation | [Zod](https://zod.dev) 4 — MIT |
 | PDF | [@react-pdf/renderer](https://react-pdf.org) — MIT (letter export and the synthetic sample documents) |

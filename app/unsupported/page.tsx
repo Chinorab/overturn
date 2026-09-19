@@ -22,8 +22,8 @@ export default async function UnsupportedPage({ searchParams }: { searchParams: 
 
   return (
     <div className="space-y-6">
-      <h1 className="font-serif text-3xl font-semibold leading-tight text-primary sm:text-4xl">This one is outside what Overturn covers</h1>
-      <div className="rounded-2xl border bg-card p-5">
+      <h1 className="font-serif text-[2.2rem] font-medium leading-[1.08] text-primary sm:text-[2.75rem]">This one is outside what Overturn covers</h1>
+      <div className="surface rounded-2xl p-5">
         <p className="flex items-start gap-2">
           <Info className="mt-1 size-5 shrink-0 text-primary" aria-hidden="true" />
           <span>{msg ?? "This document belongs to a program with its own appeal process."}</span>

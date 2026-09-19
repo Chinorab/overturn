@@ -76,6 +76,6 @@ A "Get free human help" button on every screen lists the state Consumer Assistan
 
 ## Built with
 
-Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Zod 4 · Claude Opus 5 via `@anthropic-ai/sdk` (structured outputs, PDF/image input) · @react-pdf/renderer · date-fns · Vitest · Playwright · axe-core · Vercel · Public Sans / Source Serif 4 · Claude Code · GitHub Spec Kit
+Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Zod 4 · Claude Opus 5 via `@anthropic-ai/sdk` (structured outputs, PDF/image input) · @react-pdf/renderer · date-fns · Vitest · Playwright · axe-core · Vercel · Public Sans / Fraunces · Claude Code · GitHub Spec Kit
 
 **AI and third-party disclosure:** The application calls Claude Opus 5 server-side for document reading, plain-language explanation, and letter drafting; no model was fine-tuned. Claude Code (Claude Opus 5) was used as the coding assistant throughout, with the author directing scope, design, and every legal-source verification. All libraries are open source (MIT/Apache-2.0/ISC/MPL-2.0/OFL) and listed with licenses in the README. The seven sample documents are synthetic and were written for this project. Legal content summarizes public law and regulator guidance, each rule with its source and verification date.

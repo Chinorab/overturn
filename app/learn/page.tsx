@@ -60,7 +60,7 @@ const FAQ: Array<{ q: string; a: string }> = [
 
 function RuleRow({ rule }: { rule: Rule }) {
   return (
-    <li className="rounded-xl border bg-card p-4">
+    <li className="surface rounded-xl p-4">
       <p className="font-semibold leading-snug">{rule.title}</p>
       <p className="mt-1 text-sm text-muted-foreground">{rule.summary}</p>
       <p className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
@@ -80,7 +80,7 @@ export default function LearnPage() {
     <div className="space-y-12">
       <header>
         <p className="text-sm font-medium uppercase tracking-wide text-muted-foreground">Know your rights</p>
-        <h1 className="mt-2 font-serif text-[2rem] font-semibold leading-[1.15] text-primary sm:text-5xl">How appealing a health insurance denial works</h1>
+        <h1 className="mt-2 font-serif text-[2.4rem] font-medium leading-[1.05] text-primary sm:text-5xl">How appealing a health insurance denial works</h1>
         <p className="mt-4 max-w-prose text-lg text-muted-foreground">
           Every job-based, Marketplace, and individual plan in the United States has to follow the same federal appeal rules. Some states add
           more. This page is the map; Overturn applies it to your document.
@@ -129,7 +129,7 @@ export default function LearnPage() {
             const rules = ALL_RULES.filter((r) => r.jurisdiction === st.code);
             const help = HELP_RESOURCES.filter((h) => h.scope === st.code);
             return (
-              <article key={st.code} className="rounded-2xl border bg-card p-5">
+              <article key={st.code} className="surface rounded-2xl p-5">
                 <h3 className="text-lg font-semibold">{st.name}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{st.blurb}</p>
                 <details className="mt-3">
@@ -180,7 +180,7 @@ export default function LearnPage() {
         <h2 id="faq" className="text-xl font-semibold">
           Common questions
         </h2>
-        <div className="mt-4 divide-y rounded-2xl border bg-card">
+        <div className="mt-4 divide-y surface rounded-2xl">
           {FAQ.map((f) => (
             <details key={f.q} className="group p-4">
               <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 font-medium">
@@ -193,7 +193,7 @@ export default function LearnPage() {
         </div>
       </section>
 
-      <section className="rounded-3xl border bg-muted/40 p-6 text-center">
+      <section className="surface-muted rounded-3xl p-6 text-center">
         <h2 className="text-xl font-semibold">Have a denial in hand?</h2>
         <p className="mt-1 text-muted-foreground">Overturn applies all of this to your document in about a minute.</p>
         <Button className="mt-4 h-12 text-base" nativeButton={false} render={<Link href="/start" />}>
