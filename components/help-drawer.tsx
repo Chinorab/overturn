@@ -2,6 +2,7 @@
 
 import { LifeBuoy, Phone, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { HELP_RESOURCES } from "@/lib/rules/load";
 import { useSession } from "@/lib/session";
@@ -30,7 +31,7 @@ export function HelpDrawer() {
 
   return (
     <Sheet>
-      <SheetTrigger render={<Button variant="outline" className="h-10 gap-2 px-3" />}>
+      <SheetTrigger render={<Button variant="outline" className="h-11 gap-2 px-3.5" />}>
         <LifeBuoy aria-hidden="true" />
         <span className="hidden sm:inline">Get free human help</span>
         <span className="sm:hidden">Human help</span>
@@ -69,6 +70,21 @@ export function HelpDrawer() {
             </li>
           ))}
         </ul>
+        <nav aria-label="More" className="border-t px-4 py-4 sm:hidden">
+          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Read more</p>
+          <ul className="mt-1">
+            <li>
+              <Link href="/learn" className="inline-flex min-h-11 items-center font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
+                How appeals work
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="inline-flex min-h-11 items-center font-medium text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
+                About Overturn
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </SheetContent>
     </Sheet>
   );

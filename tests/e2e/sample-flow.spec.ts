@@ -29,8 +29,9 @@ async function expectNoHorizontalScroll(page: import("@playwright/test").Page) {
 test("home: hero, primary call to action, and framing above the fold", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toContainText("Your insurer said no");
-  await expect(page.getByText("Start with my document")).toBeInViewport();
-  await expect(page.getByText(/Nothing stored · Information, not legal advice/)).toBeInViewport();
+  await expect(page.getByText("Start with my document").first()).toBeInViewport();
+  await expect(page.getByText(/Free · Nothing stored · No account/)).toBeVisible();
+  await expect(page.getByText("Information, not legal advice", { exact: true })).toBeVisible();
   await expectNoHorizontalScroll(page);
   await expectNoA11yViolations(page, "home");
 });

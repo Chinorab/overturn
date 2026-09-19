@@ -289,6 +289,9 @@
       radial-gradient(60% 50% at 20% 0%, var(--glow) 0%, transparent 70%),
       radial-gradient(40% 40% at 90% 20%, color-mix(in oklch, var(--warning) 9%, transparent) 0%, transparent 70%);
   }
+  .dark .halo, .dark .before\:halo::before {
+    background: radial-gradient(60% 50% at 20% 0%, var(--glow) 0%, transparent 70%);
+  }
   /* Entrance on scroll, driven by components/reveal.tsx. Without JS the content is simply there. */
   [data-reveal] {
     transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);

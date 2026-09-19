@@ -49,10 +49,10 @@ export function ThemeToggle() {
     }
   }
 
-  if (!theme) return <span className="size-10" aria-hidden="true" />;
+  if (!theme) return <span className="size-11" aria-hidden="true" />;
   const label = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
   return (
-    <Button variant="ghost" size="icon" className="size-10" onClick={toggle} aria-label={label} title={label}>
+    <Button variant="ghost" size="icon" className="size-11" onClick={toggle} aria-label={label} title={label}>
       {theme === "dark" ? <Sun className="size-5" aria-hidden="true" /> : <Moon className="size-5" aria-hidden="true" />}
     </Button>
   );
