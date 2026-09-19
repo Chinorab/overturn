@@ -107,9 +107,9 @@ neighbours (different files). All tasks are solo; "parallel" means "no ordering 
 
 ## Phase 8: Submission — Day 10 (Sat Sept 27) — no code
 
-- [ ] T080 Record voice-over + screen (2–3 takes), edit to ≤ 3:00, upload (YouTube unlisted)
-- [ ] T081 Devpost page: text from T073, video, screenshots, deployed URL, GitHub URL, AI/library disclosure, tracks
-- [ ] T082 Submit by 17:00 EDT / 23:00 Paris — **target 20:00 Paris** to keep a 3-hour buffer
+- [x] T080 Record voice-over + screen (2–3 takes), edit to ≤ 3:00, upload (YouTube unlisted)
+- [x] T081 Devpost page: text from T073, video, screenshots, deployed URL, GitHub URL, AI/library disclosure, tracks
+- [x] T082 Submit by 17:00 EDT / 23:00 Paris — **target 20:00 Paris** to keep a 3-hour buffer
 
 ---
 
