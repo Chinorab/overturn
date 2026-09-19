@@ -31,23 +31,21 @@ export function FactCard({
 
   return (
     <div className={cn("surface rounded-xl p-4", needsAttention && "border-warning/70")}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</p>
-          <p className={cn("mt-1 break-words text-base", absent && "italic text-muted-foreground")}>{display}</p>
-        </div>
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">{label}</p>
         {!absent && field.quote && (
           <button
             type="button"
             onClick={() => setShowQuote((v) => !v)}
             aria-expanded={showQuote}
-            className="inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md px-2 text-sm text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
+            className="-mr-2 inline-flex min-h-11 shrink-0 items-center gap-1 rounded-md px-2 text-sm text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary"
           >
             <Quote className="size-4" aria-hidden="true" />
             {showQuote ? "Hide source" : "Where is this from?"}
           </button>
         )}
       </div>
+      <p className={cn("mt-1 break-words text-base", absent && "italic text-muted-foreground")}>{display}</p>
 
       {showQuote && field.quote && (
         <blockquote className="mt-3 border-l-2 border-primary/40 pl-3 font-serif text-sm text-muted-foreground">

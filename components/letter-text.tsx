@@ -6,7 +6,7 @@ import { ALL_RULES } from "@/lib/rules/load";
  * becomes a small superscript reference to the rule's legal citation. For the
  * downloadable versions, see `letterToPlainText` (citations become footnotes).
  */
-export function LetterRichText({ text }: { text: string }) {
+export function LetterRichText({ text, numbering }: { text: string; numbering?: string[] }) {
   const parts = text.split(/(\[ADD:[^\]]+\]|\[\[cite:[a-z0-9_.]+\]\])/g);
   return (
     <>
@@ -15,9 +15,13 @@ export function LetterRichText({ text }: { text: string }) {
         const m = p.match(/^\[\[cite:([a-z0-9_.]+)\]\]$/);
         if (m) {
           const rule = ALL_RULES.find((r) => r.id === m[1]);
+          // On screen a footnote number keeps the sentence readable; the numbered reference list below spells it out.
+          const n = numbering ? numbering.indexOf(m[1]) + 1 : 0;
+          const label = rule ? `${rule.title} — ${rule.legal_ref}` : m[1];
           return (
-            <sup key={i} className="ml-0.5 font-sans text-[0.7em] text-primary" title={rule ? `${rule.title} — ${rule.legal_ref}` : m[1]}>
-              [{rule ? rule.legal_ref : m[1]}]
+            <sup key={i} className="ml-0.5 font-sans text-[0.7em] font-medium text-primary" title={label}>
+              {n > 0 ? `[${n}]` : `[${rule ? rule.legal_ref : m[1]}]`}
+              <span className="sr-only"> (reference{n > 0 ? ` ${n}` : ""}: {label})</span>
             </sup>
           );
         }

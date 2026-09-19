@@ -7,13 +7,10 @@ import { cn } from "@/lib/utils";
  */
 export function NativeSelect({ className, children, ...props }: React.ComponentProps<"select">) {
   return (
-    <div className="relative">
+    <div className={cn("relative", className)}>
       <select
         {...props}
-        className={cn(
-          "h-11 w-full appearance-none rounded-lg border border-input bg-card px-3 pr-9 text-base text-foreground focus-visible:outline-3 focus-visible:outline-ring",
-          className,
-        )}
+        className="h-11 w-full appearance-none rounded-lg border border-input bg-card px-3 pr-9 text-base text-foreground focus-visible:outline-3 focus-visible:outline-ring"
       >
         {children}
       </select>

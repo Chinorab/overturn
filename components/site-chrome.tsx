@@ -20,7 +20,7 @@ export function SiteHeader() {
       {/* A floating glass island rather than an edge-to-edge bar: the page shows through around it. */}
       <div className="mx-auto flex h-13 max-w-[1040px] items-center justify-between gap-3 rounded-full bg-card/75 pl-5 pr-2 shadow-[inset_0_1px_0_var(--highlight),0_0_0_1px_var(--hairline),var(--shadow-ambient)] backdrop-blur-xl supports-[backdrop-filter]:bg-card/65">
         <div className="flex items-center gap-6">
-          <Link href="/" className="font-serif text-[1.35rem] font-semibold tracking-tight text-primary" style={{ fontVariationSettings: '"opsz" 32, "SOFT" 40' }}>
+          <Link href="/" className="inline-flex min-h-11 items-center font-serif text-[1.35rem] font-semibold tracking-tight text-primary" style={{ fontVariationSettings: '"opsz" 32, "SOFT" 40' }}>
             Overturn
           </Link>
           <nav aria-label="Site" className="hidden items-center gap-1 text-sm sm:flex">

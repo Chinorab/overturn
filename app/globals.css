@@ -222,6 +222,14 @@
     font-style: italic;
     font-variation-settings: "opsz" 144, "SOFT" 60, "WONK" 1;
   }
+  ::selection {
+    background: color-mix(in oklch, var(--primary) 22%, transparent);
+    color: var(--foreground);
+  }
+  :root {
+    caret-color: var(--primary);
+    accent-color: var(--primary);
+  }
   /* Lucide ships at 2px; the whole site uses a lighter, more precise line. */
   svg.lucide {
     stroke-width: 1.5;

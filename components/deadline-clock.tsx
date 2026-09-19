@@ -77,7 +77,9 @@ export function DeadlineClock({ deadline, rule, compact = false }: { deadline: C
 
       {!compact && (
         <details className="mt-4 text-sm">
-          <summary className="cursor-pointer text-muted-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-primary">How this date was calculated</summary>
+          <summary className="flex min-h-11 cursor-pointer items-center text-muted-foreground underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
+            How this date was calculated
+          </summary>
           <div className="mt-2 space-y-2 text-muted-foreground">
             <p>
               {deadline.anchor ? (

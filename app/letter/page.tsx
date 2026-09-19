@@ -155,8 +155,8 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
           <AiLabel what="Drafted by AI from your facts and rights" />
         </div>
         <p className="mt-2 text-muted-foreground">
-          A draft written in the first person, for you to finish. Fill in the blanks below, then tap any part of the letter to edit it. The bracketed
-          legal references are part of the letter; the plan expects them.
+          A draft written in the first person, for you to finish. Fill in the blanks below, then tap any part of the letter to edit it. The small
+          numbers point to the laws cited; the full citations are written into the letter you download or copy.
         </p>
       </header>
 
@@ -214,7 +214,7 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
               <button type="button" onClick={() => setEditing(sec.id)} className="w-full text-left" aria-label={`Edit section: ${sec.heading || sec.id}`}>
                 {sec.heading && <p className="font-serif font-semibold">{sec.heading}</p>}
                 <div className="whitespace-pre-line font-serif text-[1.05rem] leading-relaxed">
-                  <LetterRichText text={sec.text} />
+                  <LetterRichText text={sec.text} numbering={rules.map((r) => r.id)} />
                 </div>
                 <span className="pointer-events-none absolute right-2 top-2 inline-flex items-center gap-1 rounded-md bg-card px-2 py-1 text-xs text-muted-foreground opacity-0 shadow-sm group-hover:opacity-100 group-focus-within:opacity-100">
                   <Pencil className="size-3" aria-hidden="true" /> Edit
@@ -289,16 +289,19 @@ function LetterView({ situation, sampleId }: { situation: Situation; sampleId?: 
           <h2 id="refs" className="font-semibold text-foreground">
             References used in this letter
           </h2>
-          <ul className="mt-2 space-y-1">
-            {rules.map((r) => (
-              <li key={r.id}>
+          <ol className="mt-2 list-none space-y-1.5">
+            {rules.map((r, i) => (
+              <li key={r.id} id={`ref-${r.id}`} className="flex gap-2 scroll-mt-24">
+                <span className="w-6 shrink-0 font-medium text-primary tnum">[{i + 1}]</span>
+                <span>
                 {r.legal_ref} — {r.title}.{" "}
                 <a href={r.source_url} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4 decoration-primary/40 hover:decoration-primary">
                   source
                 </a>
+                </span>
               </li>
             ))}
-          </ul>
+          </ol>
         </section>
       )}
 

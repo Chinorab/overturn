@@ -63,7 +63,9 @@ export function BottomLine({ ex, deadlineDue, daysLeft }: { ex: Extraction; dead
 function shorten(s: string): string {
   // Drop parenthetical billing codes for the headline; they stay in the facts list.
   const clean = s.replace(/\s*\([^)]*\)/g, "").replace(/;\s*/g, " and ").trim();
-  const lower = clean.charAt(0).toLowerCase() + clean.slice(1);
+  // Lowercase the first letter unless the first word is an acronym or code (MRI, CT, TMS).
+  const acronym = /^[A-Z0-9][A-Z0-9-]*(\s|$)/.test(clean);
+  const lower = acronym ? clean : clean.charAt(0).toLowerCase() + clean.slice(1);
   return lower.length > 70 ? lower.slice(0, 67).trimEnd() + "…" : lower;
 }
 

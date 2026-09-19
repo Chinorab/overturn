@@ -33,13 +33,13 @@ export function RightsCard({ applied, highlight = false }: { applied: AppliedRul
       </div>
       <h3 className="mt-2 text-lg font-semibold leading-snug">{rule.title}</h3>
       <p className="mt-2 text-base">{rule.summary}</p>
-      <p className="mt-3 rounded-lg bg-muted/70 p-3 text-sm">
-        <span className="font-medium">Why this applies to you: </span>
+      <p className="mt-3 text-sm text-muted-foreground">
+        <span className="font-medium text-foreground">Why this applies to you: </span>
         {why}
       </p>
       {caveat && (
-        <p className="mt-2 flex items-start gap-2 rounded-lg border border-warning/50 bg-warning/5 p-3 text-sm">
-          <Info className="mt-0.5 size-4 shrink-0 text-warning" aria-hidden="true" />
+        <p className="mt-3 flex items-start gap-2 text-sm text-warning">
+          <Info className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
           <span>{caveat}</span>
         </p>
       )}
