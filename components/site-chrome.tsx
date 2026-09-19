@@ -101,8 +101,8 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1040px] px-4 pb-10 pt-8 text-sm text-muted-foreground">
         <div className="mb-6 h-px w-full bg-gradient-to-r from-transparent via-[var(--hairline)] to-transparent" aria-hidden="true" />
         <p className="max-w-[62ch]">
-          Overturn provides general legal information for people in the United States. It is not a lawyer, does not give legal
-          advice, and cannot predict the outcome of an appeal. Documents are processed in memory and never stored.
+          Overturn gives information, not legal advice, to people in the United States. It is not a lawyer and cannot predict the
+          outcome of an appeal. Documents are processed in memory and never stored.
         </p>
         <p className="mt-3">
           <Link href="/learn" className="underline underline-offset-4 decoration-primary/40">

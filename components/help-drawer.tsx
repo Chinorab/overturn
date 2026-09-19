@@ -38,7 +38,7 @@ export function HelpDrawer() {
       </SheetTrigger>
       <SheetContent side="right" className="w-full overflow-y-auto sm:max-w-md">
         <SheetHeader>
-          <SheetTitle>Talk to a person</SheetTitle>
+          <SheetTitle>Free human help</SheetTitle>
           <SheetDescription>
             These services are free. They can look at your documents, explain your options, and in many cases file the
             appeal with you.

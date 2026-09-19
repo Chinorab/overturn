@@ -40,7 +40,7 @@ const STEPS = [
   {
     n: "03",
     icon: PenLine,
-    t: "Send your appeal",
+    t: "Draft your appeal",
     d: "A letter built only from your facts and those rights, with visible blanks for what only you know. Edit, download, send.",
     img: letterLight,
     imgDark: letterDark,
@@ -76,7 +76,10 @@ export default function Home() {
               Upload a denial letter or an Explanation of Benefits. Overturn explains it in plain English, shows your rights and deadlines
               with the law behind each one, and drafts the appeal letter you send.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <p className="mt-4 max-w-[54ch] text-base text-muted-foreground">
+              For job-based, Marketplace, and individual plans. Not Medicare, Medicaid, TRICARE, or VA.
+            </p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button className="group h-14 pl-7 pr-2 text-base" nativeButton={false} render={<Link href="/start?mode=upload" />}>
                 Start with my document
                 <span className="ml-3 flex size-10 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[var(--ease-spring)] group-hover:translate-x-0.5 group-hover:scale-105">
@@ -92,14 +95,14 @@ export default function Home() {
           {/* Before / after: two sheets, the second laid over the first like paper on a desk. */}
           <figure className="relative md:col-start-2 md:row-span-2 md:row-start-1 md:pl-4">
             <figcaption className="sr-only">Example: a sentence from a denial letter and its plain-English reading</figcaption>
-            <div className="surface rounded-[1.6rem] p-5 font-serif text-[0.95rem] leading-relaxed text-muted-foreground md:-rotate-2 md:transition-transform md:duration-700 md:ease-[var(--ease-out-expo)] md:hover:rotate-0">
+            <div className="surface rounded-[1.6rem] p-5 font-serif text-[0.95rem] leading-relaxed text-muted-foreground md:-rotate-2">
               <p className="font-sans text-xs font-medium uppercase tracking-[0.14em]">From the letter</p>
               <p className="mt-2">
                 “The requested service is not medically necessary. Based on the clinical information submitted, our medical guideline
                 MHP-MSK-014 requires documentation of at least six weeks of conservative treatment… Reason code: 50.”
               </p>
             </div>
-            <div className="shell relative z-10 -mt-6 ml-3 rounded-[1.8rem] p-1.5 sm:ml-10 md:rotate-1 md:transition-transform md:duration-700 md:ease-[var(--ease-out-expo)] md:hover:rotate-0">
+            <div className="shell relative z-10 -mt-6 ml-3 rounded-[1.8rem] p-1.5 sm:ml-10 md:rotate-1">
               <div className="surface-strong rounded-[calc(1.8rem-0.375rem)] bg-paper p-5">
                 <p className="text-xs font-medium uppercase tracking-[0.14em] text-primary">In plain English</p>
                 <p className="mt-2 text-[1rem] leading-relaxed">
@@ -108,10 +111,11 @@ export default function Home() {
                 </p>
                 <div className="mt-4 flex flex-wrap gap-2 text-xs">
                   <span className="surface inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 tnum">
-                    <CalendarClock className="size-3.5 text-primary" aria-hidden="true" /> Appeal by Mar 7, 2027 · 170 days left
+                    <CalendarClock className="size-3.5 text-primary" aria-hidden="true" /> Appeal by Mar 7, 2027 · 169 days left
                   </span>
                   <span className="surface inline-flex items-center gap-1.5 rounded-full px-3 py-1.5">
-                    <ScrollText className="size-3.5 text-primary" aria-hidden="true" /> 29 CFR 2560.503-1
+                    <ScrollText className="size-3.5 text-primary" aria-hidden="true" /> Federal rule: 180 days to appeal
+                    <span className="text-muted-foreground">· 29 CFR 2560.503-1</span>
                   </span>
                 </div>
               </div>
@@ -121,9 +125,9 @@ export default function Home() {
           <div className="text-sm text-muted-foreground md:col-start-1 md:row-start-2">
             <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
               <Lock className="size-4 text-primary" aria-hidden="true" />
-              <span>Free · Nothing stored · No account · About a minute, and a phone photo works.</span>
+              <span>Free · Nothing stored · No account</span>
             </p>
-            <p className="mt-1.5">Job-based, Marketplace, and individual plans. Not Medicare, Medicaid, TRICARE, or VA.</p>
+            <p className="mt-1.5">About a minute. A phone photo of the letter is fine.</p>
           </div>
         </div>
       </section>
@@ -233,16 +237,16 @@ export default function Home() {
 
       {/* Final CTA: the same two actions as the hero, same names. */}
       <section data-reveal="" className="mx-auto max-w-[1040px] py-12 sm:py-20">
-        <div className="rounded-[2rem] bg-primary p-8 text-primary-foreground shadow-[var(--shadow-lift)] sm:p-14">
+        <div className="rounded-[2rem] bg-primary p-8 text-primary-foreground shadow-[var(--shadow-lift)] sm:p-14 dark:bg-card dark:text-foreground dark:ring-1 dark:ring-primary/40">
           <div className="grid items-end gap-8 md:grid-cols-[1.2fr_0.8fr]">
             <div>
               <h2 className="font-serif text-4xl font-medium sm:text-5xl">Have a denial in hand?</h2>
-              <p className="mt-4 max-w-[46ch] text-lg text-primary-foreground/85">
+              <p className="mt-4 max-w-[46ch] text-lg text-primary-foreground/85 dark:text-muted-foreground">
                 Read it with Overturn in about a minute, or try one of seven fictional samples first.
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
-              <Button variant="secondary" className="group h-14 pl-7 pr-2 text-base" nativeButton={false} render={<Link href="/start?mode=upload" />}>
+              <Button variant="secondary" className="group h-14 pl-7 pr-2 text-base dark:bg-primary dark:text-primary-foreground dark:hover:bg-[color-mix(in_oklch,var(--primary),white_10%)]" nativeButton={false} render={<Link href="/start?mode=upload" />}>
                 Start with my document
                 <span className="ml-3 flex size-10 items-center justify-center rounded-full bg-primary/10 transition-transform duration-500 ease-[var(--ease-spring)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   <ArrowUpRight aria-hidden="true" className="size-5" />
@@ -250,7 +254,7 @@ export default function Home() {
               </Button>
               <Button
                 variant="ghost"
-                className="h-14 px-6 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                className="h-14 px-6 text-base text-primary-foreground hover:bg-primary-foreground/15 hover:text-primary-foreground dark:text-primary dark:hover:bg-secondary dark:hover:text-primary"
                 nativeButton={false}
                 render={<Link href="/start?mode=sample" />}
               >
