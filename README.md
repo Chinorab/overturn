@@ -5,7 +5,7 @@ protections that apply, and a letter you can send.**
 
 LexHack 2026 · Tracks: *Access to Justice & Civic Tech* (primary), *Legal Automation & Workflow Innovation*
 
-> **Live demo:** https://overturn-peach.vercel.app · **Video:** _(link on the Devpost page)_
+> **Live demo:** https://overturn-peach.vercel.app · **Video (2:21):** https://youtu.be/7gX-vRLdb3s
 >
 > Try it in under five minutes with a sample document; nothing is uploaded and nothing is stored.
 
