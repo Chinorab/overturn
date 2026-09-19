@@ -39,3 +39,5 @@ yarn-error.log*
 # video sources and exports (too big for git)
 docs/video/raw/
 docs/video/*.mp4
+docs/video/work/
+docs/video/vo/
