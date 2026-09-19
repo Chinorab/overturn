@@ -4,7 +4,9 @@ import { IntakePanel } from "@/components/intake-panel";
 
 export const metadata: Metadata = { title: "Start", description: "Upload a denial letter or Explanation of Benefits, or try a sample." };
 
-export default function Home() {
+/** `/start?mode=upload` opens the upload tab directly; anything else keeps the samples first. */
+export default async function Home({ searchParams }: { searchParams: Promise<{ mode?: string }> }) {
+  const { mode } = await searchParams;
   return (
     <div className="space-y-10">
       <section className="pt-2">
@@ -23,7 +25,7 @@ export default function Home() {
         <h2 id="start" className="mb-4 text-lg font-semibold">
           Start here
         </h2>
-        <IntakePanel />
+        <IntakePanel initialMode={mode === "upload" ? "upload" : "sample"} />
       </section>
 
     </div>

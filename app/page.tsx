@@ -35,13 +35,13 @@ export default function Home() {
               that apply to you with the law behind each one, and drafts an appeal letter you edit and send.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <Button className="group h-14 pl-7 pr-2 text-base" nativeButton={false} render={<Link href="/start" />}>
+              <Button className="group h-14 pl-7 pr-2 text-base" nativeButton={false} render={<Link href="/start?mode=upload" />}>
                 Start with my document
                 <span className="ml-3 flex size-10 items-center justify-center rounded-full bg-primary-foreground/15 transition-transform duration-500 ease-[var(--ease-spring)] group-hover:translate-x-0.5 group-hover:scale-105">
                   <ArrowRight aria-hidden="true" className="size-5" />
                 </span>
               </Button>
-              <Button variant="ghost" className="h-14 px-6 text-base text-primary hover:bg-primary/8" nativeButton={false} render={<Link href="/start" />}>
+              <Button variant="ghost" className="h-14 px-6 text-base text-primary hover:bg-primary/8" nativeButton={false} render={<Link href="/start?mode=sample" />}>
                 Try a sample first
               </Button>
             </div>
@@ -113,7 +113,7 @@ export default function Home() {
       <section aria-labelledby="how" className="mx-auto max-w-[1040px] py-16 sm:py-24">
         <p className="eyebrow">How it works</p>
         <h2 id="how" className="mt-4 font-serif text-4xl font-medium text-primary sm:text-5xl">
-          Three steps, <em>one</em> document
+          Upload once. Then <em>three</em> steps.
         </h2>
         <ol className="mt-12 space-y-16 sm:mt-16 sm:space-y-24">
           {[
@@ -123,7 +123,7 @@ export default function Home() {
               t: "Understand",
               d: "Every fact, with the exact words it came from. A summary at an 8th-grade level. Your first deadline as a date and a countdown.",
               img: "/screens/understand.png",
-              alt: "Understand screen showing a plain-English summary and a deadline",
+              alt: "Understand screen for the MRI denial: the short version, the amount billed, and the appeal deadline",
             },
             {
               n: "02",
@@ -131,7 +131,7 @@ export default function Home() {
               t: "Know your rights",
               d: "Five questions. Then the protections that apply, most relevant first, each with its legal citation and a link to the source.",
               img: "/screens/rights.png",
-              alt: "Rights screen showing the No Surprises Act protection with its source",
+              alt: "Rights screen for the MRI denial: the 180-day internal appeal deadline and the first rule that applies, with its source",
             },
             {
               n: "03",
@@ -139,7 +139,7 @@ export default function Home() {
               t: "Send your appeal",
               d: "A letter built only from your facts and those rights, with visible blanks for what only you know. Edit, download, send.",
               img: "/screens/letter.png",
-              alt: "Letter screen listing the blanks to fill in",
+              alt: "Letter screen for the MRI denial: the draft appeal with highlighted blanks to fill in",
             },
           ].map((s, i) => (
             <li key={s.n} data-reveal="" className="grid items-center gap-8 md:grid-cols-12 md:gap-10">
@@ -156,7 +156,8 @@ export default function Home() {
               <div className={i % 2 === 1 ? "md:order-1 md:col-span-5" : "md:col-span-5 md:col-start-8"}>
                 <div className="shell rounded-[2rem] p-2">
                   <div className="surface max-h-[420px] overflow-hidden rounded-[calc(2rem-0.5rem)] bg-muted/40">
-                    <Image src={s.img} alt={s.alt} width={780} height={1688} sizes="(min-width: 768px) 380px, 90vw" className="h-auto w-full" />
+                    <Image src={s.img} alt={s.alt} width={780} height={1400} sizes="(min-width: 768px) 380px, 90vw" className="h-auto w-full dark:hidden" />
+                    <Image src={s.img.replace(".png", "-dark.png")} alt="" aria-hidden="true" width={780} height={1400} sizes="(min-width: 768px) 380px, 90vw" className="hidden h-auto w-full dark:block" />
                   </div>
                 </div>
               </div>
@@ -248,7 +249,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:justify-end">
-              <Button variant="secondary" className="group h-14 pl-7 pr-2 text-base" nativeButton={false} render={<Link href="/start" />}>
+              <Button variant="secondary" className="group h-14 pl-7 pr-2 text-base" nativeButton={false} render={<Link href="/start?mode=upload" />}>
                 Start now
                 <span className="ml-3 flex size-10 items-center justify-center rounded-full bg-primary/10 transition-transform duration-500 ease-[var(--ease-spring)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                   <ArrowUpRight aria-hidden="true" className="size-5" />

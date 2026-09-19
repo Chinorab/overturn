@@ -37,11 +37,11 @@ const ERROR_TITLE: Record<string, string> = {
  * Step 1. Two ways in: a bundled sample (instant, cached, free) or a real upload
  * (one server call, nothing stored). Progress copy is a timer, not a fake percentage.
  */
-export function IntakePanel() {
+export function IntakePanel({ initialMode = "sample" }: { initialMode?: Mode } = {}) {
   const router = useRouter();
   const { setResult } = useSession();
   const [phase, setPhase] = useState<Phase>({ kind: "idle" });
-  const [mode, setMode] = useState<Mode>("sample");
+  const [mode, setMode] = useState<Mode>(initialMode);
   const [dragging, setDragging] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const abort = useRef<AbortController | null>(null);
