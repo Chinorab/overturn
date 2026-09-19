@@ -20,7 +20,7 @@ than 1 % of them, and a third of those appeals succeeded (KFF). The gap is not m
 that the denial letter is unreadable, the rights are unknown, and the deadline is invisible. The
 people most affected are the least likely to have someone who can read the letter for them.
 
-We wanted a tool that does what a good consumer-assistance counselor does in the first twenty
+I wanted a tool that does what a good consumer-assistance counselor does in the first twenty
 minutes: read the letter with you, tell you what it means, tell you what generally applies and
 by when, and help you write the first appeal. Without pretending to be a lawyer.
 
@@ -33,9 +33,9 @@ Four screens, one task each, designed for a stressed person on a phone:
 3. **Rights**: five questions, then the protections and deadlines that apply to that situation, federal baseline plus state rules for California, New York, and Texas, each with a legal citation, a primary source, and a last-verified date.
 4. **Letter**: an appeal letter drafted only from those facts and those rights, with visible `[ADD: …]` blanks for everything the tool does not know. Edit, download as PDF, or copy. Then a "before you send" checklist.
 
-A "Get free human help" button on every screen lists the state Consumer Assistance Program and regulator. A **Know your rights** page explains the four stages of a US appeal, what each covered state adds, and answers common questions, rendered from the same rules dataset the app uses; an **About** page states the problem, the information-vs-advice line, and what happens to your document.
+A "Get free human help" button on every screen lists the state Consumer Assistance Program and regulator. A **How appeals work** page explains the four stages of a US appeal and what each covered state adds, rendered from the same rules dataset the app uses; an **About** page states the problem, the information-vs-advice line, and what happens to your document.
 
-## How we built it
+## How I built it
 
 **The model reads, the code decides, the human sends.**
 
@@ -45,15 +45,15 @@ A "Get free human help" button on every screen lists the state Consumer Assistan
 - **Stack**: Next.js 16, React 19, TypeScript, Tailwind 4, shadcn/ui, Zod 4, `@anthropic-ai/sdk`, `@react-pdf/renderer` (letter export and the synthetic samples), Vitest + Playwright with axe-core, Vercel.
 - **Process**: spec-driven with GitHub's Spec Kit (constitution → spec → plan → tasks), coded solo with Claude Code. All legal content was read from primary sources (eCFR, state statutes, regulator pages) and recorded with the date read.
 
-## Challenges we ran into
+## Challenges I ran into
 
-- **Structured outputs have a grammar budget.** Our first extraction schema (24 fields × value/quote/page/confidence, all nullable) was rejected twice. We flattened it to sentinel values plus a single `evidence` list, and rebuilt the strict shape in code.
-- **The model wanted to be helpful.** Early drafts asserted things the patient "did not do" ("I did not sign any waiver"). One rule in the prompt, one regeneration, and that class of fabrication became a placeholder instead. We treat every such case as a design bug, not a prompt quirk.
-- **Regulator websites block automated readers.** For California and Texas we cite the statute on the legislature's site and use the regulator page for the human-help entry. Where a number could not be confirmed from a primary source, it is not in the dataset.
-- **A five-dollar API budget.** Every model output for the samples is cached and committed, so the demo costs nothing to run and the build cost $1.33 in total (logged in `docs/api-spend.md`).
+- **Structured outputs have a grammar budget.** Our first extraction schema (24 fields × value/quote/page/confidence, all nullable) was rejected twice. I flattened it to sentinel values plus a single `evidence` list, and rebuilt the strict shape in code.
+- **The model wanted to be helpful.** Early drafts asserted things the patient "did not do" ("I did not sign any waiver"). One rule in the prompt, one regeneration, and that class of fabrication became a placeholder instead. Every such case is treated as a design bug, not a prompt quirk.
+- **Regulator websites block automated readers.** For California and Texas the statute is cited on the legislature's site and the regulator page is used for the human-help entry. Where a number could not be confirmed from a primary source, it is not in the dataset.
+- **A five-dollar API budget.** Every model output for the samples is cached and committed, so the demo costs nothing to run and the whole build cost under $2 in API calls (logged in `docs/api-spend.md`).
 - **Production is not development.** Playwright against the production build caught a Content Security Policy that blocked the PDF engine's WebAssembly. Fixed before anyone saw it.
 
-## Accomplishments that we're proud of
+## Accomplishments that I'm proud of
 
 - The information-vs-advice line is enforced in code at three layers, and the argument is written down in one page (`LEGAL_DESIGN.md`).
 - Every deadline on screen shows its formula and its source. Every fact shows its quote.
@@ -61,7 +61,7 @@ A "Get free human help" button on every screen lists the state Consumer Assistan
 - An honest stop for Medicare, Medicaid, and TRICARE documents instead of a wrong answer.
 - A rules dataset another state can be added to in half a day, with a test that refuses unsourced rules.
 
-## What we learned
+## What I learned
 
 - Separating *reading* from *deciding* is what makes an AI legal-information tool defensible. It also makes it testable: the engine has a golden table; the model has fixtures.
 - "I don't know" has to be a first-class answer in a legal tool, because it is the honest common case.
@@ -78,4 +78,4 @@ A "Get free human help" button on every screen lists the state Consumer Assistan
 
 Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui (Base UI) · Zod 4 · Claude Opus 5 via `@anthropic-ai/sdk` (structured outputs, PDF/image input) · @react-pdf/renderer · date-fns · Vitest · Playwright · axe-core · Vercel · Public Sans / Fraunces · Claude Code · GitHub Spec Kit
 
-**AI and third-party disclosure:** The application calls Claude Opus 5 server-side for document reading, plain-language explanation, and letter drafting; no model was fine-tuned. Claude Code (Claude Opus 5) was used as the coding assistant throughout, with the author directing scope, design, and every legal-source verification. All libraries are open source (MIT/Apache-2.0/ISC/MPL-2.0/OFL) and listed with licenses in the README. The seven sample documents are synthetic and were written for this project. Legal content summarizes public law and regulator guidance, each rule with its source and verification date.
+**AI and third-party disclosure:** The application calls Claude Opus 5 server-side for document reading, plain-language explanation, and letter drafting; no model was fine-tuned. Claude Code (Claude Opus 5) was used as the coding assistant throughout, with the author directing scope, design, and every legal-source verification. All libraries are open source (MIT/Apache-2.0/ISC/MPL-2.0/OFL) and listed with licenses in the README. The seven sample documents are synthetic and were written for this project. Legal content summarizes public law and regulator guidance, each rule with its source and verification date. The demo video voice-over is synthetic (edge-tts).
