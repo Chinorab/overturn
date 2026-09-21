@@ -94,7 +94,7 @@
 
 - [ ] T028 [US5] Container: `mcp/Dockerfile` (node:22 arm64, `--conditions=react-server`, port 8000, `/mcp`), `infra/agentcore/README.md` + config (protocol MCP, `CUSTOM_JWT` authorizer = Cognito discovery URL + allowed client IDs, env vars), push to ECR, deploy via `agentcore` CLI or `aws bedrock-agentcore-control create-agent-runtime`; `infra/apprunner/` fallback documented and tried only if AgentCore fails
 - [ ] T029 [US5] Remote conformance `pnpm test:mcp:remote` (`OVERTURN_MCP_URL`, real Cognito token via `infra/cognito/token.sh`); simulator env on Vercel (`OVERTURN_MCP_URL`, Cognito, Polly, SES creds as project env vars); verify the `/sim` → AgentCore → SES loop from the deployed simulator; friction log for every AWS step
-- [ ] T030 [P] [US5] `infra/README.md` (architecture diagram: Echo/Alexa+ (future) · simulator · AgentCore · Cognito · SES · Polly), cost notes, teardown; `.env.example` complete; `pnpm test -- privacy` extended to scan `mcp/` and `infra/` for key patterns
+- [ ] T030 [P] [US5] `infra/README.md` (draft ready: architecture, step-by-step deploy, env by component, security, cost, teardown — fill the ⟦T028⟧ placeholders and confirm the CLI flags actually used); `.env.example` complete; `pnpm test -- privacy` extended to scan `mcp/` and `infra/` for key patterns
 
 **Checkpoint M4**: judges can hit the public server; AWS Builder story is real.
 
