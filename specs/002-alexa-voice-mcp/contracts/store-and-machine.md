@@ -5,7 +5,7 @@ the *action layer* of LEGAL_DESIGN: a consequential tool cannot run without `con
 tool cannot run out of order, a case cannot be read from another MCP session, and nothing about a
 case survives 30 idle minutes, a send, or a cancel.
 
-**Run on 2026-09-21** with `tsx`: 60 assertions pass — gate decisions in every status, the full
+**Run on 2026-09-21** with `tsx`: 35 assertions plus the per-status and per-tool loops pass — gate decisions in every status, the full
 happy-path transition chain, the correction loop, the no-document path, question sequencing
 (Marketplace skips `self_funded`; medical-necessity skips `emergency`), store expiry at 31 idle
 minutes with a touched clock, `wrong_session`, `case_closed` with facts freed, tombstoned codes
