@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Chinorab/us-health-appeal-rules/schema.json",
+  "title": "us-health-appeal-rules",
+  "description": "Machine-readable rules for appealing a health insurance denial in the United States: deadlines, protections, rights and process steps, each with a legal reference, a primary source and a last-verified date. A rule file (rules/*.json) is a RuleFile; help-resources.json is a HelpResourceFile.",
+  "$defs": {
+    "USStateCode": {
+      "type": "string",
+      "enum": ["AL","AK","AZ","AR","CA","CO","CT","DE","DC","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"]
+    },
+    "Jurisdiction": {
+      "description": "\"federal\" (ACA/ERISA baseline), \"nsa\" (No Surprises Act) or a state code. Must match the file name: federal.json, nsa.json, tx.json.",
+      "anyOf": [
+        { "type": "string", "enum": ["federal", "nsa"] },
+        { "$ref": "#/$defs/USStateCode" }
+      ]
+    },
+    "RuleCategory": {
+      "type": "string",
+      "enum": ["deadline", "protection", "right", "process"],
+      "description": "deadline = a clock; protection = a limit on what can be billed or denied; right = something the person may request; process = what the plan or regulator must do, by when."
+    },
+    "PlanSource": { "type": "string", "enum": ["employer", "marketplace", "direct", "other"] },
+    "DenialCategory": {
+      "type": "string",
+      "enum": ["medical_necessity", "prior_auth", "out_of_network", "not_covered", "coding_admin", "experimental", "timely_filing", "duplicate", "other"]
+    },
+    "DocumentType": { "type": "string", "enum": ["denial_letter", "eob", "other"] },
+    "ISODate": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "HttpsUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "AppliesIf": {
+      "type": "object",
+      "description": "Conditions, ANDed. An omitted key matches anything. {} means the rule always applies within its jurisdiction.",
+      "additionalProperties": false,
+      "properties": {
+        "state": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/USStateCode" } },
+        "plan_source": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/PlanSource" } },
+        "self_funded": {
+          "type": "string",
+          "enum": ["yes", "no", "any"],
+          "description": "\"no\" = insured plans only (state law reaches them; self-funded ERISA plans are federal-only). \"yes\" = self-funded only. \"any\" = regardless. Consumers who do not know their funding should still be shown \"no\" rules, with the caveat."
+        },
+        "denial_category": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/DenialCategory" } },
+        "emergency": { "type": "boolean" },
+        "urgent": { "type": "boolean" },
+        "document_type": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/DocumentType" } }
+      }
+    },
+    "Deadline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["anchor", "amount", "unit", "who"],
+      "properties": {
+        "anchor": {
+          "type": "string",
+          "enum": ["letter_date", "final_internal_denial_date", "service_date"],
+          "description": "The date the statute counts from. The consumer supplies it."
+        },
+        "amount": { "type": "number", "exclusiveMinimum": 0 },
+        "unit": { "type": "string", "enum": ["days", "months", "hours"], "description": "Keep the statute's own unit; do not convert months to days." },
+        "who": {
+          "type": "string",
+          "enum": ["consumer", "insurer"],
+          "description": "consumer = a countdown for the person; insurer = the plan's clock, informational."
+        }
+      }
+    },
+    "Rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "jurisdiction", "category", "title", "summary", "legal_ref", "source_url", "last_verified", "applies_if", "priority", "why_template"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z]+(\\.[a-z0-9_]+)+$",
+          "description": "Stable identifier jurisdiction.topic.detail (fed.*, nsa.*, tx.*). Never reused after removal."
+        },
+        "jurisdiction": { "$ref": "#/$defs/Jurisdiction" },
+        "category": { "$ref": "#/$defs/RuleCategory" },
+        "title": { "type": "string", "minLength": 4, "description": "Starts with the jurisdiction name, states the fact, about 12 words." },
+        "summary": {
+          "type": "string",
+          "minLength": 20,
+          "description": "Plain English, Grade 8, 60 words or fewer, no advice language. Safe to show or speak to a consumer."
+        },
+        "legal_ref": { "type": "string", "minLength": 3, "description": "Statute or regulation section as a lawyer cites it." },
+        "source_url": { "$ref": "#/$defs/HttpsUrl", "description": "The primary source a human read: eCFR, the legislature or the regulator." },
+        "last_verified": { "$ref": "#/$defs/ISODate", "description": "The date a human read source_url. Rules older than 45 days fail validate.mjs." },
+        "applies_if": { "$ref": "#/$defs/AppliesIf" },
+        "deadline": { "$ref": "#/$defs/Deadline" },
+        "priority": { "type": "integer", "minimum": 0, "description": "Display order within a jurisdiction, lower first. No Surprises Act rules use 1-6; state rules start at 10." },
+        "why_template": { "type": "string", "minLength": 10, "description": "One sentence explaining why this applies, true whether or not plan funding is known." },
+        "caveat": { "type": "string", "minLength": 1, "description": "Shown when the rule is displayed under uncertainty (e.g. unknown plan funding)." }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "category": { "const": "deadline" } } },
+          "then": { "required": ["deadline"] }
+        },
+        {
+          "if": { "properties": { "jurisdiction": { "$ref": "#/$defs/USStateCode" } } },
+          "then": {
+            "properties": {
+              "applies_if": {
+                "required": ["state", "self_funded"],
+                "properties": { "self_funded": { "enum": ["no", "any"] } }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "RuleFile": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/Rule" }
+    },
+    "HelpResource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "scope", "name", "kind", "url", "what_they_do"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "scope": {
+          "anyOf": [ { "const": "federal" }, { "$ref": "#/$defs/USStateCode" } ],
+          "description": "\"federal\" entries are the fallback for states without their own."
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["CAP", "regulator", "ombudsman", "helpdesk"] },
+        "phone": { "type": "string", "minLength": 1, "description": "As printed on the source page." },
+        "url": { "$ref": "#/$defs/HttpsUrl" },
+        "what_they_do": { "type": "string", "minLength": 10, "description": "One or two sentences: what a caller can expect." }
+      }
+    },
+    "HelpResourceFile": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/HelpResource" }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/RuleFile" },
+    { "$ref": "#/$defs/HelpResourceFile" }
+  ]
+}
