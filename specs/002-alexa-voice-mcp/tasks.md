@@ -80,7 +80,7 @@
 
 - [ ] T025 [US2] No-document path: `overturn_start_case(has_document:"no")` → `answering` status; `overturn_answer` question sequence `state → plan_source → denial_category → document_date → urgent`, synthetic `Extraction` builder `lib/voice/no-document.ts` (category + approx date + `[ADD]` placeholders), `approximate` flag propagated to `rights-speech` and to the letter draft; Medicare/Medicaid answer → `unsupported_coverage` stop with official channel
 - [ ] T026 [US2] Recovery behaviours from voice-design §6 in `mcp/src/tools/*` and orchestrator: progressive re-prompts (1st short, 2nd options, 3rd skip/help), upload check-ins (two, then offer no-document), document/state discrepancy question, model-down message routing to the no-document offer, silence re-prompt in `components/sim/MicButton.tsx`
-- [ ] T027 [US2] Golden transcripts (SC-005) in `docs/transcripts/`: US1 sample 01 with a correction, US2 TX, unsupported Medicare (sample 06), cancel mid-way; each run through the orchestrator, reviewed by hand, violations = 0; add `tests/voice/golden.test.ts` that replays them through `turn-check`
+- [ ] T027 [US2] Golden transcripts (SC-005) in `docs/transcripts/` — **five target transcripts already written 2026-09-21 with a findings list in `docs/transcripts/README.md`; re-run them through the real orchestrator and reconcile**: US1 sample 01 with a correction, US2 TX, unsupported Medicare (sample 06), cancel mid-way; each run through the orchestrator, reviewed by hand, violations = 0; add `tests/voice/golden.test.ts` that replays them through `turn-check`
 
 **Checkpoint M3**: robust demo path exists even with the model down.
 
