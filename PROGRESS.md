@@ -49,6 +49,7 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- `jose` n'est pas hoisté (dépendance transitive dans `.pnpm/`) : à ajouter explicitement dans `mcp/package.json` (T002).
 - Le guard `legal advice` matche la phrase d'ouverture obligatoire → `turn-check` doit l'exempter (détail dans `docs/transcripts/README.md`).
 - `setup-plan.ps1` résout la feature via la branche git : forcer `$env:SPECIFY_FEATURE_DIRECTORY`.
 - Heredoc bash multi-lignes long échoue dans cet environnement → utiliser l'outil Write.
