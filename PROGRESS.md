@@ -9,8 +9,8 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). **Prochaine action : T001**
-(amendement constitution v1.1) le 2026-09-28, début de la fenêtre hackathon. Ne pas coder avant.
+Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (constitution v1.1) fait le 2026-09-21. **Prochaine action : T002**
+(workspace pnpm + `mcp/`) le 2026-09-28, début de la fenêtre hackathon. Ne pas coder avant.
 
 ## Fait
 - [x] Étape 1 — vérif doc Alexa+ : MCP Toolkit « select partners only » → chemin officiel

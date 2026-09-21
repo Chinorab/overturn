@@ -14,7 +14,7 @@
 
 ## Phase 1: Setup — M0 (Sep 28)
 
-- [ ] T001 Amend constitution to v1.1 in `.specify/memory/constitution.md`: hackathon-2 context, second LLM provider behind one interface, AWS runtime for the MCP server next to Vercel, code freeze 2026-10-20 20:00 Paris, 21–22 Oct reserved; dated amendment note
+- [x] T001 Amend constitution to v1.1 in `.specify/memory/constitution.md`: hackathon-2 context, second LLM provider behind one interface, AWS runtime for the MCP server next to Vercel, code freeze 2026-10-20 20:00 Paris, 21–22 Oct reserved; dated amendment note - *done 2026-09-21 (pre-window; documentation, not code)*
 - [ ] T002 Convert repo to a pnpm workspace: `pnpm-workspace.yaml` (root + `mcp/`), create `mcp/package.json` (name `overturn-mcp-server`, deps `@modelcontextprotocol/sdk@^1.30`, `hono`, `@hono/node-server`, `jose`, `zod`), `mcp/tsconfig.json` with path alias `@/lib/*` → `../lib/*`, root scripts `mcp:dev`, `mcp:build`, `test:mcp`
 - [ ] T003 [P] Create `mcp/src/index.ts` + `mcp/src/server.ts`: Hono app, `GET /healthz`, MCP endpoint `/mcp` via `WebStandardStreamableHTTPServerTransport` (stateful, session id generator), port 8000; prove `import "server-only"` from `lib/` works with `node --conditions=react-server` (document the fix in `mcp/README.md`)
 - [ ] T004 [P] Scaffold `FEEDBACK.md` (one section per tool: MCP TS SDK, Hono, Cognito, AgentCore, SES, Polly, Web Speech API, Anthropic, Nebius, Inspector, agentcore CLI, Devpost) with the five headings usage / works / friction / onboarding / would reuse; add `.env.example` entries from `contracts/simulator-api.md`
