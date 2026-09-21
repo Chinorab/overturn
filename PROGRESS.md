@@ -26,7 +26,7 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - [ ] Simulateur Alexa+ web (Web Speech API) + page companion (code 6 car.)
 - [ ] Envoi SES + repli lien ; déploiement AWS AgentCore (fallback App Runner) — `infra/README.md` rédigé
 - [ ] Dépôt open source du dataset règles (MIT) — README + guide adding-a-state + validate.mjs prêts : `docs/dataset-repo/` (1 résumé TX à raccourcir)
-- [ ] README « Built during the hackathon », FEEDBACK.md, FRICTION_LOG.md au fil de l'eau
+- [ ] README « Built during the hackathon » (sections rédigées : `docs/readme-alexa-sections.md`), FEEDBACK.md, FRICTION_LOG.md au fil de l'eau
 - [ ] Vidéo < 3 min (script prêt : `docs/video-script-alexa.md`) + page Devpost (brouillon prêt : `docs/devpost-alexa.md`, placeholders ⟦…⟧ à remplir) (21-22 oct)
 
 ## Décisions prises
