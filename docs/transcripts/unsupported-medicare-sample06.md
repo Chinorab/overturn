@@ -11,7 +11,7 @@ rights are computed, no deadline is spoken.** The case is closed by the tool.
 
 **T1** U: Alexa, my insurance denied my home nursing visits. Help me appeal.
 → `overturn_start_case`
-A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the denial letter in front of you? [29]
+A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the denial letter in front of you? [28]
 
 **T2** U: Yes I do.
 A: On your phone, open the companion page and enter this code: Q-R-S, 4-9-2. Take a photo of the letter or upload it, and tell me when it's in. [28]
@@ -20,14 +20,11 @@ A: On your phone, open the companion page and enter this code: Q-R-S, 4-9-2. Tak
 
 **T3** U: It's uploaded.
 → `overturn_attach_document` → `{ ok: false, error: { code: "unsupported_coverage", speak } }`
-A: One moment. This looks like a Medicare Advantage notice from SilverLine. Medicare appeals work differently from the plans I cover, with their own levels and deadlines, and I'd rather not guess. Medicare has a free help line: 1-800-MEDICARE. Would you like me to email you that and the appeal steps from Medicare's own site? [54]
+A: One moment. This looks like a Medicare Advantage notice from SilverLine. Medicare appeals work differently from the plans I cover, with their own levels and deadlines, and I'd rather not guess. Medicare has its own free help line. Would you like me to email you that number and the appeal steps from Medicare's own site? [55]
 
 **T4** U: Yes, please.
 → `overturn_send_letter` is **not** used; `overturn_get_help { state: "TX" }` → resources → client emails the help card
-A: Sent. It has the Medicare appeals page, the help line, and your state's free counselling program for Medicare questions. Your letter itself tells you how long you have — it's usually on the second page. [35]
-
-**T5** *(continued)*
-A: I'm sorry I can't take this one further. I've kept nothing on my side. [14]
+A: Sent. It has the Medicare appeals page, the help line, and your state's free counselling program for Medicare questions. Your letter itself tells you how long you have — it's usually on the second page. I'm sorry I can't take this one further. I've kept nothing on my side. [48]
 
 ---
 
@@ -41,4 +38,4 @@ What must be true in this transcript:
 - The email is a help card, not a letter: `overturn_send_letter` is unreachable because the case never reached
   `letter_drafted`; a call would return `wrong_state`.
 
-Guard hits: 0. Turns: 5.
+Guard hits: 0. Turns: 4 (T4 is one spoken turn).

@@ -64,3 +64,10 @@ replaces the target if it is at least as good, or the prompt/templates are fixed
 5. `ny.external_appeal.fee`'s own wording — "refunded if you win it" — reads like a prediction out
    of context but is a statement about the fee. It does not match the guard's
    `(will|would|going to) win` pattern. Keep the rule's wording; do not paraphrase it in speech.
+6. **Two design fixes found by replaying the transcripts through the drafted checker**
+   (`contracts/turn-check.md`): the correction prompt listed five fields (FR-001 allows four) — it
+   is now an open question ("which part is off?") with the list only as a re-prompt; and a short
+   hint sentence after the question ("You can say I don't know.") is legitimate voice design, so
+   rule 1 allows exactly one trailing sentence of ≤ 10 words. Word counts in these files follow the
+   checker's rule (tokens containing a letter or digit); all five transcripts replay with zero
+   violations.

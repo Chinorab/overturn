@@ -11,23 +11,23 @@ orchestrator's glue (and even that can be the deterministic fallback in the simu
 
 **T1** U: Alexa, my insurance company refused to pay for a procedure. What can I do?
 → `overturn_start_case`
-A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the denial letter or statement in front of you? [31]
+A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the denial letter or statement in front of you? [30]
 
 **T2** U: No, I can't find it.
 → `overturn_start_case` result `next: ask_state` (client passes `has_document: "no"`) 
-A: No problem — I can still tell you the basics from a few questions. Which state do you live in? [20]
+A: No problem — I can still tell you the basics from a few questions. Which state do you live in? [19]
 
 **T3** U: Texas.
 → `overturn_answer { question: "state", utterance: "Texas" }` → TX, next `plan_source`
-A: Texas. How do you get your coverage — through an employer, the Marketplace, or bought directly? [16]
+A: Texas. How do you get your coverage — through an employer, the Marketplace, or bought directly? [15]
 
 **T4** U: Through my employer.
 → `overturn_answer` → employer, next `self_funded`
-A: Do you know if the plan is self-funded — that's when the employer pays claims itself? You can say I don't know. [22]
+A: Do you know if the plan is self-funded — that's when the employer pays claims itself? You can say I don't know. [21]
 
 **T5** U: No idea.
 → `overturn_answer { utterance: "no idea" }` → unknown, next `denial_category`
-A: That's fine. What reason did they give — not medically necessary, no prior authorization, out of network, or something else? [20]
+A: That's fine. What reason did they give — not medically necessary, no prior authorization, out of network, or something else? [19]
 
 **T6** U: They said there was no prior authorization.
 → `overturn_answer` → prior_auth, next `document_date`
@@ -39,7 +39,7 @@ A: Around October 7th, then. Is the care urgent or still ongoing? [11]
 
 **T8** U: No.
 → `overturn_answer` → no → `overturn_compute_rights` → chunks[0] (approximate flag)
-A: Because the date is approximate, treat these as estimates. Your internal appeal deadline is around April 5th, 2027 — about 166 days — under the federal ACA appeal rules. You have the right to a free copy of your claim file and the criteria they used. And if your plan is insured under Texas law, the plan must decide your appeal within 30 days, and medical-necessity denials can go to an independent review through the Texas Department of Insurance. Want more, or a letter with blanks you can fill in when you find the letter? [95]
+A: Because the date is approximate, treat these as estimates. Your internal appeal deadline is around April 5th, 2027 — about 166 days — under the federal ACA appeal rules. You have the right to a free copy of your claim file and the criteria they used. And if your plan is insured under Texas law, the plan must decide your appeal within 30 days, and medical-necessity denials can go to an independent review through the Texas Department of Insurance. Want more, or a letter with blanks you can fill in when you find the letter? [93]
 
 **T9** U: The letter, please.
 → `overturn_draft_letter` → `needs_confirmation`
@@ -47,7 +47,7 @@ A: I'll write the letter from what you told me and those rules; the insurer's na
 
 **T10** U: Yes.
 → `overturn_draft_letter { confirmed: true }` → 2 pages, 9 blanks → `overturn_send_letter` → `needs_confirmation`
-A: Done — two pages, nine blanks. Shall I send it to your email ending in m-dot-yahoo-dot-com? [16]
+A: Done — two pages, nine blanks. Shall I send it to your email ending in m-dot-yahoo-dot-com? [15]
 
 **T11** U: Yes.
 → `overturn_send_letter { confirmed: true }` → sent

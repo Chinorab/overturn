@@ -16,7 +16,7 @@ accepted; "more" plays the second rights chunk.
 
 **T1** U: Alexa, I got a letter saying my insurance won't pay for my MRI. Can you help me appeal?
 → `overturn_start_case`
-A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the letter in front of you? [28]
+A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the letter in front of you? [27]
 
 **T2** U: Yes.
 A: On your phone, open the companion page and enter this code: H-J-K, 2-6-7. Take a photo of the letter or upload it, and tell me when it's in. [28]
@@ -28,8 +28,8 @@ A: On your phone, open the companion page and enter this code: H-J-K, 2-6-7. Tak
 A: One moment. Here's what I read: Meridian Health Plan of New York denied an MRI of your left knee from August 20th, billed at two thousand four hundred dollars, saying it was not medically necessary. Is that right? [38]
 
 **T4** U: No, the scan was in September.
-→ `overturn_confirm_facts { answer: "no" }` → fields [insurer, service, date, amount, reason]
-A: Okay. Which part is off — the insurer, the service, the date, the amount, or the reason? [17]
+→ `overturn_confirm_facts { answer: "no" }` → fields [insurer, service, date, amount, reason] (the assistant asks openly; the server maps the answer to a field, and lists the five only if the answer is not understood)
+A: Okay — which part is off? [5]
 
 **T5** U: The date.
 → (no tool yet)
@@ -41,15 +41,15 @@ A: September 2nd, 2026. Your letter says August 20th, so I'll use your date and 
 
 **T7** U: Yes.
 → `overturn_confirm_facts { answer: "yes" }` → next `state`
-A: Thanks. The letter looks like it's from New York — is that where you live? [15]
+A: Thanks. The letter looks like it's from New York — is that where you live? [14]
 
 **T8** U: Yes.
 → `overturn_answer { question: "state" }` → NY, next `plan_source`
-A: And how do you get this coverage — through an employer, the Marketplace, or bought directly? [16]
+A: And how do you get this coverage — through an employer, the Marketplace, or bought directly? [15]
 
 **T9** U: Through work.
 → `overturn_answer { question: "plan_source", utterance: "through work" }` → employer, next `self_funded`
-A: Through your employer. Do you know if the plan is self-funded — that's when the employer pays claims itself rather than an insurer? You can say I don't know. [29]
+A: Through your employer. Do you know if the plan is self-funded — that's when the employer pays claims itself rather than an insurer? You can say I don't know. [28]
 
 **T10** U: I don't know.
 → `overturn_answer { question: "self_funded", utterance: "I don't know" }` → unknown, next `emergency`
@@ -61,7 +61,7 @@ A: Is the care urgent or still ongoing? [7]
 
 **T12** U: No.
 → `overturn_answer { question: "urgent" }` → no → `overturn_compute_rights` → chunks[0]
-A: Here's where you stand. Your first deadline is March 7th, 2027 — 137 days from today — to file an internal appeal, under the federal ACA appeal rules. You have the right to a free copy of your claim file and to the guideline they used, and the appeal must be reviewed by a different, qualified person. Want to hear more, or shall I draft the appeal letter? [68]
+A: Here's where you stand. Your first deadline is March 7th, 2027 — 137 days from today — to file an internal appeal, under the federal ACA appeal rules. You have the right to a free copy of your claim file and to the guideline they used, and the appeal must be reviewed by a different, qualified person. Want to hear more, or shall I draft the appeal letter? [66]
 
 **T13** U: More.
 → chunks[1]
@@ -69,11 +69,11 @@ A: In New York, if your plan is insured rather than self-funded, two more things
 
 **T14** U: Yes please.
 → `overturn_draft_letter` → `needs_confirmation`
-A: I'll write the letter from your facts and those rules, with blanks where I don't know something — including a line about the scan date. Shall I go ahead? [29]
+A: I'll write the letter from your facts and those rules, with blanks where I don't know something — including a line about the scan date. Shall I go ahead? [28]
 
 **T15** U: Go ahead.
 → `overturn_draft_letter { confirmed: true }` → 2 pages, 3 blanks → `overturn_send_letter` → `needs_confirmation`
-A: Done — two pages, three blanks to fill. Shall I send it to your email ending in d-dot-outlook-dot-com? [18]
+A: Done — two pages, three blanks to fill. Shall I send it to your email ending in d-dot-outlook-dot-com? [17]
 
 **T16** U: Yes.
 → `overturn_send_letter { confirmed: true }` → sent

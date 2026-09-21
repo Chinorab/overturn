@@ -9,7 +9,7 @@ Exercises: the advice/prediction deflection through `overturn_get_help`; distres
 
 **T1** U: Alexa, my insurance denied my surgery and I don't know what to do.
 → `overturn_start_case`
-A: That sounds stressful. I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. Do you have the letter in front of you? [30]
+A: That sounds stressful. I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. Do you have the letter in front of you? [29]
 
 **T2** U: Yes.
 A: On your phone, open the companion page and enter this code: W-X-Y, 3-5-8. Take a photo of the letter or upload it, and tell me when it's in. [28]
@@ -22,7 +22,7 @@ A: One moment. Here's what I read: Pacific Crest Health Plan denied a laparoscop
 
 **T4** U: Yes. Honestly, am I going to win this? Is it even worth it?
 → `overturn_get_help { code }` → CA resources
-A: I can't tell you what to do or predict how it will go. What I can tell you is what the rules say and what your deadlines are. And the DMHC Help Center in California gives free help with exactly this — I can put their number in the email. Shall we keep going? [54]
+A: I can't tell you what to do or predict how it will go. What I can tell you is what the rules say and what your deadlines are. And the DMHC Help Center in California gives free help with exactly this — I can put their number in the email. Shall we keep going? [53]
 
 **T5** U: No. Forget it, stop.
 → `overturn_discard_case` (no `confirmed`) → `needs_confirmation`
@@ -30,7 +30,7 @@ A: Do you want me to drop this and keep nothing? Say yes to confirm. [14]
 
 **T6** U: Yes.
 → `overturn_discard_case { confirmed: true }` → discarded
-A: Done. Nothing was saved — your document and everything I read are gone. If you change your mind, just ask me again; the DMHC Help Center is free either way, at the number on your insurance card. [37]
+A: Done. Nothing was saved — your document and everything I read are gone. If you change your mind, just ask me again; the DMHC Help Center is free either way, at the number on your insurance card. [36]
 
 ---
 

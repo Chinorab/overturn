@@ -102,7 +102,7 @@ A: No problem — I can still tell you the basics. Which state do you live in? [
 
 | Situation | Turn |
 |---|---|
-| Read-back answered "no" | "Which part is off — the insurer, the service, the date, the amount, or the reason?" → user names one → "What should it be?" → templated re-read of that field only → "Better?" |
+| Read-back answered "no" | "Okay — which part is off?" (open; five fields would break the ≤ 4-option rule) → user names one → "What should it be?" → templated re-read of that field only → "Better?". If the answer is not understood: "The insurer, the service, the date, or the amount? Or say 'the reason'." |
 | Not understood (1st) | "Sorry — was that yes or no?" / "Employer, Marketplace, or bought directly?" |
 | Not understood (2nd) | Same options, slower, then: "Or say 'skip' and I'll note it as unknown." |
 | Not understood (3rd) | "Let's leave that one. …" (moves on if allowed, else offers human help) |
