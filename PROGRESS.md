@@ -1,6 +1,6 @@
 # Overturn — avancement (hackathon Amazon "Build, Ship, Shape")
 
-Dernière mise à jour : 2026-09-21 (plan)
+Dernière mise à jour : 2026-09-21 (tâches)
 
 ## Objectif
 Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Streamable HTTP
@@ -9,18 +9,18 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-Plan 002 rédigé (plan, research, data-model, contracts/, voice-design, quickstart) — **en attente
-de validation** avant `/speckit-tasks`. Branche git : `002-alexa-voice-mcp`. Ne pas coder.
+Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). **Prochaine action : T001**
+(amendement constitution v1.1) le 2026-09-28, début de la fenêtre hackathon. Ne pas coder avant.
 
 ## Fait
 - [x] Étape 1 — vérif doc Alexa+ : MCP Toolkit « select partners only » → chemin officiel
       « simulated Alexa+ experience in a web app » retenu (sources dans la spec, section Context)
 - [x] Spec 002 + checklist qualité (`specs/002-alexa-voice-mcp/`)
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
-- [x] Plan 002 + annexe design vocal (`specs/002-alexa-voice-mcp/`)
+- [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
 ## Reste à faire
-- [ ] `/speckit-tasks`, planning 28 sept → 23 oct (21-22 oct = vidéo + Devpost)
+- [ ] Suivre tasks.md dans l'ordre : T001→T039 (cocher au fur et à mesure)
 - [ ] Abstraction LLM (`OVERTURN_LLM_PROVIDER=anthropic|nebius`)
 - [ ] Serveur MCP + OAuth PKCE + test de conformité
 - [ ] Simulateur Alexa+ web (Web Speech API) + page companion (code 6 car.)
