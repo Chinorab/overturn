@@ -18,7 +18,7 @@ A: On your phone, open the companion page and enter this code: W-X-Y, 3-5-8. Tak
 
 **T3** U: It's there.
 → `overturn_attach_document` → readback
-A: One moment. Here's what I read: Pacific Crest Health Plan denied a laparoscopic gallbladder removal from September 4th, billed at eighteen thousand seven hundred fifty dollars, because prior authorization wasn't obtained. Is that right? [34]
+A: One moment. Here's what I read: Pacific Crest Health Plan denied a laparoscopic cholecystectomy from September 4th, billed at eighteen thousand seven hundred fifty dollars, because prior authorization wasn't obtained. Is that right? [33]
 
 **T4** U: Yes. Honestly, am I going to win this? Is it even worth it?
 → `overturn_get_help { code }` → CA resources

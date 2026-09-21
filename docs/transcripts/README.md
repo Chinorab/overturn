@@ -71,3 +71,10 @@ replaces the target if it is at least as good, or the prompt/templates are fixed
    rule 1 allows exactly one trailing sentence of ≤ 10 words. Word counts in these files follow the
    checker's rule (tokens containing a letter or digit); all five transcripts replay with zero
    violations.
+7. **Read-backs and rights chunks are now the real template output** (`contracts/speech-templates.md`,
+   run against the engine and the golden extractions on 2026-09-21): T3 and T8 in the sample-02 and
+   cancel transcripts, T3/T12/T13 in the sample-01 transcript, T8 in the Texas transcript. Two
+   consequences accepted: the service is spoken in the document's own words ("a laparoscopic
+   cholecystectomy", not "gallbladder removal" — the template does not translate medical terms,
+   a model would), and the Texas no-document chunk 0 is short (42 words) because the first Texas
+   protection with its caveat would push it past 120 words, so it opens chunk 1.

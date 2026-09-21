@@ -25,7 +25,7 @@ A: On your phone, open the companion page and enter this code: H-J-K, 2-6-7. Tak
 
 **T3** U: Done.
 → `overturn_attach_document` → readback
-A: One moment. Here's what I read: Meridian Health Plan of New York denied an MRI of your left knee from August 20th, billed at two thousand four hundred dollars, saying it was not medically necessary. Is that right? [38]
+A: One moment. Here's what I read: Meridian Health Plan of New York denied an MRI of the left knee without contrast from August 20th, billed at two thousand four hundred dollars, saying it was not medically necessary. Is that right? [40]
 
 **T4** U: No, the scan was in September.
 → `overturn_confirm_facts { answer: "no" }` → fields [insurer, service, date, amount, reason] (the assistant asks openly; the server maps the answer to a field, and lists the five only if the answer is not understood)
@@ -61,11 +61,11 @@ A: Is the care urgent or still ongoing? [7]
 
 **T12** U: No.
 → `overturn_answer { question: "urgent" }` → no → `overturn_compute_rights` → chunks[0]
-A: Here's where you stand. Your first deadline is March 7th, 2027 — 137 days from today — to file an internal appeal, under the federal ACA appeal rules. You have the right to a free copy of your claim file and to the guideline they used, and the appeal must be reviewed by a different, qualified person. Want to hear more, or shall I draft the appeal letter? [66]
+A: Here's where you stand. Your first deadline is March 7th, 2027 — 137 days from today — to file an internal appeal, under the federal ACA appeal rules. If your employer pays claims itself, state insurance laws generally do not apply. Your external review goes through the federal process, and the U.S. Department of Labor is the agency that helps with these plans. That comes from the federal ACA appeal rules. Want to hear more, or shall I draft the appeal letter? [80]
 
 **T13** U: More.
 → chunks[1]
-A: In New York, if your plan is insured rather than self-funded, two more things apply under New York insurance law: if the plan misses its own appeal deadline, the denial is reversed; and after the plan's final decision you can ask the Department of Financial Services for an external appeal, for at most twenty-five dollars, refunded if you win it. That's everything that applies. Shall I draft the appeal letter? [70]
+A: You have the right to receive, free of charge, copies of every document, record, and piece of information the plan used or relied on for your claim, including any internal rule, guideline, or protocol it applied. That comes from the federal ACA appeal rules. If your plan is insured rather than self-funded: Under New York law, a utilization review agent that fails to decide your appeal within the required time is deemed to have reversed its denial. That comes from New York insurance law. Want to hear more, or shall I draft the appeal letter? [95]
 
 **T14** U: Yes please.
 → `overturn_draft_letter` → `needs_confirmation`

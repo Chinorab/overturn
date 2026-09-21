@@ -21,7 +21,7 @@ A: Good. On your phone, open the companion page and enter this code: A-C-F, 3-4-
 
 **T3** U: Okay, it's in.
 → `overturn_attach_document` (progress) → readback
-A: One moment. Here's what I read: Pacific Crest Health Plan denied a laparoscopic gallbladder removal from September 4th, billed at eighteen thousand seven hundred fifty dollars, because prior authorization wasn't obtained. Is that right? [34]
+A: One moment. Here's what I read: Pacific Crest Health Plan denied a laparoscopic cholecystectomy from September 4th, billed at eighteen thousand seven hundred fifty dollars, because prior authorization wasn't obtained. Is that right? [33]
 
 **T4** U: Yes, that's right.
 → `overturn_confirm_facts { answer: "yes" }` → next `state`
@@ -42,7 +42,7 @@ A: Last one: is this care urgent or still ongoing? [9]
 **T8** U: No, it's done.
 → `overturn_answer { question: "urgent", utterance: "no, it's done" }` → no, next `compute_rights`
 → `overturn_compute_rights` → chunks[0]
-A: Here's where you stand. Your first deadline is March 10th, 2027 — 140 days from today — to file an internal appeal with the plan, under the federal ACA appeal rules. You also have the right to a free copy of your claim file and the exact criteria they used. And in California, you file a grievance with the plan first; if it isn't resolved in 30 days, you can go to the Department of Managed Health Care, and an independent medical review there is free. Want to hear more, or shall I draft the appeal letter? [95]
+A: Here's where you stand. Your first deadline is March 10th, 2027 — 140 days from today — to file an internal appeal, under the federal ACA appeal rules. You generally start by filing a grievance with your plan. If the plan does not resolve it within 30 days, or you disagree with the answer, you can take it to the Department of Managed Health Care. That comes from California law. Want to hear more, or shall I draft the appeal letter? [79]
 
 **T9** U: Draft the letter.
 → `overturn_draft_letter` (no `confirmed`) → `needs_confirmation`

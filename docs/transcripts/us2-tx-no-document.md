@@ -39,7 +39,7 @@ A: Around October 7th, then. Is the care urgent or still ongoing? [11]
 
 **T8** U: No.
 → `overturn_answer` → no → `overturn_compute_rights` → chunks[0] (approximate flag)
-A: Because the date is approximate, treat these as estimates. Your internal appeal deadline is around April 5th, 2027 — about 166 days — under the federal ACA appeal rules. You have the right to a free copy of your claim file and the criteria they used. And if your plan is insured under Texas law, the plan must decide your appeal within 30 days, and medical-necessity denials can go to an independent review through the Texas Department of Insurance. Want more, or a letter with blanks you can fill in when you find the letter? [93]
+A: Because the date is approximate, treat these as estimates. Your first deadline is around April 5th, 2027 — about 166 days — to file an internal appeal, under the federal ACA appeal rules. Want to hear more, or shall I draft the appeal letter? [42]
 
 **T9** U: The letter, please.
 → `overturn_draft_letter` → `needs_confirmation`
