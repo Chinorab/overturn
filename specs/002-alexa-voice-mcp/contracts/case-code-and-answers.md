@@ -6,7 +6,7 @@ dates included). Both are conservative on purpose: when in doubt they return `nu
 assistant re-asks with the options (voice-design §6), and they never guess a state or a reason.
 
 **Run on 2026-09-21** (`tsx`, real `lib/schemas/core.ts` enums): 20 000 generated codes unique and
-valid, and 74 mapping cases pass — every one is listed at the end as the test file's content.
+valid, and 66 mapping cases pass — every one is listed at the end as the test file's content.
 
 ## Decisions the run settled
 
