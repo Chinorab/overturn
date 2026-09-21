@@ -22,7 +22,7 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 ## Reste à faire
 - [ ] Suivre tasks.md dans l'ordre : T001→T039 (cocher au fur et à mesure)
 - [ ] Abstraction LLM (`OVERTURN_LLM_PROVIDER=anthropic|nebius`)
-- [ ] Serveur MCP + OAuth PKCE + test de conformité (scripts Cognito prêts : `infra/cognito/`)
+- [ ] Serveur MCP + OAuth PKCE + test de conformité (scripts Cognito prêts : `infra/cognito/` ; `mcp/README.md` rédigé)
 - [ ] Simulateur Alexa+ web (Web Speech API) + page companion (code 6 car.)
 - [ ] Envoi SES + repli lien ; déploiement AWS (AgentCore Runtime ou Lambda)
 - [ ] Dépôt open source du dataset règles (MIT) — README + guide adding-a-state + validate.mjs prêts : `docs/dataset-repo/` (1 résumé TX à raccourcir)

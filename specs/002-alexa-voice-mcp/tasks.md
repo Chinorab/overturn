@@ -47,7 +47,7 @@
 - [ ] T013 [US3] Tools `overturn_compute_rights` (buildSituation → computeRights → `rights-speech`), `overturn_draft_letter` (gate → `draftLetter`; letter meta: pages, blanks, checklist, where-to-send), `overturn_send_letter` (gate → `lib/delivery/email.ts` stub returning `delivery_failed` until T020 → download token), `overturn_discard_case` in `mcp/src/tools/{rights,draft,send,discard}.ts`
 - [ ] T014 [P] [US3] Resources `overturn://samples`, `overturn://rules/{jurisdiction}` in `mcp/src/resources.ts` and prompt `overturn_voice_persona` in `mcp/src/prompts.ts` (text from voice-design §1–§3, §7–§8)
 - [ ] T015 [US3] Conformance test `tests/mcp/conformance.test.ts` per contract: protocol `2025-11-25`, 11 tools with annotations, 401 + PRM metadata, full sample-02 case with `needs_confirmation` then `confirmed`, every deadline/protection carries `sourceUrl` + `lastVerified`, `wrong_state`/`wrong_session`/expiry, p95 < 500 ms for non-model calls (model calls mocked via provider fake)
-- [ ] T016 [US3] Inspector walkthrough: run `npx @modelcontextprotocol/inspector` against local server with dev bearer, capture 3 screenshots into `docs/screenshots/mcp-inspector-*.png`, write `mcp/README.md` (run, auth modes, tool list, "when Alexa+ access opens" checklist from the QuickStart: `alexa-ai new mcp …`, addon.json fields, privacy URL)
+- [ ] T016 [US3] Inspector walkthrough: run `npx @modelcontextprotocol/inspector` against local server with dev bearer, capture 3 screenshots into `docs/screenshots/mcp-inspector-*.png`, finalize `mcp/README.md` (draft ready; fill the ⟦T016⟧/⟦T028⟧ screenshot and infra placeholders)
 
 **Checkpoint M1**: server complete; a judge can run a case from Inspector.
 
