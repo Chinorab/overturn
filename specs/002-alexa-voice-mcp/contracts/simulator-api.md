@@ -25,7 +25,7 @@ The simulator is an MCP **client**. Everything it knows about a case comes from 
 
 ## Orchestrator contract
 
-- System prompt = `overturn_voice_persona` prompt fetched over MCP + simulator-specific lines
+- System prompt = `overturn_voice_persona` prompt fetched over MCP (source text: `mcp/prompts/overturn_voice_persona.md`) + simulator-specific lines
   (wake word handling, "you are in a simulation; do not claim to be a real device").
 - Tools = `tools/list` from the MCP server, passed as provider tool definitions unchanged.
 - Loop: user text → LLM → (tool calls → results) × ≤ 4 → assistant text. A `needs_confirmation`
