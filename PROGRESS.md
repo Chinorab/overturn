@@ -25,7 +25,7 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - [ ] Serveur MCP + OAuth PKCE + test de conformité (scripts Cognito prêts : `infra/cognito/`)
 - [ ] Simulateur Alexa+ web (Web Speech API) + page companion (code 6 car.)
 - [ ] Envoi SES + repli lien ; déploiement AWS (AgentCore Runtime ou Lambda)
-- [ ] Dépôt open source du dataset règles (MIT) — README + guide adding-a-state prêts : `docs/dataset-repo/`
+- [ ] Dépôt open source du dataset règles (MIT) — README + guide adding-a-state + validate.mjs prêts : `docs/dataset-repo/` (1 résumé TX à raccourcir)
 - [ ] README « Built during the hackathon », FEEDBACK.md, FRICTION_LOG.md au fil de l'eau
 - [ ] Vidéo < 3 min (script prêt : `docs/video-script-alexa.md`) + page Devpost (brouillon prêt : `docs/devpost-alexa.md`, placeholders ⟦…⟧ à remplir) (21-22 oct)
 
