@@ -78,3 +78,96 @@ the point where it matters.
 Legal information about a medical denial is only safe to give if the document itself is safe.
 Documents are processed in memory during one request and discarded; nothing is stored
 server-side; only timing and token counts are logged. The demo uses synthetic documents.
+
+---
+
+## Addendum (October 2026): the same line, spoken
+
+Feature 002 puts Overturn behind a voice assistant (built for Alexa+, delivered as a simulated
+Alexa+ experience driving a real MCP server). A conversation is a different medium from a screen:
+the person cannot re-read, cannot see a label, and a confident voice sounds more like advice than
+the same words in a text box. So the line does not move, but a fourth layer holds it, and the
+first three are re-applied to speech.
+
+### 4. Action layer (what the server refuses to do without a yes)
+
+On a screen the user *clicks* "Draft my letter"; by voice, a model decides when to call a tool.
+That decision is not trusted. The server's state machine enforces:
+
+- **Read back before relying.** Every fact the engine will use — read from the document or spoken
+  by the person — is read back (≤ 40 words, from a template) and must receive a "yes" before the
+  case advances. A "no" reopens exactly one field.
+- **Explicit yes for consequences.** `draft_letter`, `send_letter` and `discard_case` refuse to
+  act unless the call carries `confirmed: true`; when it is missing they return the exact question
+  the assistant must ask ("Shall I send it to your email ending in …?"). Enthusiasm earlier in the
+  conversation ("draft the letter!") does not count; the question is asked again at the moment of
+  action, and the yes/no grammar is closed (Appendix, `voice-design.md` §7).
+- **Order is enforced by code.** Rights are computed only from confirmed facts; a letter only from
+  computed rights; a send only from a drafted letter. Out-of-order calls fail with `wrong_state`
+  whatever the model intended.
+- **The destination is not negotiable.** The letter goes only to the email of the account the
+  person linked (OAuth, Amazon Cognito). There is no recipient parameter; a spoken or typed address
+  is never accepted. Before sending, the address is read back masked.
+
+### Prompt layer, spoken
+
+- The assistant's **first turn** states that it gives information, not legal advice, before asking
+  anything — the spoken equivalent of the above-the-fold panel.
+- **Deadlines, protections and their sources are never spoken by the model.** Tool results carry
+  a `speak` string generated from templates over the rules dataset ("Your first deadline is
+  December 1st — 71 days from today — under the federal ACA appeal rules"). The model's own words
+  are limited to glue and empathy; a post-check rejects turns containing prescriptive or predictive
+  phrases and regenerates or truncates them.
+- "Should I appeal?" and "Will I win?" get a one-sentence deflection and an offer of free human
+  help; the tool `overturn_get_help` exists so that the answer is always the same and always
+  sourced.
+
+### Product layer, spoken
+
+- **Same engine, same dataset.** The MCP server calls the feature-001 functions unchanged; the
+  golden table that proves the engine's determinism is the same test. Any client — Alexa+, the
+  simulator, MCP Inspector — gets identical rights for identical facts.
+- **Sources are named aloud and linked in writing.** Voice cannot carry a URL, so every spoken
+  protection names its source ("the No Surprises Act", "California's Department of Managed Health
+  Care") and the emailed summary carries the link, the legal reference and the last-verified date.
+- **Approximate means approximate.** In the no-document path, deadlines computed from "about two
+  weeks ago" are labelled as estimates in speech and in the summary, anchored to the date the
+  person gave.
+- **Out-of-scope still means stop.** A Medicare answer or document ends the case with the official
+  channel; no letter is offered.
+
+### Copy layer, spoken
+
+- One question per turn, ≤ 60 words, Grade-8 vocabulary, no exclamation marks, no "Great
+  question". Descriptive, second person: "This looks like a prior-authorization denial."
+- The written artefacts keep the labels: the email footer carries "Information, not legal advice"
+  and "Written with AI from your facts; rules from a verified dataset"; the letter is "your draft,
+  for you to finish", with the same "before you send" checklist.
+- The simulator is labelled **"Alexa+ simulation (unofficial)"** on screen; it never claims to be
+  a device or an Amazon product.
+
+### What voice does not claim
+
+Voice adds no legal capability. It does not decide anything the screen did not; it covers the
+same three states and the same plan types; it says so when it reaches an edge. It also does not
+pretend that a spoken confirmation is a signature: the person still sends the letter themselves,
+from their own inbox, after reading it.
+
+### Privacy, spoken
+
+A conversation creates two new places where health information could leak, and both are closed:
+
+- **Nothing is stored between turns except in memory.** A case exists in the server's memory for
+  one conversation and is discarded on send, on cancel, or after 30 minutes of silence. There is
+  no database, no disk, no transcript kept server-side; the simulator's transcript lives in the
+  browser session and is cleared when the case ends.
+- **Email is the one written channel, and it is one-way to the person.** The letter and summary
+  are sent by Amazon SES to the linked account's address only, after an explicit confirmation that
+  names it. The uploaded document is never emailed. SES keeps delivery metadata, not attachments.
+  If sending fails, a one-time download link on the companion page replaces it and dies with the
+  case.
+- **Logs are scrubbed.** No document text, extracted facts, letter text or email addresses reach
+  the logs on the server or on the simulator; only timings, token counts, tool names and error
+  codes.
+- **The assistant never asks for an address, a member ID or a Social Security number by voice.**
+  Blanks in the letter (`[ADD: …]`) stay blanks for the person to fill on paper.
