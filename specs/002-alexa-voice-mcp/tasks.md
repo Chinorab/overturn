@@ -106,7 +106,7 @@
 
 **Independent Test**: quickstart check #8; dataset repo `node validate.mjs` passes on shipped data and fails on a broken fixture.
 
-- [ ] T031 [US4] Create the public repo (gh CLI) with `LICENSE` (MIT), `README.md` (draft ready in `docs/dataset-repo/README.md`), `schema.json` generated from `lib/rules/schema.ts` via `scripts/export-rules-schema.ts`, `rules/{federal,nsa,ca,ny,tx}.json`, `validate.mjs` (schema, `source_url` present and https, `last_verified` ≤ 45 days), `CHANGELOG.md`, `docs/adding-a-state.md` (from `data/rules/README.md`), tag `v1.0.0`
+- [ ] T031 [US4] Create the public repo (gh CLI) with `LICENSE` (MIT), `README.md` (draft ready in `docs/dataset-repo/README.md`), `schema.json` generated from `lib/rules/schema.ts` via `scripts/export-rules-schema.ts`, `rules/{federal,nsa,ca,ny,tx}.json`, `validate.mjs` (schema, `source_url` present and https, `last_verified` ≤ 45 days), `CHANGELOG.md`, `docs/adding-a-state.md` (draft ready in `docs/dataset-repo/docs/adding-a-state.md`), tag `v1.0.0`
 - [ ] T032 [US4] Vendor back: `data/rules/RULES_VERSION`, `scripts/sync-rules.ts` (fetch tag, diff), `tests/rules/version.test.ts` failing on drift (SC-009); Overturn README gets an "Open Source mini-challenge" section linking the dataset
 
 **Checkpoint M5**: Open Source deliverable done.
