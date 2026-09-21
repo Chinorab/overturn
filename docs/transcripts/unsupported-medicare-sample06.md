@@ -14,7 +14,7 @@ rights are computed, no deadline is spoken.** The case is closed by the tool.
 A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the denial letter in front of you? [28]
 
 **T2** U: Yes I do.
-A: On your phone, open the companion page and enter this code: Q-R-S, 4-9-2. Take a photo of the letter or upload it, and tell me when it's in. [28]
+A: On your phone, open the companion page and enter this code: Q-R-W, 4-9-2. Take a photo of the letter or upload it, and tell me when it's in. [28]
 
 *(companion: sample 06)*
 

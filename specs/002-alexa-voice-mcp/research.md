@@ -141,8 +141,8 @@ first build day (2026-09-28) and logged in `FRICTION_LOG.md` if they fail.
 ## R10 — Case codes
 
 - **Decision**: 6 characters from the Crockford-like alphabet `ABCDEFGHJKMNPQRSTVWXYZ23456789`
-  minus phonetic confusions (drop `B/D/E/G/P/T/V/Z` → keep `ACFHJKMNQRSWXY2345679`), ~86 M
-  combinations, spoken in two groups of three ("A-C-F … 3-4-5") with the NATO word offered on
+  minus phonetic confusions (drop `B/D/E/G/P/T/V/Z` → keep `ACFHJKMNQRWXY234679`), ~86 M
+  combinations, spoken in two groups of three ("A-C-F … 3-4-7") with the NATO word offered on
   "repeat". Unique for 24 h in memory.
 
 ## R11 — Testing strategy

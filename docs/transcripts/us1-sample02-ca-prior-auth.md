@@ -10,12 +10,12 @@ final internal denial — not yet a date), `ca.imr.free`, `ca.regulator.which_on
 ---
 
 **T1** U: Alexa, my insurance denied my claim. Help me appeal.
-→ `overturn_start_case` → code `ACF345`, next `ask_has_document`
+→ `overturn_start_case` → code `ACF347`, next `ask_has_document`
 A: I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. First, do you have the denial letter or statement in front of you? [30]
 
 **T2** U: Yes, it's right here.
 → (no tool; client knows the code)
-A: Good. On your phone, open the companion page and enter this code: A-C-F, 3-4-5. Then take a photo of the letter or upload the file, and tell me when it's in. [31]
+A: Good. On your phone, open the companion page and enter this code: A-C-F, 3-4-7. Then take a photo of the letter or upload the file, and tell me when it's in. [31]
 
 *(companion: code → sample 02 chosen → "Reading…" → "Done — go back to your voice assistant")*
 

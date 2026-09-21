@@ -236,7 +236,7 @@ describe("things never spoken", () => {
   it("flags an email", () => bad("I'll send it to walter@example.com. Okay?", "spoken_email"));
   it("flags a member ID on a normal turn", () => bad("Your member ID is PCH-5590213. Okay?", "spoken_identifier"));
   it("flags a phone number", () => bad("Call 1-800-555-0130. Okay?", "spoken_identifier"));
-  it("allows the case code on a code readout", () => ok("Enter this code: A-C-F, 3-4-5. Tell me when it's in?", { kind: "code_readout" }));
+  it("allows the case code on a code readout", () => ok("Enter this code: A-C-F, 3-4-7. Tell me when it's in?", { kind: "code_readout" }));
   it("allows a masked email", () => ok("Shall I send it to your email ending in w-dot-gmail-dot-com?"));
   it("allows dates and money in words", () => ok("Your first deadline is March 10th, 2027 — 140 days from today. Want more?"));
 });

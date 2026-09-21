@@ -12,7 +12,7 @@ Exercises: the advice/prediction deflection through `overturn_get_help`; distres
 A: That sounds stressful. I can help you understand the denial and prepare an appeal letter — that's information, not legal advice. Do you have the letter in front of you? [29]
 
 **T2** U: Yes.
-A: On your phone, open the companion page and enter this code: W-X-Y, 3-5-8. Take a photo of the letter or upload it, and tell me when it's in. [28]
+A: On your phone, open the companion page and enter this code: W-X-Y, 3-6-9. Take a photo of the letter or upload it, and tell me when it's in. [28]
 
 *(companion: sample 02)*
 

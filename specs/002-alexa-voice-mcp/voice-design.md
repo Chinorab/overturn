@@ -52,7 +52,7 @@ California, letter dated 2026-09-11. `today` = 2026-10-21 (recording day) → in
 A: I can help you understand the denial and prepare an appeal letter — it's information, not legal advice. First, do you have the denial letter or statement in front of you? [29]
 
 **T2** U: Yes, it's right here.
-A: Good. On your phone, open the companion page and enter this code: A-C-F, 3-4-5. Then take a photo or upload the file. Tell me when it's in. [31]
+A: Good. On your phone, open the companion page and enter this code: A-C-F, 3-4-7. Then take a photo or upload the file. Tell me when it's in. [31]
 
 *(companion: code → photo → "Reading…" → "Done — go back to your voice assistant")*
 
@@ -106,7 +106,7 @@ A: No problem — I can still tell you the basics. Which state do you live in? [
 | Not understood (1st) | "Sorry — was that yes or no?" / "Employer, Marketplace, or bought directly?" |
 | Not understood (2nd) | Same options, slower, then: "Or say 'skip' and I'll note it as unknown." |
 | Not understood (3rd) | "Let's leave that one. …" (moves on if allowed, else offers human help) |
-| Upload not arrived (1st check) | "I don't see it yet. The code is A-C-F, 3-4-5. Say 'ready' when it's in." |
+| Upload not arrived (1st check) | "I don't see it yet. The code is A-C-F, 3-4-7. Say 'ready' when it's in." |
 | Upload not arrived (2nd) | "Still nothing on my side. We can keep going without the document — I'll ask a few questions instead. Want that?" |
 | Unsupported document | "This looks like a Medicare notice. Medicare appeals work differently, and I'd rather not guess. The email I can send you has the official Medicare appeals line. Want it?" |
 | Document says NY, user said TX | "Your letter shows a New York address, but you said Texas. Which should I use for the deadlines?" |

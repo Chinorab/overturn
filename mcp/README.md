@@ -106,7 +106,7 @@ Full contract: [`specs/002-alexa-voice-mcp/contracts/mcp-tools.md`](../specs/002
 
 A case lives in server memory, owned by the MCP session that created it, and is deleted on send,
 on discard, or after `MCP_CASE_TTL_MINUTES` (30) of inactivity. Its 6-character code
-(alphabet `ACFHJKMNQRSWXY2345679`, no look-alike or sound-alike pairs) is blocked from reuse for
+(alphabet `ACFHJKMNQRWXY234679`, no look-alike or sound-alike pairs) is blocked from reuse for
 `MCP_CODE_TOMBSTONE_HOURS` (24). Nothing is written to disk or a database. Logs never contain
 document text, extracted facts, letter text or email addresses (`src/log.ts`).
 

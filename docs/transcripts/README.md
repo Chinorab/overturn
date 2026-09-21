@@ -78,3 +78,7 @@ replaces the target if it is at least as good, or the prompt/templates are fixed
    cholecystectomy", not "gallbladder removal" — the template does not translate medical terms,
    a model would), and the Texas no-document chunk 0 is short (42 words) because the first Texas
    protection with its caveat would push it past 120 words, so it opens chunk 1.
+8. **Case-code alphabet corrected** while drafting `lib/voice/case-code.ts`: `S` and `5` (look-alikes)
+   are out; the alphabet is `ACFHJKMNQRWXY234679`. The example codes in these transcripts were
+   changed accordingly (`ACF347`, `HJK267`, `QRW492`, `WXY369`) — two of the old ones used characters
+   the alphabet never issued.

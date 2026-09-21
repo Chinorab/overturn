@@ -7,7 +7,7 @@ persisted. Types reuse feature-001 schemas where they exist (`lib/schemas/*`).
 
 | Field | Type | Notes |
 |---|---|---|
-| `code` | `CaseCode` (6 chars, alphabet `ACFHJKMNQRSWXY2345679`) | Spoken handle; unique 24 h |
+| `code` | `CaseCode` (6 chars, alphabet `ACFHJKMNQRWXY234679`) | Spoken handle; unique 24 h |
 | `sessionId` | string | MCP session that owns the case; tools reject other sessions |
 | `status` | enum below | State machine |
 | `path` | `"document" \| "sample" \| "no_document"` | How facts are established |

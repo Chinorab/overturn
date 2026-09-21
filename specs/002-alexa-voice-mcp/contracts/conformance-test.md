@@ -163,7 +163,7 @@ describe("sample case 02 end to end", () => {
 
     const start = await timed(client, "overturn_start_case", { has_document: "yes" });
     expect(start.ok).toBe(true);
-    expect(start.case.code).toMatch(/^[ACFHJKMNQRSWXY2345679]{6}$/);
+    expect(start.case.code).toMatch(/^[ACFHJKMNQRWXY234679]{6}$/);
     expect(start.case.status).toBe("awaiting_document");
     expect(start.speak.split(/\s+/).length).toBeLessThanOrEqual(60);
     expect(start.speak).toMatch(/not legal advice/i);
