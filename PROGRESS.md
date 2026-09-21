@@ -27,7 +27,7 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - [ ] Envoi SES + repli lien ; déploiement AWS (AgentCore Runtime ou Lambda)
 - [ ] Dépôt open source du dataset règles (MIT)
 - [ ] README « Built during the hackathon », FEEDBACK.md, FRICTION_LOG.md au fil de l'eau
-- [ ] Vidéo < 3 min + page Devpost (21-22 oct)
+- [ ] Vidéo < 3 min (script prêt : `docs/video-script-alexa.md`) + page Devpost (21-22 oct)
 
 ## Décisions prises
 - Chemin simulé (accès Alexa+ réel fermé aux particuliers) ; serveur conforme au QuickStart

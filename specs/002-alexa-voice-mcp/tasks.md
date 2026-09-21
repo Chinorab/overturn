@@ -125,7 +125,7 @@
 
 ## Phase 9: Submission — Oct 21–23 (not code)
 
-- [ ] T038 Video (< 3 min, English): script from voice-design §9 (first 30 s = T1→T3 with phone in frame, cut to T8), then no-document path 20 s, Inspector 20 s, inbox 15 s, architecture card 15 s, "built during the hackathon" card 10 s; record on Chrome with Polly audio; upload public YouTube; `docs/video-script.md`
+- [ ] T038 Video (< 3 min, English): script from voice-design §9 (first 30 s = T1→T3 with phone in frame, cut to T8), then no-document path 20 s, Inspector 20 s, inbox 15 s, architecture card 15 s, "built during the hackathon" card 10 s; record on Chrome with Polly audio; upload public YouTube; `docs/video-script-alexa.md` - *script written 2026-09-21; recording and edit remain for Oct 21-22*
 - [ ] T039 Devpost page: description, "Built during the hackathon", product feedback (from FEEDBACK.md), friction log attached, repo + dataset repo + video links, gallery from `docs/screenshots/`; final `pnpm test:mcp:remote` the morning of Oct 23; submit before **18:00 Paris** (deadline 21:00 Paris / 12:00 PDT)
 
 ---
