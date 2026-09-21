@@ -40,6 +40,12 @@ paragraph: "That sounds stressful. Let's go step by step."
 
 ## 4. Happy path (US1) — 12 turns, sample 02 (prior auth, California)
 
+Facts from `data/samples/02-prior-auth-ca.extraction.json`: Pacific Crest Health Plan, laparoscopic
+gallbladder removal on 2026-09-04, billed $18,750, in-network, individual HMO bought through Covered
+California, letter dated 2026-09-11. `today` = 2026-10-21 (recording day) → internal appeal deadline
+2027-03-10, 140 days. The full turn-by-turn reference with tool calls is
+`docs/transcripts/us1-sample02-ca-prior-auth.md`.
+
 > **U** = user, **A** = assistant. Word counts in brackets.
 
 **T1** U: Alexa, my insurance denied my claim, help me appeal.
@@ -51,31 +57,31 @@ A: Good. On your phone, open the companion page and enter this code: A-C-F, 3-4-
 *(companion: code → photo → "Reading…" → "Done — go back to your voice assistant")*
 
 **T3** U: Okay, it's uploaded.
-A: One moment. *(≤ 2.5 s, else canned)* Here's what I read: Pacific Health denied an MRI of the knee from June 4th, billed at three thousand two hundred dollars, because prior authorization wasn't obtained. Is that right? [38 after "One moment"]
+A: One moment. *(≤ 2.5 s, else canned)* Here's what I read: Pacific Crest Health Plan denied a laparoscopic gallbladder removal from September 4th, billed at eighteen thousand seven hundred fifty dollars, because prior authorization wasn't obtained. Is that right? [34]
 
 **T4** U: Yes.
 A: Thanks. The letter looks like it's from California — is that where you live? [14]
 
 **T5** U: Yes.
-A: And how do you get this coverage — through an employer, the Marketplace, or bought directly? [16]
+A: And how do you get this coverage — through an employer, through Covered California, or bought directly from the insurer? [20]
 
-**T6** U: Through my job.
-A: Through your employer. Do you know if the plan is self-funded — that's when the employer pays claims itself? You can say I don't know. [27]
+**T6** U: Through Covered California.
+A: Got it. Was this an emergency, or care you had to get right away? [14]
 
-**T7** U: I don't know.
-A: That's fine. Last one: is this care urgent or still ongoing? [12]
+**T7** U: No, it was scheduled.
+A: Last one: is this care urgent or still ongoing? [9]
 
 **T8** U: No, it's done.
-A: Here's where you stand. Your first deadline is December 1st — 71 days from today — to file an internal appeal, under the federal ACA appeal rules. You also have the right to a free copy of your claim file and the exact criteria they used. And because you're in California, you can ask the Department of Managed Health Care for an independent medical review if the plan says no again. Want to hear more, or shall I draft the appeal letter? [84 — rights chunk, ≤ 120]
+A: Here's where you stand. Your first deadline is March 10th, 2027 — 140 days from today — to file an internal appeal with the plan, under the federal ACA appeal rules. You also have the right to a free copy of your claim file and the exact criteria they used. And in California, you file a grievance with the plan first; if it isn't resolved in 30 days, you can go to the Department of Managed Health Care, and an independent medical review there is free. Want to hear more, or shall I draft the appeal letter? [97 — rights chunk, ≤ 120]
 
 **T9** U: Draft the letter.
 A: I'll write the letter from your facts and those rules, with blanks where I don't know something. Shall I go ahead? [24]
 
 **T10** U: Yes.
-A: *(progress)* Done — it's two pages, with three blanks for you to fill, like your member ID. Shall I send it to your email ending in w-dot-gmail-dot-com? [30]
+A: *(progress)* Done — it's two pages, with four blanks for you to fill, like your name and address. Shall I send it to your email ending in w-dot-gmail-dot-com? [27]
 
 **T11** U: Yes, send it.
-A: Sent. The email has the letter, your deadlines with links, and what to attach: the denial letter and any note from your doctor. Send it to the appeals address on your letter. [36]
+A: Sent. The email has the letter, your deadlines with links, and what to attach: the denial letter and a note from Dr. Raman about why the surgery was needed. Send it to the Grievance and Appeals address on your letter. [40]
 
 **T12** A (continues, no question — closing): If you'd like a person to look at it, California's Help Center at the Department of Managed Health Care is free; their number is in the email. I've kept nothing on my side. Take care. [39]
 
@@ -119,8 +125,8 @@ Consequential confirmations are never inferred from earlier enthusiasm ("draft t
 ## 8. Spoken formats
 
 - Codes: letters spelled, digits as digits, group of three, 300 ms break between groups; on "repeat", NATO words ("Alpha, Charlie, Foxtrot").
-- Money: "three thousand two hundred dollars" (no cents unless < $100).
-- Dates: "December 1st" this year, "December 1st, 2027" otherwise; always followed by "— N days from today".
+- Money: "eighteen thousand seven hundred fifty dollars" (no cents unless < $100).
+- Dates: "December 1st" this year, "March 10th, 2027" otherwise; always followed by "— N days from today".
 - Email: local part first letter + "dot" domain read as words ("w… at gmail dot com"); never the full address.
 - Sources: short names only ("the federal ACA appeal rules", "the No Surprises Act", "California's Department of Managed Health Care"); full citation and link in the email.
 
