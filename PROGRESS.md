@@ -49,6 +49,7 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- Chemin sans document : « I don't know » pour la date arrivait jusqu'à `date-fns` (RangeError) → `syntheticExtraction` renvoie null + validation par le schéma Extraction (22/09).
 - `parseYesNo` : un « no » suivi d'une précision (« no, it was scheduled ») était ambigu → règle du token de tête (corrigé 22/09).
 - `jose` n'est pas hoisté (dépendance transitive dans `.pnpm/`) : à ajouter explicitement dans `mcp/package.json` (T002).
 - Le guard `legal advice` matche la phrase d'ouverture obligatoire → `turn-check` doit l'exempter (détail dans `docs/transcripts/README.md`).
