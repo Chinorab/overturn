@@ -161,6 +161,13 @@ const STATE_NAMES: Record<string, USStateCode> = {
   cali: "CA", "new york state": "NY", nyc: "NY", "new york city": "NY", "washington state": "WA", "d c": "DC",
 };
 
+/** Code → the name a person says, for speech. Built from the same table, longest name wins. */
+export const STATE_NAME: Record<string, string> = Object.entries(STATE_NAMES).reduce((acc, [name, code]) => {
+  const pretty = name.split(" ").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+  if (!acc[code] || pretty.length > acc[code].length) acc[code] = pretty;
+  return acc;
+}, {} as Record<string, string>);
+
 /** "Texas", "I live in texas", "TX", "new york city" → code. "Washington" alone → WA (state). Nothing sure → null. */
 export function parseState(utterance: string, hint?: USStateCode | null): USStateCode | null {
   const s = norm(utterance);
