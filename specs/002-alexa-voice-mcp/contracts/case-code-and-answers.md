@@ -15,7 +15,7 @@ valid, and 66 mapping cases pass — every one is listed at the end as the test 
 | Alphabet **`ACFHJKMNQRWXY234679`** (19 symbols, 19⁶ ≈ 47 M) — this run removed `S` and `5` from the earlier 21-symbol set | `S/5` are look-alikes on a phone screen; the self-check in the tests (`/[01OIL8BZ5SDEGPTV]/` must not match) caught it. Spec, data model, research R10, `mcp/README.md`, both contracts and all transcript codes were updated (`ACF347`, `HJK267`, `QRW492`, `WXY369`). |
 | Typed codes are normalized for case, spaces and dashes only; foreign characters (O, 0, I, 1, L, B, 8, S, 5, Z…) are **not** "rescued" by guessing | A wrong guess would open someone else's case. The companion page shows which characters can appear (`foreignChars()`), and the assistant repeats the code in NATO words on "repeat". |
 | Spoken form "A-C-F, 3-4-7"; NATO "Alpha, Charlie, Foxtrot — three, four, seven"; SSML `say-as characters` with a 400 ms break between the two groups | Voice-design §8. |
-| Yes/no grammar is a closed list (voice-design §7); "maybe", "not sure", "skip" → `unknown`; "yes… no wait" → `null` (ambiguous, re-ask) | Consequential confirmations use `parseConfirmation`, which accepts only a clean yes or no. |
+| Yes/no grammar is a closed list (voice-design §7); "maybe", "not sure", "skip" → `unknown`. A **leading** yes/no decides ("no, it was scheduled" is a no), and only a contradiction within two words is ambiguous ("yes no wait" → `null`) — corrected 2026-09-22 while wiring T012 | Consequential confirmations use `parseConfirmation`, which accepts only a clean yes or no. |
 | State: full names (longest match first, so "New York" beats "York" and "West Virginia" beats "Virginia"), spoken shorthands ("NYC", "Cali", "Washington DC"), two-letter codes, spelled letters ("t x"), and **"yes" when the document's `state_hint` was offered** | The state is the one answer that cannot be `unknown`. |
 | Plan source: employer/work/job/union/COBRA → `employer`; Marketplace and every state exchange name → `marketplace`; "myself"/"broker"/"individual" → `direct` | Recognition output is lower-case free text; the patterns are the words people use, not the enum labels. |
 | Denial category: eight pattern groups; **two different reasons in one utterance → `null`** unless one clearly comes first | Better to re-ask than to pick the wrong law. |
@@ -121,20 +121,25 @@ const norm = (s: string) => s.toLowerCase().replace(/[’']/g, "'").replace(/[^a
 const has = (s: string, ...phrases: string[]) => phrases.some((p) => new RegExp(`(^|\\s)${p}(\\s|$)`).test(s));
 
 // ---------------------------------------------------------------- yes / no / unknown (voice-design §7)
-const YES = ["yes", "yeah", "yep", "yup", "correct", "right", "that's right", "thats right", "sure", "please", "go ahead", "do it", "ok", "okay", "affirmative", "true", "it is", "i do", "it was", "send it", "draft it"];
-const NO = ["no", "nope", "nah", "wrong", "not quite", "that's not right", "thats not right", "don't", "dont", "stop", "incorrect", "false", "it isn't", "it wasn't", "i don't", "not really", "hold off"];
+const YES = ["yes", "yeah", "yep", "yup", "correct", "right", "that's right", "thats right", "sure", "please", "go ahead", "do it", "ok", "okay", "affirmative", "true", "send it", "draft it"];
+const NO = ["no", "nope", "nah", "wrong", "not quite", "that's not right", "thats not right", "don't", "dont", "stop", "incorrect", "false", "not really", "hold off"];
 const UNKNOWN = ["i don't know", "i dont know", "don't know", "dont know", "not sure", "no idea", "i'm not sure", "im not sure", "unsure", "no clue", "can't remember", "cant remember", "skip", "pass", "maybe"];
 
 export function parseYesNo(utterance: string): "yes" | "no" | "unknown" | null {
   const s = norm(utterance);
   if (!s) return null;
   if (UNKNOWN.some((p) => s.includes(p))) return "unknown";
-  const y = YES.some((p) => has(s, p.replace(/'/g, "'")) || s === p);
-  const n = NO.some((p) => has(s, p) || s === p);
+  // A leading yes/no decides: people qualify after the answer ("no, it was scheduled"),
+  // and a later word must not cancel the word they actually answered with.
+  const lead = (list: string[]) => list.some((p) => s === p || s.startsWith(`${p} `) || s.startsWith(`${p},`));
+  const contradictedEarly = (other: string[]) => other.some((p) => has(s.split(" ").slice(1, 3).join(" "), p));
+  if (lead(YES)) return contradictedEarly(NO) ? null : "yes";     // "yes no wait" → ask again
+  if (lead(NO)) return contradictedEarly(YES) ? null : "no";
+  const y = YES.some((p) => has(s, p));
+  const n = NO.some((p) => has(s, p));
   if (y && !n) return "yes";
   if (n && !y) return "no";
-  // "yes, no wait" / "no, yes" → ambiguous
-  return null;
+  return null;                                     // "yes no wait", or nothing recognisable
 }
 
 /** Strict yes/no for consequential confirmations: "maybe"/"unknown" is not a yes. */
