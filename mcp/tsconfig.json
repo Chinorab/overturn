@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "types": ["node"],
+    "plugins": [],
+    "paths": {
+      "@/*": ["../*"]
+    }
+  },
+  // Only our sources: files under ../lib are typechecked transitively when the server
+  // imports them. Including all of ../lib would pull in browser-only modules (lib/session.tsx).
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -9,6 +9,10 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
+**T003** — endpoint `/mcp` (transport Streamable HTTP web-standard du SDK, sessions stateful).
+Le squelette `mcp/src/{index,server}.ts` existe et sert `/healthz`.
+
+## Étape précédente
 Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (constitution v1.1) et T004 (FEEDBACK.md + .env.example) faits le 2026-09-21. **Prochaine action : T002**
 (workspace pnpm + `mcp/`) le 2026-09-28, début de la fenêtre hackathon. Ne pas coder avant.
 
@@ -16,6 +20,11 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - [x] Étape 1 — vérif doc Alexa+ : MCP Toolkit « select partners only » → chemin officiel
       « simulated Alexa+ experience in a web app » retenu (sources dans la spec, section Context)
 - [x] Spec 002 + checklist qualité (`specs/002-alexa-voice-mcp/`)
+- [x] T002 (2026-09-28) — workspace pnpm (racine + `mcp/`), `mcp/package.json`, `mcp/tsconfig.json`,
+      bundler esbuild `mcp/scripts/build.mjs`, scripts racine `mcp:dev|build|start`, `test:mcp*`,
+      `test:providers`. Vérifié : `/healthz` répond `{"rules":33}` en dev **et** depuis le bundle
+      (le moteur `../lib` se charge via l'alias `@/` sous `--conditions=react-server`), typecheck
+      des deux paquets, 114 tests de la feature 001 toujours verts.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
@@ -58,10 +67,14 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- `mcp/tsconfig.json` ne doit inclure que `src/**` : inclure `../lib/**` fait typechecker
+  `lib/session.tsx` (React navigateur, `window`) que le serveur n'importe jamais (28/09).
+- Le script de build vit dans `mcp/scripts/`, pas dans `scripts/` à la racine : Node résout
+  `esbuild` depuis l'emplacement du script, et esbuild est une devDep de `mcp` (28/09).
 - Générer du code par heredoc bash corrompt les échappements (`` → octet 0x08) : toujours passer par un fichier script Python (22/09).
 - Chemin sans document : « I don't know » pour la date arrivait jusqu'à `date-fns` (RangeError) → `syntheticExtraction` renvoie null + validation par le schéma Extraction (22/09).
 - `parseYesNo` : un « no » suivi d'une précision (« no, it was scheduled ») était ambigu → règle du token de tête (corrigé 22/09).
-- `jose` n'est pas hoisté (dépendance transitive dans `.pnpm/`) : à ajouter explicitement dans `mcp/package.json` (T002).
+- ~~`jose` n'est pas hoisté~~ → réglé en T002 : déclaré dans `mcp/package.json`, résout depuis `mcp/`.
 - Le guard `legal advice` matche la phrase d'ouverture obligatoire → `turn-check` doit l'exempter (détail dans `docs/transcripts/README.md`).
 - `setup-plan.ps1` résout la feature via la branche git : forcer `$env:SPECIFY_FEATURE_DIRECTORY`.
 - Heredoc bash multi-lignes long échoue dans cet environnement → utiliser l'outil Write.

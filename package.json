@@ -12,7 +12,13 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "gen:samples": "tsx scripts/gen-sample-pdfs.tsx",
-    "precompute": "node --conditions=react-server --import tsx scripts/precompute-samples.ts"
+    "precompute": "node --conditions=react-server --import tsx scripts/precompute-samples.ts",
+    "mcp:dev": "pnpm --filter overturn-mcp-server dev",
+    "mcp:build": "pnpm --filter overturn-mcp-server build",
+    "mcp:start": "pnpm --filter overturn-mcp-server start",
+    "test:mcp": "vitest run tests/mcp",
+    "test:mcp:remote": "vitest run tests/mcp/conformance.test.ts",
+    "test:providers": "vitest run tests/providers"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

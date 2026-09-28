@@ -1,0 +1,35 @@
+{
+  "name": "overturn-mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Overturn's appeal engine as a self-hosted MCP server (spec 2025-11-25, Streamable HTTP).",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "node --conditions=react-server --import tsx --watch src/index.ts",
+    "build": "node scripts/build.mjs",
+    "start": "node --conditions=react-server dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@hono/node-server": "^1.15.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "@react-pdf/renderer": "^4.9.0",
+    "date-fns": "^4.4.0",
+    "hono": "^4.13.8",
+    "jose": "^6.2.12",
+    "react": "19.2.8",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "esbuild": "^0.25.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
