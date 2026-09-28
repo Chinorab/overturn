@@ -11,7 +11,7 @@ export default defineConfig({
     },
   },
   test: {
-    include: ["tests/unit/**/*.test.ts"],
+    include: ["tests/unit/**/*.test.ts", "tests/voice/**/*.test.ts"],
     environment: "node",
   },
 });

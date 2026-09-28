@@ -9,10 +9,9 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-**T007 / T008** — utilitaires vocaux purs (`lib/voice/case-code.ts`, `answers.ts`, templates
-`spoken`/`readback`/`rights-speech`) : le code et les cas de test sont déjà écrits dans
-`contracts/case-code-and-answers.md` et `contracts/speech-templates.md`, il reste à les copier,
-les faire tourner et corriger. Aucun compte fournisseur requis.
+**T009** — store en mémoire + machine à états (`mcp/src/store.ts`, `mcp/src/machine.ts`) :
+code et 35+ assertions déjà écrits dans `contracts/store-and-machine.md`. Rien à créer chez un
+fournisseur. Le registre de sessions (T003) expose `onSessionEnd()`, à brancher sur le store.
 
 **T005 reste ouvert** (comptes à créer plus tard) : locataire Auth0 (PKCE + `/userinfo`),
 hello-world conteneur sur un PaaS depuis `mcp/Dockerfile`, e-mail Resend avec deux PDF joints.
@@ -44,6 +43,12 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
       `toModel()` ajouté dans `lib/schemas/extraction.ts` (inverse de `fromModel`) pour que le
       fake réponde dans la forme *modèle* et que la validation stricte tourne pour de vrai.
       127 tests verts (114 → 127), lint 0 erreur, `pnpm build` OK.
+- [x] T007 + T008 (2026-09-28) — `lib/voice/{case-code,answers,spoken,readback,rights-speech}.ts`
+      extraits des contrats, plus `turn-check.ts` (T019, dont le test de T008 a besoin).
+      Tests `tests/voice/{case-code,answers,speech,turn-check}.test.ts` : **258 tests verts**
+      au total (127 → 258). Le chunk 0 du sample 02 sort **mot pour mot** comme le transcript
+      golden `docs/transcripts/us1-sample02-ca-prior-auth.md` (79 mots) : les templates et les
+      transcripts sont d'accord. `vitest.config.mts` inclut désormais `tests/voice/**`.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
@@ -86,6 +91,11 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- Le type `Answers` vit dans `lib/session.tsx` (contexte React navigateur) : le serveur MCP ne
+  pourra pas l'importer. À déplacer vers `lib/schemas/situation.ts` avant T012 (28/09).
+- `spokenRights` produit 6 chunks pour le sample 02 : c'est de la pagination **à la demande**
+  (« Want to hear more ? »), pas un monologue — les transcripts ne lisent que le chunk 0, ou 0+1.
+  Vérifié avant de le signaler comme un défaut (28/09).
 - Les tests unitaires ne tournent pas sous `--conditions=react-server` : `server-only` est aliasé
   vers `tests/stubs/server-only.ts` dans `vitest.config.mts` (28/09).
 - `zodOutputFormat` du SDK Anthropic ne prend **qu'un** argument (pas de nom de schéma) ;
