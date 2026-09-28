@@ -7,6 +7,7 @@ path changed) · **Medium** (under an hour, workaround exists) · **Low** (annoy
 | # | Date | Task attempted | Severity | Status |
 |---|---|---|---|---|
 | 1 | 2026-09-21 | Get access to the Alexa+ MCP Toolkit / web simulator to test a self-hosted MCP server | Blocker | Worked around (simulated path) |
+| 2 | 2026-09-28 | Mount `WebStandardStreamableHTTPServerTransport` on Hono in stateful mode (T003) | Medium | Worked around (session registry) |
 
 ---
 
@@ -45,3 +46,48 @@ access opens" checklist instead of a device deployment.
   make the simulated path the documented default, with a reference simulator or a spec for what
   "simulated Alexa+ experience" should demonstrate (voice in/out? transcript? account linking?).
 - Offer hackathon participants a time-boxed sandbox add-on ID for the web simulator.
+
+---
+
+## 2 — The SDK's own Hono example is wrong for stateful mode, and the body-reuse trap is undocumented
+
+**Date**: 2026-09-28 (T003, first day of the window)
+
+**Task attempted**: Serve the MCP endpoint with
+`WebStandardStreamableHTTPServerTransport` on Hono, stateful, as the Alexa+ QuickStart requires
+(the Toolkit propagates `Mcp-Session-Id`, so the server must mint and honour one).
+
+**Steps**:
+1. Copied the usage example from the transport's own docstring in
+   `@modelcontextprotocol/sdk@1.30.0` (`server/webStandardStreamableHttp.d.ts`): it constructs a
+   stateful transport with `sessionIdGenerator: () => crypto.randomUUID()`, then mounts
+   `app.all('/mcp', async (c) => transport.handleRequest(c.req.raw))`.
+2. Needed to tell an `initialize` on a new session apart from a request on an existing one, so
+   read the JSON body to call `isInitializeRequest`.
+
+**Expected**: The documented example is the shape to build on.
+
+**Actual**: Two problems, neither stated where a reader meets them.
+- The example shares **one** transport and **one** `McpServer` across every caller. In stateful
+  mode a transport *is* a session: it holds `sessionId`, the stream mapping and the initialised
+  flag. A second client's `initialize` walks over the first. Nothing warns you; with one client
+  it looks correct, which is exactly how it reaches production.
+- Reading the body yourself consumes the `Request`, and `handleRequest` then fails on its own
+  `req.json()`. The fix exists — `HandleRequestOptions.parsedBody` — but it is documented on a
+  separate interface, not in the example that leads you into the problem.
+
+**Workaround**: `mcp/src/sessions.ts` — a `Map<sessionId, {transport, server}>`, a new
+transport + `McpServer` per `initialize`, lookup by the `mcp-session-id` header, `404 -32001`
+for an unknown id, and `endSession` wired to both `onsessionclosed` (DELETE) and
+`transport.onclose` (dropped connection). The parsed body is handed back via `parsedBody`.
+
+**Cost**: about 40 minutes, most of it reading the transport's source to confirm that a transport
+is per-session rather than per-server.
+
+**Suggestion**:
+- Make the docstring's stateful example the registry pattern, since that is the only correct one;
+  keep the single-transport snippet for the stateless case, labelled as such.
+- Say in `handleRequest`'s own docs that reading the body before calling it requires `parsedBody`.
+- Consider throwing a clear error when a stateful transport receives a second `initialize`,
+  instead of silently reassigning the session.
+

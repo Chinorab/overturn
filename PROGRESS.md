@@ -9,8 +9,9 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-**T003** — endpoint `/mcp` (transport Streamable HTTP web-standard du SDK, sessions stateful).
-Le squelette `mcp/src/{index,server}.ts` existe et sert `/healthz`.
+**T005** — spikes jour 1, **révisés sans AWS** : locataire Auth0 (PKCE + `/userinfo`),
+hello-world conteneur sur un PaaS depuis `mcp/Dockerfile`, e-mail Resend avec deux PDF joints.
+(T004 est déjà fait ; T003 vient d'être clos.)
 
 ## Étape précédente
 Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (constitution v1.1) et T004 (FEEDBACK.md + .env.example) faits le 2026-09-21. **Prochaine action : T002**
@@ -25,6 +26,12 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
       `test:providers`. Vérifié : `/healthz` répond `{"rules":33}` en dev **et** depuis le bundle
       (le moteur `../lib` se charge via l'alias `@/` sous `--conditions=react-server`), typecheck
       des deux paquets, 114 tests de la feature 001 toujours verts.
+- [x] T003 (2026-09-28) — endpoint `/mcp` : `mcp/src/mcp.ts` (identité + instructions du serveur)
+      et `mcp/src/sessions.ts` (transport `WebStandardStreamableHTTPServerTransport` stateful,
+      registre de sessions, arrêt propre). Vérifié avec un vrai client SDK : `initialize` négocie
+      `2025-11-25`, un `Mcp-Session-Id` est émis, deux clients = deux sessions, `DELETE` fait
+      retomber le compteur, session inconnue → 404 `-32001`, GET nu → 400 sans créer de session,
+      `closeAllSessions()` vide le registre et le listener se ferme. Idem depuis le bundle.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
@@ -67,11 +74,20 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- Python `write_text` sur Windows convertit LF en CRLF : passer par `write_bytes`, sinon le
+  diff repasse tout le fichier (28/09).
+- L'exemple Hono de la docstring du SDK partage **un seul transport** pour `/mcp` : faux en mode
+  stateful (une session par transport). Il faut un registre `Map<sessionId, {transport, server}>`
+  et lire le corps une fois pour le repasser en `parsedBody` (28/09).
+- Un client qui ferme sans envoyer `DELETE` laisse sa session dans le registre : HTTP n'a pas de
+  raccroché. Le balayage des sessions inactives est à faire en **T009**, avec l'horloge du store.
+- `process.exit()` sous `tsx` déclenche une assertion libuv Windows au teardown (`UV_HANDLE_CLOSING`).
+  Sans conséquence : le bundle de prod ne passe pas par tsx (28/09).
 - `mcp/tsconfig.json` ne doit inclure que `src/**` : inclure `../lib/**` fait typechecker
   `lib/session.tsx` (React navigateur, `window`) que le serveur n'importe jamais (28/09).
 - Le script de build vit dans `mcp/scripts/`, pas dans `scripts/` à la racine : Node résout
   `esbuild` depuis l'emplacement du script, et esbuild est une devDep de `mcp` (28/09).
-- Générer du code par heredoc bash corrompt les échappements (`` → octet 0x08) : toujours passer par un fichier script Python (22/09).
+- Générer du code par heredoc bash corrompt les échappements (`\b` → octet 0x08) : toujours passer par un fichier script Python (22/09).
 - Chemin sans document : « I don't know » pour la date arrivait jusqu'à `date-fns` (RangeError) → `syntheticExtraction` renvoie null + validation par le schéma Extraction (22/09).
 - `parseYesNo` : un « no » suivi d'une précision (« no, it was scheduled ») était ambigu → règle du token de tête (corrigé 22/09).
 - ~~`jose` n'est pas hoisté~~ → réglé en T002 : déclaré dans `mcp/package.json`, résout depuis `mcp/`.

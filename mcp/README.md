@@ -179,7 +179,9 @@ TTS, and whether Alexa+ passes the `needs_confirmation` question verbatim.
 mcp/
 ├── src/
 │   ├── index.ts        entry: env, port 8000, start
-│   ├── server.ts       Hono app, Streamable HTTP transport, metadata, /healthz
+│   ├── server.ts       Hono app, routes, /healthz
+│   ├── mcp.ts          server identity + instructions, one McpServer per session
+│   ├── sessions.ts     Streamable HTTP transport, session registry, clean shutdown
 │   ├── auth.ts         Cognito JWT / dev bearer, 401, userInfo
 │   ├── store.ts        in-memory cases, TTL, tombstones, session ownership
 │   ├── machine.ts      statuses, transitions, confirmation gate

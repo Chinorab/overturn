@@ -58,18 +58,31 @@ the honest label is "built to spec, not verified on device".
 
 ## MCP TypeScript SDK
 
-**Usage** — *(to fill from T003)* `WebStandardStreamableHTTPServerTransport`, stateful
-sessions, `registerTool` with zod schemas + `structuredContent`, `bearerAuth` middleware and
-protected-resource metadata; on the client side `Client` + `StreamableHTTPClientTransport`
-in the simulator's orchestrator. Version 1.30.0 (`LATEST_PROTOCOL_VERSION = '2025-11-25'`).
+**Usage** — `WebStandardStreamableHTTPServerTransport`, stateful sessions *(done, T003)*;
+`registerTool` with zod schemas + `structuredContent`, `bearerAuth` middleware and
+protected-resource metadata *(T010–T013)*; on the client side `Client` +
+`StreamableHTTPClientTransport` in the simulator's orchestrator and in the conformance test.
+Version 1.30.0 (`LATEST_PROTOCOL_VERSION = '2025-11-25'`).
 
-**What worked** —
+**What worked** — The web-standard transport takes a `Request` and returns a `Response`, so
+mounting it on Hono is a single line and the same code would run unchanged on Workers or Deno;
+that decision is why the server has no framework lock-in. Protocol negotiation needs no code at
+all: a client asking for `2025-11-25` gets it. The session lifecycle exposes the hooks you
+actually need — `onsessioninitialized`, `onsessionclosed`, `transport.onclose` — which is what
+lets an in-memory-only design promise that a case dies with its session.
 
-**What did not** —
+**What did not** — The stateful usage example shares one transport across callers, which is
+incorrect and fails only under a second client; and reading the request body before
+`handleRequest` silently breaks it unless you find `parsedBody` on a different interface. Both
+cost about 40 minutes on day one — see FRICTION_LOG #2. The types are good enough that both
+problems *could* have been compile-time errors rather than runtime surprises.
 
-**Onboarding quality** —
+**Onboarding quality** — The `.d.ts` files are the best documentation in the package: thorough,
+honest about trade-offs, and the place I ended up reading instead of the README. That is a
+compliment to the types and a complaint about everything else.
 
-**Would I reuse it?** —
+**Would I reuse it?** — Yes, without hesitation for the transport layer. The one change I would
+ask for is that the examples show the shape that survives a second user.
 
 ---
 
