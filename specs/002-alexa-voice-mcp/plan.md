@@ -26,6 +26,10 @@ and is vendored back. Design rationale in [research.md](research.md); dialogue s
 
 **Testing**: Vitest (unit + MCP conformance via SDK client against a spawned server), Playwright (simulator typed path, companion upload), hand-reviewed golden transcripts.
 
+> **Amendment 2026-09-28**: no AWS account, so the AWS Builder mini-challenge is dropped and the
+> vendors change (Auth0, container PaaS, Resend, browser speech) — see the amendment box in
+> `research.md`. The architecture, contracts and task list are otherwise unchanged.
+
 **Target Platform**: MCP server → ARM64 container on Bedrock AgentCore Runtime (fallback App Runner), `us-east-1`; simulator → Vercel (existing project); auth → Cognito; email → SES; TTS → Polly.
 
 **Project Type**: web application + standalone service in one repo (pnpm workspace: root Next app + `mcp/`).

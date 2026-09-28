@@ -34,8 +34,17 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
   Alexa+ (401 + OAuth 2.1 PKCE, < 500 ms) pour être branchable sans code le jour où l'accès s'ouvre.
 - Abstraction LLM : Anthropic par défaut (démo Amazon), Nemotron/Nebius derrière la même
   interface (soumission Nebius). Le code actuel utilise le SDK Anthropic, pas Nebius.
-- Lettre finale : e-mail Amazon SES vers l'adresse du compte lié (jamais dictée), repli lien
-  de téléchargement à usage unique. Zéro stockage.
+- **2026-09-28 — pas de compte AWS : le mini-challenge AWS Builder est abandonné.** Le track
+  principal (serveur MCP + Alexa+ simulé) n'exige aucun service AWS. Remplacements : hébergement
+  du conteneur MCP sur un PaaS (Fly/Railway/Render) au lieu d'AgentCore, OAuth 2.1 PKCE via Auth0
+  (qui supporte le dynamic client registration, contrairement à Cognito) au lieu de Cognito,
+  e-mail via Resend au lieu de SES, voix via `speechSynthesis` du navigateur au lieu de Polly.
+  Le Dockerfile, l'interface d'auth (`MCP_AUTH_MODE`) et les templates d'e-mail sont inchangés :
+  seuls les fournisseurs changent. Si un compte AWS est créé plus tard, Bedrock comme troisième
+  fournisseur LLM (une variable d'environnement) rouvrirait le mini-challenge.
+- Lettre finale : e-mail vers l'adresse du compte lié (jamais dictée), repli lien de
+  téléchargement à usage unique — **le lien devient le chemin principal pour les juges**, l'e-mail
+  reste le chemin de la vidéo. Zéro stockage.
 - Chemin « sans document » (US2) conservé en P2 : démo la plus robuste, aucun appel modèle.
 - Vrai Echo via pont communautaire = stretch goal dernière semaine seulement.
 - Plan : SDK MCP 1.30 + Hono (`mcp/`), Cognito = serveur OAuth (PKCE), AgentCore Runtime

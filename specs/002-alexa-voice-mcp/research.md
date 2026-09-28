@@ -37,6 +37,14 @@ first build day (2026-09-28) and logged in `FRICTION_LOG.md` if they fail.
   trick as `scripts/precompute-samples.ts`) or maps `server-only` to an empty module in its
   tsconfig/bundler. **verify D1**.
 
+> **Amendment 2026-09-28 — no AWS account.** R3, R4, R5 and R6 named AWS services to satisfy the
+> AWS Builder mini-challenge. There is no AWS account, so that mini-challenge is dropped and the
+> providers change: **Auth0** (R3), a **container PaaS** (R4), **Resend** (R5), the browser's
+> **speechSynthesis** (R6). Nothing in the Alexa+ track requires AWS. The decisions below are kept
+> as written because the *contracts* they produced — 401 + `WWW-Authenticate`, OAuth 2.1 PKCE,
+> Streamable HTTP on a public URL, email with two PDF attachments, an assistant voice — are
+> unchanged; only the vendor behind each one differs. Each entry ends with its replacement.
+
 ## R3 — Authorization (OAuth 2.1 + PKCE, 401)
 
 - **Decision**: **Amazon Cognito user pool** as the authorization server (managed login,
@@ -55,6 +63,11 @@ first build day (2026-09-28) and logged in `FRICTION_LOG.md` if they fail.
   (only needed if a client requires dynamic client registration — Cognito has none; documented
   limitation, pre-registered client IDs for the simulator, MCP Inspector and Claude).
 - **verify D1**: Cognito managed-login PKCE flow from the simulator; `userInfo` returns `email`.
+- **Replacement (2026-09-28)**: **Auth0** free tier. Same shape — issuer, JWKS, `/userinfo`,
+  authorization code + PKCE — and one advantage over Cognito: Auth0 supports **dynamic client
+  registration**, which MCP clients can use, so a judge's client can register itself instead of
+  needing a pre-registered id. `mcp/src/auth.ts` changes only in which claims it reads: Auth0
+  access tokens carry `aud` and `azp` rather than Cognito's `client_id`/`token_use`.
 
 ## R4 — AWS hosting
 
@@ -72,6 +85,10 @@ first build day (2026-09-28) and logged in `FRICTION_LOG.md` if they fail.
   --language TypeScript` **verify D1**; if unsupported, create the runtime from a pushed ECR
   image with `aws bedrock-agentcore-control create-agent-runtime` (language-agnostic). Region
   `us-east-1`. Free-tier/cost noted in FEEDBACK.md.
+- **Replacement (2026-09-28)**: a **container PaaS** — Fly.io, Railway or Render — running the
+  same `mcp/Dockerfile`. One always-on instance keeps the in-memory case store valid, which was the
+  whole reason AgentCore was chosen over Lambda. The MCP URL becomes a plain
+  `https://<app>/mcp`, which is simpler for a judge than an encoded AgentCore ARN.
 - **Companion upload consequence**: the phone upload cannot hit the MCP server directly (it
   would land in a different runtime session). The companion page belongs to the simulator web
   app, which holds the MCP session and forwards the document via the `attach_document` tool.
@@ -86,6 +103,12 @@ first build day (2026-09-28) and logged in `FRICTION_LOG.md` if they fail.
   emails are verified manually; production access requested week 1 (logged either way).
 - **Alternatives**: SES raw MIME (more code); SNS SMS (no attachments, US 10DLC registration);
   Lambda + SES (unneeded hop).
+- **Replacement (2026-09-28)**: **Resend** free tier (100 emails/day), attachments supported, no
+  sandbox request to wait on — which removes the project's longest external dependency. Same
+  constraint as SES's sandbox, though: without a verified sending domain, delivery is limited to
+  the account owner's address. **Consequence accepted: the one-time download link becomes the
+  primary delivery path for judges, and the email is the path shown in the video.** Both were
+  already specified (FR-021); only which one leads changes.
 
 ## R6 — Voice in the simulator
 
@@ -97,6 +120,10 @@ first build day (2026-09-28) and logged in `FRICTION_LOG.md` if they fail.
   video and adds a documented AWS integration; fallbacks keep the demo alive offline.
 - **Alternatives**: Amazon Transcribe streaming (websocket plumbing, no demo gain); Nova Sonic
   speech-to-speech (would replace the orchestrator; too much new surface for 3 weeks).
+- **Replacement (2026-09-28)**: the browser's **`speechSynthesis`** only, which was already the
+  fallback. Cost: a less consistent voice in the video, and no SSML control over how the case code
+  is spelled — `case-code.ts` keeps `ssmlCode()` for the day a real TTS is wired, and the client
+  uses `spokenCode()` with punctuation instead.
 
 ## R7 — Simulator orchestrator
 
