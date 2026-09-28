@@ -2,7 +2,6 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import type { Extraction, Explanation } from "@/lib/schemas/extraction";
-import type { PlanSource, USStateCode, YesNoUnknown } from "@/lib/schemas/core";
 
 /**
  * All state lives in the browser tab (React state mirrored to sessionStorage so a refresh
@@ -11,14 +10,9 @@ import type { PlanSource, USStateCode, YesNoUnknown } from "@/lib/schemas/core";
  */
 export type Source = { kind: "sample"; id: string; title: string } | { kind: "upload"; name: string };
 
-export type Answers = {
-  state: USStateCode;
-  plan_source: PlanSource;
-  self_funded: YesNoUnknown;
-  emergency: YesNoUnknown;
-  urgent: "yes" | "no";
-  final_internal_denial_date?: string;
-};
+/** Defined in lib/schemas/situation.ts so the MCP server can use it too; re-exported here. */
+import type { Answers } from "./schemas/situation";
+export type { Answers };
 
 export type LetterState = {
   sections: Array<{ id: string; heading?: string; text: string }>;

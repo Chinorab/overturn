@@ -9,9 +9,10 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-**T009** — store en mémoire + machine à états (`mcp/src/store.ts`, `mcp/src/machine.ts`) :
-code et 35+ assertions déjà écrits dans `contracts/store-and-machine.md`. Rien à créer chez un
-fournisseur. Le registre de sessions (T003) expose `onSessionEnd()`, à brancher sur le store.
+**T010** — auth (`mcp/src/auth.ts` + `mcp/src/log.ts`) : code et 34 assertions déjà écrits dans
+`contracts/auth-and-logging.md`, **mais rédigés pour Cognito**. À adapter aux claims Auth0
+(`aud`, `azp` au lieu de `client_id`, `token_use`) — ~15 lignes. Le mode `MCP_AUTH_MODE=dev`
+(bearer statique) suffit pour avancer sans créer de locataire.
 
 **T005 reste ouvert** (comptes à créer plus tard) : locataire Auth0 (PKCE + `/userinfo`),
 hello-world conteneur sur un PaaS depuis `mcp/Dockerfile`, e-mail Resend avec deux PDF joints.
@@ -49,6 +50,15 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
       au total (127 → 258). Le chunk 0 du sample 02 sort **mot pour mot** comme le transcript
       golden `docs/transcripts/us1-sample02-ca-prior-auth.md` (79 mots) : les templates et les
       transcripts sont d'accord. `vitest.config.mts` inclut désormais `tests/voice/**`.
+- [x] T009 (2026-09-28) — `mcp/src/machine.ts` (statuts, `gate()`, questions de confirmation
+      figées, séquencement des questions) et `mcp/src/store.ts` (Map unique, horloge injectable,
+      TTL 30 min, tombstones 24 h, propriété par session). Câblage écrit en plus du contrat :
+      `mcp/src/clock.ts` (`OVERTURN_CLOCK` + route `POST /__test/clock` montée **uniquement**
+      quand la variable est posée), `mcp/src/cases.ts` (le store du process), `mcp/src/facts.ts`
+      (le contenu d'un dossier, d'après la table Case de data-model.md), et
+      `onSessionEnd → store.endSession` dans `server.ts`. `/healthz` publie `cases` (compteurs).
+      **299 tests verts** (258 → 299). Vérifié en vrai : un dossier créé dans une session MCP est
+      invisible d'une autre session (`wrong_session`) et disparaît au `DELETE /mcp`.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
@@ -91,8 +101,13 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
-- Le type `Answers` vit dans `lib/session.tsx` (contexte React navigateur) : le serveur MCP ne
-  pourra pas l'importer. À déplacer vers `lib/schemas/situation.ts` avant T012 (28/09).
+- `store.close()` / `forget()` ne normalisaient pas la casse alors que `get()` le fait : un
+  « discard » en minuscules serait passé sans rien faire, en laissant un dossier vivant avec le
+  contenu du document. Corrigé + test (28/09).
+- `checkTurn` n'a que cinq `TurnKind` (`normal`, `rights_chunk`, `code_readout`, `closing`,
+  `readback_only`) : un `kind` inventé plante avec un TypeError au lieu d'un message clair (28/09).
+- ~~Le type `Answers` vit dans `lib/session.tsx`~~ → déplacé vers `lib/schemas/situation.ts`
+  en T009, `lib/session.tsx` le ré-exporte (le web app n'a pas bougé).
 - `spokenRights` produit 6 chunks pour le sample 02 : c'est de la pagination **à la demande**
   (« Want to hear more ? »), pas un monologue — les transcripts ne lisent que le chunk 0, ou 0+1.
   Vérifié avant de le signaler comme un défaut (28/09).
