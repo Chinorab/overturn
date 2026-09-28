@@ -9,9 +9,13 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-**T005** — spikes jour 1, **révisés sans AWS** : locataire Auth0 (PKCE + `/userinfo`),
+**T007 / T008** — utilitaires vocaux purs (`lib/voice/case-code.ts`, `answers.ts`, templates
+`spoken`/`readback`/`rights-speech`) : le code et les cas de test sont déjà écrits dans
+`contracts/case-code-and-answers.md` et `contracts/speech-templates.md`, il reste à les copier,
+les faire tourner et corriger. Aucun compte fournisseur requis.
+
+**T005 reste ouvert** (comptes à créer plus tard) : locataire Auth0 (PKCE + `/userinfo`),
 hello-world conteneur sur un PaaS depuis `mcp/Dockerfile`, e-mail Resend avec deux PDF joints.
-(T004 est déjà fait ; T003 vient d'être clos.)
 
 ## Étape précédente
 Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (constitution v1.1) et T004 (FEEDBACK.md + .env.example) faits le 2026-09-21. **Prochaine action : T002**
@@ -32,12 +36,20 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
       `2025-11-25`, un `Mcp-Session-Id` est émis, deux clients = deux sessions, `DELETE` fait
       retomber le compteur, session inconnue → 404 `-32001`, GET nu → 400 sans créer de session,
       `closeAllSessions()` vide le registre et le listener se ferme. Idem depuis le bundle.
+- [x] T006 (2026-09-28) — couture LLM : `lib/ai/provider.ts` (interface `LLMProvider`,
+      erreurs neutres `ModelUnavailableError` / `RateLimitedError` / `UnsupportedInputError`,
+      `getProvider()` sur `OVERTURN_LLM_PROVIDER`), `providers/anthropic.ts` (l'ancien
+      `lib/ai/client.ts`, supprimé) et `providers/fake.ts` (répond depuis les golden samples).
+      `extract.ts`, `explain.ts`, `draft.ts` et les deux routes passent par la couture.
+      `toModel()` ajouté dans `lib/schemas/extraction.ts` (inverse de `fromModel`) pour que le
+      fake réponde dans la forme *modèle* et que la validation stricte tourne pour de vrai.
+      127 tests verts (114 → 127), lint 0 erreur, `pnpm build` OK.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
 ## Reste à faire
 - [ ] Suivre tasks.md dans l'ordre : T001→T039 (cocher au fur et à mesure)
-- [ ] Abstraction LLM (`OVERTURN_LLM_PROVIDER=anthropic|nebius`)
+- [x] Abstraction LLM (`OVERTURN_LLM_PROVIDER=anthropic|nebius|fake`) — provider Nebius : T033
 - [ ] Serveur MCP + OAuth PKCE + test de conformité (scripts Cognito prêts : `infra/cognito/` ; `mcp/README.md` rédigé)
 - [ ] Simulateur Alexa+ web (Web Speech API) + page companion (code 6 car.)
 - [ ] Envoi SES + repli lien (templates e-mail + synthèse PDF : `docs/delivery-templates.md`) ; déploiement AWS AgentCore (fallback App Runner) — `infra/README.md` rédigé
@@ -74,6 +86,10 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- Les tests unitaires ne tournent pas sous `--conditions=react-server` : `server-only` est aliasé
+  vers `tests/stubs/server-only.ts` dans `vitest.config.mts` (28/09).
+- `zodOutputFormat` du SDK Anthropic ne prend **qu'un** argument (pas de nom de schéma) ;
+  `schemaName` reste dans la requête pour le fake et pour Nebius (28/09).
 - Python `write_text` sur Windows convertit LF en CRLF : passer par `write_bytes`, sinon le
   diff repasse tout le fichier (28/09).
 - L'exemple Hono de la docstring du SDK partage **un seul transport** pour `/mcp` : faux en mode

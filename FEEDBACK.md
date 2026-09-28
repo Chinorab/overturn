@@ -200,14 +200,23 @@ interim results, end-of-speech detection, wake-word stripping, barge-in.
 (PDF/image input), explanation and letter drafting; in 002 also tool use for the simulator's
 orchestrator behind the provider interface (`lib/ai/providers/anthropic.ts`).
 
-**What worked** — *(carry over from 001, then add 002 findings)* Native PDF and image input
-removed any OCR pipeline; structured outputs with zod made the strict schema layer cheap.
+**What worked** — *(carry over from 001)* Native PDF and image input removed any OCR pipeline;
+structured outputs with zod made the strict schema layer cheap. *(002, T006)* Putting the SDK
+behind an interface took under an hour, because `messages.parse` already has the shape the rest
+of the product wanted: system, user, schema, out. The error classes are specific enough
+(`RateLimitError`, `APIConnectionError`, `InternalServerError`, `AuthenticationError`) that
+translating them into provider-neutral ones was a five-line function with no guesswork.
 
-**What did not** —
+**What did not** — `zodOutputFormat` takes only the schema, with no way to name it. Every other
+structured-output API I am targeting (OpenAI-compatible, which is what Nebius speaks) requires a
+schema *name*, so the name has to live outside the SDK's format helper and be carried separately.
+Minor, but it means the seam's request type has a field the default provider ignores.
 
-**Onboarding quality** —
+**Onboarding quality** — Good. `messages.parse` is discoverable from the types and behaves the
+way the name suggests.
 
-**Would I reuse it?** —
+**Would I reuse it?** — Yes. The reason the provider seam exists at all is portability for a
+second submission, not dissatisfaction with this one.
 
 ---
 

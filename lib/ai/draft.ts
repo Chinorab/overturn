@@ -1,6 +1,5 @@
 import "server-only";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { anthropic, MODEL, WRITE_EFFORT } from "./client";
+import { getProvider } from "./provider";
 import { DRAFT_SYSTEM, draftUser } from "./prompts/draft";
 import { findCitations, findPlaceholders, findPrescriptive, stripUnknownCitations, unknownCitations } from "./guard";
 import type { RightsResult } from "@/lib/rules/engine";
@@ -14,22 +13,23 @@ import type { Situation } from "@/lib/schemas/situation";
  *  3. placeholders are extracted so the UI can list what the user still has to add.
  */
 export async function draftLetter(s: Situation, r: RightsResult): Promise<{ draft: LetterDraft; usage: { input: number; output: number } }> {
-  const client = anthropic();
+  const provider = await getProvider();
   const allowed = new Set(r.rules.map((a) => a.rule.id));
   const user = draftUser(s, r);
   const usage = { input: 0, output: 0 };
 
   const ask = async (extra?: string): Promise<LetterModel | null> => {
-    const res = await client.messages.parse({
-      model: MODEL,
-      max_tokens: 6000,
+    const res = await provider.structured({
+      task: "write",
       system: DRAFT_SYSTEM,
-      output_config: { effort: WRITE_EFFORT, format: zodOutputFormat(LetterModelSchema) },
-      messages: [{ role: "user", content: extra ? `${user}\n\n${extra}` : user }],
+      user: extra ? `${user}\n\n${extra}` : user,
+      schema: LetterModelSchema,
+      schemaName: "Letter",
+      maxTokens: 6000,
     });
-    usage.input += res.usage.input_tokens;
-    usage.output += res.usage.output_tokens;
-    return res.parsed_output;
+    usage.input += res.usage.input;
+    usage.output += res.usage.output;
+    return res.value;
   };
 
   let m = await ask();
