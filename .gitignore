@@ -41,3 +41,6 @@ docs/video/raw/
 docs/video/*.mp4
 docs/video/work/
 docs/video/vo/
+
+# MCP server build output
+mcp/dist
