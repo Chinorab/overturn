@@ -118,19 +118,46 @@ walkthrough for the judge screenshots.
 
 ## Amazon Cognito
 
-**Usage** — *(T005, T010, T017)* User pool with self sign-up and verified email, public app
-client with authorization code + PKCE, managed login, JWKS verification in the MCP server,
-`/oauth2/userInfo` for the account email, discovery URL for the AgentCore authorizer.
+**Usage** — *Evaluated and dropped at T010.* Intended as the OAuth 2.1 authorization server in
+front of the MCP endpoint (user pool, hosted domain, public PKCE clients for the simulator and
+the MCP Inspector); `infra/cognito/setup.sh` and the first version of `mcp/src/auth.ts` were
+written against it.
 
-**What worked** —
+**What worked** — The access-token claims are clean and well documented, the JWKS endpoint is
+where you expect it, and `jose` verifies the tokens with no special casing. Writing the verifier
+took under an hour, and the CLI setup script was straightforward.
 
-**What did not** —
+**What did not** — No RFC 7591 dynamic client registration, which is how MCP 2025-11-25 expects
+an unknown client to onboard after reading the `WWW-Authenticate` header. The discovery chain
+works to the last step and then requires the operator to create a client by hand. That makes
+Cognito unusable for a public MCP endpoint that judges or third-party clients should be able to
+connect to. See FRICTION_LOG #3. Two smaller things: access tokens carry no `aud`, so a resource
+server must hand-check `client_id` instead of relying on audience validation; and the email is
+only reachable through a second call to `oauth2/userInfo`.
 
-**Onboarding quality** —
+**Onboarding quality** — Good docs for the classic web-app case, thin for "I am a resource server
+and a client I have never met wants in".
 
-**Would I reuse it?** —
+**Would I reuse it?** — For a first-party app with known clients, yes. For an MCP server, not
+until dynamic client registration exists.
 
----
+## Auth0
+
+**Usage** — The OAuth 2.1 authorization server for the MCP endpoint from T010 onward, chosen over
+Cognito for RFC 7591 dynamic client registration. Authorization code + PKCE (S256), JWT access
+tokens verified against the tenant JWKS, email from `/userinfo`.
+
+**What worked** — *(T010)* The token shape is the ordinary OIDC one — `iss`, `aud`, `azp`, `exp`,
+`scope` — so `jose` validates issuer and audience inside `jwtVerify` rather than in hand-written
+checks afterwards. One fewer place to forget something.
+
+**What did not** — *(T010)* The issuer ends in a trailing slash and the comparison is an equality,
+so the habit of normalising base URLs by stripping the last slash breaks every token. It cost a
+few minutes and a test named after it. *(Tenant setup: T005, not done yet.)*
+
+**Onboarding quality** — *(to fill at T005)*
+
+**Would I reuse it?** — *(to fill at T005)*
 
 ## Amazon Bedrock AgentCore Runtime
 

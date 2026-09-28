@@ -9,10 +9,9 @@ Exposer le moteur d'appel Overturn (feature 001, LexHack) comme serveur MCP Stre
 Deadline Amazon : 2026-10-23 12:00 PDT. Nebius (même produit) : 2026-10-30.
 
 ## Étape en cours
-**T010** — auth (`mcp/src/auth.ts` + `mcp/src/log.ts`) : code et 34 assertions déjà écrits dans
-`contracts/auth-and-logging.md`, **mais rédigés pour Cognito**. À adapter aux claims Auth0
-(`aud`, `azp` au lieu de `client_id`, `token_use`) — ~15 lignes. Le mode `MCP_AUTH_MODE=dev`
-(bearer statique) suffit pour avancer sans créer de locataire.
+**T011** — handlers des tools de base (`mcp/src/tools/*`) : code et assertions déjà écrits dans
+`contracts/tools-basic.md`. Le serveur a maintenant tout ce qu'il leur faut : gate, store,
+horloge, compte lié (`sessionAccount`), logger propre.
 
 **T005 reste ouvert** (comptes à créer plus tard) : locataire Auth0 (PKCE + `/userinfo`),
 hello-world conteneur sur un PaaS depuis `mcp/Dockerfile`, e-mail Resend avec deux PDF joints.
@@ -59,13 +58,21 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
       `onSessionEnd → store.endSession` dans `server.ts`. `/healthz` publie `cases` (compteurs).
       **299 tests verts** (258 → 299). Vérifié en vrai : un dossier créé dans une session MCP est
       invisible d'une autre session (`wrong_session`) et disparaît au `DELETE /mcp`.
+- [x] T010 (2026-09-28) — auth + logs. `mcp/src/auth.ts` **réécrit indépendamment du
+      fournisseur** (le contrat était écrit pour Cognito) : issuer, JWKS, userinfo, `aud` et
+      `azp`/`client_id` viennent tous de la configuration, les deux orthographes Auth0 et Cognito
+      sont acceptées. `mcp/src/log.ts` tel quel. Câblage : 401 + `WWW-Authenticate`
+      `resource_metadata`, route RFC 9728, session liée au `sub` qui l'a ouverte (403 sinon),
+      `sessionAccount()` qui ne va chercher l'e-mail qu'une fois. **337 tests verts** (299 → 337).
+      Vérifié en dev *et depuis le bundle* : 401 sans bearer, 200 avec, en-tête conforme au
+      QuickStart Alexa+. Le serveur **refuse de démarrer** sans configuration d'auth.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
 ## Reste à faire
 - [ ] Suivre tasks.md dans l'ordre : T001→T039 (cocher au fur et à mesure)
 - [x] Abstraction LLM (`OVERTURN_LLM_PROVIDER=anthropic|nebius|fake`) — provider Nebius : T033
-- [ ] Serveur MCP + OAuth PKCE + test de conformité (scripts Cognito prêts : `infra/cognito/` ; `mcp/README.md` rédigé)
+- [~] Serveur MCP : transport, sessions, store, machine, **auth OIDC** faits ; restent les tools (T011-T014) et le test de conformité (T015). `infra/cognito/` conservé mais plus le chemin documenté — Auth0 à configurer en T005.
 - [ ] Simulateur Alexa+ web (Web Speech API) + page companion (code 6 car.)
 - [ ] Envoi SES + repli lien (templates e-mail + synthèse PDF : `docs/delivery-templates.md`) ; déploiement AWS AgentCore (fallback App Runner) — `infra/README.md` rédigé
 - [ ] Dépôt open source du dataset règles (MIT) — README + guide adding-a-state + validate.mjs prêts : `docs/dataset-repo/` (1 résumé TX à raccourcir)
@@ -101,6 +108,10 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- L'issuer Auth0 **finit par un slash** et la comparaison est une égalité : normaliser les URLs en
+  retirant le dernier slash casse tous les jetons (28/09).
+- `jose` est une dépendance de `mcp/` : ajoutée en devDependency à la racine pour que les tests
+  `tests/mcp/*` la résolvent (28/09).
 - `store.close()` / `forget()` ne normalisaient pas la casse alors que `get()` le fait : un
   « discard » en minuscules serait passé sans rien faire, en laissant un dossier vivant avec le
   contenu du document. Corrigé + test (28/09).

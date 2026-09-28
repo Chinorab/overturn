@@ -8,19 +8,30 @@
 import { randomUUID } from "node:crypto";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
 import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
+import type { AuthInfo } from "@modelcontextprotocol/sdk/server/auth/types.js";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { createMcpServer } from "./mcp";
+import { fetchAccount, type Account, type AuthConfig, type Principal } from "./auth";
+
+/** What the auth layer establishes about the caller, per request. */
+export type Caller = { principal: Principal; authorization: string };
 
 type Session = {
   id: string;
   transport: WebStandardStreamableHTTPServerTransport;
   server: McpServer;
+  /** The subject the session was opened for. A later request from another subject is refused. */
+  subject: string;
+  /** Most recent bearer for this session, so userinfo runs with a live token. */
+  authorization: string;
+  /** Fetched at most once per session, then held until the session ends. */
+  account: Promise<Account> | null;
   startedAt: number;
 };
 
 const sessions = new Map<string, Session>();
 
-/** Called when a session ends, for whatever reason. The case store (T009) subscribes here. */
+/** Called when a session ends, for whatever reason. The case store subscribes here. */
 type EndHook = (sessionId: string) => void;
 const endHooks: EndHook[] = [];
 
@@ -30,6 +41,17 @@ export function onSessionEnd(hook: EndHook): void {
 
 export function sessionCount(): number {
   return sessions.size;
+}
+
+/**
+ * The linked account for a session — the only place the email exists, fetched once.
+ * Tools use `emailMasked` / `emailMaskedSpoken`; the address itself is only ever a destination.
+ */
+export function sessionAccount(sessionId: string, cfg: AuthConfig): Promise<Account> {
+  const session = sessions.get(sessionId);
+  if (!session) return Promise.reject(new Error("unknown session"));
+  session.account ??= fetchAccount(cfg, session.authorization);
+  return session.account;
 }
 
 /** A JSON-RPC error carried by an HTTP status, for the cases the transport never sees. */
@@ -65,13 +87,18 @@ export async function closeAllSessions(): Promise<void> {
   await Promise.all([...sessions.keys()].map(endSession));
 }
 
+const authInfoOf = (caller: Caller): AuthInfo => ({
+  token: caller.authorization.replace(/^Bearer\s+/i, ""),
+  clientId: caller.principal.clientId,
+  scopes: caller.principal.scope,
+  expiresAt: Math.floor(caller.principal.expiresAt / 1000),
+});
+
 /**
  * Routes one HTTP request to its session's transport, creating the session on `initialize`.
- *
- * Auth runs before this (T010): by the time we are here the caller is known, and `authInfo` will
- * be threaded through `handleRequest` so tool handlers can read the account.
+ * The caller has already been authenticated: this decides which session they may touch.
  */
-export async function handleMcpRequest(req: Request): Promise<Response> {
+export async function handleMcpRequest(req: Request, caller: Caller): Promise<Response> {
   const sessionId = req.headers.get("mcp-session-id");
 
   if (sessionId) {
@@ -81,7 +108,13 @@ export async function handleMcpRequest(req: Request): Promise<Response> {
       // in words by the tool layer, this is the machine-readable half.
       return rpcError(404, -32001, "Unknown or expired MCP session. Initialize a new session.");
     }
-    return session.transport.handleRequest(req);
+    if (session.subject !== caller.principal.sub) {
+      // A valid token is not a claim on someone else's session. Without this, a session id — which
+      // travels in a header and is not a secret — would be enough to read another person's case.
+      return rpcError(403, -32003, "This session belongs to another account.");
+    }
+    session.authorization = caller.authorization;
+    return session.transport.handleRequest(req, { authInfo: authInfoOf(caller) });
   }
 
   if (req.method !== "POST") {
@@ -103,7 +136,15 @@ export async function handleMcpRequest(req: Request): Promise<Response> {
   const transport = new WebStandardStreamableHTTPServerTransport({
     sessionIdGenerator: () => randomUUID(),
     onsessioninitialized: (id) => {
-      sessions.set(id, { id, transport, server, startedAt: Date.now() });
+      sessions.set(id, {
+        id,
+        transport,
+        server,
+        subject: caller.principal.sub,
+        authorization: caller.authorization,
+        account: null,
+        startedAt: Date.now(),
+      });
     },
     onsessionclosed: (id) => {
       void endSession(id);
@@ -119,5 +160,5 @@ export async function handleMcpRequest(req: Request): Promise<Response> {
   };
 
   await server.connect(transport);
-  return transport.handleRequest(req, { parsedBody: body });
+  return transport.handleRequest(req, { parsedBody: body, authInfo: authInfoOf(caller) });
 }

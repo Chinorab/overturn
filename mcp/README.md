@@ -43,24 +43,39 @@ resolves to its empty variant. Same trick as `scripts/precompute-samples.ts`.
 | `POST /mcp` | Bearer | JSON-RPC messages (initialize, tools/list, tools/call, …); responses as JSON or SSE per the client's `Accept` |
 | `GET /mcp` | Bearer | SSE stream for server-to-client notifications (progress) |
 | `DELETE /mcp` | Bearer | End the session (also discards its cases) |
-| `GET /.well-known/oauth-protected-resource` | — | RFC 9728 metadata: `authorization_servers: [COGNITO_ISSUER]`, `resource`, scopes |
-| `GET /healthz` | — | `{ ok: true, version, protocol: "2025-11-25" }` |
+| `GET /.well-known/oauth-protected-resource` | — | RFC 9728 metadata: `authorization_servers: [OIDC_ISSUER]`, `resource`, scopes |
+| `GET /healthz` | — | `{ ok, protocol, rules, authMode, sessions, cases }` — counts only, never a case code |
+| `POST /__test/clock` | — | Only when `OVERTURN_CLOCK` is set: advances the pinned clock for the conformance test |
 
 Unauthenticated requests to `/mcp` get `401` with
 `WWW-Authenticate: Bearer resource_metadata="<MCP_PUBLIC_URL>/.well-known/oauth-protected-resource"`,
-which lets an MCP client discover Cognito and run the authorization-code + PKCE flow itself.
+which lets an MCP client discover the authorization server and run the authorization-code +
+PKCE flow itself.
 
 ## Authentication
 
 | `MCP_AUTH_MODE` | Behaviour |
 |---|---|
-| `cognito` (default) | Verifies the JWT signature against `COGNITO_ISSUER/.well-known/jwks.json`, then `iss`, `token_use = access`, `client_id ∈ COGNITO_CLIENT_IDS`, expiry. Fetches the account email once per session from `COGNITO_DOMAIN/oauth2/userInfo`. |
+| `oidc` (default) | Verifies the JWT signature against `OIDC_JWKS_URL`, then `iss`, `aud` (when `OIDC_AUDIENCE` is set), `azp`/`client_id` against `OIDC_CLIENT_IDS` (when set), and expiry with 30 s of clock tolerance. Fetches the account email once per session from `OIDC_USERINFO_URL`. |
 | `dev` | Accepts exactly `MCP_DEV_BEARER`; email = `MCP_DEV_EMAIL`. For local runs and CI only. |
 
-Set up Cognito with `infra/cognito/setup.sh` (pool, domain, three public PKCE clients); get a
-test token with `infra/cognito/token.sh <email>`. Details and the claims the code relies on:
-[`infra/cognito/README.md`](../infra/cognito/README.md). Cognito has no dynamic client
-registration, so clients use one of the pre-registered client IDs (simulator, MCP Inspector, CLI).
+**The server refuses to start** unless one of the two is configured, and in `oidc` mode unless
+either `OIDC_AUDIENCE` or `OIDC_CLIENT_IDS` binds the token to this resource. Without such a
+binding, any token the authorization server ever issued — for any application — would open it.
+
+`auth.ts` is deliberately not named after a vendor. It was written against Amazon Cognito, now
+runs against Auth0 (which supports dynamic client registration, so an MCP client can register
+itself), and the Alexa+ Toolkit may yet require a third. What the MCP spec and the Toolkit require
+is a JWT bearer bound to this resource, which is all the code checks: both the Auth0 (`azp`,
+`aud`) and Cognito (`client_id`) spellings are accepted.
+
+An **ID token presented in place of an access token** is refused, because an ID token is
+audienced to the client rather than to this API. That is the common mistake and a real
+escalation, so there is a test named after it.
+
+A session is bound to the subject that opened it. A session id travels in a plain header and is
+not a secret, so a request carrying someone else's session id gets `403` even with a perfectly
+valid token of its own.
 
 The email address is used for exactly one thing — the destination of `overturn_send_letter` —
 and is never returned by a tool, never logged, and never accepted as a parameter.
@@ -182,7 +197,10 @@ mcp/
 │   ├── server.ts       Hono app, routes, /healthz
 │   ├── mcp.ts          server identity + instructions, one McpServer per session
 │   ├── sessions.ts     Streamable HTTP transport, session registry, clean shutdown
-│   ├── auth.ts         Cognito JWT / dev bearer, 401, userInfo
+│   ├── auth.ts         OIDC JWT / dev bearer, 401 + RFC 9728, userinfo
+│   ├── clock.ts        real clock, or pinned by OVERTURN_CLOCK for the conformance test
+│   ├── cases.ts        the process's case store
+│   ├── facts.ts        what a case knows
 │   ├── store.ts        in-memory cases, TTL, tombstones, session ownership
 │   ├── machine.ts      statuses, transitions, confirmation gate
 │   ├── tools/          one file per tool + index.ts

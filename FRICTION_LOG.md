@@ -8,6 +8,7 @@ path changed) · **Medium** (under an hour, workaround exists) · **Low** (annoy
 |---|---|---|---|---|
 | 1 | 2026-09-21 | Get access to the Alexa+ MCP Toolkit / web simulator to test a self-hosted MCP server | Blocker | Worked around (simulated path) |
 | 2 | 2026-09-28 | Mount `WebStandardStreamableHTTPServerTransport` on Hono in stateful mode (T003) | Medium | Worked around (session registry) |
+| 3 | 2026-09-28 | Use Amazon Cognito as the OAuth 2.1 server for an MCP 2025-11-25 endpoint (T010) | High | Changed path (Auth0) |
 
 ---
 
@@ -91,3 +92,46 @@ is per-session rather than per-server.
 - Consider throwing a clear error when a stateful transport receives a second `initialize`,
   instead of silently reassigning the session.
 
+---
+
+## 3 — Amazon Cognito cannot serve an MCP 2025-11-25 endpoint the way the spec expects clients to connect
+
+**Date**: 2026-09-28 (T010)
+
+**Task attempted**: Use Cognito as the authorization server behind the MCP endpoint, as
+`infra/cognito/setup.sh` was written to do, so that an arbitrary MCP client — the Inspector, a
+judge's own client, eventually Alexa+ — could connect to the deployed server.
+
+**Steps**:
+1. Wrote `mcp/src/auth.ts` against Cognito access tokens: `token_use: "access"`, `client_id`,
+   `scope`, no `aud`, JWKS at `{issuer}/.well-known/jwks.json`, email from
+   `{domain}/oauth2/userInfo`. 34 assertions pass against a local RSA key pair.
+2. Went to connect a client that the server operator has not met, which is the case the MCP auth
+   spec is built around: the client reads `WWW-Authenticate: Bearer resource_metadata=…`, fetches
+   the RFC 9728 document, finds the authorization server, and **registers itself** (RFC 7591
+   dynamic client registration) before starting the PKCE flow.
+
+**Expected**: A managed identity provider offered as *the* AWS answer for OAuth would support
+dynamic client registration, or at least document what to do instead for this case.
+
+**Actual**: Cognito has no dynamic client registration. Every client must be created in advance
+in the user pool, by the operator, with its redirect URIs known ahead of time. For a hackathon
+judge who wants to point their own MCP client at the server, that means: contact me, wait for me
+to add a client ID, and use it. The spec's discovery chain works right up to the last step and
+then stops.
+
+**Workaround**: Auth0, which does support RFC 7591. `auth.ts` was rewritten to be
+provider-neutral — issuer, JWKS URL, userinfo URL, `aud` and `azp`/`client_id` all come from
+configuration, and both the Auth0 and Cognito claim spellings are accepted. The Cognito scripts in
+`infra/cognito/` are kept but are no longer the documented path.
+
+**Cost**: about an hour to rewrite and re-test the verifier, plus the earlier work on
+`infra/cognito/`.
+
+**Suggestion**:
+- Support RFC 7591 dynamic client registration in Cognito, even if gated behind a scope or a
+  rate limit. Without it, Cognito cannot be the authorization server for a *public* MCP endpoint,
+  which is a shape AWS presumably wants to host.
+- Until then, say so on the Cognito page next to the OAuth 2.1 claims, and in the Alexa+ MCP
+  Toolkit QuickStart, which tells builders to use OAuth 2.1 + PKCE without naming a provider that
+  actually completes the discovery chain.
