@@ -1,6 +1,5 @@
 import "server-only";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { anthropic, MODEL, WRITE_EFFORT } from "./client";
+import { getProvider } from "./provider";
 import { EXPLAIN_SYSTEM, explainUser } from "./prompts/explain";
 import { findPrescriptive } from "./guard";
 import { fleschKincaidGrade, wordCount } from "@/lib/readability";
@@ -16,21 +15,22 @@ export const MAX_WORDS = 120;
  * rewrite. The second draft ships regardless, with its measured grade attached.
  */
 export async function explainExtraction(ex: Extraction): Promise<{ explanation: Explanation; usage: { input: number; output: number }; regenerated: boolean }> {
-  const client = anthropic();
+  const provider = await getProvider();
   const user = explainUser(ex, GLOSSARY);
   const usage = { input: 0, output: 0 };
 
   const ask = async (extra?: string) => {
-    const r = await client.messages.parse({
-      model: MODEL,
-      max_tokens: 2000,
+    const r = await provider.structured({
+      task: "write",
       system: EXPLAIN_SYSTEM,
-      output_config: { effort: WRITE_EFFORT, format: zodOutputFormat(ExplanationModelSchema) },
-      messages: [{ role: "user", content: extra ? `${user}\n\n${extra}` : user }],
+      user: extra ? `${user}\n\n${extra}` : user,
+      schema: ExplanationModelSchema,
+      schemaName: "Explanation",
+      maxTokens: 2000,
     });
-    usage.input += r.usage.input_tokens;
-    usage.output += r.usage.output_tokens;
-    return r.parsed_output;
+    usage.input += r.usage.input;
+    usage.output += r.usage.output;
+    return r.value;
   };
 
   let draft = await ask();

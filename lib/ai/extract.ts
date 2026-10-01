@@ -1,12 +1,9 @@
 import "server-only";
-import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
-import { anthropic, EXTRACT_EFFORT, MODEL } from "./client";
+import { getProvider, type DocumentInput } from "./provider";
 import { EXTRACT_SYSTEM, EXTRACT_USER } from "./prompts/extract";
 import { Extraction, ExtractionModelSchema, fromModel } from "@/lib/schemas/extraction";
 
-export type DocumentInput =
-  | { kind: "pdf"; base64: string }
-  | { kind: "image"; media_type: "image/jpeg" | "image/png"; base64: string };
+export type { DocumentInput };
 
 export class ExtractionInvalidError extends Error {
   code = "extraction_invalid" as const;
@@ -18,29 +15,21 @@ export class ExtractionInvalidError extends Error {
  * date we clamp what we safely can and reject the rest.
  */
 export async function extractDocument(doc: DocumentInput): Promise<{ extraction: Extraction; usage: { input: number; output: number } }> {
-  const client = anthropic();
+  const provider = await getProvider();
 
-  const block =
-    doc.kind === "pdf"
-      ? { type: "document" as const, source: { type: "base64" as const, media_type: "application/pdf" as const, data: doc.base64 } }
-      : { type: "image" as const, source: { type: "base64" as const, media_type: doc.media_type, data: doc.base64 } };
-
-  const response = await client.messages.parse({
-    model: MODEL,
-    max_tokens: 8000,
+  const { value: raw, usage } = await provider.structured({
+    task: "extract",
     system: EXTRACT_SYSTEM,
-    output_config: { effort: EXTRACT_EFFORT, format: zodOutputFormat(ExtractionModelSchema) },
-    messages: [{ role: "user", content: [block, { type: "text", text: EXTRACT_USER }] }],
+    user: EXTRACT_USER,
+    schema: ExtractionModelSchema,
+    schemaName: "Extraction",
+    maxTokens: 8000,
+    document: doc,
   });
-
-  const raw = response.parsed_output;
   if (!raw) throw new ExtractionInvalidError("model returned no parsable output");
 
   const strict = Extraction.safeParse(fromModel(raw));
   if (!strict.success) throw new ExtractionInvalidError(strict.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`).join("; "));
 
-  return {
-    extraction: strict.data,
-    usage: { input: response.usage.input_tokens, output: response.usage.output_tokens },
-  };
+  return { extraction: strict.data, usage };
 }

@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { z } from "zod";
-import { isModelDown, isRateLimit, LIVE_UPLOADS_ENABLED, MODEL } from "@/lib/ai/client";
+import { getProvider, isModelDown, isRateLimit, LIVE_UPLOADS_ENABLED } from "@/lib/ai/provider";
 import { draftLetter } from "@/lib/ai/draft";
 import { computeRights } from "@/lib/rules/engine";
 import { ALL_RULES, HELP_RESOURCES } from "@/lib/rules/load";
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     if (sample && sampleAnswersAreDefault(situation, sample_id)) {
       try {
         const cached = JSON.parse(await readFile(path.join(process.cwd(), "data", "samples", `${sample.id}.letter.json`), "utf8")) as LetterDraft;
-        return NextResponse.json({ draft: cached, meta: { model: MODEL, ms: Date.now() - started, cached: true } });
+        return NextResponse.json({ draft: cached, meta: { model: (await getProvider()).modelFor("write"), ms: Date.now() - started, cached: true } });
       } catch {
         /* no cached letter for these answers: fall through to the model */
       }
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
   try {
     const { draft, usage } = await draftLetter(situation, rights);
     console.info(`[draft] ok ${Date.now() - started}ms in=${usage.input} out=${usage.output}`);
-    return NextResponse.json({ draft, meta: { model: MODEL, ms: Date.now() - started, cached: false } });
+    return NextResponse.json({ draft, meta: { model: (await getProvider()).modelFor("write"), ms: Date.now() - started, cached: false } });
   } catch (err) {
     if (isRateLimit(err)) return fail(429, "rate_limited", "The writing service is busy. Please try again in a minute.");
     if (isModelDown(err)) return fail(503, "model_unavailable", "The writing service is unavailable right now.");

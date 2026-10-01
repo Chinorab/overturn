@@ -184,6 +184,83 @@ export function fromModel(m: ExtractionModel): unknown {
   };
 }
 
+/**
+ * The inverse of `fromModel`: a strict extraction rendered back into the model-facing shape.
+ *
+ * Only the fake provider needs this — it turns a golden sample into something that looks like a
+ * model answer, so the real `extractDocument` path runs end to end in tests. Absence is encoded
+ * the way the model encodes it: a sentinel value *and* no evidence entry, since `fromModel`
+ * treats a missing evidence entry as "not in the document".
+ */
+export function toModel(x: Extraction): ExtractionModel {
+  const evidence: ExtractionModel["evidence"] = [];
+  const note = (f: ModelField, field: Field<unknown>) => {
+    if (field.value === null) return;
+    evidence.push({ field: f, quote: field.quote ?? "", page: field.page ?? 0, confidence: field.confidence });
+  };
+
+  const text = (f: ModelField, field: Field<string>) => {
+    note(f, field);
+    return field.value ?? "";
+  };
+  const num = (f: ModelField, field: Field<number>) => {
+    note(f, field);
+    return field.value ?? 0;
+  };
+  const list = (f: ModelField, field: Field<string[]>) => {
+    note(f, field);
+    return field.value ?? [];
+  };
+  const bool = (f: ModelField, field: Field<boolean>) => {
+    note(f, field);
+    return field.value ?? false;
+  };
+  /** A choice field's sentinel stands in for null; the missing evidence entry is what says so. */
+  const choice = <T extends string>(f: ModelField, field: Field<T>, sentinel: T) => {
+    note(f, field);
+    return field.value ?? sentinel;
+  };
+
+  const d = x.stated_appeal_deadline;
+  const deadline = { days: 0, date: "" };
+  if (d.value?.kind === "date") {
+    deadline.date = d.value.date;
+    evidence.push({ field: "stated_appeal_deadline_date", quote: d.quote ?? "", page: d.page ?? 0, confidence: d.confidence });
+  } else if (d.value?.kind === "days") {
+    deadline.days = d.value.days;
+    evidence.push({ field: "stated_appeal_deadline_days", quote: d.quote ?? "", page: d.page ?? 0, confidence: d.confidence });
+  }
+
+  return {
+    document_type: choice("document_type", x.document_type, "other" as DocumentType),
+    program_signals: choice("program_signals", x.program_signals, "unknown" as ProgramSignal),
+    insurer_name: text("insurer_name", x.insurer_name),
+    member_id: text("member_id", x.member_id),
+    claim_number: text("claim_number", x.claim_number),
+    letter_date: text("letter_date", x.letter_date),
+    provider_name: text("provider_name", x.provider_name),
+    service_description: text("service_description", x.service_description),
+    service_dates: list("service_dates", x.service_dates),
+    // `denial_category` has no sentinel in `fromModel`; "other" plus no evidence reads as null.
+    denial_category: choice("denial_category", x.denial_category, "other" as DenialCategory),
+    denial_reason_quote: text("denial_reason_quote", x.denial_reason_quote),
+    denial_codes: list("denial_codes", x.denial_codes),
+    amount_billed: num("amount_billed", x.amounts.billed),
+    amount_allowed: num("amount_allowed", x.amounts.allowed),
+    amount_plan_paid: num("amount_plan_paid", x.amounts.plan_paid),
+    amount_patient_responsibility: num("amount_patient_responsibility", x.amounts.patient_responsibility),
+    network_status: choice("network_status", x.network_status, "unknown" as NetworkStatus),
+    emergency_signals: bool("emergency_signals", x.emergency_signals),
+    urgency_signals: bool("urgency_signals", x.urgency_signals),
+    stated_appeal_deadline_days: deadline.days,
+    stated_appeal_deadline_date: deadline.date,
+    stated_appeal_address: text("stated_appeal_address", x.stated_appeal_address),
+    stated_appeal_instructions: text("stated_appeal_instructions", x.stated_appeal_instructions),
+    state_hint: text("state_hint", x.state_hint),
+    evidence,
+  };
+}
+
 /** Fields that must be confirmed before rights can be computed. */
 export const REQUIRED_FOR_RIGHTS = ["letter_date", "denial_category", "state_hint", "document_type"] as const;
 export const CONFIDENCE_AUTO_ACCEPT = 0.75;

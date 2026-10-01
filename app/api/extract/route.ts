@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { isModelDown, isRateLimit, LIVE_UPLOADS_ENABLED, MODEL } from "@/lib/ai/client";
+import { getProvider, isModelDown, isRateLimit, LIVE_UPLOADS_ENABLED } from "@/lib/ai/provider";
 import { explainExtraction } from "@/lib/ai/explain";
 import { extractDocument, ExtractionInvalidError, type DocumentInput } from "@/lib/ai/extract";
 import { checkRateLimit, clientIp } from "@/lib/server/ratelimit";
@@ -56,7 +56,7 @@ export async function POST(req: Request) {
       readFile(path.join(dir, `${sample.id}.extraction.json`), "utf8").then((s) => JSON.parse(s) as Extraction),
       readFile(path.join(dir, `${sample.id}.explain.json`), "utf8").then((s) => JSON.parse(s) as Explanation),
     ]);
-    return NextResponse.json({ extraction, explanation, meta: { model: MODEL, ms: Date.now() - started, cached: true } });
+    return NextResponse.json({ extraction, explanation, meta: { model: (await getProvider()).modelFor("extract"), ms: Date.now() - started, cached: true } });
   }
 
   if (!LIVE_UPLOADS_ENABLED) {
@@ -95,7 +95,7 @@ export async function POST(req: Request) {
     const { explanation, usage: u2 } = await explainExtraction(extraction);
     // Only timing and token counts are logged; never content.
     console.info(`[extract] ok ${Date.now() - started}ms in=${usage.input + u2.input} out=${usage.output + u2.output}`);
-    return NextResponse.json({ extraction, explanation, meta: { model: MODEL, ms: Date.now() - started, cached: false } });
+    return NextResponse.json({ extraction, explanation, meta: { model: (await getProvider()).modelFor("extract"), ms: Date.now() - started, cached: false } });
   } catch (err) {
     if (err instanceof ExtractionInvalidError) return fail(502, { code: "extraction_invalid", message: "The document was read but the result did not check out. Please try again, or enter the details by hand." });
     if (isRateLimit(err)) return fail(429, { code: "rate_limited", message: "The reading service is busy. Please try again in a minute." });
