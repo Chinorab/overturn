@@ -74,7 +74,11 @@ lets an in-memory-only design promise that a case dies with its session.
 **What did not** — The stateful usage example shares one transport across callers, which is
 incorrect and fails only under a second client; and reading the request body before
 `handleRequest` silently breaks it unless you find `parsedBody` on a different interface. Both
-cost about 40 minutes on day one — see FRICTION_LOG #2. The types are good enough that both
+cost about 40 minutes on day one — see FRICTION_LOG #2. Found later in a review rather than lost
+to: the spec's Streamable HTTP section says servers **MUST** validate `Origin`, the transport's
+`allowedOrigins` option that did this is deprecated in favour of "external middleware", and no
+such middleware ships for the web-standard transport. So a server built from the documented
+example is non-conformant by default, silently; mine was until 1 October. The types are good enough that both
 problems *could* have been compile-time errors rather than runtime surprises.
 
 **Onboarding quality** — The `.d.ts` files are the best documentation in the package: thorough,

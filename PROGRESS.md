@@ -66,6 +66,16 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
       `sessionAccount()` qui ne va chercher l'e-mail qu'une fois. **337 tests verts** (299 → 337).
       Vérifié en dev *et depuis le bundle* : 401 sans bearer, 200 avec, en-tête conforme au
       QuickStart Alexa+. Le serveur **refuse de démarrer** sans configuration d'auth.
+- [x] Revue + durcissement (2026-10-01), avant T011 — quatre défauts trouvés en relisant :
+      (1) sessions abandonnées jamais expirées, gardant bearer + e-mail en mémoire — promis en T003
+      pour T009 et oublié ; (2) un échec userinfo mis en cache pour toujours ; (3) pas de
+      validation `Origin` alors que la spec 2025-11-25 l'exige ; (4) ni limite de corps ni plafond
+      de sessions. Plus : `authMode` retiré de `/healthz`, `MCP_CODE_TOMBSTONE_HOURS` documenté mais
+      jamais lu → câblé. Session = 2 × TTL dossier (60 min) pour que la personne qui revient à la
+      minute 31 *entende* l'expiration au lieu d'une erreur 404 — conflit trouvé dans le test de
+      conformité de T015 avant de l'écrire. **352 tests verts** (337 → 352), chaque nouveau test
+      **vérifié par mutation** (le bug remis en place → le test casse, et lui seul). Vérifié
+      depuis le bundle : 403 / 200 / 200 / 429 / 413.
 - [x] `.specify/feature.json` pointe sur 002 ; branche `002-alexa-voice-mcp` créée
 - [x] Plan 002 + annexe design vocal + tasks.md (39 tâches, phases M0→M7 + soumission)
 
@@ -108,6 +118,12 @@ Spec + plan + 39 tâches validés (`specs/002-alexa-voice-mcp/tasks.md`). T001 (
 - Dev web : `pnpm dev` · tests : `pnpm test` · typecheck : `pnpm typecheck`
 
 ## Pièges rencontrés
+- Un test qui passe du premier coup ne prouve rien : remettre le bug en place et vérifier que
+  le test casse, et lui seul (fait pour les 4 correctifs du 01/10).
+- `hono` est une dépendance de `mcp/` : dans un test racine, typer via
+  `ReturnType<typeof import("@/mcp/src/server").createApp>` plutôt que d'importer `hono` (01/10).
+- Une variable d'environnement documentée doit être lue : auditer avec
+  `grep -oE '^MCP_[A-Z_]+' .env.example` contre `mcp/src` (01/10).
 - L'issuer Auth0 **finit par un slash** et la comparaison est une égalité : normaliser les URLs en
   retirant le dernier slash casse tous les jetons (28/09).
 - `jose` est une dépendance de `mcp/` : ajoutée en devDependency à la racine pour que les tests

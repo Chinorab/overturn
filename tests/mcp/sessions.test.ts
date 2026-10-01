@@ -1,5 +1,15 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { closeAllSessions, handleMcpRequest, sessionCount, type Caller } from "@/mcp/src/sessions";
+import {
+  MAX_SESSIONS_PER_SUBJECT,
+  closeAllSessions,
+  handleMcpRequest,
+  sessionAccount,
+  sessionCount,
+  sweepSessions,
+  type Caller,
+} from "@/mcp/src/sessions";
+import { IDLE_TTL_MS, SESSION_IDLE_TTL_MS } from "@/mcp/src/clock";
+import type { AuthConfig } from "@/mcp/src/auth";
 
 const caller = (sub: string): Caller => ({
   principal: { sub, clientId: "sim123", scope: ["openid", "email"], expiresAt: Date.now() + 3_600_000 },
@@ -82,5 +92,83 @@ describe("closing", () => {
     expect(sessionCount()).toBe(2);
     await closeAllSessions();
     expect(sessionCount()).toBe(0);
+  });
+});
+
+describe("idle sessions", () => {
+  it("are ended once idle past the session TTL, taking the bearer and the email with them", async () => {
+    await openSession("auth0|walter");
+    expect(sessionCount()).toBe(1);
+    // Before this sweep existed, a client that walked away without a DELETE left its session —
+    // and the bearer and email it holds — in memory for the life of the process.
+    expect(await sweepSessions(Date.now() + SESSION_IDLE_TTL_MS + 1)).toBe(1);
+    expect(sessionCount()).toBe(0);
+  });
+
+  it("outlive their cases, so the person can be told the case expired", async () => {
+    await openSession("auth0|walter");
+    // At minute 31 the case is gone but the session is not: the tool layer can still say why.
+    expect(SESSION_IDLE_TTL_MS).toBeGreaterThan(IDLE_TTL_MS);
+    expect(await sweepSessions(Date.now() + IDLE_TTL_MS + 60_000)).toBe(0);
+    expect(sessionCount()).toBe(1);
+  });
+
+  it("are kept alive by being used", async () => {
+    const id = await openSession("auth0|walter");
+    const res = await handleMcpRequest(post({ jsonrpc: "2.0", id: 2, method: "tools/list" }, id), caller("auth0|walter"));
+    await res.text();
+    expect(await sweepSessions(Date.now() + 60_000)).toBe(0);
+  });
+});
+
+describe("limits", () => {
+  it(`refuses a ${MAX_SESSIONS_PER_SUBJECT + 1}th session for one account, but not for another`, async () => {
+    for (let i = 0; i < MAX_SESSIONS_PER_SUBJECT; i++) await openSession("auth0|walter");
+    const res = await handleMcpRequest(post(INITIALIZE), caller("auth0|walter"));
+    expect(res.status).toBe(429);
+    expect(sessionCount()).toBe(MAX_SESSIONS_PER_SUBJECT);
+    // One account at its limit does not lock anyone else out.
+    await openSession("auth0|dana");
+    expect(sessionCount()).toBe(MAX_SESSIONS_PER_SUBJECT + 1);
+  });
+});
+
+describe("the linked account", () => {
+  const OIDC: AuthConfig = {
+    mode: "oidc",
+    issuer: "https://overturn-demo.eu.auth0.com/",
+    jwksUrl: "https://overturn-demo.eu.auth0.com/.well-known/jwks.json",
+    userInfoUrl: "https://overturn-demo.eu.auth0.com/userinfo",
+    audience: "https://mcp.overturn.example/api",
+    clientIds: [],
+    publicUrl: "https://mcp.example.com",
+  };
+
+  it("retries after a failed lookup instead of remembering the failure", async () => {
+    const id = await openSession("auth0|walter");
+    let calls = 0;
+    const flaky = (async () => {
+      calls++;
+      if (calls === 1) return new Response("", { status: 503 });
+      return new Response(JSON.stringify({ email: "walter.demo@example.com" }), { status: 200 });
+    }) as unknown as typeof fetch;
+
+    // One blip at the authorization server used to leave a session that could never send its letter.
+    await expect(sessionAccount(id, OIDC, flaky)).rejects.toThrow(/503/);
+    const account = await sessionAccount(id, OIDC, flaky);
+    expect(account.emailMasked).toBe("w•••@example.com");
+    expect(calls).toBe(2);
+  });
+
+  it("asks only once when the lookup succeeds", async () => {
+    const id = await openSession("auth0|walter");
+    let calls = 0;
+    const ok = (async () => {
+      calls++;
+      return new Response(JSON.stringify({ email: "walter.demo@example.com" }), { status: 200 });
+    }) as unknown as typeof fetch;
+    await sessionAccount(id, OIDC, ok);
+    await sessionAccount(id, OIDC, ok);
+    expect(calls).toBe(1);
   });
 });

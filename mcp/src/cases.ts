@@ -6,9 +6,10 @@
  * point (FR-040) — losing every case when the server stops is the storage policy, not a gap in it.
  */
 import { CaseStore } from "./store";
-import { clock } from "./clock";
+import { IDLE_TTL_MS, clock } from "./clock";
 import type { CaseFacts } from "./facts";
 
-const ttlMinutes = Number(process.env.MCP_CASE_TTL_MINUTES ?? 30);
+/** How long a code stays blocked from reissue after its case ends: someone may still say it. */
+const tombstoneMs = Number(process.env.MCP_CODE_TOMBSTONE_HOURS ?? 24) * 3_600_000;
 
-export const store = new CaseStore<CaseFacts>({ ttlMs: ttlMinutes * 60_000, clock });
+export const store = new CaseStore<CaseFacts>({ ttlMs: IDLE_TTL_MS, tombstoneMs, clock });

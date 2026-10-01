@@ -3,7 +3,8 @@
  *
  * Stateful mode: the server mints the `Mcp-Session-Id` on `initialize` and every later request
  * carries it. One transport and one `McpServer` per session, held in memory only — when the
- * session ends, or the process dies, the case ends with it (FR-040). Nothing is written to disk.
+ * session ends, goes idle, or the process dies, the case ends with it (FR-040). Nothing is
+ * written to disk.
  */
 import { randomUUID } from "node:crypto";
 import { WebStandardStreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/webStandardStreamableHttp.js";
@@ -12,6 +13,7 @@ import type { AuthInfo } from "@modelcontextprotocol/sdk/server/auth/types.js";
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { createMcpServer } from "./mcp";
 import { fetchAccount, type Account, type AuthConfig, type Principal } from "./auth";
+import { SESSION_IDLE_TTL_MS, clock } from "./clock";
 
 /** What the auth layer establishes about the caller, per request. */
 export type Caller = { principal: Principal; authorization: string };
@@ -24,10 +26,16 @@ type Session = {
   subject: string;
   /** Most recent bearer for this session, so userinfo runs with a live token. */
   authorization: string;
-  /** Fetched at most once per session, then held until the session ends. */
+  /** Fetched at most once per session on success, then held until the session ends. */
   account: Promise<Account> | null;
   startedAt: number;
+  lastSeenAt: number;
 };
+
+/** One person rarely needs more than a couple of open conversations; five is generous. */
+export const MAX_SESSIONS_PER_SUBJECT = Number(process.env.MCP_MAX_SESSIONS_PER_SUBJECT ?? 5);
+/** A ceiling for the whole process, so memory has a bound whatever the callers do. */
+export const MAX_SESSIONS = Number(process.env.MCP_MAX_SESSIONS ?? 500);
 
 const sessions = new Map<string, Session>();
 
@@ -46,11 +54,20 @@ export function sessionCount(): number {
 /**
  * The linked account for a session — the only place the email exists, fetched once.
  * Tools use `emailMasked` / `emailMaskedSpoken`; the address itself is only ever a destination.
+ *
+ * A failed lookup is not remembered: one network blip at the authorization server must not leave
+ * a session that can never send its letter. The next call simply tries again.
  */
-export function sessionAccount(sessionId: string, cfg: AuthConfig): Promise<Account> {
+export function sessionAccount(sessionId: string, cfg: AuthConfig, fetchImpl: typeof fetch = fetch): Promise<Account> {
   const session = sessions.get(sessionId);
   if (!session) return Promise.reject(new Error("unknown session"));
-  session.account ??= fetchAccount(cfg, session.authorization);
+  if (!session.account) {
+    const pending = fetchAccount(cfg, session.authorization, fetchImpl);
+    session.account = pending;
+    pending.catch(() => {
+      if (session.account === pending) session.account = null;
+    });
+  }
   return session.account;
 }
 
@@ -82,6 +99,18 @@ async function endSession(sessionId: string): Promise<void> {
   }
 }
 
+/**
+ * End every session idle for longer than SESSION_IDLE_TTL_MS (twice the case TTL, see clock.ts). HTTP has no hangup, so a client that
+ * walks away without a DELETE would otherwise keep its bearer and its account's email in memory
+ * for the life of the process. Run on every request — no timer, the same pattern as the store —
+ * and exported with an explicit `now` so a test can move time without waiting.
+ */
+export async function sweepSessions(now: number = clock()): Promise<number> {
+  const idle = [...sessions.values()].filter((s) => now - s.lastSeenAt > SESSION_IDLE_TTL_MS).map((s) => s.id);
+  await Promise.all(idle.map(endSession));
+  return idle.length;
+}
+
 /** Shutdown path: every live session is closed before the process exits (FR-040). */
 export async function closeAllSessions(): Promise<void> {
   await Promise.all([...sessions.keys()].map(endSession));
@@ -99,6 +128,7 @@ const authInfoOf = (caller: Caller): AuthInfo => ({
  * The caller has already been authenticated: this decides which session they may touch.
  */
 export async function handleMcpRequest(req: Request, caller: Caller): Promise<Response> {
+  await sweepSessions();
   const sessionId = req.headers.get("mcp-session-id");
 
   if (sessionId) {
@@ -114,6 +144,7 @@ export async function handleMcpRequest(req: Request, caller: Caller): Promise<Re
       return rpcError(403, -32003, "This session belongs to another account.");
     }
     session.authorization = caller.authorization;
+    session.lastSeenAt = clock();
     return session.transport.handleRequest(req, { authInfo: authInfoOf(caller) });
   }
 
@@ -132,10 +163,20 @@ export async function handleMcpRequest(req: Request, caller: Caller): Promise<Re
     return rpcError(400, -32000, "First request on a new session must be `initialize`.");
   }
 
+  // Bounds, checked only when a session would be created: an existing session is never refused.
+  const owned = [...sessions.values()].filter((s) => s.subject === caller.principal.sub).length;
+  if (owned >= MAX_SESSIONS_PER_SUBJECT) {
+    return rpcError(429, -32004, `Too many open sessions for this account (limit ${MAX_SESSIONS_PER_SUBJECT}). End one with DELETE, or wait for it to expire.`);
+  }
+  if (sessions.size >= MAX_SESSIONS) {
+    return rpcError(503, -32005, "The server is at capacity. Try again in a few minutes.");
+  }
+
   const server = createMcpServer();
   const transport = new WebStandardStreamableHTTPServerTransport({
     sessionIdGenerator: () => randomUUID(),
     onsessioninitialized: (id) => {
+      const now = clock();
       sessions.set(id, {
         id,
         transport,
@@ -143,7 +184,8 @@ export async function handleMcpRequest(req: Request, caller: Caller): Promise<Re
         subject: caller.principal.sub,
         authorization: caller.authorization,
         account: null,
-        startedAt: Date.now(),
+        startedAt: now,
+        lastSeenAt: now,
       });
     },
     onsessionclosed: (id) => {
@@ -151,10 +193,7 @@ export async function handleMcpRequest(req: Request, caller: Caller): Promise<Re
     },
   });
   // Covers the ends the callback above does not: a dropped connection, or a transport error.
-  //
-  // It does not cover a client that simply walks away: HTTP has no hangup, so a session with no
-  // DELETE stays in this map until the process exits. The idle sweep that reaps those belongs
-  // with the case TTL and its injectable clock (T009) — one clock, not two.
+  // A client that simply walks away is covered by `sweepSessions`.
   transport.onclose = () => {
     if (transport.sessionId) void endSession(transport.sessionId);
   };

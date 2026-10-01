@@ -44,13 +44,35 @@ resolves to its empty variant. Same trick as `scripts/precompute-samples.ts`.
 | `GET /mcp` | Bearer | SSE stream for server-to-client notifications (progress) |
 | `DELETE /mcp` | Bearer | End the session (also discards its cases) |
 | `GET /.well-known/oauth-protected-resource` | — | RFC 9728 metadata: `authorization_servers: [OIDC_ISSUER]`, `resource`, scopes |
-| `GET /healthz` | — | `{ ok, protocol, rules, authMode, sessions, cases }` — counts only, never a case code |
+| `GET /healthz` | — | `{ ok, protocol, rules, sessions, cases }` — counts only: never a case code, nor the auth mode |
 | `POST /__test/clock` | — | Only when `OVERTURN_CLOCK` is set: advances the pinned clock for the conformance test |
 
 Unauthenticated requests to `/mcp` get `401` with
 `WWW-Authenticate: Bearer resource_metadata="<MCP_PUBLIC_URL>/.well-known/oauth-protected-resource"`,
 which lets an MCP client discover the authorization server and run the authorization-code +
 PKCE flow itself.
+
+Before the bearer is even read, every request to `/mcp` passes two cheaper gates:
+
+| Gate | Refusal | Why |
+|---|---|---|
+| `Origin` present and not allowed | `403` | MCP 2025-11-25 requires it: stops a page on another site, reached by DNS rebinding. No `Origin` (a server-side client) is allowed — and still needs its bearer. Allowed: `MCP_PUBLIC_URL`'s origin plus `MCP_ALLOWED_ORIGINS`. |
+| Body over `MCP_MAX_BODY_BYTES` (10 MB) | `413` | Bounded memory; sized for a several-page PDF in base64. |
+
+And when a session would be created: more than `MCP_MAX_SESSIONS_PER_SUBJECT` (5) open for one
+account → `429`; more than `MCP_MAX_SESSIONS` (500) for the process → `503`. An existing session
+is never refused.
+
+### Lifetimes
+
+| What | Idle lifetime | Then |
+|---|---|---|
+| A case | `MCP_CASE_TTL_MINUTES` (30) | Facts freed; the code is tombstoned for `MCP_CODE_TOMBSTONE_HOURS` (24) |
+| The MCP session that owns it | twice that (60) | Bearer and account email dropped, transport closed |
+
+The session outlives its cases on purpose: someone returning at minute 31 should *hear* that
+their case expired, which needs a live session to say it. Both are swept on access, with no
+timer.
 
 ## Authentication
 
