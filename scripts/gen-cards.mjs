@@ -36,7 +36,7 @@ const end = `<!doctype html><html><head>${head}</head><body><div class="halo"></
 <div class="wrap"><div class="brand">Overturn</div>
 <h1>Understand the letter.<br><span>Know the deadline. <em>Answer back.</em></span></h1>
 <p>The model reads. The code decides. You send.</p></div>
-<div class="urls">overturn-peach.vercel.app<small>LIVE</small><br>github.com/Chinorab/overturn<small>SOURCE · MIT</small></div>
+<div class="urls">getoverturn.xyz<small>LIVE</small><br>github.com/Chinorab/overturn<small>SOURCE · MIT</small></div>
 <div class="legal">Information, not legal advice.<br>Nothing stored. Built for LexHack 2026.</div></body></html>`;
 
 const b = await chromium.launch();

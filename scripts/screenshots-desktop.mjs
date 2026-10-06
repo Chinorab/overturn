@@ -1,6 +1,6 @@
 /**
  * Desktop-format screenshots for the Devpost gallery, from a running instance.
- * Usage: BASE=https://overturn-peach.vercel.app node scripts/screenshots-desktop.mjs
+ * Usage: BASE=https://getoverturn.xyz node scripts/screenshots-desktop.mjs
  * Output: docs/screenshots/desktop/*.png (1440×900 at 1.5×)
  */
 import { chromium } from "@playwright/test";

@@ -3,11 +3,11 @@
 **Understand and contest a health insurance denial — in plain English, with the deadlines and
 protections that apply, and a letter you can send.**
 
-[![Grand Prize — LexHack 2026](https://img.shields.io/badge/%F0%9F%8F%86%20Grand%20Prize-LexHack%202026-134e5e?style=for-the-badge&labelColor=0f3b47)](https://overturn-peach.vercel.app)
+[![Grand Prize — LexHack 2026](https://img.shields.io/badge/%F0%9F%8F%86%20Grand%20Prize-LexHack%202026-134e5e?style=for-the-badge&labelColor=0f3b47)](https://getoverturn.xyz)
 
 Tracks: *Access to Justice & Civic Tech* (primary), *Legal Automation & Workflow Innovation*
 
-> **Live demo:** https://overturn-peach.vercel.app · **Video (2:21):** https://youtu.be/7gX-vRLdb3s
+> **Live demo:** https://getoverturn.xyz · **Video (2:21):** https://youtu.be/7gX-vRLdb3s
 >
 > Try it in under five minutes with a sample document; nothing is uploaded and nothing is stored.
 
