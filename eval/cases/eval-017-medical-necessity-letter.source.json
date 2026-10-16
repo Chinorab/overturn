@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 85186, Sacramento, CA 95814",
+    "phone": "1-800-555-9509",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-10-15",
+  "member": {
+    "name": "Jamal Sørensen",
+    "address": "6060 Maple Avenue\nOakland, CA 94612",
+    "member_id": "OST-767401-28",
+    "group": "GRP-18422 (Hudson Valley Logistics, Inc.)"
+  },
+  "re": {
+    "claim_number": "CLM-26-5310-50186",
+    "provider": "Riverside Orthopedic Associates",
+    "service": "MRI of the left knee without contrast (CPT 73721)",
+    "service_date": "09/09/2026",
+    "billed": "2,734.94"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Riverside Orthopedic Associates under your health plan for services provided on September 9, 2026. After review, we are unable to approve payment.",
+    "We determined that the MRI of the left knee without contrast does not meet our criteria for medical necessity under guideline OST-RAD-892. The information we received does not support the need for this service at this time. Reason code: CO-50.",
+    "The plan paid $0.00 of the $2,734.94 billed. The amount you may owe the provider is $2,734.94."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 60 days of the date you receive this notice. Send it to Ostrander Mutual Health, Appeals Unit, PO Box 85186, Sacramento, CA 95814. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-9509.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nOstrander Mutual Health"
+}

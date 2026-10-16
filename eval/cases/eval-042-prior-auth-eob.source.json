@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 74193, Buffalo, NY 14202",
+    "phone": "1-800-555-8299",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-08-11",
+  "member": {
+    "name": "Ingrid Tanaka",
+    "address": "7948 Juniper Street\nYonkers, NY 10701",
+    "member_id": "HOL-638539-30",
+    "group": "GRP-27035 (Hudson Valley Logistics, Inc.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-5457-23803",
+    "provider": "Meadowbrook Physical Therapy (participating)",
+    "facility": "",
+    "service_date": "2026-07-07",
+    "service": "MRI of the left knee without contrast (CPT 73721)"
+  },
+  "lines": [
+    {
+      "service": "MRI of the left knee without contrast - 73721",
+      "billed": "2,652.65",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "2,652.65",
+      "remark": "CO-197"
+    }
+  ],
+  "totals": {
+    "billed": "2,652.65",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "2,652.65"
+  },
+  "remarks": [
+    "CO-197: Your plan requires pre-certification for the MRI of the left knee without contrast. Our records show no approved authorization on file for this date of service."
+  ],
+  "appeal": "This is not a bill. To ask us to reconsider, write to Hollis Creek Health, Appeals Unit, PO Box 74193, Buffalo, NY 14202. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-8299."
+}

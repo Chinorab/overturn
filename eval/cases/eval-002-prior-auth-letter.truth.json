@@ -1,0 +1,43 @@
+{
+  "id": "eval-002-prior-auth-letter",
+  "kind": "letter",
+  "category": "prior_auth",
+  "traps": [
+    "vague_owed",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Brightmoor Benefit Solutions",
+    "member_id": "BRI-005122-50",
+    "claim_number": "CLM-26-5844-01663",
+    "letter_date": "2026-09-04",
+    "provider_name": "Westfield Sleep Clinic",
+    "service": {
+      "text": "MRI of the lumbar spine without contrast",
+      "cpt": "72148"
+    },
+    "service_dates": [
+      "2026-07-31"
+    ],
+    "denial_category": "prior_auth",
+    "denial_codes": [
+      "CO-197"
+    ],
+    "amounts": {
+      "billed": 3222.07,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": null
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "NY"
+  }
+}

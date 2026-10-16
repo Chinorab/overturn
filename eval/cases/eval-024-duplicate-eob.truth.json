@@ -1,0 +1,43 @@
+{
+  "id": "eval-024-duplicate-eob",
+  "kind": "eob",
+  "category": "duplicate",
+  "traps": [
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Verdane Health Plan",
+    "member_id": "VER-087933-75",
+    "claim_number": "CLM-26-1782-80563",
+    "letter_date": "2026-08-09",
+    "provider_name": "Clearwater Neurology Group",
+    "service": {
+      "text": "Comprehensive metabolic panel and lipid panel",
+      "cpt": "80053"
+    },
+    "service_dates": [
+      "2026-07-28"
+    ],
+    "denial_category": "duplicate",
+    "denial_codes": [
+      "CO-18"
+    ],
+    "amounts": {
+      "billed": 230.69,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 230.69
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "GA"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "eval-027-out-of-network-eob",
+  "kind": "eob",
+  "category": "out_of_network",
+  "traps": [
+    "no_letter_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Tamsin Health Partners",
+    "member_id": "TAM-928681-21",
+    "claim_number": "CLM-26-2047-57553",
+    "letter_date": null,
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Occupational therapy evaluation",
+      "cpt": "97165"
+    },
+    "service_dates": [
+      "2026-09-13"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 478.6,
+      "allowed": 194.73,
+      "plan_paid": 155.78,
+      "patient_responsibility": 322.82
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "TX"
+  }
+}

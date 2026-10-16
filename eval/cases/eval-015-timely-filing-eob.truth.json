@@ -1,0 +1,43 @@
+{
+  "id": "eval-015-timely-filing-eob",
+  "kind": "eob",
+  "category": "timely_filing",
+  "traps": [
+    "no_letter_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-094231-21",
+    "claim_number": "CLM-26-7309-53392",
+    "letter_date": null,
+    "provider_name": "Clearwater Neurology Group",
+    "service": {
+      "text": "MRI of the lumbar spine without contrast",
+      "cpt": "72148"
+    },
+    "service_dates": [
+      "2026-08-23"
+    ],
+    "denial_category": "timely_filing",
+    "denial_codes": [
+      "CO-29"
+    ],
+    "amounts": {
+      "billed": 1986.77,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 1986.77
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "PA"
+  }
+}

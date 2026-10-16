@@ -1,0 +1,42 @@
+{
+  "id": "eval-008-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "urgent_case"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Tamsin Health Partners",
+    "member_id": "TAM-721643-67",
+    "claim_number": "CLM-26-1296-79404",
+    "letter_date": "2026-10-03",
+    "provider_name": "Summitview Family Medicine",
+    "service": {
+      "text": "Continued inpatient rehabilitation stay",
+      "cpt": "0128"
+    },
+    "service_dates": [
+      "2026-09-02"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 38729.94,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 38729.94
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": true,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "GA"
+  }
+}

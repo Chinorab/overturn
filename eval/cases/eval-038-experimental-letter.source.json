@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Verdane Health Plan",
+    "address": "PO Box 98683, Columbus, OH 43215",
+    "phone": "1-800-555-0500",
+    "logo_text": "VERDANE"
+  },
+  "date": "2026-07-09",
+  "member": {
+    "name": "Ingrid Brennan",
+    "address": "4260 Juniper Street\nColumbus, OH 43215",
+    "member_id": "VER-247025-88",
+    "group": "GRP-87062 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-9643-37553",
+    "provider": "Clearwater Neurology Group",
+    "service": "Transcranial magnetic stimulation (TMS) treatment course (CPT 90867)",
+    "service_date": "2026-06-17",
+    "billed": "6,807.11"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Clearwater Neurology Group under your health plan for services provided on June 17, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: The transcranial magnetic stimulation (TMS) treatment course is considered experimental or investigational for your condition under our medical policy. Reason code: CO-55.",
+    "The plan paid $0.00 of the $6,807.11 billed. The provider may bill you for this service."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Verdane Health Plan, Appeals Unit, PO Box 98683, Columbus, OH 43215. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-0500.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nVerdane Health Plan"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "eval-026-prior-auth-letter",
+  "kind": "letter",
+  "category": "prior_auth",
+  "traps": [
+    "vague_owed",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Verdane Health Plan",
+    "member_id": "VER-899593-76",
+    "claim_number": "CLM-26-8072-58784",
+    "letter_date": "2026-07-13",
+    "provider_name": "Westfield Sleep Clinic",
+    "service": {
+      "text": "Polysomnography sleep study",
+      "cpt": "95810"
+    },
+    "service_dates": [
+      "2026-06-04"
+    ],
+    "denial_category": "prior_auth",
+    "denial_codes": [
+      "CO-197"
+    ],
+    "amounts": {
+      "billed": 2140.25,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": null
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "NY"
+  }
+}

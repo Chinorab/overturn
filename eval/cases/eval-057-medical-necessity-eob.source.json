@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 24407, Houston, TX 77002",
+    "phone": "1-800-555-1280",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-10-14",
+  "member": {
+    "name": "Aiko Petrova",
+    "address": "9321 Juniper Street\nFresno, CA 93721",
+    "member_id": "HOL-033912-44",
+    "group": "GRP-41147 (Bayou City Fabrication)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-3372-62774",
+    "provider": "Westfield Sleep Clinic (participating)",
+    "facility": "",
+    "service_date": "2026-09-06",
+    "service": "Arthroscopic knee meniscectomy (CPT 29881)"
+  },
+  "lines": [
+    {
+      "service": "Arthroscopic knee meniscectomy - 29881",
+      "billed": "13,789.85",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "13,789.85",
+      "remark": "CO-50"
+    }
+  ],
+  "totals": {
+    "billed": "13,789.85",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "13,789.85"
+  },
+  "remarks": [
+    "CO-50: We determined that the arthroscopic knee meniscectomy does not meet our criteria for medical necessity under guideline HOL-CAR-589. The information we received does not support the need for this service at this time."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 24407, Houston, TX 77002. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-1280."
+}

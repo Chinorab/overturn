@@ -1,0 +1,42 @@
+{
+  "id": "eval-056-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "urgent_case"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Calloway Health Network",
+    "member_id": "CAL-922270-59",
+    "claim_number": "CLM-26-6194-73566",
+    "letter_date": "2026-08-21",
+    "provider_name": "Meadowbrook Physical Therapy",
+    "service": {
+      "text": "Continued acute inpatient stay",
+      "cpt": "0120"
+    },
+    "service_dates": [
+      "2026-07-16"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 30954.16,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 30954.16
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": true,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "GA"
+  }
+}

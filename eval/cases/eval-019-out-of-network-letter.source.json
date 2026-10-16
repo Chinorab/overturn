@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 29876, Houston, TX 77002",
+    "phone": "1-800-555-5030",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-07-18",
+  "member": {
+    "name": "Fatima Sørensen",
+    "address": "2588 Willow Court\nAustin, TX 78701",
+    "member_id": "HOL-353091-63",
+    "group": "Medicare Advantage HMO, plan H9055"
+  },
+  "re": {
+    "claim_number": "CLM-26-1246-35794",
+    "provider": "Lantern Hill Cardiology",
+    "service": "Physical therapy, therapeutic exercise (12 sessions) (CPT 97110)",
+    "service_date": "2026-06-27",
+    "billed": "2,084.34"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Lantern Hill Cardiology under your Medicare Advantage plan for services provided on June 27, 2026. After review, we are unable to approve payment.",
+    "This claim was denied because the provider who performed the service is out-of-network for your plan. Reason code: CO-242.",
+    "The plan paid $0.00 of the $2,084.34 billed. The amount you may owe the provider is $2,084.34."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 29876, Houston, TX 77002. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-5030.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nHollis Creek Health"
+}

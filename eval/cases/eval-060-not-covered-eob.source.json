@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Quillfield Health Plan",
+    "address": "PO Box 67046, Tampa, FL 33602",
+    "phone": "1-800-555-2222",
+    "logo_text": "QUILLFIELD"
+  },
+  "date": "2026-07-18",
+  "member": {
+    "name": "Rosa Whitaker",
+    "address": "5064 Orchard Way\nOrlando, FL 32801",
+    "member_id": "QUI-313401-75",
+    "group": "GRP-58012 (Redwood Dental Group)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-3928-06879",
+    "provider": "Northgate Imaging Center (participating)",
+    "facility": "",
+    "service_date": "06/10/2026",
+    "service": "Vitamin D, 25-hydroxy level (CPT 82306)"
+  },
+  "lines": [
+    {
+      "service": "Vitamin D - 82306",
+      "billed": "234.76",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "234.76",
+      "remark": "CO-96"
+    }
+  ],
+  "totals": {
+    "billed": "234.76",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "234.76"
+  },
+  "remarks": [
+    "CO-96: Your plan has reached its annual benefit limit for this type of service, so this claim is not covered."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Quillfield Health Plan, Appeals Unit, PO Box 67046, Tampa, FL 33602. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-2222."
+}

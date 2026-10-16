@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Brightmoor Benefit Solutions",
+    "address": "PO Box 39381, Toledo, OH 43604",
+    "phone": "1-800-555-3303",
+    "logo_text": "BRIGHTMOOR"
+  },
+  "date": "2026-10-08",
+  "member": {
+    "name": "Aiko Whitaker",
+    "address": "2489 Cedar Bluff Road\nColumbus, OH 43215",
+    "member_id": "BRI-556055-97",
+    "group": "GRP-30105 (Hudson Valley Logistics, Inc.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-8965-70935",
+    "provider": "Northgate Imaging Center (participating)",
+    "facility": "",
+    "service_date": "2026-09-11",
+    "service": "Genetic expression profiling test for breast cancer (CPT 81519)"
+  },
+  "lines": [
+    {
+      "service": "Genetic expression profiling test for breast cancer - 81519",
+      "billed": "3,999.58",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "3,999.58",
+      "remark": "CO-55"
+    }
+  ],
+  "totals": {
+    "billed": "3,999.58",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "3,999.58"
+  },
+  "remarks": [
+    "CO-55: Reason for denial: The genetic expression profiling test for breast cancer is considered experimental or investigational for your condition under our medical policy."
+  ],
+  "appeal": "This is not a bill. To ask us to reconsider, write to Brightmoor Benefit Solutions, Appeals Unit, PO Box 39381, Toledo, OH 43604. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-3303."
+}

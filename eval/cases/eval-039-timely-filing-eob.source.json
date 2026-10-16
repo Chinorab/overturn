@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Verdane Health Plan",
+    "address": "PO Box 96446, Erie, PA 16501",
+    "phone": "1-800-555-7620",
+    "logo_text": "VERDANE"
+  },
+  "date": "",
+  "member": {
+    "name": "Jamal Alvarez",
+    "address": "975 Willow Court\nErie, PA 16501",
+    "member_id": "VER-663293-26",
+    "group": "GRP-14271 (Hudson Valley Logistics, Inc.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-7968-91838",
+    "provider": "Lantern Hill Cardiology (participating)",
+    "facility": "",
+    "service_date": "2026-08-07",
+    "service": "Physical therapy, therapeutic exercise (12 sessions) (CPT 97110)"
+  },
+  "lines": [
+    {
+      "service": "Physical therapy - 97110",
+      "billed": "1,623.39",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "1,623.39",
+      "remark": "CO-29"
+    }
+  ],
+  "totals": {
+    "billed": "1,623.39",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "1,623.39"
+  },
+  "remarks": [
+    "CO-29: This claim was not filed within the time limit set by your plan and cannot be paid."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Verdane Health Plan, Appeals Unit, PO Box 96446, Erie, PA 16501. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-7620."
+}

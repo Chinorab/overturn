@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 64216, Yonkers, NY 10701",
+    "phone": "1-800-555-2553",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-08-27",
+  "member": {
+    "name": "Fatima Castillo",
+    "address": "4428 Pecan Ridge Drive\nYonkers, NY 10701",
+    "member_id": "OST-944403-77",
+    "group": "GRP-95607 (Redwood Dental Group)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-7013-20124",
+    "provider": "Clearwater Neurology Group (participating)",
+    "facility": "",
+    "service_date": "2026-07-24",
+    "service": "CT scan of the chest with contrast (CPT 71260)"
+  },
+  "lines": [
+    {
+      "service": "CT scan of the chest with contrast - 71260",
+      "billed": "1,378.95",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "1,378.95",
+      "remark": "CO-197"
+    }
+  ],
+  "totals": {
+    "billed": "1,378.95",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "1,378.95"
+  },
+  "remarks": [
+    "CO-197: Your plan requires pre-certification for the CT scan of the chest with contrast. Our records show no approved authorization on file for this date of service."
+  ],
+  "appeal": "This is not a bill. To ask us to reconsider, write to Ostrander Mutual Health, Appeals Unit, PO Box 64216, Yonkers, NY 10701. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-2553."
+}

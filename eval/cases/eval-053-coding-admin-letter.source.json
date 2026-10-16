@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 75181, Peoria, IL 61602",
+    "phone": "1-800-555-0187",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-10-10",
+  "member": {
+    "name": "Kwame Haddad",
+    "address": "4879 Cedar Bluff Road\nPeoria, IL 61602",
+    "member_id": "OST-326275-86",
+    "group": "GRP-87622 (Great Lakes Freight Co.)"
+  },
+  "re": {
+    "claim_number": "CLM-26-2516-38728",
+    "provider": "Westfield Sleep Clinic",
+    "service": "MRI of the left knee without contrast (CPT 73721)",
+    "service_date": "09/27/2026",
+    "billed": "2,272.57"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Westfield Sleep Clinic under your health plan for services provided on September 27, 2026. After review, we are unable to approve payment.",
+    "We could not process this claim because of a billing error: the procedure code does not match the place of service reported by the provider. Reason code: CO-16.",
+    "The plan paid $0.00 of the $2,272.57 billed. The amount you may owe the provider is $2,272.57."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 60 days of the date you receive this notice. Send it to Ostrander Mutual Health, Appeals Unit, PO Box 75181, Peoria, IL 61602. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-0187.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nOstrander Mutual Health"
+}

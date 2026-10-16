@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Tamsin Health Partners",
+    "address": "PO Box 18381, Erie, PA 16501",
+    "phone": "1-800-555-6511",
+    "logo_text": "TAMSIN"
+  },
+  "date": "2026-10-14",
+  "member": {
+    "name": "Ingrid Delgado",
+    "address": "6997 Cedar Bluff Road\nHarrisburg, PA 17101",
+    "member_id": "TAM-519369-83",
+    "group": "Medicare Advantage HMO, plan H5032"
+  },
+  "re": {
+    "claim_number": "CLM-26-2390-74009",
+    "provider": "Lantern Hill Cardiology",
+    "service": "Vitamin D, 25-hydroxy level (CPT 82306)",
+    "service_date": "2026-09-03",
+    "billed": "128.42"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Lantern Hill Cardiology under your Medicare Advantage plan for services provided on September 3, 2026. After review, we are unable to approve payment.",
+    "This claim was not filed within the time limit set by your plan and cannot be paid. Reason code: CO-29.",
+    "The plan paid $0.00 of the $128.42 billed. The amount you may owe the provider is $128.42."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Tamsin Health Partners, Appeals Unit, PO Box 18381, Erie, PA 16501. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-6511.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nTamsin Health Partners"
+}

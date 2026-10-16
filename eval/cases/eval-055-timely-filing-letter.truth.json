@@ -1,0 +1,43 @@
+{
+  "id": "eval-055-timely-filing-letter",
+  "kind": "letter",
+  "category": "timely_filing",
+  "traps": [
+    "medicare_advantage",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "medicare",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-044944-57",
+    "claim_number": "CLM-26-5165-65229",
+    "letter_date": "2026-08-20",
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Physical therapy, therapeutic exercise (12 sessions)",
+      "cpt": "97110"
+    },
+    "service_dates": [
+      "2026-07-10"
+    ],
+    "denial_category": "timely_filing",
+    "denial_codes": [
+      "CO-29"
+    ],
+    "amounts": {
+      "billed": 1995.33,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 1995.33
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "PA"
+  }
+}

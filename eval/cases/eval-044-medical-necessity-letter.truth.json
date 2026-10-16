@@ -1,0 +1,42 @@
+{
+  "id": "eval-044-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "urgent_case"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Larkspur Benefit Administrators",
+    "member_id": "LAR-199105-99",
+    "claim_number": "CLM-26-2408-67468",
+    "letter_date": "2026-09-07",
+    "provider_name": "Westfield Sleep Clinic",
+    "service": {
+      "text": "Continued inpatient rehabilitation stay",
+      "cpt": "0128"
+    },
+    "service_dates": [
+      "2026-08-24"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 22291.23,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 22291.23
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": true,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "FL"
+  }
+}

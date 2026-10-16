@@ -1,0 +1,43 @@
+{
+  "id": "eval-059-out-of-network-letter",
+  "kind": "letter",
+  "category": "out_of_network",
+  "traps": [
+    "emergency_visit",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-613058-30",
+    "claim_number": "CLM-26-2685-72902",
+    "letter_date": "2026-09-01",
+    "provider_name": "Pinewood Emergency Associates",
+    "service": {
+      "text": "Emergency department visit, level 4",
+      "cpt": "99284"
+    },
+    "service_dates": [
+      "2026-08-15"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 1450.28,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 1450.28
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": true,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "TX"
+  }
+}

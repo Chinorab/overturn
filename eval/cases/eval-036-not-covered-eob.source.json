@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 28430, Tampa, FL 33602",
+    "phone": "1-800-555-2206",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-09-04",
+  "member": {
+    "name": "Priya Nakamura",
+    "address": "5234 Juniper Street\nOrlando, FL 32801",
+    "member_id": "OST-625455-32",
+    "group": "GRP-86297 (Keystone Machine Works)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-9301-78855",
+    "provider": "Riverside Orthopedic Associates (participating)",
+    "facility": "",
+    "service_date": "07/30/2026",
+    "service": "Polysomnography sleep study (CPT 95810)"
+  },
+  "lines": [
+    {
+      "service": "Polysomnography sleep study - 95810",
+      "billed": "3,037.41",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "3,037.41",
+      "remark": "CO-96"
+    }
+  ],
+  "totals": {
+    "billed": "3,037.41",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "3,037.41"
+  },
+  "remarks": [
+    "CO-96: Reason for denial: The polysomnography sleep study is not a covered benefit under your plan. It is listed as an exclusion in your benefit booklet."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Ostrander Mutual Health, Appeals Unit, PO Box 28430, Tampa, FL 33602. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-2206."
+}

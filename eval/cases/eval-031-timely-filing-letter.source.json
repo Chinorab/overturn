@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Brightmoor Benefit Solutions",
+    "address": "PO Box 87801, Erie, PA 16501",
+    "phone": "1-800-555-9485",
+    "logo_text": "BRIGHTMOOR"
+  },
+  "date": "2026-10-23",
+  "member": {
+    "name": "Maria Raman",
+    "address": "7899 Harbor Lane\nHarrisburg, PA 17101",
+    "member_id": "BRI-500182-40",
+    "group": "Medicare Advantage HMO, plan H6649"
+  },
+  "re": {
+    "claim_number": "CLM-26-6180-04638",
+    "provider": "Clearwater Neurology Group",
+    "service": "Occupational therapy evaluation (CPT 97165)",
+    "service_date": "2026-09-18",
+    "billed": "311.57"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Clearwater Neurology Group under your Medicare Advantage plan for services provided on September 18, 2026. After review, we are unable to approve payment.",
+    "This claim was not filed within the time limit set by your plan and cannot be paid. Reason code: CO-29.",
+    "The plan paid $0.00 of the $311.57 billed. The amount you may owe the provider is $311.57."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Brightmoor Benefit Solutions, Appeals Unit, PO Box 87801, Erie, PA 16501. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-9485.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nBrightmoor Benefit Solutions"
+}

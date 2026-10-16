@@ -1,0 +1,36 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Calloway Health Network",
+    "address": "PO Box 24553, Savannah, GA 31401",
+    "phone": "1-800-555-2305",
+    "logo_text": "CALLOWAY"
+  },
+  "date": "2026-08-21",
+  "member": {
+    "name": "Nadia Haddad",
+    "address": "3464 Orchard Way\nMacon, GA 31201",
+    "member_id": "CAL-922270-59",
+    "group": "GRP-10439 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-6194-73566",
+    "provider": "Meadowbrook Physical Therapy",
+    "service": "Continued acute inpatient stay (Revenue code 0120)",
+    "service_date": "2026-07-16",
+    "billed": "30,954.16"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Meadowbrook Physical Therapy under your health plan for services provided on July 16, 2026. After review, we are unable to approve payment.",
+    "Because you are currently receiving inpatient care, this request was handled as an expedited concurrent review.",
+    "We determined that the continued acute inpatient stay does not meet our criteria for medical necessity under guideline CAL-RAD-109. The information we received does not support the need for this service at this time. Reason code: CO-50.",
+    "The plan paid $0.00 of the $30,954.16 billed. The amount you may owe the provider is $30,954.16."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Calloway Health Network, Appeals Unit, PO Box 24553, Savannah, GA 31401. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-2305.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nCalloway Health Network"
+}

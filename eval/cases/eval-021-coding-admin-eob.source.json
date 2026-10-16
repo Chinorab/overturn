@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Verdane Health Plan",
+    "address": "PO Box 22185, Macon, GA 31201",
+    "phone": "1-800-555-2312",
+    "logo_text": "VERDANE"
+  },
+  "date": "2026-10-27",
+  "member": {
+    "name": "Ingrid Whitaker",
+    "address": "965 Lakeview Terrace\nSpringfield, IL 62701",
+    "member_id": "VER-039597-76",
+    "group": "GRP-32414 (Keystone Machine Works)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-2103-38020",
+    "provider": "Riverside Orthopedic Associates (participating)",
+    "facility": "",
+    "service_date": "2026-10-03",
+    "service": "MRI of the lumbar spine without contrast (CPT 72148)"
+  },
+  "lines": [
+    {
+      "service": "MRI of the lumbar spine without contrast - 72148",
+      "billed": "2,282.15",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "2,282.15",
+      "remark": "CO-16"
+    }
+  ],
+  "totals": {
+    "billed": "2,282.15",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "2,282.15"
+  },
+  "remarks": [
+    "CO-16: We could not process this claim because of a billing error: the procedure code does not match the place of service reported by the provider."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Verdane Health Plan, Appeals Unit, PO Box 22185, Macon, GA 31201. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-2312."
+}

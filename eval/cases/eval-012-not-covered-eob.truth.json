@@ -1,0 +1,43 @@
+{
+  "id": "eval-012-not-covered-eob",
+  "kind": "eob",
+  "category": "not_covered",
+  "traps": [
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-230289-58",
+    "claim_number": "CLM-26-4327-58562",
+    "letter_date": "2026-08-11",
+    "provider_name": "Clearwater Neurology Group",
+    "service": {
+      "text": "Polysomnography sleep study",
+      "cpt": "95810"
+    },
+    "service_dates": [
+      "2026-07-07"
+    ],
+    "denial_category": "not_covered",
+    "denial_codes": [
+      "CO-96"
+    ],
+    "amounts": {
+      "billed": 2646.85,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 2646.85
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "FL"
+  }
+}

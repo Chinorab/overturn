@@ -1,0 +1,43 @@
+{
+  "id": "eval-009-medical-necessity-eob",
+  "kind": "eob",
+  "category": "medical_necessity",
+  "traps": [
+    "insurer_out_of_state",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Brightmoor Benefit Solutions",
+    "member_id": "BRI-859897-00",
+    "claim_number": "CLM-26-9645-92359",
+    "letter_date": "2026-10-10",
+    "provider_name": "Copperline Laboratory Services",
+    "service": {
+      "text": "MRI of the left knee without contrast",
+      "cpt": "73721"
+    },
+    "service_dates": [
+      "2026-09-28"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 2094.39,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 2094.39
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "CA"
+  }
+}

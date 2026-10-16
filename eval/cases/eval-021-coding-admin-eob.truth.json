@@ -1,0 +1,43 @@
+{
+  "id": "eval-021-coding-admin-eob",
+  "kind": "eob",
+  "category": "coding_admin",
+  "traps": [
+    "insurer_out_of_state",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Verdane Health Plan",
+    "member_id": "VER-039597-76",
+    "claim_number": "CLM-26-2103-38020",
+    "letter_date": "2026-10-27",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "MRI of the lumbar spine without contrast",
+      "cpt": "72148"
+    },
+    "service_dates": [
+      "2026-10-03"
+    ],
+    "denial_category": "coding_admin",
+    "denial_codes": [
+      "CO-16"
+    ],
+    "amounts": {
+      "billed": 2282.15,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 2282.15
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "IL"
+  }
+}

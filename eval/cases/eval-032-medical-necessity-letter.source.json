@@ -1,0 +1,36 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Tamsin Health Partners",
+    "address": "PO Box 21246, Savannah, GA 31401",
+    "phone": "1-800-555-6913",
+    "logo_text": "TAMSIN"
+  },
+  "date": "2026-10-12",
+  "member": {
+    "name": "Elena Petrova",
+    "address": "73 Lakeview Terrace\nMacon, GA 31201",
+    "member_id": "TAM-051972-95",
+    "group": "GRP-72615 (Bayou City Fabrication)"
+  },
+  "re": {
+    "claim_number": "CLM-26-6056-79980",
+    "provider": "Meadowbrook Physical Therapy",
+    "service": "Continued inpatient rehabilitation stay (Revenue code 0128)",
+    "service_date": "2026-09-21",
+    "billed": "21,280.20"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Meadowbrook Physical Therapy under your health plan for services provided on September 21, 2026. After review, we are unable to approve payment.",
+    "Because you are currently receiving inpatient care, this request was handled as an expedited concurrent review.",
+    "Reason for denial: The continued inpatient rehabilitation stay is not medically necessary. Our clinical guideline TAM-CAR-201 requires documentation of conservative treatment before this service, and the records submitted do not show it. Reason code: CO-50.",
+    "The plan paid $0.00 of the $21,280.20 billed. The amount you may owe the provider is $21,280.20."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Tamsin Health Partners, Appeals Unit, PO Box 21246, Savannah, GA 31401. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-6913.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nTamsin Health Partners"
+}

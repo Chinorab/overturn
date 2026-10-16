@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 45580, Orlando, FL 32801",
+    "phone": "1-800-555-8039",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-08-11",
+  "member": {
+    "name": "Jamal Whitaker",
+    "address": "4416 Cedar Bluff Road\nOrlando, FL 32801",
+    "member_id": "HOL-230289-58",
+    "group": "GRP-62414 (Peachtree Analytics LLC)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-4327-58562",
+    "provider": "Clearwater Neurology Group (participating)",
+    "facility": "",
+    "service_date": "07/07/2026",
+    "service": "Polysomnography sleep study (CPT 95810)"
+  },
+  "lines": [
+    {
+      "service": "Polysomnography sleep study - 95810",
+      "billed": "2,646.85",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "2,646.85",
+      "remark": "CO-96"
+    }
+  ],
+  "totals": {
+    "billed": "2,646.85",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "2,646.85"
+  },
+  "remarks": [
+    "CO-96: Your plan has reached its annual benefit limit for this type of service, so this claim is not covered."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 45580, Orlando, FL 32801. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-8039."
+}

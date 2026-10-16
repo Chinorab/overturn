@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 87486, Erie, PA 16501",
+    "phone": "1-800-555-3472",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-09-15",
+  "member": {
+    "name": "Ingrid Petrova",
+    "address": "1030 Willow Court\nPeoria, IL 61602",
+    "member_id": "HOL-536489-85",
+    "group": "GRP-24023 (Great Lakes Freight Co.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-1956-76880",
+    "provider": "Northgate Imaging Center (participating)",
+    "facility": "",
+    "service_date": "2026-08-28",
+    "service": "Vitamin D, 25-hydroxy level (CPT 82306)"
+  },
+  "lines": [
+    {
+      "service": "Vitamin D - 82306",
+      "billed": "224.63",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "224.63",
+      "remark": "CO-16"
+    }
+  ],
+  "totals": {
+    "billed": "224.63",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "224.63"
+  },
+  "remarks": [
+    "CO-16: Reason for denial: The claim lacks information needed for adjudication. The diagnosis code submitted by the provider is missing or invalid."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 87486, Erie, PA 16501. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-3472."
+}

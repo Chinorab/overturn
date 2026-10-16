@@ -1,0 +1,36 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Larkspur Benefit Administrators",
+    "address": "PO Box 3032, Orlando, FL 32801",
+    "phone": "1-800-555-4873",
+    "logo_text": "LARKSPUR"
+  },
+  "date": "2026-09-16",
+  "member": {
+    "name": "Jamal Iyer",
+    "address": "1780 Harbor Lane\nOrlando, FL 32801",
+    "member_id": "LAR-746436-58",
+    "group": "GRP-26343 (Hudson Valley Logistics, Inc.)"
+  },
+  "re": {
+    "claim_number": "CLM-26-9796-38153",
+    "provider": "Copperline Laboratory Services",
+    "service": "Continued inpatient rehabilitation stay (Revenue code 0128)",
+    "service_date": "2026-08-30",
+    "billed": "40,791.80"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Copperline Laboratory Services under your health plan for services provided on August 30, 2026. After review, we are unable to approve payment.",
+    "Because you are currently receiving inpatient care, this request was handled as an expedited concurrent review.",
+    "Reason for denial: The continued inpatient rehabilitation stay is not medically necessary. Our clinical guideline LAR-RAD-516 requires documentation of conservative treatment before this service, and the records submitted do not show it. Reason code: CO-50.",
+    "The plan paid $0.00 of the $40,791.80 billed. The amount you may owe the provider is $40,791.80."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Larkspur Benefit Administrators, Appeals Unit, PO Box 3032, Orlando, FL 32801. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-4873.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nLarkspur Benefit Administrators"
+}

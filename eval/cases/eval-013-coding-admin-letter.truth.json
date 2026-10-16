@@ -1,0 +1,42 @@
+{
+  "id": "eval-013-coding-admin-letter",
+  "kind": "letter",
+  "category": "coding_admin",
+  "traps": [
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Tamsin Health Partners",
+    "member_id": "TAM-174919-00",
+    "claim_number": "CLM-26-9125-74685",
+    "letter_date": "2026-09-21",
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Comprehensive metabolic panel and lipid panel",
+      "cpt": "80053"
+    },
+    "service_dates": [
+      "2026-09-04"
+    ],
+    "denial_category": "coding_admin",
+    "denial_codes": [
+      "CO-16"
+    ],
+    "amounts": {
+      "billed": 345.55,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 345.55
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "IL"
+  }
+}

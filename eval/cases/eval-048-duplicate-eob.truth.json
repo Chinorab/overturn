@@ -1,0 +1,43 @@
+{
+  "id": "eval-048-duplicate-eob",
+  "kind": "eob",
+  "category": "duplicate",
+  "traps": [
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-996791-79",
+    "claim_number": "CLM-26-7520-81922",
+    "letter_date": "2026-08-26",
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Comprehensive metabolic panel and lipid panel",
+      "cpt": "80053"
+    },
+    "service_dates": [
+      "2026-07-17"
+    ],
+    "denial_category": "duplicate",
+    "denial_codes": [
+      "CO-18"
+    ],
+    "amounts": {
+      "billed": 356.86,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 356.86
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "GA"
+  }
+}

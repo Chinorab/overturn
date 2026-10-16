@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Calloway Health Network",
+    "address": "PO Box 65579, Oakland, CA 94612",
+    "phone": "1-800-555-6567",
+    "logo_text": "CALLOWAY"
+  },
+  "date": "2026-07-03",
+  "member": {
+    "name": "Priya Raman",
+    "address": "3117 Maple Avenue\nOakland, CA 94612",
+    "member_id": "CAL-500278-36",
+    "group": "GRP-32813 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-2768-32091",
+    "provider": "Clearwater Neurology Group",
+    "service": "MRI of the lumbar spine without contrast (CPT 72148)",
+    "service_date": "2026-06-04",
+    "billed": "2,824.56"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Clearwater Neurology Group under your health plan for services provided on June 4, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: The MRI of the lumbar spine without contrast is not medically necessary. Our clinical guideline CAL-NEU-347 requires documentation of conservative treatment before this service, and the records submitted do not show it. Reason code: CO-50.",
+    "The plan paid $0.00 of the $2,824.56 billed. The amount you may owe the provider is $2,824.56."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Calloway Health Network, Appeals Unit, PO Box 65579, Oakland, CA 94612. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-6567.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nCalloway Health Network"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "eval-003-out-of-network-eob",
+  "kind": "eob",
+  "category": "out_of_network",
+  "traps": [
+    "no_letter_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Calloway Health Network",
+    "member_id": "CAL-382636-91",
+    "claim_number": "CLM-26-4858-89407",
+    "letter_date": null,
+    "provider_name": "Lantern Hill Cardiology",
+    "service": {
+      "text": "MRI of the left knee without contrast",
+      "cpt": "73721"
+    },
+    "service_dates": [
+      "2026-09-28"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 2400.71,
+      "allowed": 1057.38,
+      "plan_paid": 845.9,
+      "patient_responsibility": 1554.81
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "TX"
+  }
+}

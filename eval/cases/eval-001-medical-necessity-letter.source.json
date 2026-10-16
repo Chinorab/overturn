@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Brightmoor Benefit Solutions",
+    "address": "PO Box 4658, Fresno, CA 93721",
+    "phone": "1-800-555-1235",
+    "logo_text": "BRIGHTMOOR"
+  },
+  "date": "2026-10-01",
+  "member": {
+    "name": "Ingrid Brennan",
+    "address": "2022 Pecan Ridge Drive\nOakland, CA 94612",
+    "member_id": "BRI-971722-14",
+    "group": "GRP-36706 (Redwood Dental Group)"
+  },
+  "re": {
+    "claim_number": "CLM-26-6825-49855",
+    "provider": "Riverside Orthopedic Associates",
+    "service": "Arthroscopic knee meniscectomy (CPT 29881)",
+    "service_date": "2026-09-03",
+    "billed": "8,596.35"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Riverside Orthopedic Associates under your health plan for services provided on September 3, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: The arthroscopic knee meniscectomy is not medically necessary. Our clinical guideline BRI-CAR-340 requires documentation of conservative treatment before this service, and the records submitted do not show it. Reason code: CO-50.",
+    "The plan paid $0.00 of the $8,596.35 billed. The amount you may owe the provider is $8,596.35."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Brightmoor Benefit Solutions, Appeals Unit, PO Box 4658, Fresno, CA 93721. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-1235.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nBrightmoor Benefit Solutions"
+}

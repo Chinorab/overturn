@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 23544, Springfield, IL 62701",
+    "phone": "1-800-555-9759",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-07-25",
+  "member": {
+    "name": "Aiko Nakamura",
+    "address": "1899 Pecan Ridge Drive\nSpringfield, IL 62701",
+    "member_id": "HOL-584211-65",
+    "group": "GRP-55990 (Keystone Machine Works)"
+  },
+  "re": {
+    "claim_number": "CLM-26-9085-46790",
+    "provider": "Meadowbrook Physical Therapy",
+    "service": "MRI of the lumbar spine without contrast (CPT 72148)",
+    "service_date": "2026-06-21",
+    "billed": "2,831.14"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Meadowbrook Physical Therapy under your health plan for services provided on June 21, 2026. After review, we are unable to approve payment.",
+    "We could not process this claim because of a billing error: the procedure code does not match the place of service reported by the provider. Reason code: CO-16.",
+    "The plan paid $0.00 of the $2,831.14 billed. The amount you may owe the provider is $2,831.14."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 23544, Springfield, IL 62701. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-9759.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nHollis Creek Health"
+}

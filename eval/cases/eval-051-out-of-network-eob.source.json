@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Verdane Health Plan",
+    "address": "PO Box 45711, Houston, TX 77002",
+    "phone": "1-800-555-8317",
+    "logo_text": "VERDANE"
+  },
+  "date": "",
+  "member": {
+    "name": "Hiroshi Nakamura",
+    "address": "5184 Pecan Ridge Drive\nHouston, TX 77002",
+    "member_id": "VER-300025-66",
+    "group": "GRP-83426 (Hudson Valley Logistics, Inc.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-4272-69448",
+    "provider": "Westfield Sleep Clinic (non-participating)",
+    "facility": "",
+    "service_date": "2026-09-27",
+    "service": "Physical therapy, therapeutic exercise (12 sessions) (CPT 97110)"
+  },
+  "lines": [
+    {
+      "service": "Physical therapy - 97110",
+      "billed": "1,790.89",
+      "allowed": "582.33",
+      "plan_paid": "465.86",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "116.47",
+      "not_covered": "1,208.56",
+      "remark": "CO-242"
+    }
+  ],
+  "totals": {
+    "billed": "1,790.89",
+    "allowed": "582.33",
+    "plan_paid": "465.86",
+    "you_may_owe": "1,325.03"
+  },
+  "remarks": [
+    "CO-242: This claim was denied because the provider who performed the service is out-of-network for your plan."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Verdane Health Plan, Appeals Unit, PO Box 45711, Houston, TX 77002. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-8317."
+}

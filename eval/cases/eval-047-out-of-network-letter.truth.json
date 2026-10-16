@@ -1,0 +1,43 @@
+{
+  "id": "eval-047-out-of-network-letter",
+  "kind": "letter",
+  "category": "out_of_network",
+  "traps": [
+    "emergency_visit",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Brightmoor Benefit Solutions",
+    "member_id": "BRI-320256-39",
+    "claim_number": "CLM-26-3184-84708",
+    "letter_date": "2026-09-23",
+    "provider_name": "Metro Emergency Care Group",
+    "service": {
+      "text": "Emergency department visit, level 4",
+      "cpt": "99284"
+    },
+    "service_dates": [
+      "2026-08-31"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 2150.82,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2150.82
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": true,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "PA"
+  }
+}

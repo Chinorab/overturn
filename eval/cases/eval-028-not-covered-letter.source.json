@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Calloway Health Network",
+    "address": "PO Box 19395, Orlando, FL 32801",
+    "phone": "1-800-555-3701",
+    "logo_text": "CALLOWAY"
+  },
+  "date": "2026-07-03",
+  "member": {
+    "name": "DeShawn Haddad",
+    "address": "2987 Willow Court\nTampa, FL 33602",
+    "member_id": "CAL-193190-90",
+    "group": "GRP-30061 (Redwood Dental Group)"
+  },
+  "re": {
+    "claim_number": "CLM-26-5425-93140",
+    "provider": "Meadowbrook Physical Therapy",
+    "service": "Upper GI endoscopy with biopsy (CPT 43239)",
+    "service_date": "2026-06-10",
+    "billed": "2,525.33"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Meadowbrook Physical Therapy under your health plan for services provided on June 10, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: The upper GI endoscopy with biopsy is not a covered benefit under your plan. It is listed as an exclusion in your benefit booklet. Reason code: CO-96.",
+    "The plan paid $0.00 of the $2,525.33 billed. The amount you may owe the provider is $2,525.33."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "Your written appeal must be received by December 30, 2026. Send it to Calloway Health Network, Appeals Unit, PO Box 19395, Orlando, FL 32801. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-3701.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nCalloway Health Network"
+}

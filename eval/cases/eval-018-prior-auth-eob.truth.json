@@ -1,0 +1,40 @@
+{
+  "id": "eval-018-prior-auth-eob",
+  "kind": "eob",
+  "category": "prior_auth",
+  "traps": [
+    "no_deadline",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-944403-77",
+    "claim_number": "CLM-26-7013-20124",
+    "letter_date": "2026-08-27",
+    "provider_name": "Clearwater Neurology Group",
+    "service": {
+      "text": "CT scan of the chest with contrast",
+      "cpt": "71260"
+    },
+    "service_dates": [
+      "2026-07-24"
+    ],
+    "denial_category": "prior_auth",
+    "denial_codes": [
+      "CO-197"
+    ],
+    "amounts": {
+      "billed": 1378.95,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 1378.95
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": null,
+    "state_hint": "NY"
+  }
+}

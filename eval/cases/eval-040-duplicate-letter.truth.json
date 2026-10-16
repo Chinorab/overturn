@@ -1,0 +1,43 @@
+{
+  "id": "eval-040-duplicate-letter",
+  "kind": "letter",
+  "category": "duplicate",
+  "traps": [
+    "deadline_as_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Tamsin Health Partners",
+    "member_id": "TAM-186290-38",
+    "claim_number": "CLM-26-2938-02714",
+    "letter_date": "2026-09-03",
+    "provider_name": "Westfield Sleep Clinic",
+    "service": {
+      "text": "MRI of the left knee without contrast",
+      "cpt": "73721"
+    },
+    "service_dates": [
+      "2026-07-20"
+    ],
+    "denial_category": "duplicate",
+    "denial_codes": [
+      "CO-18"
+    ],
+    "amounts": {
+      "billed": 2441.63,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2441.63
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "date",
+      "date": "2027-03-02"
+    },
+    "state_hint": "GA"
+  }
+}

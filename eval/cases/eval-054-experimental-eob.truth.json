@@ -1,0 +1,40 @@
+{
+  "id": "eval-054-experimental-eob",
+  "kind": "eob",
+  "category": "experimental",
+  "traps": [
+    "no_deadline",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Brightmoor Benefit Solutions",
+    "member_id": "BRI-556055-97",
+    "claim_number": "CLM-26-8965-70935",
+    "letter_date": "2026-10-08",
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Genetic expression profiling test for breast cancer",
+      "cpt": "81519"
+    },
+    "service_dates": [
+      "2026-09-11"
+    ],
+    "denial_category": "experimental",
+    "denial_codes": [
+      "CO-55"
+    ],
+    "amounts": {
+      "billed": 3999.58,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 3999.58
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": null,
+    "state_hint": "OH"
+  }
+}

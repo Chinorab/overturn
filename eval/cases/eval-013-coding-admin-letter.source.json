@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Tamsin Health Partners",
+    "address": "PO Box 8330, Peoria, IL 61602",
+    "phone": "1-800-555-7624",
+    "logo_text": "TAMSIN"
+  },
+  "date": "2026-09-21",
+  "member": {
+    "name": "Fatima Tanaka",
+    "address": "9373 Maple Avenue\nPeoria, IL 61602",
+    "member_id": "TAM-174919-00",
+    "group": "GRP-72191 (Keystone Machine Works)"
+  },
+  "re": {
+    "claim_number": "CLM-26-9125-74685",
+    "provider": "Northgate Imaging Center",
+    "service": "Comprehensive metabolic panel and lipid panel (CPT 80053)",
+    "service_date": "2026-09-04",
+    "billed": "345.55"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Northgate Imaging Center under your health plan for services provided on September 4, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: The claim lacks information needed for adjudication. The diagnosis code submitted by the provider is missing or invalid. Reason code: CO-16.",
+    "The plan paid $0.00 of the $345.55 billed. The amount you may owe the provider is $345.55."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Tamsin Health Partners, Appeals Unit, PO Box 8330, Peoria, IL 61602. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-7624.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nTamsin Health Partners"
+}

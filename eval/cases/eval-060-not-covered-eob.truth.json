@@ -1,0 +1,43 @@
+{
+  "id": "eval-060-not-covered-eob",
+  "kind": "eob",
+  "category": "not_covered",
+  "traps": [
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Quillfield Health Plan",
+    "member_id": "QUI-313401-75",
+    "claim_number": "CLM-26-3928-06879",
+    "letter_date": "2026-07-18",
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Vitamin D, 25-hydroxy level",
+      "cpt": "82306"
+    },
+    "service_dates": [
+      "2026-06-10"
+    ],
+    "denial_category": "not_covered",
+    "denial_codes": [
+      "CO-96"
+    ],
+    "amounts": {
+      "billed": 234.76,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 234.76
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "FL"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "eval-025-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Calloway Health Network",
+    "member_id": "CAL-500278-36",
+    "claim_number": "CLM-26-2768-32091",
+    "letter_date": "2026-07-03",
+    "provider_name": "Clearwater Neurology Group",
+    "service": {
+      "text": "MRI of the lumbar spine without contrast",
+      "cpt": "72148"
+    },
+    "service_dates": [
+      "2026-06-04"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 2824.56,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2824.56
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "CA"
+  }
+}

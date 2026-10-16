@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 94489, Macon, GA 31201",
+    "phone": "1-800-555-0494",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-08-26",
+  "member": {
+    "name": "Rosa Petrova",
+    "address": "4196 Cedar Bluff Road\nMacon, GA 31201",
+    "member_id": "HOL-996791-79",
+    "group": "GRP-87506 (Peachtree Analytics LLC)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-7520-81922",
+    "provider": "Northgate Imaging Center (participating)",
+    "facility": "",
+    "service_date": "07/17/2026",
+    "service": "Comprehensive metabolic panel and lipid panel (CPT 80053)"
+  },
+  "lines": [
+    {
+      "service": "Comprehensive metabolic panel and lipid panel - 80053",
+      "billed": "356.86",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "356.86",
+      "remark": "CO-18"
+    }
+  ],
+  "totals": {
+    "billed": "356.86",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "356.86"
+  },
+  "remarks": [
+    "CO-18: Reason for denial: This claim duplicates a claim we have already processed for the same service and date."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 94489, Macon, GA 31201. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-0494."
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 94878, Harrisburg, PA 17101",
+    "phone": "1-800-555-2283",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "",
+  "member": {
+    "name": "DeShawn Mensah",
+    "address": "2555 Willow Court\nHarrisburg, PA 17101",
+    "member_id": "HOL-094231-21",
+    "group": "GRP-24254 (Keystone Machine Works)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-7309-53392",
+    "provider": "Clearwater Neurology Group (participating)",
+    "facility": "",
+    "service_date": "2026-08-23",
+    "service": "MRI of the lumbar spine without contrast (CPT 72148)"
+  },
+  "lines": [
+    {
+      "service": "MRI of the lumbar spine without contrast - 72148",
+      "billed": "1,986.77",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "1,986.77",
+      "remark": "CO-29"
+    }
+  ],
+  "totals": {
+    "billed": "1,986.77",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "1,986.77"
+  },
+  "remarks": [
+    "CO-29: Reason for denial: The claim was received after the filing deadline. Claims must be submitted within 90 days of the date of service."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 94878, Harrisburg, PA 17101. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-2283."
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Brightmoor Benefit Solutions",
+    "address": "PO Box 14448, Austin, TX 78701",
+    "phone": "1-800-555-1491",
+    "logo_text": "BRIGHTMOOR"
+  },
+  "date": "2026-10-10",
+  "member": {
+    "name": "Nadia Okafor",
+    "address": "3898 Willow Court\nOakland, CA 94612",
+    "member_id": "BRI-859897-00",
+    "group": "GRP-77032 (Great Lakes Freight Co.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-9645-92359",
+    "provider": "Copperline Laboratory Services (participating)",
+    "facility": "",
+    "service_date": "2026-09-28",
+    "service": "MRI of the left knee without contrast (CPT 73721)"
+  },
+  "lines": [
+    {
+      "service": "MRI of the left knee without contrast - 73721",
+      "billed": "2,094.39",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "2,094.39",
+      "remark": "CO-50"
+    }
+  ],
+  "totals": {
+    "billed": "2,094.39",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "2,094.39"
+  },
+  "remarks": [
+    "CO-50: Reason for denial: The MRI of the left knee without contrast is not medically necessary. Our clinical guideline BRI-CAR-394 requires documentation of conservative treatment before this service, and the records submitted do not show it."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Brightmoor Benefit Solutions, Appeals Unit, PO Box 14448, Austin, TX 78701. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-1491."
+}

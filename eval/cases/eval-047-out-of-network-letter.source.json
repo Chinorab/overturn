@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Brightmoor Benefit Solutions",
+    "address": "PO Box 84476, Harrisburg, PA 17101",
+    "phone": "1-800-555-8081",
+    "logo_text": "BRIGHTMOOR"
+  },
+  "date": "2026-09-23",
+  "member": {
+    "name": "Jamal Haddad",
+    "address": "5531 Harbor Lane\nErie, PA 16501",
+    "member_id": "BRI-320256-39",
+    "group": "GRP-33407 (Redwood Dental Group)"
+  },
+  "re": {
+    "claim_number": "CLM-26-3184-84708",
+    "provider": "Metro Emergency Care Group",
+    "service": "Emergency department visit, level 4 (CPT 99284)",
+    "service_date": "2026-08-31",
+    "billed": "2,150.82"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Metro Emergency Care Group under your health plan for services provided on August 31, 2026. After review, we are unable to approve payment.",
+    "This claim was denied because the provider who performed the service is out-of-network for your plan. Reason code: CO-242.",
+    "The plan paid $0.00 of the $2,150.82 billed. The amount you may owe the provider is $2,150.82."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Brightmoor Benefit Solutions, Appeals Unit, PO Box 84476, Harrisburg, PA 17101. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-8081.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nBrightmoor Benefit Solutions"
+}

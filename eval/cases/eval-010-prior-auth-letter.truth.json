@@ -1,0 +1,44 @@
+{
+  "id": "eval-010-prior-auth-letter",
+  "kind": "letter",
+  "category": "prior_auth",
+  "traps": [
+    "medicaid_managed_care",
+    "vague_owed",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "medicaid",
+    "insurer_name": "Quillfield Health Plan",
+    "member_id": "QUI-715825-90",
+    "claim_number": "CLM-26-7458-95184",
+    "letter_date": "2026-08-12",
+    "provider_name": "Lantern Hill Cardiology",
+    "service": {
+      "text": "Upper GI endoscopy with biopsy",
+      "cpt": "43239"
+    },
+    "service_dates": [
+      "2026-07-23"
+    ],
+    "denial_category": "prior_auth",
+    "denial_codes": [
+      "CO-197"
+    ],
+    "amounts": {
+      "billed": 3995.42,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": null
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "NY"
+  }
+}

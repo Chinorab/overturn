@@ -1,0 +1,43 @@
+{
+  "id": "eval-011-out-of-network-letter",
+  "kind": "letter",
+  "category": "out_of_network",
+  "traps": [
+    "emergency_visit",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Larkspur Benefit Administrators",
+    "member_id": "LAR-599872-84",
+    "claim_number": "CLM-26-3126-41678",
+    "letter_date": "2026-10-15",
+    "provider_name": "Gulf Coast Emergency Physicians, PLLC",
+    "service": {
+      "text": "Emergency department visit, level 5",
+      "cpt": "99285"
+    },
+    "service_dates": [
+      "2026-09-19"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 3278.47,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 3278.47
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": true,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "TX"
+  }
+}

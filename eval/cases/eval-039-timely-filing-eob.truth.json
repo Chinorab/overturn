@@ -1,0 +1,43 @@
+{
+  "id": "eval-039-timely-filing-eob",
+  "kind": "eob",
+  "category": "timely_filing",
+  "traps": [
+    "no_letter_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Verdane Health Plan",
+    "member_id": "VER-663293-26",
+    "claim_number": "CLM-26-7968-91838",
+    "letter_date": null,
+    "provider_name": "Lantern Hill Cardiology",
+    "service": {
+      "text": "Physical therapy, therapeutic exercise (12 sessions)",
+      "cpt": "97110"
+    },
+    "service_dates": [
+      "2026-08-07"
+    ],
+    "denial_category": "timely_filing",
+    "denial_codes": [
+      "CO-29"
+    ],
+    "amounts": {
+      "billed": 1623.39,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 1623.39
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "PA"
+  }
+}

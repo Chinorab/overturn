@@ -1,0 +1,43 @@
+{
+  "id": "eval-016-duplicate-letter",
+  "kind": "letter",
+  "category": "duplicate",
+  "traps": [
+    "deadline_as_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-048146-16",
+    "claim_number": "CLM-26-4616-05200",
+    "letter_date": "2026-09-26",
+    "provider_name": "Copperline Laboratory Services",
+    "service": {
+      "text": "CT scan of the chest with contrast",
+      "cpt": "71260"
+    },
+    "service_dates": [
+      "2026-08-22"
+    ],
+    "denial_category": "duplicate",
+    "denial_codes": [
+      "CO-18"
+    ],
+    "amounts": {
+      "billed": 2414.35,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2414.35
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "date",
+      "date": "2027-03-25"
+    },
+    "state_hint": "GA"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "id": "eval-004-not-covered-letter",
+  "kind": "letter",
+  "category": "not_covered",
+  "traps": [
+    "deadline_as_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-012128-83",
+    "claim_number": "CLM-26-7048-74989",
+    "letter_date": "2026-10-01",
+    "provider_name": "Summitview Family Medicine",
+    "service": {
+      "text": "Polysomnography sleep study",
+      "cpt": "95810"
+    },
+    "service_dates": [
+      "2026-09-15"
+    ],
+    "denial_category": "not_covered",
+    "denial_codes": [
+      "CO-96"
+    ],
+    "amounts": {
+      "billed": 3582.37,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 3582.37
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "date",
+      "date": "2027-03-30"
+    },
+    "state_hint": "FL"
+  }
+}

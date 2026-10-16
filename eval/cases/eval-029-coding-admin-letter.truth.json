@@ -1,0 +1,44 @@
+{
+  "id": "eval-029-coding-admin-letter",
+  "kind": "letter",
+  "category": "coding_admin",
+  "traps": [
+    "short_deadline",
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-355011-30",
+    "claim_number": "CLM-26-3029-32881",
+    "letter_date": "2026-08-19",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "Comprehensive metabolic panel and lipid panel",
+      "cpt": "80053"
+    },
+    "service_dates": [
+      "2026-07-15"
+    ],
+    "denial_category": "coding_admin",
+    "denial_codes": [
+      "CO-16"
+    ],
+    "amounts": {
+      "billed": 402.54,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 402.54
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 60
+    },
+    "state_hint": "IL"
+  }
+}

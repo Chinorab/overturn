@@ -1,0 +1,42 @@
+{
+  "id": "eval-020-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "urgent_case"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Larkspur Benefit Administrators",
+    "member_id": "LAR-746436-58",
+    "claim_number": "CLM-26-9796-38153",
+    "letter_date": "2026-09-16",
+    "provider_name": "Copperline Laboratory Services",
+    "service": {
+      "text": "Continued inpatient rehabilitation stay",
+      "cpt": "0128"
+    },
+    "service_dates": [
+      "2026-08-30"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 40791.8,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 40791.8
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": true,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "FL"
+  }
+}

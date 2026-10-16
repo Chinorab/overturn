@@ -1,0 +1,36 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Larkspur Benefit Administrators",
+    "address": "PO Box 7177, Tampa, FL 33602",
+    "phone": "1-800-555-7418",
+    "logo_text": "LARKSPUR"
+  },
+  "date": "2026-09-07",
+  "member": {
+    "name": "Kwame Alvarez",
+    "address": "4186 Maple Avenue\nTampa, FL 33602",
+    "member_id": "LAR-199105-99",
+    "group": "GRP-15986 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-2408-67468",
+    "provider": "Westfield Sleep Clinic",
+    "service": "Continued inpatient rehabilitation stay (Revenue code 0128)",
+    "service_date": "2026-08-24",
+    "billed": "22,291.23"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Westfield Sleep Clinic under your health plan for services provided on August 24, 2026. After review, we are unable to approve payment.",
+    "Because you are currently receiving inpatient care, this request was handled as an expedited concurrent review.",
+    "Reason for denial: The continued inpatient rehabilitation stay is not medically necessary. Our clinical guideline LAR-NEU-954 requires documentation of conservative treatment before this service, and the records submitted do not show it. Reason code: CO-50.",
+    "The plan paid $0.00 of the $22,291.23 billed. The amount you may owe the provider is $22,291.23."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Larkspur Benefit Administrators, Appeals Unit, PO Box 7177, Tampa, FL 33602. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-7418.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nLarkspur Benefit Administrators"
+}

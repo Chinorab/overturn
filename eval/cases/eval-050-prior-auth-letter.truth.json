@@ -1,0 +1,43 @@
+{
+  "id": "eval-050-prior-auth-letter",
+  "kind": "letter",
+  "category": "prior_auth",
+  "traps": [
+    "vague_owed",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-707835-72",
+    "claim_number": "CLM-26-7908-92674",
+    "letter_date": "2026-08-05",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "CT scan of the chest with contrast",
+      "cpt": "71260"
+    },
+    "service_dates": [
+      "2026-06-29"
+    ],
+    "denial_category": "prior_auth",
+    "denial_codes": [
+      "CO-197"
+    ],
+    "amounts": {
+      "billed": 1594.63,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": null
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "NY"
+  }
+}

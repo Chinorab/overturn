@@ -1,0 +1,43 @@
+{
+  "id": "eval-045-coding-admin-eob",
+  "kind": "eob",
+  "category": "coding_admin",
+  "traps": [
+    "insurer_out_of_state",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-536489-85",
+    "claim_number": "CLM-26-1956-76880",
+    "letter_date": "2026-09-15",
+    "provider_name": "Northgate Imaging Center",
+    "service": {
+      "text": "Vitamin D, 25-hydroxy level",
+      "cpt": "82306"
+    },
+    "service_dates": [
+      "2026-08-28"
+    ],
+    "denial_category": "coding_admin",
+    "denial_codes": [
+      "CO-16"
+    ],
+    "amounts": {
+      "billed": 224.63,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 224.63
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "IL"
+  }
+}

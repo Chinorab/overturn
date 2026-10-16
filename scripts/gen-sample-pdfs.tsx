@@ -1,7 +1,9 @@
 /**
  * Renders the synthetic sample documents in data/samples/*.source.json to PDF.
- * Run: pnpm gen:samples
+ * Run: pnpm gen:samples            (data/samples)
+ *      pnpm gen:samples eval/cases (any folder of *.source.json, e.g. the eval set)
  * Everything here is fictional; each page carries a diagonal "SAMPLE" watermark.
+ * An empty `date` renders no date line, so a document can omit its date on purpose.
  */
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
@@ -78,7 +80,7 @@ const LetterDoc = ({ d }: { d: Letter }) => (
     <Page size="LETTER" style={s.page}>
       <Watermark />
       <Letterhead insurer={d.insurer} />
-      <Text style={s.p}>{fmtDate(d.date)}</Text>
+      {d.date ? <Text style={s.p}>{fmtDate(d.date)}</Text> : null}
       <Text>{d.member.name}</Text>
       {d.member.address.split("\n").map((l, i) => (
         <Text key={i}>{l}</Text>
@@ -132,7 +134,7 @@ const EobDoc = ({ d }: { d: Eob }) => (
           <Text style={{ fontFamily: "Helvetica-Bold" }}>THIS IS NOT A BILL</Text>
         </View>
         <View>
-          <Text style={s.small}>Statement date: {fmtDate(d.date)}</Text>
+          {d.date ? <Text style={s.small}>Statement date: {fmtDate(d.date)}</Text> : null}
           <Text style={s.small}>Claim number: {d.claim.claim_number}</Text>
           <Text style={s.small}>Member ID: {d.member.member_id}</Text>
           <Text style={s.small}>Group: {d.member.group}</Text>
@@ -181,7 +183,7 @@ const EobDoc = ({ d }: { d: Eob }) => (
 );
 
 async function main() {
-  const dir = path.join(process.cwd(), "data", "samples");
+  const dir = process.argv[2] ? path.resolve(process.argv[2]) : path.join(process.cwd(), "data", "samples");
   const files = (await readdir(dir)).filter((f) => f.endsWith(".source.json"));
   for (const f of files) {
     const data = JSON.parse(await readFile(path.join(dir, f), "utf8")) as Letter | Eob;

@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 7965, Sacramento, CA 95814",
+    "phone": "1-800-555-7623",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-10-13",
+  "member": {
+    "name": "Aiko Tanaka",
+    "address": "9141 Harbor Lane\nOakland, CA 94612",
+    "member_id": "OST-083461-33",
+    "group": "GRP-98788 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-8243-95299",
+    "provider": "Clearwater Neurology Group",
+    "service": "Arthroscopic knee meniscectomy (CPT 29881)",
+    "service_date": "2026-08-29",
+    "billed": "10,409.94"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Clearwater Neurology Group under your health plan for services provided on August 29, 2026. After review, we are unable to approve payment.",
+    "We determined that the arthroscopic knee meniscectomy does not meet our criteria for medical necessity under guideline OST-MSK-265. The information we received does not support the need for this service at this time. Reason code: CO-50.",
+    "The plan paid $0.00 of the $10,409.94 billed. The amount you may owe the provider is $10,409.94."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Ostrander Mutual Health, Appeals Unit, PO Box 7965, Sacramento, CA 95814. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-7623.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nOstrander Mutual Health"
+}

@@ -1,0 +1,44 @@
+{
+  "id": "eval-017-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "short_deadline",
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Ostrander Mutual Health",
+    "member_id": "OST-767401-28",
+    "claim_number": "CLM-26-5310-50186",
+    "letter_date": "2026-10-15",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "MRI of the left knee without contrast",
+      "cpt": "73721"
+    },
+    "service_dates": [
+      "2026-09-09"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 2734.94,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2734.94
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 60
+    },
+    "state_hint": "CA"
+  }
+}

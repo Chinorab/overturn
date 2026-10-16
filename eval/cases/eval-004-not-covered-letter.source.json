@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 41211, Orlando, FL 32801",
+    "phone": "1-800-555-1272",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-10-01",
+  "member": {
+    "name": "Tomás Raman",
+    "address": "7154 Pecan Ridge Drive\nTampa, FL 33602",
+    "member_id": "OST-012128-83",
+    "group": "GRP-10722 (Great Lakes Freight Co.)"
+  },
+  "re": {
+    "claim_number": "CLM-26-7048-74989",
+    "provider": "Summitview Family Medicine",
+    "service": "Polysomnography sleep study (CPT 95810)",
+    "service_date": "2026-09-15",
+    "billed": "3,582.37"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Summitview Family Medicine under your health plan for services provided on September 15, 2026. After review, we are unable to approve payment.",
+    "Your plan has reached its annual benefit limit for this type of service, so this claim is not covered. Reason code: CO-96.",
+    "The plan paid $0.00 of the $3,582.37 billed. The amount you may owe the provider is $3,582.37."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "Your written appeal must be received by March 30, 2027. Send it to Ostrander Mutual Health, Appeals Unit, PO Box 41211, Orlando, FL 32801. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-1272.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nOstrander Mutual Health"
+}

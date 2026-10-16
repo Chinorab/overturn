@@ -1,0 +1,44 @@
+{
+  "id": "eval-022-experimental-letter",
+  "kind": "letter",
+  "category": "experimental",
+  "traps": [
+    "medicaid_managed_care",
+    "vague_owed",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "medicaid",
+    "insurer_name": "Calloway Health Network",
+    "member_id": "CAL-356400-06",
+    "claim_number": "CLM-26-8037-16429",
+    "letter_date": "2026-10-20",
+    "provider_name": "Lantern Hill Cardiology",
+    "service": {
+      "text": "Transcranial magnetic stimulation (TMS) treatment course",
+      "cpt": "90867"
+    },
+    "service_dates": [
+      "2026-09-18"
+    ],
+    "denial_category": "experimental",
+    "denial_codes": [
+      "CO-55"
+    ],
+    "amounts": {
+      "billed": 8687.8,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": null
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "OH"
+  }
+}

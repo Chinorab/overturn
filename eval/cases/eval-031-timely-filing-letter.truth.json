@@ -1,0 +1,43 @@
+{
+  "id": "eval-031-timely-filing-letter",
+  "kind": "letter",
+  "category": "timely_filing",
+  "traps": [
+    "medicare_advantage",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "medicare",
+    "insurer_name": "Brightmoor Benefit Solutions",
+    "member_id": "BRI-500182-40",
+    "claim_number": "CLM-26-6180-04638",
+    "letter_date": "2026-10-23",
+    "provider_name": "Clearwater Neurology Group",
+    "service": {
+      "text": "Occupational therapy evaluation",
+      "cpt": "97165"
+    },
+    "service_dates": [
+      "2026-09-18"
+    ],
+    "denial_category": "timely_filing",
+    "denial_codes": [
+      "CO-29"
+    ],
+    "amounts": {
+      "billed": 311.57,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 311.57
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "PA"
+  }
+}

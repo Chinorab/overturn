@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Quillfield Health Plan",
+    "address": "PO Box 85534, Albany, NY 12207",
+    "phone": "1-800-555-7230",
+    "logo_text": "QUILLFIELD"
+  },
+  "date": "2026-08-12",
+  "member": {
+    "name": "Nadia Raman",
+    "address": "5011 Maple Avenue\nAlbany, NY 12207",
+    "member_id": "QUI-834725-85",
+    "group": "Medicaid Managed Care, plan MC-241"
+  },
+  "re": {
+    "claim_number": "CLM-26-3572-87774",
+    "provider": "Copperline Laboratory Services",
+    "service": "MRI of the lumbar spine without contrast (CPT 72148)",
+    "service_date": "2026-07-09",
+    "billed": "3,172.38"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Copperline Laboratory Services under your Medicaid managed care plan for services provided on July 9, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: Prior authorization was required for the MRI of the lumbar spine without contrast and was not obtained before the service was performed. Reason code: CO-197.",
+    "The plan paid $0.00 of the $3,172.38 billed. The provider may bill you for this service."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Quillfield Health Plan, Appeals Unit, PO Box 85534, Albany, NY 12207. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-7230.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nQuillfield Health Plan"
+}

@@ -1,0 +1,43 @@
+{
+  "id": "eval-019-out-of-network-letter",
+  "kind": "letter",
+  "category": "out_of_network",
+  "traps": [
+    "medicare_advantage",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "medicare",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-353091-63",
+    "claim_number": "CLM-26-1246-35794",
+    "letter_date": "2026-07-18",
+    "provider_name": "Lantern Hill Cardiology",
+    "service": {
+      "text": "Physical therapy, therapeutic exercise (12 sessions)",
+      "cpt": "97110"
+    },
+    "service_dates": [
+      "2026-06-27"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 2084.34,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2084.34
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "TX"
+  }
+}

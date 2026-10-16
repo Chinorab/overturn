@@ -1,6 +1,6 @@
 # Overturn — avancement
 
-Dernière mise à jour : 2026-10-01 14:27
+Dernière mise à jour : 2026-10-16
 
 ## Objectif
 Assistant web qui aide un Américain à comprendre et contester un refus d'assurance santé ou une
@@ -8,7 +8,9 @@ facture médicale erronée (règles fédérales + CA/NY/TX), tout en anglais. So
 le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2026-10-30.**
 
 ## Étape en cours
-Aucune. Prochaine étape à lancer sur demande : le provider Nebius (voir « Reste à faire »).
+Jeu d'évaluation de l'extraction (`eval/`) : construit, testé, **pas encore lancé** contre le vrai modèle
+(coût à valider avec l'utilisateur : ~3,90 $ pour 60 lettres en Opus 5, ~0,78 $ pour `--limit 12`).
+Ensuite : réécriture des lettres par Adaption Labs (lot du Grand Prize) puis comparaison des scores.
 
 ## Fait
 - [x] Feature 001 (LexHack) — extraction, explication, règles par État, lettre d'appel ;
@@ -23,8 +25,16 @@ Aucune. Prochaine étape à lancer sur demande : le provider Nebius (voir « Res
       le README dit de le copier. Liste exactement les variables que le code lit.
 - [x] CI réparée (`bd4eaff`) — rouge depuis le 19/09 ; verte de bout en bout le 2026-10-01
       (gitleaks, typecheck, lint, tests, build, e2e).
+- [x] Jeu d'évaluation de l'extraction (2026-10-16) — `scripts/eval/` : générateur déterministe
+      de 60 lettres/EOB dont la vérité est connue par construction (12 pièges), scoring en 4 verdicts
+      (correct / manqué / halluciné / faux) + vérification des citations, runner qui refuse de
+      dépenser sans `--yes`, aller-retour Adaption Labs qui rejette toute réécriture perdant ou
+      inventant un fait. Doc : `eval/README.md`. 142 tests verts.
 
 ## Reste à faire
+- [ ] Lancer `pnpm eval:run --yes` (après accord sur le coût) et committer le rapport `eval/reports/`.
+- [ ] Réécrire `eval/adaption/blocks.csv` avec Adaptive Data (consigne dans `eval/README.md`),
+      `pnpm eval:adaption import`, puis comparer les scores sur `eval/cases-adapted`.
 - [ ] Provider Nebius `lib/ai/providers/nebius.ts` : client OpenAI-compatible sur
       `NEBIUS_BASE_URL`, `response_format: json_schema` (d'où le champ `schemaName` de la
       requête), modèles Nano-30B (extraction) / Super-120B (rédaction). Nemotron ne lit que du
@@ -42,6 +52,8 @@ Aucune. Prochaine étape à lancer sur demande : le provider Nebius (voir « Res
 - `fake` n'est jamais un repli de production : il se choisit explicitement.
 
 ## Commandes utiles
+- Eval : `pnpm eval:generate` · `pnpm gen:samples eval/cases` · `pnpm eval:run` (à blanc) ·
+  `pnpm eval:run --yes` (dépense) · `pnpm eval:adaption export|import <fichier>`
 - Lancer : `pnpm dev` (http://localhost:3000) — les samples marchent sans clé API
 - Tester : `pnpm test` · `pnpm test:e2e` · `pnpm typecheck` (après `pnpm exec next typegen`
   sur un clone neuf) · `pnpm lint` · `pnpm build`

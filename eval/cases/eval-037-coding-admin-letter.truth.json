@@ -1,0 +1,42 @@
+{
+  "id": "eval-037-coding-admin-letter",
+  "kind": "letter",
+  "category": "coding_admin",
+  "traps": [
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-584211-65",
+    "claim_number": "CLM-26-9085-46790",
+    "letter_date": "2026-07-25",
+    "provider_name": "Meadowbrook Physical Therapy",
+    "service": {
+      "text": "MRI of the lumbar spine without contrast",
+      "cpt": "72148"
+    },
+    "service_dates": [
+      "2026-06-21"
+    ],
+    "denial_category": "coding_admin",
+    "denial_codes": [
+      "CO-16"
+    ],
+    "amounts": {
+      "billed": 2831.14,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 2831.14
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "IL"
+  }
+}

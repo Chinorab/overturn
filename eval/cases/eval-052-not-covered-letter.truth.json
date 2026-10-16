@@ -1,0 +1,43 @@
+{
+  "id": "eval-052-not-covered-letter",
+  "kind": "letter",
+  "category": "not_covered",
+  "traps": [
+    "deadline_as_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Brightmoor Benefit Solutions",
+    "member_id": "BRI-953253-38",
+    "claim_number": "CLM-26-1590-72283",
+    "letter_date": "2026-09-08",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "Arthroscopic knee meniscectomy",
+      "cpt": "29881"
+    },
+    "service_dates": [
+      "2026-08-20"
+    ],
+    "denial_category": "not_covered",
+    "denial_codes": [
+      "CO-96"
+    ],
+    "amounts": {
+      "billed": 14364.79,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 14364.79
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "date",
+      "date": "2027-03-07"
+    },
+    "state_hint": "FL"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Tamsin Health Partners",
+    "address": "PO Box 84379, Houston, TX 77002",
+    "phone": "1-800-555-3497",
+    "logo_text": "TAMSIN"
+  },
+  "date": "",
+  "member": {
+    "name": "Mei Lindqvist",
+    "address": "8997 Maple Avenue\nAustin, TX 78701",
+    "member_id": "TAM-928681-21",
+    "group": "GRP-48795 (Hudson Valley Logistics, Inc.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-2047-57553",
+    "provider": "Northgate Imaging Center (non-participating)",
+    "facility": "",
+    "service_date": "2026-09-13",
+    "service": "Occupational therapy evaluation (CPT 97165)"
+  },
+  "lines": [
+    {
+      "service": "Occupational therapy evaluation - 97165",
+      "billed": "478.60",
+      "allowed": "194.73",
+      "plan_paid": "155.78",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "38.95",
+      "not_covered": "283.87",
+      "remark": "CO-242"
+    }
+  ],
+  "totals": {
+    "billed": "478.60",
+    "allowed": "194.73",
+    "plan_paid": "155.78",
+    "you_may_owe": "322.82"
+  },
+  "remarks": [
+    "CO-242: Reason for denial: The provider is not in your plan's network. Your plan does not cover services from out-of-network providers except in an emergency."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Tamsin Health Partners, Appeals Unit, PO Box 84379, Houston, TX 77002. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-3497."
+}

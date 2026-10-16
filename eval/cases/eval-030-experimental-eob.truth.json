@@ -1,0 +1,40 @@
+{
+  "id": "eval-030-experimental-eob",
+  "kind": "eob",
+  "category": "experimental",
+  "traps": [
+    "no_deadline",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-798420-54",
+    "claim_number": "CLM-26-3837-45815",
+    "letter_date": "2026-08-07",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "Genetic expression profiling test for breast cancer",
+      "cpt": "81519"
+    },
+    "service_dates": [
+      "2026-07-06"
+    ],
+    "denial_category": "experimental",
+    "denial_codes": [
+      "CO-55"
+    ],
+    "amounts": {
+      "billed": 4003.67,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 4003.67
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": null,
+    "state_hint": "OH"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "eval-006-experimental-eob",
+  "kind": "eob",
+  "category": "experimental",
+  "traps": [
+    "no_deadline",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Tamsin Health Partners",
+    "member_id": "TAM-938618-50",
+    "claim_number": "CLM-26-8154-48011",
+    "letter_date": "2026-08-26",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "Transcranial magnetic stimulation (TMS) treatment course",
+      "cpt": "90867"
+    },
+    "service_dates": [
+      "2026-07-27"
+    ],
+    "denial_category": "experimental",
+    "denial_codes": [
+      "CO-55"
+    ],
+    "amounts": {
+      "billed": 7398.27,
+      "allowed": 0,
+      "plan_paid": 0,
+      "patient_responsibility": 7398.27
+    },
+    "network_status": "in_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": null,
+    "state_hint": "OH"
+  }
+}

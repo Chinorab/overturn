@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Tamsin Health Partners",
+    "address": "PO Box 67763, Columbus, OH 43215",
+    "phone": "1-800-555-9912",
+    "logo_text": "TAMSIN"
+  },
+  "date": "2026-08-26",
+  "member": {
+    "name": "Jamal Delgado",
+    "address": "2443 Lakeview Terrace\nToledo, OH 43604",
+    "member_id": "TAM-938618-50",
+    "group": "GRP-78203 (Peachtree Analytics LLC)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-8154-48011",
+    "provider": "Riverside Orthopedic Associates (participating)",
+    "facility": "",
+    "service_date": "2026-07-27",
+    "service": "Transcranial magnetic stimulation (TMS) treatment course (CPT 90867)"
+  },
+  "lines": [
+    {
+      "service": "Transcranial magnetic stimulation (TMS) treatment course - 90867",
+      "billed": "7,398.27",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "7,398.27",
+      "remark": "CO-55"
+    }
+  ],
+  "totals": {
+    "billed": "7,398.27",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "7,398.27"
+  },
+  "remarks": [
+    "CO-55: Reason for denial: The transcranial magnetic stimulation (TMS) treatment course is considered experimental or investigational for your condition under our medical policy."
+  ],
+  "appeal": "This is not a bill. To ask us to reconsider, write to Tamsin Health Partners, Appeals Unit, PO Box 67763, Columbus, OH 43215. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-9912."
+}

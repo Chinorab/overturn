@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Ostrander Mutual Health",
+    "address": "PO Box 27268, Houston, TX 77002",
+    "phone": "1-800-555-6144",
+    "logo_text": "OSTRANDER"
+  },
+  "date": "2026-09-01",
+  "member": {
+    "name": "Connor Zhou",
+    "address": "5589 Maple Avenue\nEl Paso, TX 79901",
+    "member_id": "OST-613058-30",
+    "group": "GRP-73571 (Great Lakes Freight Co.)"
+  },
+  "re": {
+    "claim_number": "CLM-26-2685-72902",
+    "provider": "Pinewood Emergency Associates",
+    "service": "Emergency department visit, level 4 (CPT 99284)",
+    "service_date": "2026-08-15",
+    "billed": "1,450.28"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Pinewood Emergency Associates under your health plan for services provided on August 15, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: The provider is not in your plan's network. Your plan does not cover services from out-of-network providers except in an emergency. Reason code: CO-242.",
+    "The plan paid $0.00 of the $1,450.28 billed. The amount you may owe the provider is $1,450.28."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Ostrander Mutual Health, Appeals Unit, PO Box 27268, Houston, TX 77002. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-6144.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nOstrander Mutual Health"
+}

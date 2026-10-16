@@ -1,0 +1,42 @@
+{
+  "id": "eval-032-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "urgent_case"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Tamsin Health Partners",
+    "member_id": "TAM-051972-95",
+    "claim_number": "CLM-26-6056-79980",
+    "letter_date": "2026-10-12",
+    "provider_name": "Meadowbrook Physical Therapy",
+    "service": {
+      "text": "Continued inpatient rehabilitation stay",
+      "cpt": "0128"
+    },
+    "service_dates": [
+      "2026-09-21"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 21280.2,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 21280.2
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": true,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "GA"
+  }
+}

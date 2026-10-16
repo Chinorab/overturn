@@ -1,0 +1,44 @@
+{
+  "id": "eval-058-prior-auth-letter",
+  "kind": "letter",
+  "category": "prior_auth",
+  "traps": [
+    "medicaid_managed_care",
+    "vague_owed",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "medicaid",
+    "insurer_name": "Verdane Health Plan",
+    "member_id": "VER-983035-39",
+    "claim_number": "CLM-26-0698-16832",
+    "letter_date": "2026-08-03",
+    "provider_name": "Riverside Orthopedic Associates",
+    "service": {
+      "text": "Polysomnography sleep study",
+      "cpt": "95810"
+    },
+    "service_dates": [
+      "2026-07-16"
+    ],
+    "denial_category": "prior_auth",
+    "denial_codes": [
+      "CO-197"
+    ],
+    "amounts": {
+      "billed": 3151.66,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": null
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "NY"
+  }
+}

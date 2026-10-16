@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 1337, Macon, GA 31201",
+    "phone": "1-800-555-0623",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-09-26",
+  "member": {
+    "name": "Jamal Whitaker",
+    "address": "7817 Harbor Lane\nMacon, GA 31201",
+    "member_id": "HOL-048146-16",
+    "group": "GRP-09122 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-4616-05200",
+    "provider": "Copperline Laboratory Services",
+    "service": "CT scan of the chest with contrast (CPT 71260)",
+    "service_date": "2026-08-22",
+    "billed": "2,414.35"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Copperline Laboratory Services under your health plan for services provided on August 22, 2026. After review, we are unable to approve payment.",
+    "Reason for denial: This claim duplicates a claim we have already processed for the same service and date. Reason code: CO-18.",
+    "The plan paid $0.00 of the $2,414.35 billed. The amount you may owe the provider is $2,414.35."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "Your written appeal must be received by March 25, 2027. Send it to Hollis Creek Health, Appeals Unit, PO Box 1337, Macon, GA 31201. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-0623.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nHollis Creek Health"
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 97330, Toledo, OH 43604",
+    "phone": "1-800-555-3523",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-08-07",
+  "member": {
+    "name": "Rosa Castillo",
+    "address": "9246 Juniper Street\nColumbus, OH 43215",
+    "member_id": "HOL-798420-54",
+    "group": "GRP-70800 (Great Lakes Freight Co.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-3837-45815",
+    "provider": "Riverside Orthopedic Associates (participating)",
+    "facility": "",
+    "service_date": "2026-07-06",
+    "service": "Genetic expression profiling test for breast cancer (CPT 81519)"
+  },
+  "lines": [
+    {
+      "service": "Genetic expression profiling test for breast cancer - 81519",
+      "billed": "4,003.67",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "4,003.67",
+      "remark": "CO-55"
+    }
+  ],
+  "totals": {
+    "billed": "4,003.67",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "4,003.67"
+  },
+  "remarks": [
+    "CO-55: Reason for denial: The genetic expression profiling test for breast cancer is considered experimental or investigational for your condition under our medical policy."
+  ],
+  "appeal": "This is not a bill. To ask us to reconsider, write to Hollis Creek Health, Appeals Unit, PO Box 97330, Toledo, OH 43604. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-3523."
+}

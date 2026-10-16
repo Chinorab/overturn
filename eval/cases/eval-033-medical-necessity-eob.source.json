@@ -1,0 +1,46 @@
+{
+  "kind": "eob",
+  "insurer": {
+    "name": "Hollis Creek Health",
+    "address": "PO Box 69471, Macon, GA 31201",
+    "phone": "1-800-555-5057",
+    "logo_text": "HOLLIS CREEK"
+  },
+  "date": "2026-10-11",
+  "member": {
+    "name": "Jamal Okafor",
+    "address": "5265 Pecan Ridge Drive\nSacramento, CA 95814",
+    "member_id": "HOL-957321-82",
+    "group": "GRP-21122 (Hudson Valley Logistics, Inc.)"
+  },
+  "claim": {
+    "claim_number": "CLM-26-1289-86939",
+    "provider": "Lantern Hill Cardiology (participating)",
+    "facility": "",
+    "service_date": "2026-09-04",
+    "service": "CT scan of the chest with contrast (CPT 71260)"
+  },
+  "lines": [
+    {
+      "service": "CT scan of the chest with contrast - 71260",
+      "billed": "1,829.68",
+      "allowed": "0.00",
+      "plan_paid": "0.00",
+      "copay": "0.00",
+      "deductible": "0.00",
+      "coinsurance": "0.00",
+      "not_covered": "1,829.68",
+      "remark": "CO-50"
+    }
+  ],
+  "totals": {
+    "billed": "1,829.68",
+    "allowed": "0.00",
+    "plan_paid": "0.00",
+    "you_may_owe": "1,829.68"
+  },
+  "remarks": [
+    "CO-50: We determined that the CT scan of the chest with contrast does not meet our criteria for medical necessity under guideline HOL-RAD-268. The information we received does not support the need for this service at this time."
+  ],
+  "appeal": "This is not a bill. You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Hollis Creek Health, Appeals Unit, PO Box 69471, Macon, GA 31201. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-5057."
+}

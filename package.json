@@ -12,7 +12,10 @@
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "gen:samples": "tsx scripts/gen-sample-pdfs.tsx",
-    "precompute": "node --conditions=react-server --import tsx scripts/precompute-samples.ts"
+    "precompute": "node --conditions=react-server --import tsx scripts/precompute-samples.ts",
+    "eval:generate": "tsx scripts/eval/generate.ts",
+    "eval:run": "node --conditions=react-server --import tsx scripts/eval/run.ts",
+    "eval:adaption": "tsx scripts/eval/adaption.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

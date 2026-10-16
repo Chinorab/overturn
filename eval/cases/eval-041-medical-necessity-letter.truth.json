@@ -1,0 +1,44 @@
+{
+  "id": "eval-041-medical-necessity-letter",
+  "kind": "letter",
+  "category": "medical_necessity",
+  "traps": [
+    "short_deadline",
+    "us_date_format",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "denial_letter",
+    "program_signals": "commercial",
+    "insurer_name": "Hollis Creek Health",
+    "member_id": "HOL-551436-21",
+    "claim_number": "CLM-26-7811-69499",
+    "letter_date": "2026-10-14",
+    "provider_name": "Westfield Sleep Clinic",
+    "service": {
+      "text": "CT scan of the chest with contrast",
+      "cpt": "71260"
+    },
+    "service_dates": [
+      "2026-08-31"
+    ],
+    "denial_category": "medical_necessity",
+    "denial_codes": [
+      "CO-50"
+    ],
+    "amounts": {
+      "billed": 1445.79,
+      "allowed": null,
+      "plan_paid": 0,
+      "patient_responsibility": 1445.79
+    },
+    "network_status": "unknown",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 60
+    },
+    "state_hint": "CA"
+  }
+}

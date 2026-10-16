@@ -1,0 +1,43 @@
+{
+  "id": "eval-051-out-of-network-eob",
+  "kind": "eob",
+  "category": "out_of_network",
+  "traps": [
+    "no_letter_date",
+    "boilerplate_expedited"
+  ],
+  "expected": {
+    "document_type": "eob",
+    "program_signals": "commercial",
+    "insurer_name": "Verdane Health Plan",
+    "member_id": "VER-300025-66",
+    "claim_number": "CLM-26-4272-69448",
+    "letter_date": null,
+    "provider_name": "Westfield Sleep Clinic",
+    "service": {
+      "text": "Physical therapy, therapeutic exercise (12 sessions)",
+      "cpt": "97110"
+    },
+    "service_dates": [
+      "2026-09-27"
+    ],
+    "denial_category": "out_of_network",
+    "denial_codes": [
+      "CO-242"
+    ],
+    "amounts": {
+      "billed": 1790.89,
+      "allowed": 582.33,
+      "plan_paid": 465.86,
+      "patient_responsibility": 1325.03
+    },
+    "network_status": "out_of_network",
+    "emergency_signals": false,
+    "urgency_signals": false,
+    "stated_appeal_deadline": {
+      "kind": "days",
+      "days": 180
+    },
+    "state_hint": "TX"
+  }
+}

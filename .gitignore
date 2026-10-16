@@ -43,3 +43,7 @@ docs/video/raw/
 docs/video/*.mp4
 docs/video/work/
 docs/video/vo/
+
+# extraction eval: PDFs are rendered from the committed sources
+eval/cases/*.pdf
+eval/cases-adapted/*.pdf

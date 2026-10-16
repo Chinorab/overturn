@@ -1,0 +1,35 @@
+{
+  "kind": "letter",
+  "insurer": {
+    "name": "Verdane Health Plan",
+    "address": "PO Box 73307, Buffalo, NY 14202",
+    "phone": "1-800-555-0678",
+    "logo_text": "VERDANE"
+  },
+  "date": "2026-07-13",
+  "member": {
+    "name": "DeShawn Sørensen",
+    "address": "7219 Cedar Bluff Road\nAlbany, NY 12207",
+    "member_id": "VER-899593-76",
+    "group": "GRP-29602 (Peachtree Analytics LLC)"
+  },
+  "re": {
+    "claim_number": "CLM-26-8072-58784",
+    "provider": "Westfield Sleep Clinic",
+    "service": "Polysomnography sleep study (CPT 95810)",
+    "service_date": "2026-06-04",
+    "billed": "2,140.25"
+  },
+  "title": "Notice of Adverse Benefit Determination",
+  "paragraphs": [
+    "We reviewed the claim submitted by Westfield Sleep Clinic under your health plan for services provided on June 4, 2026. After review, we are unable to approve payment.",
+    "Your plan requires pre-certification for the polysomnography sleep study. Our records show no approved authorization on file for this date of service. Reason code: CO-197.",
+    "The plan paid $0.00 of the $2,140.25 billed. The provider may bill you for this service."
+  ],
+  "appeal": {
+    "heading": "Your Right to Appeal",
+    "text": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice. Send it to Verdane Health Plan, Appeals Unit, PO Box 73307, Buffalo, NY 14202. If waiting for a standard decision could seriously harm your health, you may ask for an expedited appeal by calling 1-800-555-0678.",
+    "external": "After the internal appeal, you may have the right to an independent external review. Free help is available from your state's consumer assistance program."
+  },
+  "signature": "Utilization Management Department\nVerdane Health Plan"
+}
