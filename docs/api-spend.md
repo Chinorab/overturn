@@ -14,4 +14,5 @@ Opus 5 list price. Amounts are computed from reported token usage.
 | 2026-09-19 | Sample 07 (phone photo, experimental/CA): extract + explain + letter | 3 + 1 regen | $0.203 |
 | 2026-09-20 | Post-submission key check on production (sample 06, 1 page → 422 unsupported) | 1 | ~$0.05 |
 | 2026-10-16 | Extraction eval, first 12 synthetic documents (`pnpm eval:run --yes --limit 12`) | 12 | $0.769 |
-| | **Total so far** | | **~$2.45** |
+| 2026-10-16 | Extraction eval re-run on the same 12 after the "allowed amount" prompt rule (`--label allowed-rule`) | 12 | $0.774 |
+| | **Total so far** | | **~$3.22** |

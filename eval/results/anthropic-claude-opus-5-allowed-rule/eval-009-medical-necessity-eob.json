@@ -1,0 +1,156 @@
+{
+  "extraction": {
+    "document_type": {
+      "value": "eob",
+      "confidence": 0.98,
+      "quote": "Explanation of Benefits THIS IS NOT A BILL",
+      "page": 1
+    },
+    "program_signals": {
+      "value": "commercial",
+      "confidence": 0.8,
+      "quote": "Group: GRP-77032 (Great Lakes Freight Co.)",
+      "page": 1
+    },
+    "insurer_name": {
+      "value": "Brightmoor Benefit Solutions",
+      "confidence": 0.97,
+      "quote": "Brightmoor Benefit Solutions",
+      "page": 1
+    },
+    "member_id": {
+      "value": "BRI-859897-00",
+      "confidence": 0.97,
+      "quote": "Member ID: BRI-859897-00",
+      "page": 1
+    },
+    "claim_number": {
+      "value": "CLM-26-9645-92359",
+      "confidence": 0.97,
+      "quote": "Claim number: CLM-26-9645-92359",
+      "page": 1
+    },
+    "letter_date": {
+      "value": "2026-10-10",
+      "confidence": 0.95,
+      "quote": "Statement date: October 10, 2026",
+      "page": 1
+    },
+    "provider_name": {
+      "value": "Copperline Laboratory Services",
+      "confidence": 0.95,
+      "quote": "Provider: Copperline Laboratory Services (participating)",
+      "page": 1
+    },
+    "service_description": {
+      "value": "MRI of the left knee without contrast (CPT 73721)",
+      "confidence": 0.96,
+      "quote": "Services: MRI of the left knee without contrast (CPT 73721)",
+      "page": 1
+    },
+    "service_dates": {
+      "value": [
+        "2026-09-28"
+      ],
+      "confidence": 0.96,
+      "quote": "Date of service: 2026-09-28",
+      "page": 1
+    },
+    "denial_category": {
+      "value": "medical_necessity",
+      "confidence": 0.95,
+      "quote": "is not medically necessary",
+      "page": 1
+    },
+    "denial_reason_quote": {
+      "value": "The MRI of the left knee without contrast is not medically necessary. Our clinical guideline BRI-CAR-394 requires documentation of conservative treatment before this service, and the records submitted do not show it.",
+      "confidence": 0.95,
+      "quote": "The MRI of the left knee without contrast is not medically necessary. Our clinical guideline BRI-CAR-394 requires documentation of conservative treatment",
+      "page": 1
+    },
+    "denial_codes": {
+      "value": [
+        "CO-50"
+      ],
+      "confidence": 0.95,
+      "quote": "CO-50",
+      "page": 1
+    },
+    "amounts": {
+      "billed": {
+        "value": 2094.39,
+        "confidence": 0.95,
+        "quote": "$2,094.39",
+        "page": 1
+      },
+      "allowed": {
+        "value": 0,
+        "confidence": 0.85,
+        "quote": "Allowed $0.00",
+        "page": 1
+      },
+      "plan_paid": {
+        "value": 0,
+        "confidence": 0.9,
+        "quote": "Plan paid $0.00",
+        "page": 1
+      },
+      "patient_responsibility": {
+        "value": 2094.39,
+        "confidence": 0.95,
+        "quote": "Amount you may owe the provider: $2,094.39",
+        "page": 1
+      }
+    },
+    "network_status": {
+      "value": "in_network",
+      "confidence": 0.85,
+      "quote": "Copperline Laboratory Services (participating)",
+      "page": 1
+    },
+    "emergency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "urgency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "stated_appeal_deadline": {
+      "value": {
+        "kind": "days",
+        "days": 180
+      },
+      "confidence": 0.95,
+      "quote": "file a written appeal within 180 days of the date you receive this notice",
+      "page": 1
+    },
+    "stated_appeal_address": {
+      "value": "Brightmoor Benefit Solutions, Appeals Unit, PO Box 14448, Austin, TX 78701",
+      "confidence": 0.95,
+      "quote": "Brightmoor Benefit Solutions, Appeals Unit, PO Box 14448, Austin, TX 78701",
+      "page": 1
+    },
+    "stated_appeal_instructions": {
+      "value": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "confidence": 0.93,
+      "quote": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "page": 1
+    },
+    "state_hint": {
+      "value": "CA",
+      "confidence": 0.95,
+      "quote": "Oakland, CA 94612",
+      "page": 1
+    }
+  },
+  "usage": {
+    "input": 5742,
+    "output": 1465
+  },
+  "ms": 14033
+}

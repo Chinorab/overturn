@@ -6,6 +6,7 @@
  *   pnpm eval:run --yes --limit 10      # spends on the first 10 only
  *   pnpm eval:run --only eval-001-...   # one or more ids, comma-separated
  *   pnpm eval:run --score-only          # rescore what is cached, no API call
+ *   pnpm eval:run --yes --label v2      # a separate run (own cache and report), e.g. after a prompt change
  *
  * The model is whatever the app is configured with (OVERTURN_MODEL, default claude-opus-5):
  * set it in the environment to compare models; each model caches into its own folder.
@@ -44,7 +45,9 @@ async function main() {
   const casesDir = path.resolve(arg("--cases") ?? "eval/cases");
   const model = process.env.OVERTURN_MODEL ?? "claude-opus-5";
   const provider = process.env.OVERTURN_LLM_PROVIDER ?? "anthropic";
-  const outDir = path.resolve(arg("--out") ?? path.join("eval", "results", `${provider}-${model}`));
+  const label = arg("--label");
+  const runName = `${provider}-${model}${label ? `-${label}` : ""}`;
+  const outDir = path.resolve(arg("--out") ?? path.join("eval", "results", runName));
   const only = arg("--only")?.split(",");
   const limit = arg("--limit") ? Number(arg("--limit")) : Infinity;
 
@@ -115,9 +118,9 @@ async function main() {
   const date = new Date().toISOString().slice(0, 10);
   const reportDir = path.resolve("eval", "reports");
   await mkdir(reportDir, { recursive: true });
-  const base = path.join(reportDir, `${date}-${provider}-${model}`);
-  await writeFile(`${base}.md`, renderMarkdown(summary, { model: `${provider}/${model}`, date, cost, failures: results }));
-  await writeFile(`${base}.json`, JSON.stringify({ model, provider, date, cost, summary }, null, 2) + "\n");
+  const base = path.join(reportDir, `${date}-${runName}`);
+  await writeFile(`${base}.md`, renderMarkdown(summary, { model: `${provider}/${model}${label ? ` (${label})` : ""}`, date, cost, failures: results }));
+  await writeFile(`${base}.json`, JSON.stringify({ model, provider, label: label ?? null, date, cost, summary }, null, 2) + "\n");
 
   const o = summary.overall;
   const total = o.correct + o.miss + o.hallucination + o.wrong;

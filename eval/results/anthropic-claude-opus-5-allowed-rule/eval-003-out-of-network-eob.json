@@ -1,0 +1,156 @@
+{
+  "extraction": {
+    "document_type": {
+      "value": "eob",
+      "confidence": 0.98,
+      "quote": "Explanation of Benefits",
+      "page": 1
+    },
+    "program_signals": {
+      "value": "commercial",
+      "confidence": 0.8,
+      "quote": "Group: GRP-92765 (Bayou City Fabrication)",
+      "page": 1
+    },
+    "insurer_name": {
+      "value": "Calloway Health Network",
+      "confidence": 0.97,
+      "quote": "Calloway Health Network",
+      "page": 1
+    },
+    "member_id": {
+      "value": "CAL-382636-91",
+      "confidence": 0.97,
+      "quote": "Member ID: CAL-382636-91",
+      "page": 1
+    },
+    "claim_number": {
+      "value": "CLM-26-4858-89407",
+      "confidence": 0.97,
+      "quote": "Claim number: CLM-26-4858-89407",
+      "page": 1
+    },
+    "letter_date": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "provider_name": {
+      "value": "Lantern Hill Cardiology",
+      "confidence": 0.95,
+      "quote": "Provider: Lantern Hill Cardiology (non-participating)",
+      "page": 1
+    },
+    "service_description": {
+      "value": "MRI of the left knee without contrast (CPT 73721)",
+      "confidence": 0.96,
+      "quote": "MRI of the left knee without contrast (CPT 73721)",
+      "page": 1
+    },
+    "service_dates": {
+      "value": [
+        "2026-09-28"
+      ],
+      "confidence": 0.96,
+      "quote": "Date of service: 2026-09-28",
+      "page": 1
+    },
+    "denial_category": {
+      "value": "out_of_network",
+      "confidence": 0.95,
+      "quote": "The provider is not in your plan's network.",
+      "page": 1
+    },
+    "denial_reason_quote": {
+      "value": "The provider is not in your plan's network. Your plan does not cover services from out-of-network providers except in an emergency.",
+      "confidence": 0.95,
+      "quote": "Reason for denial: The provider is not in your plan's network. Your plan does not cover services from out-of-network providers except in an emergency.",
+      "page": 1
+    },
+    "denial_codes": {
+      "value": [
+        "CO-242"
+      ],
+      "confidence": 0.95,
+      "quote": "CO-242",
+      "page": 1
+    },
+    "amounts": {
+      "billed": {
+        "value": 2400.71,
+        "confidence": 0.95,
+        "quote": "$2,400.71",
+        "page": 1
+      },
+      "allowed": {
+        "value": 1057.38,
+        "confidence": 0.95,
+        "quote": "$1,057.38",
+        "page": 1
+      },
+      "plan_paid": {
+        "value": 845.9,
+        "confidence": 0.95,
+        "quote": "$845.90",
+        "page": 1
+      },
+      "patient_responsibility": {
+        "value": 1554.81,
+        "confidence": 0.95,
+        "quote": "Amount you may owe the provider: $1,554.81",
+        "page": 1
+      }
+    },
+    "network_status": {
+      "value": "out_of_network",
+      "confidence": 0.95,
+      "quote": "(non-participating)",
+      "page": 1
+    },
+    "emergency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "urgency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "stated_appeal_deadline": {
+      "value": {
+        "kind": "days",
+        "days": 180
+      },
+      "confidence": 0.95,
+      "quote": "file a written appeal within 180 days of the date you receive this notice",
+      "page": 1
+    },
+    "stated_appeal_address": {
+      "value": "Calloway Health Network, Appeals Unit, PO Box 96995, El Paso, TX 79901",
+      "confidence": 0.95,
+      "quote": "Calloway Health Network, Appeals Unit, PO Box 96995, El Paso, TX 79901",
+      "page": 1
+    },
+    "stated_appeal_instructions": {
+      "value": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "confidence": 0.93,
+      "quote": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "page": 1
+    },
+    "state_hint": {
+      "value": "TX",
+      "confidence": 0.93,
+      "quote": "El Paso, TX 79901",
+      "page": 1
+    }
+  },
+  "usage": {
+    "input": 5691,
+    "output": 1341
+  },
+  "ms": 13004
+}
