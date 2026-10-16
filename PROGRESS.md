@@ -8,8 +8,9 @@ facture médicale erronée (règles fédérales + CA/NY/TX), tout en anglais. So
 le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2026-10-30.**
 
 ## Étape en cours
-Jeu d'évaluation de l'extraction (`eval/`) : construit, testé, **pas encore lancé** contre le vrai modèle
-(coût à valider avec l'utilisateur : ~3,90 $ pour 60 lettres en Opus 5, ~0,78 $ pour `--limit 12`).
+Jeu d'évaluation de l'extraction (`eval/`) : **12 premiers cas mesurés** le 2026-10-16 (Opus 5,
+0,77 $) → 99,2 % des champs justes, 12/12 pièges déjoués, 238/238 citations présentes sur la page,
+2 hallucinations (montant « autorisé » déduit à 0 sur des lettres qui n'en donnent pas, confiance 0,3).
 Ensuite : réécriture des lettres par Adaption Labs (lot du Grand Prize) puis comparaison des scores.
 
 ## Fait
@@ -32,7 +33,8 @@ Ensuite : réécriture des lettres par Adaption Labs (lot du Grand Prize) puis c
       inventant un fait. Doc : `eval/README.md`. 142 tests verts.
 
 ## Reste à faire
-- [ ] Lancer `pnpm eval:run --yes` (après accord sur le coût) et committer le rapport `eval/reports/`.
+- [ ] Les 48 cas restants (~3,10 $ en Opus 5) — sur accord de l'utilisateur.
+- [ ] Option : règle de prompt « amount_allowed seulement s'il est écrit » puis re-mesure.
 - [ ] Réécrire `eval/adaption/blocks.csv` avec Adaptive Data (consigne dans `eval/README.md`),
       `pnpm eval:adaption import`, puis comparer les scores sur `eval/cases-adapted`.
 - [ ] Provider Nebius `lib/ai/providers/nebius.ts` : client OpenAI-compatible sur

@@ -1,0 +1,156 @@
+{
+  "extraction": {
+    "document_type": {
+      "value": "denial_letter",
+      "confidence": 0.97,
+      "quote": "Notice of Adverse Benefit Determination",
+      "page": 1
+    },
+    "program_signals": {
+      "value": "commercial",
+      "confidence": 0.75,
+      "quote": "Group: GRP-04660 (Bayou City Fabrication)",
+      "page": 1
+    },
+    "insurer_name": {
+      "value": "Larkspur Benefit Administrators",
+      "confidence": 0.97,
+      "quote": "Larkspur Benefit Administrators",
+      "page": 1
+    },
+    "member_id": {
+      "value": "LAR-599872-84",
+      "confidence": 0.97,
+      "quote": "Member ID: LAR-599872-84",
+      "page": 1
+    },
+    "claim_number": {
+      "value": "CLM-26-3126-41678",
+      "confidence": 0.97,
+      "quote": "Claim / Ref #: CLM-26-3126-41678",
+      "page": 1
+    },
+    "letter_date": {
+      "value": "2026-10-15",
+      "confidence": 0.97,
+      "quote": "October 15, 2026",
+      "page": 1
+    },
+    "provider_name": {
+      "value": "Gulf Coast Emergency Physicians, PLLC",
+      "confidence": 0.97,
+      "quote": "Provider: Gulf Coast Emergency Physicians, PLLC",
+      "page": 1
+    },
+    "service_description": {
+      "value": "Emergency department visit, level 5 (CPT 99285)",
+      "confidence": 0.96,
+      "quote": "Emergency department visit, level 5 (CPT 99285)",
+      "page": 1
+    },
+    "service_dates": {
+      "value": [
+        "2026-09-19"
+      ],
+      "confidence": 0.97,
+      "quote": "Date(s) of service: 2026-09-19",
+      "page": 1
+    },
+    "denial_category": {
+      "value": "out_of_network",
+      "confidence": 0.96,
+      "quote": "the provider who performed the service is out-of-network for your plan",
+      "page": 1
+    },
+    "denial_reason_quote": {
+      "value": "This claim was denied because the provider who performed the service is out-of-network for your plan.",
+      "confidence": 0.96,
+      "quote": "This claim was denied because the provider who performed the service is out-of-network for your plan.",
+      "page": 1
+    },
+    "denial_codes": {
+      "value": [
+        "CO-242"
+      ],
+      "confidence": 0.95,
+      "quote": "Reason code: CO-242.",
+      "page": 1
+    },
+    "amounts": {
+      "billed": {
+        "value": 3278.47,
+        "confidence": 0.97,
+        "quote": "Amount billed: $3,278.47",
+        "page": 1
+      },
+      "allowed": {
+        "value": 0,
+        "confidence": 0.3,
+        "quote": "The plan paid $0.00 of the $3,278.47 billed.",
+        "page": 1
+      },
+      "plan_paid": {
+        "value": 0,
+        "confidence": 0.95,
+        "quote": "The plan paid $0.00 of the $3,278.47 billed.",
+        "page": 1
+      },
+      "patient_responsibility": {
+        "value": 3278.47,
+        "confidence": 0.96,
+        "quote": "The amount you may owe the provider is $3,278.47.",
+        "page": 1
+      }
+    },
+    "network_status": {
+      "value": "out_of_network",
+      "confidence": 0.96,
+      "quote": "is out-of-network for your plan",
+      "page": 1
+    },
+    "emergency_signals": {
+      "value": true,
+      "confidence": 0.95,
+      "quote": "Emergency department visit, level 5 (CPT 99285)",
+      "page": 1
+    },
+    "urgency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "stated_appeal_deadline": {
+      "value": {
+        "kind": "days",
+        "days": 180
+      },
+      "confidence": 0.95,
+      "quote": "file a written appeal within 180 days of the date you receive this notice",
+      "page": 1
+    },
+    "stated_appeal_address": {
+      "value": "Larkspur Benefit Administrators, Appeals Unit, PO Box 55211, Austin, TX 78701",
+      "confidence": 0.95,
+      "quote": "Larkspur Benefit Administrators, Appeals Unit, PO Box 55211, Austin, TX 78701",
+      "page": 1
+    },
+    "stated_appeal_instructions": {
+      "value": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "confidence": 0.93,
+      "quote": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "page": 1
+    },
+    "state_hint": {
+      "value": "TX",
+      "confidence": 0.95,
+      "quote": "El Paso, TX 79901",
+      "page": 1
+    }
+  },
+  "usage": {
+    "input": 5642,
+    "output": 1501
+  },
+  "ms": 14611
+}

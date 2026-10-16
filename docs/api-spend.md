@@ -13,4 +13,5 @@ Opus 5 list price. Amounts are computed from reported token usage.
 | 2026-09-19 | Real upload test on production (sample 02 as a file) | 2 | ~$0.10 |
 | 2026-09-19 | Sample 07 (phone photo, experimental/CA): extract + explain + letter | 3 + 1 regen | $0.203 |
 | 2026-09-20 | Post-submission key check on production (sample 06, 1 page → 422 unsupported) | 1 | ~$0.05 |
-| | **Total so far** | | **~$1.68** |
+| 2026-10-16 | Extraction eval, first 12 synthetic documents (`pnpm eval:run --yes --limit 12`) | 12 | $0.769 |
+| | **Total so far** | | **~$2.45** |

@@ -1,0 +1,153 @@
+{
+  "extraction": {
+    "document_type": {
+      "value": "eob",
+      "confidence": 0.98,
+      "quote": "Explanation of Benefits THIS IS NOT A BILL",
+      "page": 1
+    },
+    "program_signals": {
+      "value": "commercial",
+      "confidence": 0.8,
+      "quote": "Group: GRP-78203 (Peachtree Analytics LLC)",
+      "page": 1
+    },
+    "insurer_name": {
+      "value": "Tamsin Health Partners",
+      "confidence": 0.97,
+      "quote": "Tamsin Health Partners",
+      "page": 1
+    },
+    "member_id": {
+      "value": "TAM-938618-50",
+      "confidence": 0.97,
+      "quote": "Member ID: TAM-938618-50",
+      "page": 1
+    },
+    "claim_number": {
+      "value": "CLM-26-8154-48011",
+      "confidence": 0.97,
+      "quote": "Claim number: CLM-26-8154-48011",
+      "page": 1
+    },
+    "letter_date": {
+      "value": "2026-08-26",
+      "confidence": 0.95,
+      "quote": "Statement date: August 26, 2026",
+      "page": 1
+    },
+    "provider_name": {
+      "value": "Riverside Orthopedic Associates",
+      "confidence": 0.95,
+      "quote": "Provider: Riverside Orthopedic Associates (participating)",
+      "page": 1
+    },
+    "service_description": {
+      "value": "Transcranial magnetic stimulation (TMS) treatment course (CPT 90867)",
+      "confidence": 0.95,
+      "quote": "Transcranial magnetic stimulation (TMS) treatment course (CPT 90867)",
+      "page": 1
+    },
+    "service_dates": {
+      "value": [
+        "2026-07-27"
+      ],
+      "confidence": 0.96,
+      "quote": "Date of service: 2026-07-27",
+      "page": 1
+    },
+    "denial_category": {
+      "value": "experimental",
+      "confidence": 0.95,
+      "quote": "considered experimental or investigational for your condition under our medical policy",
+      "page": 1
+    },
+    "denial_reason_quote": {
+      "value": "The transcranial magnetic stimulation (TMS) treatment course is considered experimental or investigational for your condition under our medical policy.",
+      "confidence": 0.95,
+      "quote": "The transcranial magnetic stimulation (TMS) treatment course is considered experimental or investigational for your condition under our medical policy.",
+      "page": 1
+    },
+    "denial_codes": {
+      "value": [
+        "CO-55"
+      ],
+      "confidence": 0.95,
+      "quote": "CO-55",
+      "page": 1
+    },
+    "amounts": {
+      "billed": {
+        "value": 7398.27,
+        "confidence": 0.95,
+        "quote": "$7,398.27",
+        "page": 1
+      },
+      "allowed": {
+        "value": 0,
+        "confidence": 0.9,
+        "quote": "Allowed $0.00",
+        "page": 1
+      },
+      "plan_paid": {
+        "value": 0,
+        "confidence": 0.9,
+        "quote": "Plan paid $0.00",
+        "page": 1
+      },
+      "patient_responsibility": {
+        "value": 7398.27,
+        "confidence": 0.95,
+        "quote": "Amount you may owe the provider: $7,398.27",
+        "page": 1
+      }
+    },
+    "network_status": {
+      "value": "in_network",
+      "confidence": 0.85,
+      "quote": "Riverside Orthopedic Associates (participating)",
+      "page": 1
+    },
+    "emergency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "urgency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "stated_appeal_deadline": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "stated_appeal_address": {
+      "value": "Tamsin Health Partners, Appeals Unit, PO Box 67763, Columbus, OH 43215",
+      "confidence": 0.95,
+      "quote": "write to Tamsin Health Partners, Appeals Unit, PO Box 67763, Columbus, OH 43215",
+      "page": 1
+    },
+    "stated_appeal_instructions": {
+      "value": "To ask us to reconsider, write to Tamsin Health Partners, Appeals Unit, PO Box 67763, Columbus, OH 43215.",
+      "confidence": 0.93,
+      "quote": "To ask us to reconsider, write to Tamsin Health Partners, Appeals Unit, PO Box 67763, Columbus, OH 43215.",
+      "page": 1
+    },
+    "state_hint": {
+      "value": "OH",
+      "confidence": 0.95,
+      "quote": "Toledo, OH 43604",
+      "page": 1
+    }
+  },
+  "usage": {
+    "input": 5603,
+    "output": 1438
+  },
+  "ms": 13507
+}

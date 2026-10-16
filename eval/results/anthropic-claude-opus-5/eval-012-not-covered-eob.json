@@ -1,0 +1,156 @@
+{
+  "extraction": {
+    "document_type": {
+      "value": "eob",
+      "confidence": 0.98,
+      "quote": "Explanation of Benefits THIS IS NOT A BILL",
+      "page": 1
+    },
+    "program_signals": {
+      "value": "commercial",
+      "confidence": 0.8,
+      "quote": "Group: GRP-62414 (Peachtree Analytics LLC)",
+      "page": 1
+    },
+    "insurer_name": {
+      "value": "Hollis Creek Health",
+      "confidence": 0.97,
+      "quote": "Hollis Creek Health",
+      "page": 1
+    },
+    "member_id": {
+      "value": "HOL-230289-58",
+      "confidence": 0.97,
+      "quote": "Member ID: HOL-230289-58",
+      "page": 1
+    },
+    "claim_number": {
+      "value": "CLM-26-4327-58562",
+      "confidence": 0.97,
+      "quote": "Claim number: CLM-26-4327-58562",
+      "page": 1
+    },
+    "letter_date": {
+      "value": "2026-08-11",
+      "confidence": 0.95,
+      "quote": "Statement date: August 11, 2026",
+      "page": 1
+    },
+    "provider_name": {
+      "value": "Clearwater Neurology Group",
+      "confidence": 0.95,
+      "quote": "Provider: Clearwater Neurology Group (participating)",
+      "page": 1
+    },
+    "service_description": {
+      "value": "Polysomnography sleep study (CPT 95810)",
+      "confidence": 0.95,
+      "quote": "Services: Polysomnography sleep study (CPT 95810)",
+      "page": 1
+    },
+    "service_dates": {
+      "value": [
+        "2026-07-07"
+      ],
+      "confidence": 0.95,
+      "quote": "Date of service: 07/07/2026",
+      "page": 1
+    },
+    "denial_category": {
+      "value": "not_covered",
+      "confidence": 0.93,
+      "quote": "Your plan has reached its annual benefit limit for this type of service, so this claim is not covered.",
+      "page": 1
+    },
+    "denial_reason_quote": {
+      "value": "Your plan has reached its annual benefit limit for this type of service, so this claim is not covered.",
+      "confidence": 0.95,
+      "quote": "Your plan has reached its annual benefit limit for this type of service, so this claim is not covered.",
+      "page": 1
+    },
+    "denial_codes": {
+      "value": [
+        "CO-96"
+      ],
+      "confidence": 0.95,
+      "quote": "CO-96",
+      "page": 1
+    },
+    "amounts": {
+      "billed": {
+        "value": 2646.85,
+        "confidence": 0.93,
+        "quote": "$2,646.85",
+        "page": 1
+      },
+      "allowed": {
+        "value": 0,
+        "confidence": 0.9,
+        "quote": "Allowed $0.00",
+        "page": 1
+      },
+      "plan_paid": {
+        "value": 0,
+        "confidence": 0.9,
+        "quote": "Plan paid $0.00",
+        "page": 1
+      },
+      "patient_responsibility": {
+        "value": 2646.85,
+        "confidence": 0.95,
+        "quote": "Amount you may owe the provider: $2,646.85",
+        "page": 1
+      }
+    },
+    "network_status": {
+      "value": "in_network",
+      "confidence": 0.85,
+      "quote": "Clearwater Neurology Group (participating)",
+      "page": 1
+    },
+    "emergency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "urgency_signals": {
+      "value": null,
+      "confidence": 0,
+      "quote": null,
+      "page": null
+    },
+    "stated_appeal_deadline": {
+      "value": {
+        "kind": "days",
+        "days": 180
+      },
+      "confidence": 0.95,
+      "quote": "file a written appeal within 180 days of the date you receive this notice",
+      "page": 1
+    },
+    "stated_appeal_address": {
+      "value": "Hollis Creek Health, Appeals Unit, PO Box 45580, Orlando, FL 32801",
+      "confidence": 0.95,
+      "quote": "Hollis Creek Health, Appeals Unit, PO Box 45580, Orlando, FL 32801",
+      "page": 1
+    },
+    "stated_appeal_instructions": {
+      "value": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "confidence": 0.93,
+      "quote": "You or your authorized representative may file a written appeal within 180 days of the date you receive this notice.",
+      "page": 1
+    },
+    "state_hint": {
+      "value": "FL",
+      "confidence": 0.95,
+      "quote": "Orlando, FL 32801",
+      "page": 1
+    }
+  },
+  "usage": {
+    "input": 5583,
+    "output": 1407
+  },
+  "ms": 12955
+}
