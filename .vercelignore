@@ -1,0 +1,9 @@
+# Only what `next build` needs goes to Vercel. docs/ alone holds ~300 MB of local video rushes.
+docs/
+eval/
+specs/
+.specify/
+tests/
+# Never upload local secrets, whatever the CLI's defaults are.
+.env*
+!.env.example
