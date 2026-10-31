@@ -11,9 +11,10 @@ le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2
 Fellowship LexHack : dossier PDF de 3 pages envoyé le 31/10 en réponse à leur demande (source
 `docs/fellowship/brief.html`, rendu `node docs/fellowship/render.mjs`, dossier exclu de git).
 Clé API morte depuis le 18/10 : commit `47c18d2` affiche « Reading new documents is paused » sur
-/start quand `OVERTURN_LIVE_UPLOADS=false` (posée sur Vercel prod). **Reste : `vercel --prod`**
-(bloqué par le garde-fou, à lancer par l'utilisateur). Le jour où une nouvelle clé est posée,
-supprimer `OVERTURN_LIVE_UPLOADS` sur Vercel et redéployer.
+/start quand `OVERTURN_LIVE_UPLOADS=false` (posée sur Vercel prod), **déployé en prod le 31/10** avec la nouvelle favicon (« O » Fraunces sur
+teal, `node scripts/gen-icons.mjs && python scripts/gen-icons.py`). `.vercelignore` ajouté : sans
+lui la CLI envoyait ~300 Mo (rushes vidéo de docs/) et l'upload échouait. Le jour où une nouvelle
+clé est posée, supprimer `OVERTURN_LIVE_UPLOADS` sur Vercel et redéployer (`vercel --prod`).
 **Attention :** règles vérifiées le 18/09 → `rules.schema.test.ts` (45 jours) casse à partir du
 03/11. Re-vérifier les 33 règles sur leurs sources primaires avant de toucher `last_verified`.
 
