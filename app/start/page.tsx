@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lock } from "lucide-react";
 import { IntakePanel } from "@/components/intake-panel";
+import { LIVE_UPLOADS_ENABLED } from "@/lib/ai/provider";
 
 export const metadata: Metadata = { title: "Start", description: "Upload a denial letter or Explanation of Benefits, or try a sample." };
 
@@ -25,7 +26,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ m
         <h2 id="start" className="mb-4 text-lg font-semibold">
           Start here
         </h2>
-        <IntakePanel initialMode={mode === "upload" ? "upload" : "sample"} />
+        <IntakePanel initialMode={mode === "upload" ? "upload" : "sample"} uploadsLive={LIVE_UPLOADS_ENABLED} />
       </section>
 
     </div>

@@ -66,12 +66,15 @@ export class AnthropicProvider implements LLMProvider {
 }
 
 /** SDK errors become the provider-neutral ones the route handlers already know how to say. */
-function translate(err: unknown): unknown {
+export function translate(err: unknown): unknown {
   if (err instanceof Anthropic.RateLimitError) return new RateLimitedError(err.message);
   if (
     err instanceof Anthropic.APIConnectionError ||
     err instanceof Anthropic.InternalServerError ||
-    err instanceof Anthropic.AuthenticationError
+    err instanceof Anthropic.AuthenticationError ||
+    err instanceof Anthropic.PermissionDeniedError ||
+    // An exhausted budget comes back as a 400, not as an auth error.
+    (err instanceof Anthropic.BadRequestError && /credit balance|billing/i.test(err.message))
   ) {
     return new ModelUnavailableError(err.message);
   }

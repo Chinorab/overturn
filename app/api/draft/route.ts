@@ -43,7 +43,11 @@ export async function POST(req: Request) {
     }
   }
 
-  if (!LIVE_UPLOADS_ENABLED) return fail(503, "uploads_paused", "Live drafting is paused right now. The sample letters still work.");
+  // A sample only gets here when its answers were changed: say how to get its letter back.
+  const offline = sample_id
+    ? "Each sample comes with a letter written for its original answers: go back, keep those answers, and it opens."
+    : "The sample letters still work.";
+  if (!LIVE_UPLOADS_ENABLED) return fail(503, "uploads_paused", `Live drafting is paused right now. ${offline}`);
   const rl = checkRateLimit(clientIp(req));
   if (!rl.ok) return fail(429, "rate_limited", `Too many requests from this connection. Try again in about ${Math.ceil(rl.retry_after_s / 60)} minutes.`);
 
@@ -53,7 +57,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ draft, meta: { model: (await getProvider()).modelFor("write"), ms: Date.now() - started, cached: false } });
   } catch (err) {
     if (isRateLimit(err)) return fail(429, "rate_limited", "The writing service is busy. Please try again in a minute.");
-    if (isModelDown(err)) return fail(503, "model_unavailable", "The writing service is unavailable right now.");
+    if (isModelDown(err)) return fail(503, "model_unavailable", `The writing service is unavailable right now. ${offline}`);
     console.error(`[draft] error ${(err as Error).name}`);
     return fail(500, "internal", "Something went wrong while drafting the letter.");
   }

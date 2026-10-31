@@ -33,11 +33,14 @@ const ERROR_TITLE: Record<string, string> = {
   extraction_invalid: "Something did not check out",
 };
 
+/** When the reading service is off, the samples are the way forward: show them under the error. */
+const SAMPLES_INSTEAD = new Set(["uploads_paused", "model_unavailable"]);
+
 /**
  * Step 1. Two ways in: a bundled sample (instant, cached, free) or a real upload
  * (one server call, nothing stored). Progress copy is a timer, not a fake percentage.
  */
-export function IntakePanel({ initialMode = "sample" }: { initialMode?: Mode } = {}) {
+export function IntakePanel({ initialMode = "sample", uploadsLive = true }: { initialMode?: Mode; uploadsLive?: boolean } = {}) {
   const router = useRouter();
   const { setResult } = useSession();
   const [phase, setPhase] = useState<Phase>({ kind: "idle" });
@@ -68,6 +71,7 @@ export function IntakePanel({ initialMode = "sample" }: { initialMode?: Mode } =
           return;
         }
         setPhase({ kind: "error", title: ERROR_TITLE[json.code] ?? "Something went wrong", message: json.message ?? "Please try again.", resource_url: json.resource_url });
+        if (SAMPLES_INSTEAD.has(json.code)) setMode("sample");
         return;
       }
       const extraction = Extraction.parse(json.extraction);
@@ -184,6 +188,8 @@ export function IntakePanel({ initialMode = "sample" }: { initialMode?: Mode } =
         </TabsContent>
 
         <TabsContent value="upload" className="animate-in fade-in-0 slide-in-from-bottom-1 duration-200">
+          {uploadsLive ? (
+          <>
           <label
             onDragOver={(e) => {
               e.preventDefault();
@@ -210,6 +216,23 @@ export function IntakePanel({ initialMode = "sample" }: { initialMode?: Mode } =
             <li className="flex items-center gap-1.5"><Clock className="size-3.5" aria-hidden="true" /> About 20 to 40 seconds</li>
             <li className="flex items-center gap-1.5"><ShieldCheck className="size-3.5" aria-hidden="true" /> Not Medicare or Medicaid</li>
           </ul>
+          </>
+          ) : (
+            <div className="rounded-2xl border border-warning/60 bg-warning/5 p-5">
+              <p className="flex items-center gap-2 font-semibold">
+                <AlertTriangle className="size-5 text-warning" aria-hidden="true" />
+                Reading new documents is paused
+              </p>
+              <p className="mt-2 text-sm">
+                Overturn cannot read uploads right now, so the upload is switched off instead of failing halfway. The seven fictional samples
+                still run the whole flow: the facts with their quotes, the rights and deadlines, and the appeal letter.
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">If your own deadline is close, the free human help button at the top lists your state&apos;s assistance program.</p>
+              <Button className="mt-4 h-11" onClick={() => setMode("sample")}>
+                <FileText aria-hidden="true" /> Open the samples
+              </Button>
+            </div>
+          )}
         </TabsContent>
       </Tabs>
     </div>
