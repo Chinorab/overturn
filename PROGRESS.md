@@ -1,13 +1,23 @@
 # Overturn — avancement
 
-Dernière mise à jour : 2026-10-16
+Dernière mise à jour : 2026-10-31
 
 ## Objectif
 Assistant web qui aide un Américain à comprendre et contester un refus d'assurance santé ou une
 facture médicale erronée (règles fédérales + CA/NY/TX), tout en anglais. Soumis au LexHack 2026
 le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2026-10-30.**
 
-## Étape en cours
+## Étape en cours (2026-10-31)
+Fellowship LexHack : dossier PDF de 3 pages envoyé le 31/10 en réponse à leur demande (source
+`docs/fellowship/brief.html`, rendu `node docs/fellowship/render.mjs`, dossier exclu de git).
+Clé API morte depuis le 18/10 : commit `47c18d2` affiche « Reading new documents is paused » sur
+/start quand `OVERTURN_LIVE_UPLOADS=false` (posée sur Vercel prod). **Reste : `vercel --prod`**
+(bloqué par le garde-fou, à lancer par l'utilisateur). Le jour où une nouvelle clé est posée,
+supprimer `OVERTURN_LIVE_UPLOADS` sur Vercel et redéployer.
+**Attention :** règles vérifiées le 18/09 → `rules.schema.test.ts` (45 jours) casse à partir du
+03/11. Re-vérifier les 33 règles sur leurs sources primaires avant de toucher `last_verified`.
+
+## Étape précédente
 Jeu d'évaluation de l'extraction (`eval/`) : **12 premiers cas mesurés** le 2026-10-16 (Opus 5,
 0,77 $) → 99,2 % des champs justes, 12/12 pièges déjoués, 238/238 citations présentes sur la page,
 2 hallucinations (montant « autorisé » déduit à 0 sur des lettres qui n'en donnent pas, confiance 0,3).
