@@ -15,7 +15,10 @@ sur les sources primaires. Adaption Labs : import adapté à la colonne « compl
 (`a47c91b`) ; **Jeu AutoScientist prêt** (`650b393`) : `pnpm eval:train-set` → 1 200 lignes vérifiées dans
 eval/autoscientist/ (gitignoré) ; lancement via `python scripts/eval/autoscientist.py` (SDK raw, l'app web
 réécrirait les étiquettes). Reste à l'utilisateur : clé ADAPTION_API_KEY dans .env.local, `pip install adaption`,
-puis upload / train --yes. Ensuite : mesurer le modèle sur l'eval (texte) + les 7 samples écrits à la main.
+puis upload / train --yes. **Lancé le 2026-11-04** : dataset e6a8ad0e-69dd-4c31-ad5d-6b717bb74f95 (1 200 lignes,
+passthrough), run 52607eed-d00b-4409-bfe0-eb2b0cfab04c, Qwen/Qwen3.5-9B, 1 itération (ids aussi dans
+eval/autoscientist/state.json). Suivi : `python scripts/eval/autoscientist.py status`. Ensuite : download, puis
+mesurer le modèle sur l'eval (texte) + les 7 samples écrits à la main (il faudra un endroit pour le faire tourner).
 
 ## Étape précédente (2026-10-31)
 Fellowship LexHack : dossier PDF de 3 pages envoyé le 31/10 en réponse à leur demande (source
