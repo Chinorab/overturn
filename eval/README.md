@@ -120,5 +120,40 @@ Adaptive Data is built to make training sets, so the rewrite comes back as a gen
 Comparing the score on `cases/` and `cases-adapted/` shows whether the extraction depends on
 the exact phrasing it happened to be tested on.
 
+## Training a reader with AutoScientist
+
+Adaption Labs' **AutoScientist** fine-tunes an open model on a task and lets you download it.
+The same generator, with another seed, gives it a training set whose labels are exact:
+
+```bash
+pnpm eval:train-set     # 1,200 rows into eval/autoscientist/train.{jsonl,csv} (seed 20261104)
+```
+
+Each row is `prompt` (a short instruction and the document as text) and `completion` (the JSON
+the app already parses from Claude, `ExtractionModelSchema`), about 1,300 tokens in all. Before
+a row is written it must parse back to a valid extraction, score 100% against its truth, and
+quote only text that is on the page. The eval seed is refused and any case matching an eval
+document is skipped, so the 60 eval cases stay unseen.
+
+The web app only starts AutoScientist from a dataset that went through Adaptive Data, which
+would rewrite these labels. The SDK's raw mode uploads them unchanged:
+
+```bash
+python -m pip install adaption
+python scripts/eval/autoscientist.py models                 # base models and context lengths
+python scripts/eval/autoscientist.py upload
+python scripts/eval/autoscientist.py train --model <id> --yes   # spends Adaption credits
+python scripts/eval/autoscientist.py status
+python scripts/eval/autoscientist.py download               # LoRA checkpoint (.tgz)
+```
+
+`ADAPTION_API_KEY` comes from the environment or `.env.local` (app → Settings → API keys).
+
+What this set can and cannot show: it teaches the output format and the traps, on letters that
+share a small set of templates. AutoScientist's win rate measures the model against its own
+base model, not against the truth, so the real test is still this eval (on the text of the
+documents) and, for wording the model has never seen, the seven hand-written samples in
+`data/samples/`.
+
 All names, plans, identifiers and addresses in these documents are fictional, and every PDF
 carries a "SAMPLE - FICTIONAL DOCUMENT" watermark.

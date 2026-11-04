@@ -15,7 +15,8 @@
     "precompute": "node --conditions=react-server --import tsx scripts/precompute-samples.ts",
     "eval:generate": "tsx scripts/eval/generate.ts",
     "eval:run": "node --conditions=react-server --import tsx scripts/eval/run.ts",
-    "eval:adaption": "tsx scripts/eval/adaption.ts"
+    "eval:adaption": "tsx scripts/eval/adaption.ts",
+    "eval:train-set": "tsx scripts/eval/train-set.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",

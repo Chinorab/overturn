@@ -12,6 +12,7 @@
  */
 import { mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { DenialCategory } from "@/lib/schemas/core";
 import type { EobSource, Expected, Insurer, LetterSource, Source, StatedDeadlineTruth, Trap, Truth } from "./types";
 
@@ -395,6 +396,12 @@ function buildCase(i: number): { source: Source; truth: Truth } {
 
 /* ------------------------------------------------------------------ main */
 
+/** The same cases `main` writes, in memory: the AutoScientist training set reuses them. */
+export function generateCases(count: number, seed: number): { source: Source; truth: Truth }[] {
+  rand = prng(seed);
+  return Array.from({ length: count }, (_, i) => buildCase(i));
+}
+
 async function main() {
   const count = Number(arg("--count") ?? 60);
   const seed = Number(arg("--seed") ?? 20261016);
@@ -416,7 +423,10 @@ async function main() {
   console.log("traps:", Object.fromEntries([...tally].sort()));
 }
 
-main().catch((e) => {
-  console.error(e);
-  process.exit(1);
-});
+// Run as a script, not when imported by another script.
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}
