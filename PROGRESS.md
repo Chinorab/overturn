@@ -10,8 +10,10 @@ le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2
 ## Étape en cours (2026-11-04)
 **Nouvelle clé Anthropic posée** par l'utilisateur (local + Vercel prod/preview). `OVERTURN_LIVE_UPLOADS`
 supprimée, prod redéployée : l'upload réel remarche (sample 02 en fichier → 200 en 28 s, ~0,10 $).
-CI rouge depuis le 03/11 : les 33 règles ont dépassé 45 jours (`rules.schema.test.ts`) → re-vérifier
-sur les sources primaires. Adaption Labs : import adapté à la colonne « completion » d'Adaptive Data
+Règles : les 33 relues sur leurs sources le 04/11 (`7555f7b`), 4 corrigées (nsa.consent.timing,
+ca.imr.decision_windows → loi § 1374.33, tx.regulator.scope, cite § 1374.34). Prochaine re-vérification avant le 19/12.
+**Piège :** le travail du 16/10 au 04/11 était sur une branche locale `eval-dataset` ; `git push origin main`
+n'envoyait rien. Corrigé le 04/11 (main avancée en fast-forward, branche supprimée). Pousser avec `git push origin HEAD`. Adaption Labs : import adapté à la colonne « completion » d'Adaptive Data
 (`a47c91b`) ; **Jeu AutoScientist prêt** (`650b393`) : `pnpm eval:train-set` → 1 200 lignes vérifiées dans
 eval/autoscientist/ (gitignoré) ; lancement via `python scripts/eval/autoscientist.py` (SDK raw, l'app web
 réécrirait les étiquettes). Reste à l'utilisateur : clé ADAPTION_API_KEY dans .env.local, `pip install adaption`,
