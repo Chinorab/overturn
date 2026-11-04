@@ -16,7 +16,9 @@
     "eval:generate": "tsx scripts/eval/generate.ts",
     "eval:run": "node --conditions=react-server --import tsx scripts/eval/run.ts",
     "eval:adaption": "tsx scripts/eval/adaption.ts",
-    "eval:train-set": "tsx scripts/eval/train-set.ts"
+    "eval:train-set": "tsx scripts/eval/train-set.ts",
+    "eval:hf-prompts": "tsx scripts/eval/hf-prompts.ts",
+    "eval:score-generations": "tsx scripts/eval/score-generations.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.127.0",
