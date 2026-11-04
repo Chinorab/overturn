@@ -26,10 +26,11 @@ from pathlib import Path
 
 BASE = os.environ.get("BASE_MODEL", "Qwen/Qwen3.5-9B")
 MAX_TOKENS = 2048
-rows = [json.loads(line) for line in Path("/input/prompts.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
 out = Path("/output/generations.jsonl")
-out.parent.mkdir(parents=True, exist_ok=True)
-print(f"{len(rows)} prompts · base {BASE} · accelerator {os.environ.get('ACCELERATOR')}", flush=True)
+rows = [json.loads(line) for line in Path("/input/prompts.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+if __name__ == "__main__":
+    out.parent.mkdir(parents=True, exist_ok=True)
+    print(f"{len(rows)} prompts · base {BASE} · accelerator {os.environ.get('ACCELERATOR')}", flush=True)
 
 
 def save(results):
@@ -97,13 +98,16 @@ def with_transformers():
         print(f"tuned-chat (transformers): {i + len(texts)}/{len(rows)}", flush=True)
 
 
-try:
-    with_vllm()
-except Exception:
-    traceback.print_exc()
-    print("vLLM failed; falling back to transformers + PEFT", flush=True)
-    out.unlink(missing_ok=True)
-    with_transformers()
+# vLLM starts its engine with `spawn`, which re-imports this file: everything that runs must sit
+# under the main guard, or the child process tries to start a second engine and the run fails.
+if __name__ == "__main__":
+    try:
+        with_vllm()
+    except Exception:
+        traceback.print_exc()
+        print("vLLM failed; falling back to transformers + PEFT", flush=True)
+        out.unlink(missing_ok=True)
+        with_transformers()
 
-print(f"done: {sum(1 for _ in out.open(encoding='utf-8'))} generations in {out}", flush=True)
-sys.exit(0)
+    print(f"done: {sum(1 for _ in out.open(encoding='utf-8'))} generations in {out}", flush=True)
+    sys.exit(0)

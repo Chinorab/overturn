@@ -11,11 +11,54 @@
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { Extraction, ExtractionModelSchema, fromModel } from "@/lib/schemas/extraction";
+import { Extraction, ExtractionModelSchema, fromModel, MODEL_FIELDS } from "@/lib/schemas/extraction";
 import { renderMarkdown, sameText, scoreCase, summarize, type CaseResult, type Verdict } from "./score";
 import type { Source, Truth } from "./types";
 
 type Gen = { id: string; set: "eval" | "sample"; mode: string; text: string; seconds: number };
+
+/* ------------------------------------------------------------------ lenient mode */
+
+const LENIENT = process.argv.includes("--lenient");
+const pick = (v: unknown, hints: [RegExp, string][], fallback: string) =>
+  typeof v === "string" ? (hints.find(([re]) => re.test(v))?.[1] ?? fallback) : fallback;
+const CATEGORY: [RegExp, string][] = [
+  [/^(medical_necessity|prior_auth|out_of_network|not_covered|coding_admin|experimental|timely_filing|duplicate|other)$/, ""],
+  [/auth|cert/i, "prior_auth"], [/network|particip/i, "out_of_network"], [/duplic/i, "duplicate"],
+  [/experiment|investig|unproven/i, "experimental"], [/timel|filing|late/i, "timely_filing"],
+  [/cod|bill|claim.?error|admin|missing/i, "coding_admin"], [/necess|criteria/i, "medical_necessity"],
+  [/cover|exclu|benefit|limit/i, "not_covered"],
+];
+
+/**
+ * --lenient: what the app could repair after the model answers, without reading the document
+ * again: near-miss labels mapped to the right one ("prior_authorization" -> "prior_auth"),
+ * missing keys given their empty value, evidence entries for unknown fields dropped. Values the
+ * model read are never changed, so this separates "wrong vocabulary" from "wrong reading".
+ */
+function repair(j: Record<string, unknown>): Record<string, unknown> {
+  const cat = j.denial_category;
+  const fixed = pick(cat, CATEGORY, "other");
+  const defaults = {
+    insurer_name: "", member_id: "", claim_number: "", letter_date: "", provider_name: "", service_description: "",
+    service_dates: [], denial_reason_quote: "", denial_codes: [], amount_billed: 0, amount_allowed: 0, amount_plan_paid: 0,
+    amount_patient_responsibility: 0, emergency_signals: false, urgency_signals: false, stated_appeal_deadline_days: 0,
+    stated_appeal_deadline_date: "", stated_appeal_address: "", stated_appeal_instructions: "", state_hint: "",
+  };
+  const out: Record<string, unknown> = {
+    ...defaults,
+    ...j,
+    denial_category: fixed === "" ? cat : fixed,
+    document_type: pick(j.document_type, [[/eob|explanation/i, "eob"], [/denial|adverse|notice|letter/i, "denial_letter"]], "other"),
+    program_signals: pick(j.program_signals, [[/medicare/i, "medicare"], [/medicaid|chip/i, "medicaid"], [/tricare|champva|\bva\b/i, "tricare"], [/commercial|employer|marketplace|private|group/i, "commercial"]], "unknown"),
+    network_status: pick(j.network_status, [[/out|non/i, "out_of_network"], [/in.?network|particip/i, "in_network"]], "unknown"),
+  };
+  const ev = Array.isArray(j.evidence) ? (j.evidence as Record<string, unknown>[]) : [];
+  out.evidence = ev
+    .map((e) => (e.field === "stated_appeal_deadline" ? { ...e, field: out.stated_appeal_deadline_date ? "stated_appeal_deadline_date" : "stated_appeal_deadline_days" } : e))
+    .filter((e) => (MODEL_FIELDS as readonly string[]).includes(String(e.field)));
+  return out;
+}
 
 /** The JSON object in a model answer, if there is one that the app would accept. */
 function parse(text: string): Extraction | null {
@@ -24,7 +67,8 @@ function parse(text: string): Extraction | null {
   const end = body.lastIndexOf("}");
   if (start < 0 || end < start) return null;
   try {
-    const model = ExtractionModelSchema.safeParse(JSON.parse(body.slice(start, end + 1)));
+    const raw = JSON.parse(body.slice(start, end + 1));
+    const model = ExtractionModelSchema.safeParse(LENIENT ? repair(raw) : raw);
     if (!model.success) return null;
     const strict = Extraction.safeParse(fromModel(model.data));
     return strict.success ? strict.data : null;
@@ -91,7 +135,7 @@ async function main() {
   const gens = (await readFile(file, "utf8")).split(/\r?\n/).filter(Boolean).map((l) => JSON.parse(l) as Gen);
   const modes = [...new Set(gens.map((g) => g.mode))];
   const date = new Date().toISOString().slice(0, 10);
-  const lines: string[] = [`# AutoScientist reader (Qwen3.5-9B + LoRA) — ${date}`, ""];
+  const lines: string[] = [`# AutoScientist reader (Qwen3.5-9B + LoRA) — ${date}${LENIENT ? " — lenient parsing" : ""}`, ""];
   lines.push("Text of each document in, extraction JSON out, greedy decoding, on a Hugging Face L40S job.", "");
 
   for (const mode of modes) {
@@ -141,7 +185,7 @@ async function main() {
 
   const reportDir = path.resolve("eval/reports");
   await mkdir(reportDir, { recursive: true });
-  const report = path.join(reportDir, `${date}-autoscientist-qwen3.5-9b.md`);
+  const report = path.join(reportDir, `${date}-autoscientist-qwen3.5-9b${LENIENT ? "-lenient" : ""}.md`);
   await writeFile(report, lines.join("\n") + "\n");
   console.log(`report: ${path.relative(process.cwd(), report)}`);
 }
