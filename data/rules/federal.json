@@ -7,7 +7,7 @@
     "summary": "Federal rules require your plan to give you at least 180 days after you receive the denial to ask the plan to reconsider (an internal appeal). Plans can give more time, never less.",
     "legal_ref": "29 CFR 2560.503-1(h)(3)(i); 45 CFR 147.136(b)(2)(i), (b)(3)(i)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any"
     },
@@ -28,7 +28,7 @@
     "summary": "Once you appeal, the plan must answer: within 72 hours if the care is urgent; within 30 days for care you have not received yet (pre-service); within 60 days for care you already received (post-service). Plans with two appeal levels get 15 or 30 days per level.",
     "legal_ref": "29 CFR 2560.503-1(i)(2); 45 CFR 147.136(b)(2)(ii)(B)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any"
     },
@@ -43,7 +43,7 @@
     "summary": "You have the right to receive, free of charge, copies of every document, record, and piece of information the plan used or relied on for your claim, including any internal rule, guideline, or protocol it applied.",
     "legal_ref": "29 CFR 2560.503-1(h)(2)(iii), (g)(1)(v); 45 CFR 147.136(b)(2)(ii)(C)(1)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any"
     },
@@ -58,7 +58,7 @@
     "summary": "On request, the plan must tell you the diagnosis code and treatment code used for your claim and what each one means.",
     "legal_ref": "45 CFR 147.136(b)(2)(ii)(E)(2)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any",
       "denial_category": [
@@ -79,7 +79,7 @@
     "summary": "The appeal must be decided by someone who did not make the original decision and who does not report to that person, with no deference to the first decision. For medical-judgment questions, the plan must consult a health professional with appropriate training and experience.",
     "legal_ref": "29 CFR 2560.503-1(h)(3)(ii)-(iii)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any",
       "denial_category": [
@@ -99,7 +99,7 @@
     "summary": "A denial notice must state the specific reason, cite the plan provision relied on, describe any extra information needed and why, explain the appeal steps, and either quote the internal criterion used or say you can get it free on request. A letter that skips these can be challenged.",
     "legal_ref": "29 CFR 2560.503-1(g)(1); 45 CFR 147.136(b)(2)(ii)(E)",
     "source_url": "https://www.law.cornell.edu/cfr/text/29/2560.503-1",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any"
     },
@@ -114,7 +114,7 @@
     "summary": "When a plan fails to follow the required claims procedure (for example, misses its deadlines), you are generally treated as having finished the internal appeal, which opens the door to external review or court sooner. Minor, harmless slips do not count.",
     "legal_ref": "29 CFR 2560.503-1(l); 45 CFR 147.136(b)(2)(ii)(F)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any"
     },
@@ -129,7 +129,7 @@
     "summary": "After the plan's final internal denial, you can ask for a review by an independent organization that the plan does not control. The request must be made within four months of receiving the final denial. The plan must follow the outcome.",
     "legal_ref": "45 CFR 147.136(d)(2)(i)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any",
       "denial_category": [
@@ -158,7 +158,7 @@
     "summary": "A standard external review decision is due within 45 days of the reviewer receiving the request. If your situation is urgent, an expedited external review must be decided as fast as your condition requires and never later than 72 hours.",
     "legal_ref": "45 CFR 147.136(d)(2)(iii)(B)(6), (d)(3)(iv)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any"
     },
@@ -173,7 +173,7 @@
     "summary": "If waiting would seriously jeopardize your life, health, or ability to regain function, or cause severe pain, you can ask for an expedited internal appeal (decided within 72 hours) and, at the same time, an expedited external review.",
     "legal_ref": "45 CFR 147.136(b)(2)(ii)(B), (d)(3)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "self_funded": "any",
       "urgent": true
@@ -189,7 +189,7 @@
     "summary": "If your employer pays claims itself (a self-funded plan), state insurance laws generally do not apply. Your external review goes through the federal process, and the U.S. Department of Labor (EBSA) is the agency that helps with these plans.",
     "legal_ref": "29 U.S.C. 1144 (ERISA preemption); 45 CFR 147.136(d)",
     "source_url": "https://www.law.cornell.edu/cfr/text/45/147.136",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "plan_source": [
         "employer"

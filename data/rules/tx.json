@@ -7,7 +7,7 @@
     "summary": "A Texas utilization review agent must send written notice of its appeal decision as soon as practicable and no later than the 30th calendar day after it receives your appeal.",
     "legal_ref": "Tex. Ins. Code § 4201.359(a)",
     "source_url": "https://texas.public.law/statutes/tex._ins._code_section_4201.359",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "TX"
@@ -30,7 +30,7 @@
     "summary": "If your appeal is denied, the written notice must include the clinical basis for the denial, the specialty of the provider who made the decision, and your right to seek review by an independent review organization along with the procedure to get it.",
     "legal_ref": "Tex. Ins. Code § 4201.359(b)",
     "source_url": "https://texas.public.law/statutes/tex._ins._code_section_4201.359",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "TX"
@@ -53,7 +53,7 @@
     "summary": "If the plan denies your appeal because the care is not medically necessary or appropriate, or is experimental or investigational, you can ask for review by a TDI-certified Independent Review Organization (IRO) using form LHL009, sent to the plan or its review agent. If your condition is life-threatening, you can request IRO review right after the first denial without waiting for the internal appeal.",
     "legal_ref": "Tex. Ins. Code ch. 4201, subch. I; 28 Tex. Admin. Code § 19.1717; TDI IRO FAQ",
     "source_url": "https://www.tdi.texas.gov/hmo/mcqa/irofaqs.html",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "TX"
@@ -77,7 +77,7 @@
     "summary": "The plan or its review agent pays for the independent review. The IRO decides within 20 days for standard cases and within 3 days for life-threatening cases.",
     "legal_ref": "28 Tex. Admin. Code § 19.1717; TDI IRO FAQ",
     "source_url": "https://www.tdi.texas.gov/hmo/mcqa/irofaqs.html",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "TX"
@@ -97,10 +97,10 @@
     "jurisdiction": "TX",
     "category": "process",
     "title": "Texas: TDI helps with plans that show \"TDI\" or \"DOI\" on the card",
-    "summary": "The Texas Department of Insurance regulates plans whose insurance card shows \"TDI\" or \"DOI\". It does not regulate Medicare, Medicaid, most CHIP plans, military plans, or city, county, state, federal employee, and teacher plans; those have their own appeal routes.",
+    "summary": "The Texas Department of Insurance regulates plans whose insurance card shows \"TDI\" or \"DOI\". It does not regulate Medicare, Medicaid, CHIP plans that are not HMOs, military plans, or city, county, state, federal employee, and teacher plans; those have their own appeal routes.",
     "legal_ref": "Texas Department of Insurance consumer guidance",
     "source_url": "https://www.tdi.texas.gov/consumer/complaint-health.html",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "TX"

@@ -5,9 +5,9 @@
     "category": "deadline",
     "title": "California: 6 months to apply for Independent Medical Review",
     "summary": "If your plan denied, delayed, or modified care as not medically necessary, you can ask the Department of Managed Health Care for an Independent Medical Review (IMR). Apply within six months of the plan's written grievance decision; the department may accept later applications when circumstances warrant. The plan must follow the IMR decision.",
-    "legal_ref": "Cal. Health & Safety Code § 1374.30(j), (k)",
+    "legal_ref": "Cal. Health & Safety Code § 1374.30(j), (k); § 1374.34(a)",
     "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.30",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "CA"
@@ -39,7 +39,7 @@
     "summary": "You pay no application or processing fee of any kind for an Independent Medical Review.",
     "legal_ref": "Cal. Health & Safety Code § 1374.30(l)",
     "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.30",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "CA"
@@ -64,7 +64,7 @@
     "summary": "You generally start by filing a grievance (appeal) with your plan. If the plan does not resolve it within 30 days, or you disagree with the answer, you can take it to the Department of Managed Health Care. If the situation is an imminent and serious threat to your health, you can go to the department immediately.",
     "legal_ref": "Cal. Health & Safety Code § 1368(b)(1)(A)",
     "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1368",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "CA"
@@ -82,7 +82,7 @@
     "summary": "A plan's written response to a grievance must give a clear and concise explanation of its reasons, and for medical-necessity denials it must describe the criteria used and the clinical reasons for the decision.",
     "legal_ref": "Cal. Health & Safety Code § 1368(a)(5)",
     "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1368",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "CA"
@@ -101,11 +101,11 @@
     "id": "ca.imr.decision_windows",
     "jurisdiction": "CA",
     "category": "process",
-    "title": "California IMR decisions usually take up to 30 days, or 7 days if urgent",
-    "summary": "According to the Department of Managed Health Care, the independent review organization usually decides within 30 days, or within 7 days when the case is urgent.",
-    "legal_ref": "DMHC Independent Medical Review program; Cal. Health & Safety Code § 1374.33",
-    "source_url": "https://www.dmhc.ca.gov/FileaComplaint.aspx",
-    "last_verified": "2026-09-18",
+    "title": "California IMR decisions are due within 30 days, or 3 days if your health is at serious risk",
+    "summary": "The law gives the independent reviewers 30 days from receiving your application and documents to decide. If your provider or the department certifies an imminent and serious threat to your health, they must decide within 3 days of receiving the information. The director can extend either deadline by up to 3 days.",
+    "legal_ref": "Cal. Health & Safety Code § 1374.33(c)",
+    "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=HSC&sectionNum=1374.33",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "CA"
@@ -130,7 +130,7 @@
     "summary": "Most California health plans (all HMOs and many PPOs) are regulated by the Department of Managed Health Care (DMHC). Some PPO and other insurance policies are regulated by the California Department of Insurance (CDI), which runs its own independent medical review. Your insurance card or plan documents say which one applies.",
     "legal_ref": "Cal. Health & Safety Code § 1374.30 (DMHC); Cal. Ins. Code § 10169 (CDI)",
     "source_url": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=INS&sectionNum=10169",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "CA"

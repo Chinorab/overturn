@@ -7,7 +7,7 @@
     "summary": "After your plan's final denial on internal appeal, you can file a New York State External Appeal with the Department of Financial Services. The application must be sent within 4 months of the final adverse determination. An outside doctor decides, and the plan must follow the decision.",
     "legal_ref": "N.Y. Ins. Law § 4914; DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "NY"
@@ -39,7 +39,7 @@
     "summary": "New York's external appeal can review denials for medical necessity, experimental or investigational treatment, out-of-network services, clinical trials, rare diseases, and formulary (drug) exceptions, as well as certain No Surprises Act disputes.",
     "legal_ref": "N.Y. Ins. Law § 4910; DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "NY"
@@ -57,7 +57,7 @@
     "summary": "A plan may charge up to $25 per external appeal (no more than $75 per plan year). The fee is waived for hardship and for Medicaid or Child Health Plus members, and it is returned if the denial is overturned.",
     "legal_ref": "N.Y. Ins. Law § 4914(b); DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "NY"
@@ -75,7 +75,7 @@
     "summary": "Standard external appeals are decided within 30 days. Expedited appeals are decided within 72 hours. You may ask for an expedited internal appeal and an expedited external appeal at the same time.",
     "legal_ref": "N.Y. Ins. Law § 4914(b); DFS External Appeal program",
     "source_url": "https://www.dfs.ny.gov/ExternalAppeal/",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "NY"
@@ -93,7 +93,7 @@
     "summary": "Under New York law, a utilization review agent that fails to decide your appeal within the required time (30 days for a standard appeal after receiving the necessary information; 2 business days for an expedited appeal) is deemed to have reversed its denial.",
     "legal_ref": "N.Y. Ins. Law § 4904(b), (c), (e)",
     "source_url": "https://www.nysenate.gov/legislation/laws/ISC/4904",
-    "last_verified": "2026-09-18",
+    "last_verified": "2026-11-04",
     "applies_if": {
       "state": [
         "NY"
