@@ -12,8 +12,10 @@ le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2
 supprimée, prod redéployée : l'upload réel remarche (sample 02 en fichier → 200 en 28 s, ~0,10 $).
 CI rouge depuis le 03/11 : les 33 règles ont dépassé 45 jours (`rules.schema.test.ts`) → re-vérifier
 sur les sources primaires. Adaption Labs : import adapté à la colonne « completion » d'Adaptive Data
-(`a47c91b`) ; idée suivante proposée = entraîner un modèle de lecture avec AutoScientist (1 200
-exemples générés par le générateur d'eval, sans appel Claude).
+(`a47c91b`) ; **Jeu AutoScientist prêt** (`650b393`) : `pnpm eval:train-set` → 1 200 lignes vérifiées dans
+eval/autoscientist/ (gitignoré) ; lancement via `python scripts/eval/autoscientist.py` (SDK raw, l'app web
+réécrirait les étiquettes). Reste à l'utilisateur : clé ADAPTION_API_KEY dans .env.local, `pip install adaption`,
+puis upload / train --yes. Ensuite : mesurer le modèle sur l'eval (texte) + les 7 samples écrits à la main.
 
 ## Étape précédente (2026-10-31)
 Fellowship LexHack : dossier PDF de 3 pages envoyé le 31/10 en réponse à leur demande (source
