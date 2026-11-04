@@ -16,7 +16,7 @@
 import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { factsIn, parseCsv, toCsv, validateRewrite } from "./adapt-lib";
+import { factsIn, parseCsv, pickRewriteColumn, toCsv, validateRewrite } from "./adapt-lib";
 import type { Source, Truth } from "./types";
 
 const CASES = path.resolve("eval/cases");
@@ -77,34 +77,51 @@ async function importBlocks(file: string, column?: string) {
   if (!rows.length) throw new Error("the file has no rows");
 
   // Adaptive Data names its output column itself; accept the usual names or --column.
-  const candidates = column ? [column] : ["rewritten", "rewrite", "output", "generated", "adapted", "text_rewritten", "improved", "text"];
-  const col = candidates.find((c) => c in rows[0]);
+  const col = pickRewriteColumn(Object.keys(rows[0]), column);
   if (!col) throw new Error(`no rewritten-text column found; columns are: ${Object.keys(rows[0]).join(", ")} — pass --column`);
 
-  const cases = new Map((await loadCases()).map((c) => [c.id, c]));
+  const all = await loadCases();
+  const cases = new Map(all.map((c) => [c.id, c]));
+  // If the export dropped the id and block columns, rows are matched on their original text.
+  const byText = new Map<string, { id: string; block: string }[]>();
+  for (const c of all)
+    for (const [block, text] of blocksOf(c.source)) byText.set(text.trim(), [...(byText.get(text.trim()) ?? []), { id: c.id, block }]);
+
   const adapted = new Map<string, { source: Source; truth: Truth; blocks: number }>();
   const rejected: string[] = [];
+  // A boilerplate paragraph shared by several cases matches several rows: rewrite each block once.
+  const done = new Set<string>();
 
   for (const row of rows) {
-    const c = cases.get(row.id);
-    if (!c) {
-      rejected.push(`${row.id} ${row.block}: unknown case id`);
+    const matched = row.id && row.block ? [{ id: row.id, block: row.block }] : (byText.get((row.text ?? "").trim()) ?? []);
+    const targets = matched.filter((t) => !done.has(`${t.id} ${t.block}`));
+    if (matched.length && !targets.length) continue; // a repeat of a block already rewritten
+    if (!targets.length) {
+      rejected.push(`${row.id ?? "?"} ${row.block ?? "?"}: no id/block and no matching original text`);
       continue;
     }
-    const original = blocksOf(c.source).find(([b]) => b === row.block)?.[1];
-    if (original === undefined) {
-      rejected.push(`${row.id} ${row.block}: unknown block`);
-      continue;
+    for (const { id, block } of targets) {
+      const c = cases.get(id);
+      if (!c) {
+        rejected.push(`${id} ${block}: unknown case id`);
+        continue;
+      }
+      const original = blocksOf(c.source).find(([b]) => b === block)?.[1];
+      if (original === undefined) {
+        rejected.push(`${id} ${block}: unknown block`);
+        continue;
+      }
+      const check = validateRewrite(original, row[col] ?? "", namesOf(c.source));
+      if (!check.ok) {
+        rejected.push(`${id} ${block}: ${check.reason}`);
+        continue;
+      }
+      const entry = adapted.get(c.id) ?? { source: structuredClone(c.source), truth: c.truth, blocks: 0 };
+      setBlock(entry.source, block, row[col].trim());
+      done.add(`${id} ${block}`);
+      entry.blocks++;
+      adapted.set(c.id, entry);
     }
-    const check = validateRewrite(original, row[col] ?? "", namesOf(c.source));
-    if (!check.ok) {
-      rejected.push(`${row.id} ${row.block}: ${check.reason}`);
-      continue;
-    }
-    const entry = adapted.get(c.id) ?? { source: structuredClone(c.source), truth: c.truth, blocks: 0 };
-    setBlock(entry.source, row.block, row[col].trim());
-    entry.blocks++;
-    adapted.set(c.id, entry);
   }
 
   await mkdir(ADAPTED, { recursive: true });

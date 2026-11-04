@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { factsIn, parseCsv, toCsv, validateRewrite } from "../../scripts/eval/adapt-lib";
+import { factsIn, parseCsv, pickRewriteColumn, toCsv, validateRewrite } from "../../scripts/eval/adapt-lib";
 
 const original = "The plan paid $0.00 of the $2,400.00 billed. You may file a written appeal within 180 days. Reason code: CO-50.";
 
@@ -35,6 +35,13 @@ describe("Adaption Labs rewrite validation", () => {
   it("rejects an unchanged or empty rewrite", () => {
     expect(validateRewrite(original, original).ok).toBe(false);
     expect(validateRewrite(original, "  ").ok).toBe(false);
+  });
+
+  it("reads the rewrite from Adaptive Data's generated completion, never from the original text", () => {
+    expect(pickRewriteColumn(["id", "block", "text", "must_keep", "completion"])).toBe("completion");
+    expect(pickRewriteColumn(["prompt", "text", "Enhanced Completion"])).toBe("Enhanced Completion");
+    expect(pickRewriteColumn(["id", "block", "text", "must_keep"])).toBeUndefined();
+    expect(pickRewriteColumn(["text", "mine"], "mine")).toBe("mine");
   });
 
   it("round-trips CSV cells with commas, quotes and line breaks", () => {

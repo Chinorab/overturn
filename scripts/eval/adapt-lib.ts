@@ -59,6 +59,23 @@ export function validateRewrite(original: string, rewritten: string, names: stri
   return { ok: true };
 }
 
+/* ------------------------------------------------------------------ reading Adaptive Data's output */
+
+/**
+ * Adaptive Data is built for training sets: the rewritten paragraph comes back as a generated
+ * "completion", under a name the app chooses. Columns that hold the ORIGINAL text are never
+ * picked, or every row would be rejected as unchanged.
+ */
+const REWRITE_COLUMNS = ["rewritten", "rewrite", "enhanced_completion", "adapted_completion", "completion", "output", "generated", "adapted"];
+const SOURCE_COLUMNS = new Set(["id", "block", "text", "must_keep", "prompt", "universal_prompt"]);
+
+export function pickRewriteColumn(columns: string[], explicit?: string): string | undefined {
+  if (explicit) return columns.includes(explicit) ? explicit : undefined;
+  const byLower = new Map(columns.map((c) => [c.toLowerCase(), c]));
+  for (const name of REWRITE_COLUMNS) if (byLower.has(name)) return byLower.get(name);
+  return columns.find((c) => /completion|rewrit/i.test(c) && !SOURCE_COLUMNS.has(c.toLowerCase()));
+}
+
 /* ------------------------------------------------------------------ minimal CSV (RFC 4180) */
 
 export function toCsv(rows: Record<string, string>[], columns: string[]): string {

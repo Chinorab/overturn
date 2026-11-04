@@ -77,29 +77,45 @@ Each case carries planted traps, each aimed at one known way to misread a denial
 The generated letters reuse a small set of sentences. Adaption Labs' **Adaptive Data** can
 rewrite them so they read like many different insurers, while the facts stay fixed.
 
-1. `pnpm eval:adaption export` writes `eval/adaption/blocks.csv` (245 blocks of prose, each with
-   a `must_keep` column listing the exact facts it carries).
-2. Upload `blocks.csv` to Adaptive Data and give it this brief:
+Adaptive Data is built to make training sets, so the rewrite comes back as a generated
+*completion*. In the web app ([adaptionlabs.ai/app](https://adaptionlabs.ai/app)):
 
-   > Rewrite the `text` column so each block reads as if a different US health insurer wrote it:
-   > vary sentence order, vocabulary and tone (formal, plain, terse). Every string listed in
-   > `must_keep` must appear exactly as written, with the same characters and formatting. Do not
-   > add any amount, date, code, phone number, or number of days that is not already in the text.
-   > Do not add or remove any mention of Medicare, Medicaid, emergency, urgent, expedited,
-   > inpatient, or out-of-network. The meaning must stay identical. Put the result in a new
-   > column named `rewritten`; keep the `id` and `block` columns unchanged.
+1. `pnpm eval:adaption export` writes `eval/adaption/blocks.csv`: 245 blocks of prose, each
+   with a `must_keep` column listing the exact facts it carries.
+2. **Create a dataset** → **Local file** → `blocks.csv`.
+3. **Columns.** Map `text`, `must_keep`, `id` and `block` as **Context** (the last two only so
+   they come back with each row). For the prompt, choose **I don't have prompt** → **Write
+   universal prompt** and paste:
 
-3. Download the result (CSV or JSONL) and import it:
+   > Rewrite the paragraph in the `text` column so it reads as if a different US health insurer
+   > wrote it: vary sentence order, vocabulary and tone (formal, plain or terse). Every string
+   > listed in `must_keep` (separated by `|`) must appear exactly as written. Do not add any
+   > amount, date, code, phone number or number of days. Do not add or remove any mention of
+   > Medicare, Medicaid, emergency, urgent, expedited, inpatient or out-of-network. Keep the
+   > meaning identical. Answer with the rewritten paragraph only.
+
+   For the completion, choose **I don't have a completion column**: the rewrite is what it
+   generates.
+4. **Recipes: turn them all off.** Deduplication could merge rows that share the universal
+   prompt, Prompt Rephrasing would rewrite the instruction itself, and Hallucination Mitigation
+   grounds answers on the web, which is exactly how new facts get in.
+5. **Blueprint** → Yes → paste: *"These are fictional insurance letters for a test set. Output
+   only the rewritten paragraph: no preamble, no quotes, no notes. Never invent a fact."*
+6. **Summary**: check the credit cost shown for the 245 rows, then launch. When the job is
+   done, compare a few rows in the **View** tab and download the result (CSV or JSONL).
+7. Import it:
 
    ```bash
-   pnpm eval:adaption import path/to/result.csv     # --column <name> if it is not "rewritten"
+   pnpm eval:adaption import path/to/result.csv     # --column <name> if the rewrite column is not detected
    pnpm gen:samples eval/cases-adapted
    pnpm eval:run --cases eval/cases-adapted          # dry run first, then --yes
    ```
 
-   The import accepts a rewrite only if it kept every fact and added none (no new amount, date,
-   code or signal word). Anything else is rejected and listed in `eval/adaption/rejected.txt`;
-   the case keeps its original wording for that block. The ground truth is copied unchanged.
+   The import reads the generated completion column (never the original `text`) and matches
+   rows on `id` + `block`, or on the original text if those columns did not survive. It accepts
+   a rewrite only if it kept every fact and added none (no new amount, date, code or signal
+   word). Anything else is rejected and listed in `eval/adaption/rejected.txt`; the case keeps
+   its original wording for that block. The ground truth is copied unchanged.
 
 Comparing the score on `cases/` and `cases-adapted/` shows whether the extraction depends on
 the exact phrasing it happened to be tested on.
