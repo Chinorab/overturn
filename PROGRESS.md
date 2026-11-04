@@ -1,13 +1,21 @@
 # Overturn — avancement
 
-Dernière mise à jour : 2026-10-31
+Dernière mise à jour : 2026-11-04
 
 ## Objectif
 Assistant web qui aide un Américain à comprendre et contester un refus d'assurance santé ou une
 facture médicale erronée (règles fédérales + CA/NY/TX), tout en anglais. Soumis au LexHack 2026
 le 19/09. Prochaine cible : **soumission Nebius sur ce même produit, deadline 2026-10-30.**
 
-## Étape en cours (2026-10-31)
+## Étape en cours (2026-11-04)
+**Nouvelle clé Anthropic posée** par l'utilisateur (local + Vercel prod/preview). `OVERTURN_LIVE_UPLOADS`
+supprimée, prod redéployée : l'upload réel remarche (sample 02 en fichier → 200 en 28 s, ~0,10 $).
+CI rouge depuis le 03/11 : les 33 règles ont dépassé 45 jours (`rules.schema.test.ts`) → re-vérifier
+sur les sources primaires. Adaption Labs : import adapté à la colonne « completion » d'Adaptive Data
+(`a47c91b`) ; idée suivante proposée = entraîner un modèle de lecture avec AutoScientist (1 200
+exemples générés par le générateur d'eval, sans appel Claude).
+
+## Étape précédente (2026-10-31)
 Fellowship LexHack : dossier PDF de 3 pages envoyé le 31/10 en réponse à leur demande (source
 `docs/fellowship/brief.html`, rendu `node docs/fellowship/render.mjs`, dossier exclu de git).
 Clé API morte depuis le 18/10 : commit `47c18d2` affiche « Reading new documents is paused » sur
